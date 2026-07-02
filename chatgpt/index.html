@@ -255,6 +255,27 @@ footer a{color:var(--theme-light);text-decoration:none}
 .gptmock-ai p{color:#2A2B32;font-size:.9rem;line-height:1.55;margin:0;max-width:88%}
 .gptmock-ai p b{color:#111}
 @media(max-width:400px){.gptmock-user p,.gptmock-ai p{font-size:13pt}}
+/* diagrama visual de carpetas (Sistema IA) */
+.foldertree{background:var(--ink);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin:12px 0}
+.foldertree .root{display:flex;align-items:center;gap:9px;font-family:var(--display);font-weight:700;font-size:1rem;color:var(--theme-light);margin-bottom:12px}
+.foldertree .kids{padding-left:14px;border-left:1.5px dashed var(--border-strong);display:flex;flex-direction:column;gap:9px}
+.ft-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ft-file{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.82rem;color:#CBD7EC;background:rgba(var(--theme-rgb),.09);border:1px solid rgba(var(--theme-rgb),.24);border-radius:7px;padding:4px 9px;white-space:nowrap;min-width:196px}
+.ft-arrow{color:var(--faint);flex-shrink:0}
+.ft-desc{font-size:.82rem;color:var(--muted);line-height:1.35}
+@media(max-width:520px){.ft-file{min-width:0}.ft-row{gap:5px}}
+/* mock de la pantalla de configuración de ChatGPT */
+.navpath{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:12px 0 4px}
+.navpath .step{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:#1a1a2e;background:#fff;border:1px solid rgba(20,25,40,.14);border-radius:8px;padding:5px 10px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.navpath .sep{color:var(--faint);font-weight:700}
+.navpath .step.on{background:linear-gradient(135deg,var(--theme-light),var(--theme));color:#04130E;border-color:transparent}
+.uimock{max-width:560px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px 0 6px}
+.uimock .bar{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid #ECECF1;font-family:var(--display);font-weight:700;font-size:.92rem;color:#1a1a2e}
+.uimock .ubody{padding:15px}
+.uimock .fld{margin-bottom:13px}
+.uimock .fld label{display:block;font-size:.8rem;font-weight:600;color:#40414F;margin-bottom:5px}
+.uimock .box{border:1px solid #D9D9E3;border-radius:9px;padding:10px 12px;font-size:.82rem;color:#8E8EA0;background:#F7F7F8;min-height:40px;line-height:1.4}
+.uimock .save{display:inline-block;background:#10A37F;color:#fff;font-weight:700;font-size:.85rem;padding:8px 18px;border-radius:8px}
 
 /* puerta de acceso (código en el link de compra, ?k=) */
 .access-gate{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;padding:max(1.5rem,env(safe-area-inset-top)) max(1.25rem,env(safe-area-inset-right)) max(1.5rem,env(safe-area-inset-bottom)) max(1.25rem,env(safe-area-inset-left));background:rgba(7,10,18,.6);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
@@ -368,15 +389,19 @@ body.access-locked>*:not(.access-gate):not(#bg){display:none!important}
     <div class="card">
       <h3>📦 Tu kit al terminar — soluciones en archivos</h3>
       <p>No es material de estudio. Es lo que abrís cuando tenés un problema en el negocio:</p>
-      <pre class="kit-tree">Sistema IA/
-├── 01-perfil          → ChatGPT ya conoce tu negocio
-├── 02-voz-de-marca    → textos que suenan a vos, no a robot
-├── 03-calendario      → semana de contenido resuelta
-├── 04-imagenes        → visuals profesionales de marca
-├── 05-mensajes-venta  → ventas por WhatsApp/email en 2 min
-├── 06-flujos          → tareas repetitivas en minutos
-├── 07-ficha-idea      → saber si una idea vale (o no)
-└── 08-manual-operacion → cómo operar con IA cada semana</pre>
+      <div class="foldertree">
+        <div class="root"><span>📁</span> Sistema IA/</div>
+        <div class="kids">
+          <div class="ft-row"><span class="ft-file"><span>📄</span>01-perfil</span><span class="ft-arrow">→</span><span class="ft-desc">ChatGPT ya conoce tu negocio</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>02-voz-de-marca</span><span class="ft-arrow">→</span><span class="ft-desc">textos que suenan a vos, no a robot</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>03-calendario</span><span class="ft-arrow">→</span><span class="ft-desc">semana de contenido resuelta</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>04-imagenes</span><span class="ft-arrow">→</span><span class="ft-desc">visuals profesionales de marca</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>05-mensajes-venta</span><span class="ft-arrow">→</span><span class="ft-desc">ventas por WhatsApp/email en 2 min</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>06-flujos</span><span class="ft-arrow">→</span><span class="ft-desc">tareas repetitivas en minutos</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>07-ficha-idea</span><span class="ft-arrow">→</span><span class="ft-desc">saber si una idea vale (o no)</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>08-manual-operacion</span><span class="ft-arrow">→</span><span class="ft-desc">cómo operar con IA cada semana</span></div>
+        </div>
+      </div>
     </div>
 
     <div class="card">
@@ -527,6 +552,28 @@ body.access-locked>*:not(.access-gate):not(#bg){display:none!important}
         <li>Hacé clic en <strong>Guardar</strong>. Abrí un chat nuevo y enviá el <strong>prompt de prueba</strong>.</li>
         <li>Si la respuesta suena genérica, agregá un ejemplo real de cómo escribís con clientes y pedí que lo imite.</li>
       </ol>
+    </div>
+
+    <div class="card">
+      <h3>🧭 Dónde tocar en ChatGPT (paso a paso)</h3>
+      <p>El menú cambia un poco entre celular y compu, pero el camino es el mismo. Este es el recorrido y la pantalla que vas a ver:</p>
+      <span class="gptmock-tag">🧭 El camino</span>
+      <div class="navpath">
+        <span class="step"><span>👤</span>Tu perfil</span><span class="sep">›</span>
+        <span class="step"><span>⚙️</span>Configuración</span><span class="sep">›</span>
+        <span class="step"><span>🎨</span>Personalización</span><span class="sep">›</span>
+        <span class="step on">📝 Instrucciones personalizadas</span>
+      </div>
+      <span class="gptmock-tag">🖥️ La pantalla que vas a ver</span>
+      <div class="uimock">
+        <div class="bar"><span>📝</span> Instrucciones personalizadas</div>
+        <div class="ubody">
+          <div class="fld"><label>¿Qué querés que ChatGPT sepa de vos para darte mejores respuestas?</label><div class="box">Pegá acá la plantilla "Perfil de Negocio" de abajo, con tus datos reales…</div></div>
+          <div class="fld"><label>¿Cómo querés que ChatGPT te responda?</label><div class="box">Español latinoamericano, tono cercano, frases cortas, sin relleno corporativo…</div></div>
+          <span class="save">Guardar</span>
+        </div>
+      </div>
+      <p style="font-size:.85rem;color:var(--muted);margin-top:8px">👉 En el celular es el mismo camino desde la app: tocá tu <strong>foto de perfil</strong> → <strong>Configuración</strong> → <strong>Personalización</strong>.</p>
     </div>
 
     <div class="card" style="background:rgba(var(--theme-rgb),.05);border-color:rgba(var(--theme-rgb),.25)">
@@ -1324,15 +1371,19 @@ Que sean conversacionales, no una encuesta formal. Máx. 2 líneas cada pregunta
 
     <div class="card">
       <h3>📁 Tu carpeta final — verificá antes de generar el manual</h3>
-      <pre class="kit-tree">Sistema IA/
-├── 01-perfil          ← Módulo 1
-├── 02-voz-de-marca    ← Módulo 2
-├── 03-calendario      ← Módulo 3
-├── 04-imagenes        ← Módulo 4
-├── 05-mensajes-venta  ← Módulo 5
-├── 06-flujos          ← Módulo 6
-├── 07-ficha-idea      ← Módulo 7 (opcional)
-└── 08-manual-operacion ← lo generás hoy</pre>
+      <div class="foldertree">
+        <div class="root"><span>📁</span> Sistema IA/</div>
+        <div class="kids">
+          <div class="ft-row"><span class="ft-file"><span>📄</span>01-perfil</span><span class="ft-arrow">←</span><span class="ft-desc">Módulo 1</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>02-voz-de-marca</span><span class="ft-arrow">←</span><span class="ft-desc">Módulo 2</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>03-calendario</span><span class="ft-arrow">←</span><span class="ft-desc">Módulo 3</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>04-imagenes</span><span class="ft-arrow">←</span><span class="ft-desc">Módulo 4</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>05-mensajes-venta</span><span class="ft-arrow">←</span><span class="ft-desc">Módulo 5</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>06-flujos</span><span class="ft-arrow">←</span><span class="ft-desc">Módulo 6</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>07-ficha-idea</span><span class="ft-arrow">←</span><span class="ft-desc">Módulo 7 (opcional)</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>08-manual-operacion</span><span class="ft-arrow">←</span><span class="ft-desc">lo generás hoy</span></div>
+        </div>
+      </div>
     </div>
 
     <div class="card">
