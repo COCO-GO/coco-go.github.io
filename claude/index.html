@@ -1219,6 +1219,14 @@ function fallback(text,cb){
   });
   render();
 })();
+
+/* accesibilidad AA — foco visible en pestañas (radios .tab son invisibles) */
+document.querySelectorAll('input.tab').forEach(function(t){
+  var lbl=document.querySelector('.modnav label[for="'+t.id+'"]');
+  if(!lbl) return;
+  t.addEventListener('focus',function(){lbl.classList.add('kbfocus');});
+  t.addEventListener('blur',function(){lbl.classList.remove('kbfocus');});
+});
 </script>
 </body>
 </html>
