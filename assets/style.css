@@ -279,3 +279,20 @@ footer a{color:var(--theme-light);text-decoration:none}
 .access-gate-card button:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
 .access-gate-error{color:#FCA5A5;font-size:.82rem;margin-top:.65rem;min-height:1.2em}
 body.access-locked>*:not(.access-gate):not(#bg){display:none!important}
+
+/* claudemock — mock fiel de la interfaz de Claude (componente compartido de fábrica).
+   Misma estructura que .gptmock, pero avatar/acentos toman var(--theme) del curso donde
+   aparezca — NUNCA hardcodear el rust acá, así el mock sirve para cualquier tema. */
+.claudemock{max-width:640px;margin:0 auto 18px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
+.claudemock-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(20,25,40,.08);background:#F7F7F8}
+.claudemock-bar .dot{width:9px;height:9px;border-radius:50%;background:#D8DAE0}
+.claudemock-bar span{font-family:var(--body);font-size:.82rem;font-weight:700;color:#1A1A1A;margin-left:2px}
+.claudemock-body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:14px}
+.claudemock-user{display:flex;justify-content:flex-end}
+.claudemock-user p{background:#F0F0F2;color:#1A1A1A;font-size:.9rem;line-height:1.5;padding:10px 14px;border-radius:16px 16px 3px 16px;max-width:85%;margin:0}
+.claudemock-ai{display:flex;gap:10px;align-items:flex-start}
+.claudemock-ai .ava{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--theme);display:grid;place-items:center;margin-top:1px;overflow:hidden}
+.claudemock-ai .ava img{width:16px;height:16px;display:block}
+.claudemock-ai p{color:#2A2B32;font-size:.9rem;line-height:1.55;margin:0;max-width:88%}
+.claudemock-ai p b{color:#111}
+@media(max-width:400px){.claudemock-user p,.claudemock-ai p{font-size:13pt}}

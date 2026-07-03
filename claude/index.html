@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Claude para tu negocio — COCO GO</title>
+<meta name="description" content="Curso práctico de Claude para emprendedores y PyMEs. 7 módulos con prompts, plantillas y entregables reales. En español, sin tecnicismos." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Claude para tu negocio — COCO GO" />
+<meta property="og:description" content="7 módulos concatenados. Cada uno resuelve un problema concreto y te deja un archivo usable esta semana." />
+<meta property="og:site_name" content="COCO GO" />
+<meta property="og:url" content="https://coco-go.github.io/claude/" />
+<meta property="og:image" content="https://coco-go.github.io/claude/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="es_AR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Claude para tu negocio — COCO GO" />
+<meta name="twitter:description" content="7 módulos con prompts, plantillas y entregables reales. En español, sin tecnicismos." />
+<meta name="twitter:image" content="https://coco-go.github.io/claude/assets/og-image.png" />
+<meta name="theme-color" content="#D97757" />
+<link rel="canonical" href="https://coco-go.github.io/claude/" />
+<link rel="icon" type="image/svg+xml" href="../assets/logo-coco-go.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+:root{--theme:#D97757; --theme-light:#E8A288; --theme-rgb:217,119,87; --theme-dark:#C15F3C;}
+</style>
+</head>
+<body>
+
+<div class="access-gate" id="access-gate" hidden>
+  <div class="access-gate-card">
+    <h2>COCO GO — Claude para tu negocio</h2>
+    <p>Ingresá el código de acceso que recibiste al comprar. Si no lo tenés, escribinos a Instagram @cocogo.</p>
+    <label class="access-gate-field" for="access-code-input">
+      <span class="access-gate-label">Código de acceso</span>
+      <input type="text" id="access-code-input" name="access-code" placeholder="Código de acceso…" autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text" />
+    </label>
+    <button type="button" id="access-code-submit">Entrar al curso</button>
+    <p class="access-gate-error" id="access-gate-error" aria-live="polite"></p>
+  </div>
+</div>
+
+<canvas id="bg"></canvas>
+
+<!-- 12 pestañas -->
+<input class="tab" type="radio" name="coco-tab" id="t-inicio" checked>
+<input class="tab" type="radio" name="coco-tab" id="t-gloss">
+<input class="tab" type="radio" name="coco-tab" id="t-m1">
+<input class="tab" type="radio" name="coco-tab" id="t-m2">
+<input class="tab" type="radio" name="coco-tab" id="t-m3">
+<input class="tab" type="radio" name="coco-tab" id="t-m4">
+<input class="tab" type="radio" name="coco-tab" id="t-m5">
+<input class="tab" type="radio" name="coco-tab" id="t-m6">
+<input class="tab" type="radio" name="coco-tab" id="t-m7">
+<input class="tab" type="radio" name="coco-tab" id="t-apps">
+<input class="tab" type="radio" name="coco-tab" id="t-bonus">
+<input class="tab" type="radio" name="coco-tab" id="t-verif">
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="brandbar">
+  <div class="wrap">
+    <div class="brand">
+      <img src="../assets/logo-coco-go.svg" class="brand-logo" alt="COCO GO">
+    </div>
+    <span class="theme-chip"><span class="dot"></span>Curso · Claude</span>
+  </div>
+</header>
+
+<nav class="modnav">
+  <div class="wrap">
+    <div class="progwrap" role="progressbar" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" aria-label="Progreso del curso">
+      <div class="progtrack"><div class="progfill"></div></div>
+      <span class="proglabel">0/7</span>
+    </div>
+    <div class="scroll">
+    <label class="pill p-inicio" for="t-inicio">Inicio</label>
+    <label class="pill p-apps" for="t-apps">Aplicaciones</label>
+    <label class="pill p-gloss" for="t-gloss">Glosario</label>
+    <label class="pill p-m1" for="t-m1">1 · Arranque</label>
+    <label class="pill p-m2" for="t-m2">2 · Método 4D</label>
+    <label class="pill p-m3" for="t-m3">3 · Documentos</label>
+    <label class="pill p-m4" for="t-m4">4 · Project</label>
+    <label class="pill p-m5" for="t-m5">5 · Textos</label>
+    <label class="pill p-m6" for="t-m6">6 · Mini-herramientas</label>
+    <label class="pill p-m7" for="t-m7">7 · Sistema</label>
+    <label class="pill p-verif" for="t-verif">Verificación</label>
+    <label class="pill p-bonus" for="t-bonus">Bonus</label>
+  </div></div>
+</nav>
+
+<main class="wrap" id="contenido" tabindex="-1">
+
+  <!-- ═══ INICIO ═══ -->
+  <section class="panel" id="p-inicio">
+    <span class="eyebrow"><span class="pulse"></span>Primeros pasos con Claude · nivel básico</span>
+    <h1><img src="assets/logo-claude.svg" alt="" style="width:.85em;height:.85em;vertical-align:-.08em;margin-right:.15em" aria-hidden="true">Claude para tu negocio,<br><span class="grad">paso a paso.</span></h1>
+    <p class="lead">No compraste un curso — compraste soluciones concretas. Cada módulo resuelve un problema real y te deja un archivo usable que abrís el lunes.</p>
+    <div class="cta-row">
+      <label class="btn btn-primary" for="t-m1">Empezar el módulo 1 →</label>
+      <label class="btn btn-ghost" for="t-gloss">Ver el glosario</label>
+    </div>
+    <div class="trust">
+      <div class="t"><b>7</b><span>módulos concatenados</span></div>
+      <div class="t"><b>0</b><span>jerga sin explicar</span></div>
+      <div class="t"><b>100%</b><span>celular y computadora</span></div>
+      <div class="t"><b>15–30 min</b><span>por módulo</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ GLOSARIO ═══ -->
+  <section class="panel" id="p-gloss">
+    <div class="sec-head"><span class="numchip" style="font-size:1.25rem">Aa</span><h2>Glosario · 16 conceptos clave</h2></div>
+    <p class="sec-sub">Antes de arrancar, leé el estándar de calidad y el mapa del kit (los tenés más abajo).</p>
+
+    <p style="font-weight:700;color:var(--theme-light);font-size:1.02rem;margin:4px 0 10px">👉 ¿Una palabra te traba en algún módulo? Buscala acá — son 16 conceptos explicados simple.</p>
+    <div class="gloss-search"><span>🔎</span><input id="gloss-q" placeholder="Buscar un término…" autocomplete="off"></div>
+
+    <div class="card">
+      <h3>📦 Tu kit al terminar — soluciones en archivos</h3>
+      <p>No es material de estudio. Es lo que abrís cuando tenés un problema en el negocio:</p>
+      <div class="foldertree">
+        <div class="root"><span>📁</span> Sistema IA/</div>
+        <div class="kids">
+          <div class="ft-row"><span class="ft-file"><span>📄</span>01-primer-resultado</span><span class="ft-arrow">→</span><span class="ft-desc">cuenta lista + tu primera respuesta real</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>02-prompt-maestro</span><span class="ft-arrow">→</span><span class="ft-desc">el contexto fijo de tu negocio, reutilizable</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>03-analisis-ventas</span><span class="ft-arrow">→</span><span class="ft-desc">un documento propio ya analizado</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>04-project-negocio</span><span class="ft-arrow">→</span><span class="ft-desc">el cerebro de tu negocio, siempre disponible</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>05-biblioteca-respuestas</span><span class="ft-arrow">→</span><span class="ft-desc">FAQ + pieza de marketing con tu tono</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>06-mini-herramienta</span><span class="ft-arrow">→</span><span class="ft-desc">un Artifact funcionando de verdad</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>07-manual-operacion</span><span class="ft-arrow">→</span><span class="ft-desc">tu rutina semanal con Claude</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⏱️ Estándar de calidad — un módulo está listo si cumplís las 5</h3>
+      <ol>
+        <li><strong>Datos reales</strong> — precios, servicios, clientes y tono tuyo, no placeholders.</li>
+        <li><strong>Al menos una iteración</strong> — si sonó genérico, pediste ajuste concreto.</li>
+        <li><strong>Prueba en operación</strong> — lo usaste con un cliente o dato real, no de prueba.</li>
+        <li><strong>Guardado en Sistema IA</strong> — archivo nombrado, encontrable el lunes.</li>
+        <li><strong>Repetible sin esta guía</strong> — sabés qué prompt usar y dónde está el entregable.</li>
+      </ol>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <h3>📩 Carta al alumno</h3>
+      <p>Pasaste plata y tiempo comprando este curso. Lo mínimo que merecés es claridad: <strong>no hay magia</strong>. Claude es una herramienta potente con un límite claro — sin tu contexto real, da respuestas genéricas. Tu trabajo es alimentarlo con datos de tu negocio, iterar hasta que suene bien y usarlo aunque no sea perfecto.</p>
+      <p>Si completás los 7 módulos con datos reales y al menos 1 entregable usado por semana, en un mes vas a tener un sistema que trabaja mientras vos atendés tu negocio.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <h3>🗺️ Mapa del curso</h3>
+      <p><strong>Base:</strong> M1 Arranque → M2 Método de 4 pasos<br>
+      <strong>Datos:</strong> M3 Tus documentos → M4 El cerebro del negocio<br>
+      <strong>Salida:</strong> M5 Textos que venden → M6 Mini-herramientas<br>
+      <strong>Sistema:</strong> M7 Tu sistema Claude</p>
+      <p style="margin-top:8px;font-size:.9rem;color:var(--faint)">Hacelos en orden la primera vez. Cada módulo asume lo que dejó el anterior. Después podés entrar por cualquier módulo según la urgencia de la semana.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <h3>⚙️ Antes de empezar</h3>
+      <ul>
+        <li>Cuenta en <strong>claude.ai</strong> o la app de Claude (el plan Free alcanza para todo el curso).</li>
+        <li>Una nota o carpeta en el celular o compu donde guardar los entregables — llamala <strong>"Sistema IA"</strong>.</li>
+        <li>15–30 minutos por módulo. No intentes hacerlos todos en un día.</li>
+        <li>Datos reales de tu negocio: qué vendés, a quién, cuánto, con qué tono.</li>
+      </ul>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <h3>🔧 Refinamiento de prompts — la regla de 3</h3>
+      <p>Claude rara vez acierta en el primer intento — y eso es normal. La calidad del resultado depende de cuánto refinás, no de cuánto pedís de una vez. Regla práctica:</p>
+      <ol>
+        <li><strong>Primer intento:</strong> pedís con contexto básico. Mirás si la dirección es buena.</li>
+        <li><strong>Segunda vuelta:</strong> ajustás lo específico que no funcionó ("más corto", "menos formal", "con estos datos reales").</li>
+        <li><strong>Tercera vuelta:</strong> afinás detalles finales. En este punto, el 90% de los resultados ya sirven.</li>
+      </ol>
+      <p>Si después de 3 intentos sigue sin funcionar, el problema suele ser falta de contexto — agregá más datos de tu negocio.</p>
+      <p style="margin-top:10px"><strong>Prompt universal de refinamiento</strong> — usalo cuando cualquier respuesta te salga genérica, en cualquier módulo:</p>
+      <div class="prompt">
+        <div class="top"><span>prompt · refinamiento universal</span><button class="copy">Copiar</button></div>
+        <pre>Revisá tu respuesta anterior. Está genérica/no me sirve porque [explicá qué falla:
+muy larga, muy formal, no usa mis datos, etc.].
+
+Reescribila más [concreta / corta / cercana], usando estos datos reales de mi
+negocio: [pegá acá precios, horarios, tono, o lo que corresponda].</pre>
+      </div>
+    </div>
+
+    <div class="gloss-list" id="gloss-list">
+
+      <div class="gitem"><button class="gterm">Chat<span class="chev">+</span></button><div class="gdef"><p>La conversación con Claude, como un WhatsApp. Cada mensaje tuyo y su respuesta quedan ahí, uno abajo del otro.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Prompt<span class="chev">+</span></button><div class="gdef"><p>El pedido o instrucción que le escribís a Claude. Cuanto más <em>claro y específico</em>, mejor la respuesta.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Artifact<span class="chev">+</span></button><div class="gdef"><p>Un panel aparte (a la derecha del chat) donde Claude arma algo largo o editable — un documento, una tabla, una mini-herramienta. No se mezcla con el resto de la charla; lo podés <strong>iterar aparte</strong>.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Project<span class="chev">+</span></button><div class="gdef"><p>Un espacio propio dentro de Claude con historial, instrucciones y documentos cargados una sola vez (tu tono, tus precios, tus políticas). Todo lo que preguntás ahí ya <strong>"sabe" tu negocio</strong>.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Ventana de contexto<span class="chev">+</span></button><div class="gdef"><p>Cuánto puede "tener en la cabeza" Claude al mismo tiempo en un chat. En claude.ai son <strong>200.000 tokens</strong> — en la práctica, un libro entero de una sentada sin olvidarse del principio.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Tokens<span class="chev">+</span></button><div class="gdef"><p>La unidad en la que Claude mide texto (no son palabras exactas, pero se le parecen). Sirve para entender por qué hay un <em>límite</em> de cuánto podés pegarle de una vez.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Límites de uso<span class="chev">+</span></button><div class="gdef"><p>Cada plan tiene un tope de cuánto podés usar Claude en un período. Se resetean con el tiempo; si te quedaste sin margen, <strong>no rompiste nada</strong>.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Opt-in de entrenamiento<span class="chev">+</span></button><div class="gdef"><p>El toggle de privacidad que decidís al crear la cuenta (o en Configuración). Si lo activás, tus chats pueden usarse para entrenar a Claude, con retención de hasta <strong>5 años</strong>. Si lo dejás apagado, no.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Conectores<span class="chev">+</span></button><div class="gdef"><p>La forma en que Claude se conecta a tus otras herramientas (Gmail, Calendar, Drive) para leer información real tuya y, en algunos casos, escribir por vos. Disponibles en <strong>todos los planes</strong>.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Code execution and file creation<span class="chev">+</span></button><div class="gdef"><p>Un interruptor en Configuración → Capacidades que hay que activar <em>ANTES</em> de subir un Excel (en Free/Pro/Max lo activás vos a mano; en cuentas de empresa puede venir ya activado). Si no lo activás, el Excel falla.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Búsqueda web<span class="chev">+</span></button><div class="gdef"><p>Cuando le pedís a Claude que busque información actualizada de internet en vez de responder solo con lo que ya sabe.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Plan Free / Pro<span class="chev">+</span></button><div class="gdef"><p>Free es gratis y <strong>alcanza para todo este curso</strong>. Pro cuesta USD 20/mes y suma más uso y Projects ilimitados (en Free tenés hasta 5).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Memoria entre conversaciones<span class="chev">+</span></button><div class="gdef"><p>Claude retiene cosas que le contaste en charlas anteriores (tu nombre, tu negocio, preferencias) y las trae cuando vienen al caso. Está en <strong>todos los planes</strong>, Free incluido. Se puede revisar y corregir desde Configuración.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Base de conocimiento<span class="chev">+</span></button><div class="gdef"><p>Los documentos que subís a un Project (precios, políticas, FAQ) para que Claude los consulte antes de responder. Hasta <strong>30MB por archivo</strong>.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Instrucciones (de un Project)<span class="chev">+</span></button><div class="gdef"><p>El texto fijo que le dejás escrito al Project — tono, datos del negocio, reglas — y que se aplica solo en <strong>TODAS las charlas</strong> de ese Project.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Prompt maestro<span class="chev">+</span></button><div class="gdef"><p>El prompt base de tu negocio que armás en el Módulo 2 (quién sos, qué vendés, a quién, cómo hablás). Se <strong>reusa en todo el curso</strong>.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Delegar–Describir–Discernir–Diligencia (4D)<span class="chev">+</span></button><div class="gdef"><p>El método de 4 pasos del Módulo 2 (marco oficial de Anthropic): elegir bien qué tarea darle (<strong>Delegar</strong>), explicarla con contexto (<strong>Describir</strong>), juzgar el resultado antes de usarlo (<strong>Discernir</strong>), y hacerte responsable de lo que hacés con esa respuesta — verificar cifras críticas, avisar cuando corresponda, decidir con criterio qué compartís (<strong>Diligencia</strong>).</p></div></div>
+
+      <div class="gitem"><button class="gterm">AI Fluency<span class="chev">+</span></button><div class="gdef"><p>El marco oficial de Anthropic detrás del método del Módulo 2, con sus 4 competencias: <strong>Delegar, Describir, Discernir y Diligencia</strong>.</p></div></div>
+
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h3>🔁 El prompt universal de refinamiento</h3>
+      <p>Cuando Claude te devuelve algo genérico, tibio o que no te sirve, no lo tirés — usá este prompt para que lo mejore con tus datos reales. Funciona en cualquier chat de claude.ai (web o app), en cualquier módulo de este curso:</p>
+      <div class="prompt">
+        <div class="top"><span>prompt · refinamiento universal</span><button class="copy">Copiar</button></div>
+        <pre>Revisá tu respuesta anterior. Está genérica/no me sirve porque [explicá qué falla:
+muy larga, muy formal, no usa mis datos, etc.].
+
+Reescribila más [concreta / corta / cercana], usando estos datos reales de mi
+negocio: [pegá acá precios, horarios, tono, o lo que corresponda].</pre>
+      </div>
+    </div>
+
+    <p class="gloss-note">Tocá un término para ver la definición. El buscador filtra en tiempo real.</p>
+  </section>
+
+  <!-- ═══ MÓDULO 1 ═══ -->
+  <section class="panel" id="p-m1">
+    <div class="sec-head"><span class="numchip">01</span><h2>Arranque</h2></div>
+    <p class="sec-sub">Acá resolvés lo básico: entender qué es Claude, crear tu cuenta, dejarla bien configurada (incluida una decisión de privacidad que muchos saltean sin leer) y salir del módulo con un resultado real para tu negocio, no solo con una cuenta abierta.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Si tenés 10 minutos y nada más: entrá a claude.ai, creá tu cuenta con Google o email, y pedile que te redacte UNA respuesta a la consulta de un cliente real tuyo (pegá el mensaje del cliente tal cual lo recibiste). Eso ya es un resultado usable hoy.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> no sabés qué es Claude, por dónde entrar, ni si conviene tocar la configuración antes de usarlo.</p>
+      <p><strong>Te llevás:</strong> una cuenta creada, la decisión de privacidad tomada a conciencia, y un primer entregable real de tu negocio.</p>
+      <p><strong>Lo usás cuando:</strong> arrancás de cero con Claude, o cuando ya lo abriste una vez pero nunca lo configuraste bien.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Terminar este módulo con la cuenta lista para trabajar y una tarea de tu negocio ya resuelta — no una demo, un resultado que podés usar hoy mismo con un cliente real.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Claude es una IA conversacional: le escribís en lenguaje natural, como a un asistente, y te responde en segundos, sin instalar nada ni saber programar. Pero el error típico es abrir la cuenta, probarlo una vez con algo genérico, no ver nada impresionante, y abandonarlo. La diferencia la hace la configuración inicial: quién sos, qué necesitás y qué datos estás dispuesto a ceder. Sin eso, cada chat arranca de cero y el resultado es tibio. Con eso resuelto desde el día uno, el resto del curso rinde mucho más rápido.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Entrá.</strong> Desde el celular: bajá la app de Claude (Anthropic) en App Store o Google Play. Desde la compu: abrí claude.ai en el navegador. Ambos caminos llevan al mismo lugar.</li>
+        <li><strong>Creá la cuenta.</strong> Con tu email o con tu cuenta de Google. Menos de 2 minutos.</li>
+        <li><strong>Decidí la privacidad (opt-in de entrenamiento).</strong> Al crear la cuenta o en tu configuración vas a ver un toggle para que tus conversaciones se usen para entrenar a Claude:
+          <ul style="margin-top:6px">
+            <li><strong>Si lo activás:</strong> cedés que tus chats puedan usarse para entrenamiento, con retención de hasta 5 años. Si más adelante conectás Gmail, Calendar o Drive (Módulo 7), lo que Claude traiga de ahí también puede entrar ahí.</li>
+            <li><strong>Si lo dejás apagado:</strong> tus conversaciones no entrenan al modelo — la opción más conservadora, y la que recomendamos para un negocio hasta que decidas lo contrario con la cabeza fría.</li>
+          </ul>
+          No hay respuesta "correcta" — es tu dato y tu decisión. Lo importante es que la tomes vos, no que quede en automático.
+        </li>
+        <li><strong>Mirá el plan gratuito y seguí ahí.</strong> El plan Free alcanza para todo este curso: chat, análisis de texto e imágenes, búsqueda web, subida de archivos y Artifacts. No necesitás pagar para arrancar.</li>
+        <li><strong>Hacé tu primera tarea útil.</strong> Elegí un mensaje real de un cliente (WhatsApp, email, lo que tengas a mano) y pedile a Claude que te redacte la respuesta. Usá el prompt de abajo.</li>
+        <li><strong>Guardá el resultado.</strong> Copiá la respuesta a una carpeta que llames <code>Sistema IA</code> — la vas a seguir usando en todo el curso. Nombrá el archivo <code>01-primer-resultado</code>.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla — Primera respuesta a un cliente</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · primera respuesta</span><button class="copy">Copiar</button></div>
+<pre>Actuá como si fueras quien atiende a los clientes de mi negocio.
+Este es el mensaje que me escribió un cliente: "<strong class="field">[pegá acá el mensaje real]</strong>"
+
+Datos de mi negocio que necesitás para responder bien:
+- <strong class="field">[dato 1, ej: horarios / precios / stock]</strong>
+- <strong class="field">[dato 2]</strong>
+
+Redactá la respuesta en español rioplatense, tono cordial y directo,
+lista para copiar y pegar.</pre>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Claude</span>
+    <div class="claudemock">
+      <div class="claudemock-bar"><div class="dot"></div><span>Claude</span></div>
+      <div class="claudemock-body">
+        <div class="claudemock-user"><p>Actuá como si fueras quien atiende a los clientes de mi negocio. Este es el mensaje que me escribió un cliente: "Hola, ¿tienen turno para vacunar a mi gato esta semana?". Datos: atendemos martes a sábado de 9 a 18, la vacuna antirrábica sale $8.500. Redactá la respuesta en español rioplatense, tono cordial y directo, lista para copiar y pegar.</p></div>
+        <div class="claudemock-ai"><div class="ava"><img src="assets/logo-claude.svg" alt=""></div>
+          <p>¡Hola! Sí, tenemos turno esta semana. Atendemos de martes a sábado de 9 a 18 hs. La vacuna antirrábica para tu gato sale $8.500. ¿Qué día te queda mejor para coordinar el turno?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Activar el opt-in de entrenamiento sin leerlo, solo por sacarse el cartel de encima, y no darse cuenta de qué implica. También: pedirle a Claude algo genérico ("escribime algo para mi negocio") en la primera prueba, sacar una respuesta tibia, y concluir que "no sirve". El resultado depende de cuánta información real le des — eso lo profundiza el Módulo 2.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Una veterinaria recibe por WhatsApp: "Hola, ¿tienen turno para vacunar a mi gato esta semana?". En vez de tipear la respuesta de cero, la dueña le pega ese mensaje a Claude junto con dos datos propios (los días que atienden y el precio de la vacuna) y en menos de un minuto tiene una respuesta lista, cordial, para copiar y pegar en WhatsApp.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Tenés la cuenta creada y decidiste conscientemente el toggle de privacidad (no lo dejaste sin mirar).</li>
+        <li>Usaste un mensaje REAL de un cliente tuyo, no un ejemplo inventado.</li>
+        <li>Guardaste la respuesta como <code>01-primer-resultado</code> en tu carpeta Sistema IA.</li>
+        <li>Podés repetir este mismo proceso vos solo, sin volver a leer este módulo.</li>
+      </ul>
+    </div>
+
+    <span class="entregable">📦 Entregable · 01-primer-resultado — cuenta configurada + primer resultado real</span>
+
+    <label class="modcheck" data-mod="1">
+      <input type="checkbox" data-mod="1" aria-label="Completé el módulo 1">
+      <span>Completé el módulo 1 · Arranque</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 2 ═══ -->
+  <section class="panel" id="p-m2">
+    <div class="sec-head"><span class="numchip">02</span><h2>El método de 4 pasos</h2></div>
+    <p class="sec-sub">Acá aprendés la única técnica que necesitás para que Claude te sirva en serio: Delegar, Describir, Discernir y Diligencia. Con eso armás el prompt maestro de tu negocio, la pieza que vas a reutilizar en el resto del curso.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Copiá la plantilla de abajo, completá los datos de tu negocio (a qué te dedicás, tu tono, tus clientes) y guardala. Ese es tu prompt maestro, listo para pegar al arranque de cualquier chat nuevo con Claude.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> le pedís cosas a Claude "a ver qué sale" y el resultado es genérico, porque no tiene contexto de tu negocio.</p>
+      <p><strong>Te llevás:</strong> un método de 4 pasos para pedirle cualquier cosa, y un prompt maestro con los datos fijos de tu negocio para no repetirlos cada vez.</p>
+      <p><strong>Lo usás cuando:</strong> vas a pedirle algo nuevo a Claude y no sabés por dónde empezar, o cuando notás que las respuestas te están saliendo tibias o genéricas.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Terminar el módulo con tu prompt maestro escrito y guardado: un bloque de texto con los datos fijos de tu negocio que vas a pegar al principio de cada conversación importante con Claude.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Si venís del curso de ChatGPT, la lógica de fondo es la misma: cuanto más contexto le das, mejor responde. Acá lo aterrizamos con el marco oficial de Anthropic llamado AI Fluency, que resume el trabajo con IA en 4 pasos: Delegar (decidir qué le toca a la IA y qué te queda a vos), Describir (explicarle la tarea con el detalle que necesita), Discernir (revisar el resultado con ojo crítico antes de usarlo) y Diligencia (hacerte responsable de lo que hacés con esa respuesta). No es una lista de trucos de redacción — es el orden mental para trabajar con Claude en cualquier tarea, chica o grande.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Delegá con criterio.</strong> Antes de escribir nada, preguntate: ¿esto se lo puedo pasar entero a Claude, o necesito quedarme con una parte? Ejemplo: redactar un email de seguimiento, sí; decidir el precio final de tu servicio, no.</li>
+        <li><strong>Describí como a un empleado nuevo.</strong> Pensá en Claude como un empleado muy capaz, recién llegado, que no sabe nada de tu negocio. La pregunta guía: si le dieras este mismo pedido a un conocido sin contexto, ¿se confundiría?</li>
+        <li><strong>Discerní el resultado.</strong> Nunca copies y pegues la primera respuesta sin leerla con ojo crítico. Preguntate: ¿esto suena a mi negocio o suena genérico? ¿Falta algo que yo sé y Claude no?</li>
+        <li><strong>Actuá con diligencia.</strong> La privacidad que elegiste en el Módulo 1 es diligencia. Verificar cifras críticas antes de actuar sobre ellas también. La regla corta: cuanto más importante sea lo que decidís con esa respuesta, más la revisás antes de usarla.</li>
+        <li><strong>Armá tu prompt maestro.</strong> Juntá en un solo bloque de texto los datos que Claude necesita saber siempre de tu negocio: a qué te dedicás, quiénes son tus clientes, tu tono y 1-2 reglas fijas.</li>
+        <li><strong>Guardalo.</strong> Por ahora lo pegás a mano en cada chat nuevo. En el Módulo 4 lo vas a dejar fijo en un Project y no lo vas a repetir nunca más.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla — Prompt maestro</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · maestro</span><button class="copy">Copiar</button></div>
+<pre>A partir de ahora, esto es contexto fijo de mi negocio para todas
+nuestras conversaciones:
+
+- Rubro: <strong class="field">[a qué te dedicás]</strong>
+- Clientes: <strong class="field">[quiénes son, cómo son]</strong>
+- Tono: <strong class="field">[3 palabras que te describan, ej: cercano, directo, profesional]</strong>
+- Reglas fijas: <strong class="field">[algo que nunca cambia, ej: precios no se negocian por chat]</strong>
+
+Tenelo en cuenta en todo lo que te pida de acá en adelante en esta
+conversación.</pre>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Claude</span>
+    <div class="claudemock">
+      <div class="claudemock-bar"><div class="dot"></div><span>Claude</span></div>
+      <div class="claudemock-body">
+        <div class="claudemock-user"><p>A partir de ahora, esto es contexto fijo de mi negocio: Rubro: estudio contable para PyMEs. Clientes: dueños de comercios chicos, sin conocimientos contables. Tono: formal pero cercano. Reglas fijas: nunca damos cifras de honorarios por chat, siempre derivamos a una reunión.</p></div>
+        <div class="claudemock-ai"><div class="ava"><img src="assets/logo-claude.svg" alt=""></div>
+          <p>Entendido. A partir de ahora voy a tener en cuenta que sos un estudio contable para PyMEs, con un tono formal pero cercano, y que ninguna respuesta debe incluir montos de honorarios — en esos casos voy a sugerir coordinar una reunión. ¿Qué necesitás redactar primero?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Escribir el prompt maestro una sola vez, guardarlo, y no volver a mirarlo nunca más. Si cambian tus precios, tu horario o tu enfoque de negocio, el prompt maestro queda desactualizado y Claude sigue respondiendo con datos viejos. Revisalo cada vez que algo importante de tu negocio cambie.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Un estudio contable arma su prompt maestro con: "Somos un estudio contable para PyMEs, atendemos de lunes a viernes, nuestro tono es formal pero cercano, y nunca damos cifras de honorarios por chat — siempre derivamos a una reunión". Con eso pegado al inicio de cada chat, cualquier respuesta que Claude arme ya viene calibrada a ese negocio, sin tener que explicarlo de nuevo cada vez.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Tu prompt maestro tiene datos REALES de tu negocio, no placeholders sin completar.</li>
+        <li>Lo probaste al menos una vez en un chat nuevo y notaste que la respuesta salió más ajustada a tu negocio que sin él.</li>
+        <li>Si salió genérico igual, lo revisaste y agregaste el dato que faltaba.</li>
+        <li>Guardaste el archivo y sabés dónde pegarlo la próxima vez.</li>
+      </ul>
+    </div>
+
+    <span class="entregable">📦 Entregable · 02-prompt-maestro — contexto fijo de tu negocio</span>
+
+    <label class="modcheck" data-mod="2">
+      <input type="checkbox" data-mod="2" aria-label="Completé el módulo 2">
+      <span>Completé el módulo 2 · Método de 4 pasos</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 3 ═══ -->
+  <section class="panel" id="p-m3">
+    <div class="sec-head"><span class="numchip">03</span><h2>Tus documentos</h2></div>
+    <p class="sec-sub">Hasta acá le hablaste a Claude. Ahora le vas a mostrar algo: una planilla, un contrato, un PDF de 40 páginas. Esa es la gran diferencia de Claude frente a un chat común — puede leer un documento entero de una sentada y encontrarte lo que a vos te tomaría una tarde.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Subí tu última planilla de ventas (Excel o CSV) y pedile: "decime los 5 productos que menos se vendieron este mes". Nada más. Un archivo, una pregunta.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> tenés datos — ventas, contratos, reportes — pero están enterrados en filas y páginas que nadie relee. La plata parada en stock que no rota o la cláusula riesgosa de un contrato quedan invisibles hasta que ya es tarde.</p>
+      <p><strong>Te llevás:</strong> la costumbre de subir un documento real y hacerle la pregunta que te interesa, en vez de leerlo entero vos.</p>
+      <p><strong>Lo usás cuando:</strong> te llega un Excel de ventas, un contrato para firmar, un PDF largo que nadie en el negocio tiene tiempo de leer de punta a punta.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que subas un archivo real de tu negocio — no un ejemplo de prueba — y salgas con una respuesta que cambia una decisión: qué producto sacar del catálogo, qué cláusula renegociar, qué le decís mañana a un proveedor.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Acá está el diferencial real de Claude: la ventana de contexto. En criollo, es cuánto puede "tener en la cabeza" al mismo tiempo. Claude aguanta unos 200.000 tokens — como si leyera un libro entero de una sentada, sin olvidarse del capítulo 1 al llegar al 20. Por eso podés tirarle una planilla de miles de filas o un contrato de 60 páginas y te contesta sobre el documento completo, no sobre un resumen a medias.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Antes de tocar un Excel: activá "code execution and file creation"</strong> en tu cuenta de Claude (Configuración → Capacidades). En Free, Pro y Max lo activás vos a mano; si tu cuenta es de empresa puede venir ya activado. Si no lo activás, cuando le pidas que trabaje con un Excel te va a fallar.</li>
+        <li>Elegí un documento real: la planilla de ventas del mes, un contrato que tengas para firmar, un PDF de un proveedor.</li>
+        <li>Subilo al chat con el clip de adjuntar (hasta 500MB por archivo, hasta 20 archivos por chat si necesitás combinar varios).</li>
+        <li>Aplicá el método del Módulo 2: Delegá la tarea completa, Describí qué buscás específicamente, Discerní la respuesta.</li>
+        <li>Pedile el formato que te sirve: tabla, lista de viñetas, o un párrafo con la conclusión.</li>
+        <li>Guardá la respuesta en tu carpeta Sistema IA como <code>03-analisis-ventas</code>.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla — Analizar un documento</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · análisis de documento</span><button class="copy">Copiar</button></div>
+<pre>Adjunto: <strong class="field">[tu archivo: planilla, PDF o contrato]</strong>
+
+Analizá este documento y decime:
+1. <strong class="field">[tu pregunta concreta, ej: "qué productos no rotan hace X días"]</strong>
+2. <strong class="field">[dato que necesitás para decidir, ej: "cuánta plata representa"]</strong>
+
+Mostrame la respuesta en <strong class="field">[tabla / lista / párrafo corto]</strong>.</pre>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Claude</span>
+    <div class="claudemock">
+      <div class="claudemock-bar"><div class="dot"></div><span>Claude</span></div>
+      <div class="claudemock-body">
+        <div class="claudemock-user"><p>📎 ventas-junio.xlsx<br>De estos productos, ¿cuáles no vendieron nada en 60 días y cuánta plata tengo parada ahí?</p></div>
+        <div class="claudemock-ai"><div class="ava"><img src="assets/logo-claude.svg" alt=""></div>
+          <p>Encontré 7 productos sin ventas en 60 días. Los 3 con más plata parada: "Remera básica gris" (34 unidades, $612.000 parados), "Buzo canguro azul" (21 unidades, $483.000) y "Short jean" (28 unidades, $391.000). Entre los 7 suman casi $1.900.000 parados en stock.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Subir el archivo y preguntar algo genérico ("¿qué opinás de esto?"). Un documento sin una pregunta concreta te devuelve una respuesta genérica. Pedí algo puntual: "qué 3 productos tienen stock parado", "qué cláusula de este contrato me conviene revisar con un abogado", "resumime este PDF en 5 puntos para mandarle a mi socio".</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Un comercio sube el Excel de ventas del trimestre. En vez de preguntar "¿cómo estuvieron las ventas?", pregunta: "de estos productos, ¿cuáles no vendieron ni una unidad en 60 días y cuánta plata tengo parada en ese stock?". Claude cruza las columnas de fecha, producto y stock, y devuelve una lista con el monto parado en cada uno — el dato que justifica una decisión.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <p>Subiste un documento propio (no un ejemplo de prueba), obtuviste una respuesta con un dato concreto de tu negocio, y esa respuesta te sirve para decidir algo esta semana. Si salió genérica, usá el prompt de refinamiento del Glosario. Guardaste el resultado en <code>Sistema IA/03-analisis-ventas</code> y podés repetir el proceso solo.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 03-analisis-ventas — un documento propio ya analizado</span>
+
+    <label class="modcheck" data-mod="3">
+      <input type="checkbox" data-mod="3" aria-label="Completé el módulo 3">
+      <span>Completé el módulo 3 · Tus documentos</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 4 ═══ -->
+  <section class="panel" id="p-m4">
+    <div class="sec-head"><span class="numchip">04</span><h2>El cerebro del negocio</h2></div>
+    <p class="sec-sub">Cada vez que abrís un chat nuevo, Claude te pregunta lo mismo que ya le explicaste ayer. Un Project resuelve eso: es una carpeta de trabajo donde Claude ya sabe el tono de tu negocio, tus precios y tus políticas antes de que escribas la primera palabra.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Creá un Project nuevo, ponele el nombre de tu negocio, y pegá ahí el prompt maestro que armaste en el Módulo 2. Eso solo ya cambia cómo responde desde el primer mensaje.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> repetís el mismo contexto — tono, precios, políticas — en cada chat nuevo, y aun así las respuestas salen distintas cada vez porque Claude no recuerda nada de un chat al otro.</p>
+      <p><strong>Te llevás:</strong> un Project armado con las instrucciones fijas de tu negocio y los documentos del Módulo 3 cargados como base de conocimiento.</p>
+      <p><strong>Lo usás cuando:</strong> tenés una tarea que se repite (responder clientes, redactar propuestas, analizar ventas) y querés que cada respuesta parta ya sabiendo quién sos.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que termines el módulo con un Project real de tu negocio funcionando: instrucciones fijas cargadas y al menos un documento del Módulo 3 adentro como base de conocimiento.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Un Project es como si le dieras a un empleado nuevo una carpeta con el manual del negocio el primer día, en vez de explicarle todo de memoria cada mañana. Dentro tiene instrucciones que se aplican siempre y una base de conocimiento que consulta antes de responder — más confiable que depender de que Claude "se acuerde" bien de un chat suelto.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li>Andá a Projects → Crear Project. Ponele el nombre de tu negocio.</li>
+        <li>En "Instrucciones", pegá el prompt maestro del Módulo 2. Esto se aplica a TODAS las conversaciones dentro de ese Project, sin repetirlo.</li>
+        <li>En "Base de conocimiento", subí los documentos del Módulo 3. Ojo: acá el límite es 30MB por archivo — distinto al límite del chat normal (500MB).</li>
+        <li>Abrí una conversación nueva DENTRO del Project y hacele una pregunta que antes requería repetir contexto. Compará cómo responde.</li>
+        <li>Guardá qué cargaste y por qué en <code>Sistema IA/04-project-negocio</code>.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla — Instrucciones del Project</h3>
+      <div class="prompt">
+        <div class="top"><span>instrucciones · project</span><button class="copy">Copiar</button></div>
+<pre>Sos el asistente de <strong class="field">[nombre del negocio]</strong>. Tono: <strong class="field">[3 palabras del Módulo 2]</strong>.
+Datos fijos: <strong class="field">[precios, horarios, políticas de cambio/devolución]</strong>.
+Nunca uses: <strong class="field">[frases prohibidas del Módulo 2]</strong>.
+Cuando no tengas un dato, preguntalo — no lo inventes.</pre>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Claude — dentro del Project</span>
+    <div class="claudemock">
+      <div class="claudemock-bar"><div class="dot"></div><span>Claude</span></div>
+      <div class="claudemock-body">
+        <div class="claudemock-user"><p>[dentro del Project "Mi Tienda"] Un cliente quiere cambiar una remera comprada hace 25 días, sin ticket. ¿Qué le contesto?</p></div>
+        <div class="claudemock-ai"><div class="ava"><img src="assets/logo-claude.svg" alt=""></div>
+          <p>Según tu política cargada (cambios hasta 30 días, con ticket), todavía está en plazo pero falta el comprobante. Te sugiero: "Hola! Estás dentro del plazo de cambio (30 días), pero necesito el ticket o el comprobante de la compra para poder gestionarlo. ¿Lo tenés a mano o podés confirmarme la fecha y el medio de pago?"</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Crear un Project para cualquier cosa suelta. No todo merece ser Project — armalo solo para lo que se repite de verdad. En el plan Free tenés máximo 5 Projects, así que elegí los que más tiempo te ahorran.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Un local de indumentaria arma un Project llamado "Mi Tienda". En instrucciones fijas pone el tono, la política de cambios (30 días con ticket) y los precios de temporada. Sube ahí la planilla de ventas del Módulo 3. A partir de ese momento, cada vez que pide una respuesta para un cliente o un análisis de stock, Claude ya sabe la política de cambios sin que se la repitan.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <p>El Project tiene las instrucciones fijas de tu negocio (no un texto de prueba) y al menos un documento real cargado como base de conocimiento. Probaste una pregunta dentro del Project y la respuesta ya usó tu política o tu dato sin que se lo repitieras.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 04-project-negocio — el cerebro de tu negocio, siempre disponible</span>
+
+    <label class="modcheck" data-mod="4">
+      <input type="checkbox" data-mod="4" aria-label="Completé el módulo 4">
+      <span>Completé el módulo 4 · El cerebro del negocio</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 5 ═══ -->
+  <section class="panel" id="p-m5">
+    <div class="sec-head"><span class="numchip">05</span><h2>Textos que venden</h2></div>
+    <p class="sec-sub">Ya tenés un Project con el tono, los precios y las políticas de tu negocio cargados una sola vez. Ahora lo vas a usar para lo que más tiempo te saca en el día a día: escribirle a clientes.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Entrá al Project de tu negocio (el del Módulo 4) y pedile: "Armá una respuesta para esta pregunta de un cliente: [pegá la pregunta real que más recibís]". Guardala. Esa es tu primera pieza de la biblioteca.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> contestás las mismas cinco preguntas todos los días, y cada vez te lleva unos minutos redactar bien.</p>
+      <p><strong>Te llevás:</strong> una biblioteca de respuestas a tus preguntas frecuentes reales, más una pieza de marketing lista para publicar, las dos con tu tono de marca puesto sin repetirlo.</p>
+      <p><strong>Lo usás cuando:</strong> te llega una consulta por WhatsApp o Instagram y necesitás responder ya, o cuando te toca escribir un texto para vender.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Salir de este módulo con una biblioteca de 5 a 8 respuestas a las preguntas que más te hacen tus clientes, y con una pieza de marketing ya escrita y lista para usar — todo dentro del Project.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Cuando respondés rápido y bien, vendés más: un cliente que espera una respuesta clara sobre precio o stock decide en el momento. La diferencia con escribir por tu cuenta es que acá el texto ya nace con tu tono, porque el Project lo tiene cargado. No hay que corregirle la voz: nace bien.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li>Abrí el Project que armaste en el Módulo 4.</li>
+        <li>Hacé una lista corta de las preguntas que más te hacen los clientes (5 a 8 alcanza): horarios, formas de pago, envíos, garantía, descuentos.</li>
+        <li>Pedile a Claude una respuesta corta para cada pregunta, usando el tono que ya tenés cargado de tu negocio.</li>
+        <li>Leé cada respuesta en voz alta. Si suena a folleto, usá el prompt de refinamiento del Glosario.</li>
+        <li>Guardá las respuestas en un solo documento — esa es tu biblioteca.</li>
+        <li>Pedile la pieza de marketing: un post, un mensaje de promo o una descripción de producto, con un dato concreto tuyo.</li>
+        <li>Revisá esa pieza con el mismo criterio: si no la publicarías tal cual, iterá.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla — Respuestas y marketing</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · textos que venden</span><button class="copy">Copiar</button></div>
+<pre>Necesito <strong class="field">[respuestas cortas / un post / un mensaje]</strong> para <strong class="field">[situación real]</strong>. Usá el tono que ya
+tenés cargado de mi negocio. Datos concretos: <strong class="field">[pegá precio, fecha, producto u otro dato real]</strong>.</pre>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Claude — FAQ dentro del Project</span>
+    <div class="claudemock">
+      <div class="claudemock-bar"><div class="dot"></div><span>Claude</span></div>
+      <div class="claudemock-body">
+        <div class="claudemock-user"><p>Necesito respuestas cortas (máx 4 líneas) para estas preguntas frecuentes de mis clientes, con el tono que ya tenés cargado de mi negocio: 1) ¿Hacen envíos? 2) ¿Aceptan tarjeta? 3) ¿Tienen local físico? 4) ¿Cuánto tarda el pedido?</p></div>
+        <div class="claudemock-ai"><div class="ava"><img src="assets/logo-claude.svg" alt=""></div>
+          <p>Acá van las 4, listas para copiar y pegar en WhatsApp o Instagram: envíos a todo el país en 3-5 días hábiles (Buenos Aires 24-48hs), pago con tarjeta en hasta 3 cuotas sin interés, local en Nueva Córdoba de 10 a 19hs, y el pedido sale en 24hs una vez confirmado el pago. ¿Querés que arme una versión más corta para historias de Instagram?</p>
+        </div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Claude — pieza de marketing</span>
+    <div class="claudemock">
+      <div class="claudemock-bar"><div class="dot"></div><span>Claude</span></div>
+      <div class="claudemock-body">
+        <div class="claudemock-user"><p>Ahora armame un post para Instagram anunciando que este sábado tenemos 20% off en toda la tienda. Usá mi tono y que tenga un cierre claro.</p></div>
+        <div class="claudemock-ai"><div class="ava"><img src="assets/logo-claude.svg" alt=""></div>
+          <p>"Este sábado, todo el día: 20% OFF en toda la tienda. Sí, todo — no hay letra chica. Pasá, elegí lo que veniste buscando hace rato y aprovechá. Local abierto de 10 a 19hs. Te esperamos." ¿Lo querés también en versión corta para WhatsApp o para historias?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Pedir la respuesta o el texto de marketing en un chat nuevo, fuera del Project. Ahí Claude no tiene tu tono ni tus datos cargados y te va a devolver algo genérico que después tenés que reescribir a mano. Siempre trabajá esto adentro del Project del Módulo 4.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Una veterinaria carga en su Project el tono ("cercano, tranquilizador, nunca alarmista") y los datos de precios de consulta. Le pide las respuestas a sus 6 preguntas más frecuentes. En la de "¿cuánto sale la consulta?", el primer intento le sale correcto pero frío. Le pide "más cercano, como si se lo dijeras a un cliente que ya conocés" y la segunda versión sí suena a ella.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <p>Tenés guardadas en tu Sistema IA al menos 5 respuestas reales y 1 pieza de marketing ya publicada o enviada a un cliente real — no solo generada. Si algún texto te salió genérico en el primer intento, lo iteraste hasta que sonara a vos.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 05-biblioteca-respuestas — FAQ + pieza de marketing con tu tono</span>
+
+    <label class="modcheck" data-mod="5">
+      <input type="checkbox" data-mod="5" aria-label="Completé el módulo 5">
+      <span>Completé el módulo 5 · Textos que venden</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 6 ═══ -->
+  <section class="panel" id="p-m6">
+    <div class="sec-head"><span class="numchip">06</span><h2>Mini-herramientas sin programar</h2></div>
+    <p class="sec-sub">Hasta acá usaste Claude para escribir y analizar. Este módulo te muestra algo distinto: pedirle que arme una herramienta chica y funcional — una calculadora, un tablero, un checklist — sin que vos toques una línea de código.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Pedile a Claude: "Armame una calculadora simple donde ponga el costo y el precio de venta de un producto, y me muestre el margen en pesos y en porcentaje". Va a aparecer un panel a la derecha con la calculadora funcionando. Probala con un producto real tuyo.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> necesitás una herramienta chica para tu negocio (calcular un margen, ordenar ventas, armar un checklist) pero contratar un programador es demasiado para algo simple.</p>
+      <p><strong>Te llevás:</strong> una mini-herramienta funcionando de verdad, hecha a medida de tu negocio, sin escribir código.</p>
+      <p><strong>Lo usás cuando:</strong> te repetís una cuenta a mano, necesitás ordenar información de forma visual, o querés darle a un cliente o empleado algo interactivo.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Terminar el módulo con UNA mini-herramienta real, probada con tus propios datos, guardada para volver a usarla — eligiendo entre tres casos: calculadora de presupuesto/margen, tablero simple de ventas, o checklist interactiva.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Contratar un desarrollador para algo chico no tiene sentido en tiempo ni en plata. Lo que cambia acá es que ya no dependés de una planilla armada a los ponchazos ni de hacer la cuenta a mano cada vez: se lo pedís una vez, lo ajustás si hace falta, y te queda una herramienta que abrís y usás.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li>Elegí UNO de los tres casos para hacer completo: calculadora de presupuesto/margen, tablero simple de ventas, o checklist interactiva.</li>
+        <li>Describile a Claude qué necesitás que la herramienta haga, con el mayor detalle posible: qué datos vas a ingresar vos, y qué querés que te muestre como resultado.</li>
+        <li>Claude va a abrir un panel a la derecha (un Artifact) con la herramienta ya funcionando. No es una imagen ni una descripción: la podés usar ahí mismo.</li>
+        <li>Probala con datos reales de tu negocio, no de ejemplo.</li>
+        <li>Si algo no te sirve, pedile el ajuste puntual: "agregale un campo para la cantidad" o "que el resultado se vea más grande". No hace falta empezar de nuevo.</li>
+        <li>Cuando esté como la necesitás, guardala de verdad: apretá <strong>"Publish"</strong> (arriba del panel del Artifact). Eso genera un link que persiste, y además el Artifact queda guardado en la sección <strong>"Artifacts" del menú lateral</strong> de claude.ai.</li>
+        <li>Guardá ese link en tu <code>Sistema IA/</code> junto con el entregable del módulo.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla — Mini-herramienta</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · mini-herramienta</span><button class="copy">Copiar</button></div>
+<pre>Armame <strong class="field">[calculadora / tablero / checklist]</strong> simple para <strong class="field">[tu necesidad concreta]</strong>. Los datos que
+voy a cargar son: <strong class="field">[listalos]</strong>. Quiero que me muestre: <strong class="field">[el resultado que necesitás ver]</strong>.</pre>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Claude — el Artifact</span>
+    <div class="claudemock">
+      <div class="claudemock-bar"><div class="dot"></div><span>Claude</span></div>
+      <div class="claudemock-body">
+        <div class="claudemock-user"><p>Armame una calculadora simple donde ponga el costo y el precio de venta de un producto, y me muestre el margen en pesos y en porcentaje. Que sea fácil de leer desde el celular.</p></div>
+        <div class="claudemock-ai"><div class="ava"><img src="assets/logo-claude.svg" alt=""></div>
+          <p>Armé la calculadora — la tenés en el panel de la derecha. Cargá el costo y el precio de venta y te calcula el margen automáticamente. Con costo $800 y venta $1200, por ejemplo, te da un margen de $400 (33%). ¿Querés que le agregue también el precio de venta sugerido para un margen objetivo, tipo 40%?</p>
+        </div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Claude — el ajuste</span>
+    <div class="claudemock">
+      <div class="claudemock-bar"><div class="dot"></div><span>Claude</span></div>
+      <div class="claudemock-body">
+        <div class="claudemock-user"><p>Quedó bien, pero agregale un campo para la cantidad de unidades y que me muestre la ganancia total, no solo la de una unidad.</p></div>
+        <div class="claudemock-ai"><div class="ava"><img src="assets/logo-claude.svg" alt=""></div>
+          <p>Listo, ya está actualizado en el panel: agregué el campo "cantidad" y ahora te muestra la ganancia por unidad y la ganancia total. Con 15 unidades a $400 de margen cada una, te da $6.000 de ganancia total. Probalo con tus números reales.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Pedir una herramienta compleja de una sola vez ("armame un sistema completo de facturación con clientes, stock y reportes") y esperar que salga perfecta. Los Artifacts sirven para herramientas simples y acotadas. Si tu pedido tiene muchas partes moviéndose a la vez, dividilo.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Un kiosco quiere saber rápido si le conviene un producto nuevo. Le pide a Claude una calculadora de margen: carga el costo y el precio de venta, y quiere ver la ganancia en pesos y en porcentaje. Prueba con un producto real (costo $800, venta $1200) y ve que el margen da 33%. Ahora, cada vez que evalúa un producto nuevo, abre esa herramienta en vez de sacar la cuenta con la calculadora del celular.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <p>Probaste la herramienta con datos reales de tu negocio, le pediste al menos un ajuste después de verla funcionar por primera vez, y le diste Publish para que quede con link propio en la sección Artifacts.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 06-mini-herramienta — un Artifact funcionando de verdad</span>
+
+    <label class="modcheck" data-mod="6">
+      <input type="checkbox" data-mod="6" aria-label="Completé el módulo 6">
+      <span>Completé el módulo 6 · Mini-herramientas</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 7 ═══ -->
+  <section class="panel" id="p-m7">
+    <div class="sec-head"><span class="numchip">07</span><h2>Tu sistema Claude</h2></div>
+    <p class="sec-sub">Llegaste hasta acá con cuatro piezas ya armadas y guardadas: un análisis de tus propios datos, un Project que conoce tu negocio, una biblioteca de respuestas y una mini-herramienta funcionando. Este módulo no suma una técnica nueva — te muestra cómo esas cuatro piezas se usan JUNTAS, cada semana, sin volver a abrir esta guía.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Abrí tu Project del Módulo 4 y pedile: "con todo lo que sabés de mi negocio, armame la lista de 3 tareas que debería hacer con vos esta semana". Esa lista, ejecutada, ya es tu sistema funcionando.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> tenés cuatro entregables sueltos y no está claro cuándo usar cada uno ni cómo se conectan en una semana real de trabajo.</p>
+      <p><strong>Te llevás:</strong> una rutina semanal concreta que usa las cuatro piezas en orden, más el criterio para sumar conectores de Google, búsqueda web y (si hace falta) el plan Pro.</p>
+      <p><strong>Lo usás cuando:</strong> terminaste los módulos anteriores y necesitás que esto deje de ser "un curso" y pase a ser parte de tu semana de trabajo.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Salir de este módulo con una rutina semanal escrita — qué día abrís qué entregable, para qué — y con las decisiones de conectores y privacidad ya tomadas, no pendientes.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Un entregable guardado que nadie vuelve a abrir es tiempo perdido. La diferencia entre "hice un curso de Claude" y "tengo un sistema de Claude" es saber qué abrís cada día de la semana y para qué. Sin esta rutina, las cuatro piezas se quedan juntando polvo. Con ella, Claude deja de ser una novedad y pasa a ser una herramienta de trabajo, como el Excel o el WhatsApp Business.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Armá tu rutina semanal sobre lo que ya tenés:</strong> lunes abrís el Project (<code>04-project-negocio</code>) para las tareas prioritarias; cuando llegue una planilla nueva repetís <code>03-analisis-ventas</code>; ante cada consulta de cliente revisás primero <code>05-biblioteca-respuestas</code>; para lo operativo usás la <code>06-mini-herramienta</code> directamente.</li>
+        <li><strong>Decidí los conectores de Google</strong> (Gmail, Calendar, Drive) — disponibles en TODOS los planes: Gmail lee y arma borradores (nunca envía por vos), Calendar y Drive leen y escriben. Activalos solo si te ahorran un paso real.</li>
+        <li><strong>Repasá la decisión de privacidad del Módulo 1.</strong> Si activás el opt-in de entrenamiento, tené presente que lo que los conectores traen de Gmail, Calendar o Drive también puede entrar a ese entrenamiento.</li>
+        <li><strong>Sumá búsqueda web</strong> cuando necesites algo de afuera del negocio: precios de la competencia, una norma vigente, una tendencia del rubro.</li>
+        <li><strong>Tené presentes los límites:</strong> Claude no genera fotos realistas, los planes tienen topes de uso que se resetean con el tiempo, y verificá siempre las cifras críticas antes de actuar sobre ellas.</li>
+        <li><strong>Evaluá si te conviene Pro (USD 20/mes)</strong> solo si necesitás más de los 5 Projects del plan Free, te topás con los límites de uso seguido, o tu operación pide herramientas Pro-only.</li>
+        <li><strong>Guardá esta rutina como un documento propio:</strong> un párrafo por día/disparador, con qué entregable corresponde a cada uno.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla — Rutina semanal con tu Project</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · rutina semanal</span><button class="copy">Copiar</button></div>
+<pre>Con todo lo que sabés de mi negocio (tono, precios, políticas y lo que
+cargué en este Project), armame:
+
+1. Las 3 tareas prioritarias de esta semana según lo que ya sabés
+   (ventas, stock, clientes pendientes).
+2. Para cada una, decime si me conviene usar mi biblioteca de respuestas,
+   analizar un documento nuevo, o generar algo de cero.
+
+Respondeme en una lista corta, lista para copiar a mi agenda semanal.</pre>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Claude — dentro del Project, un lunes</span>
+    <div class="claudemock">
+      <div class="claudemock-bar"><div class="dot"></div><span>Claude</span></div>
+      <div class="claudemock-body">
+        <div class="claudemock-user"><p>Con todo lo que sabés de mi negocio, armame las 3 tareas prioritarias de esta semana y decime qué recurso mío conviene usar para cada una.</p></div>
+        <div class="claudemock-ai"><div class="ava"><img src="assets/logo-claude.svg" alt=""></div>
+          <p>1) Liquidar los 7 productos sin ventas en 60 días (usá el análisis de 03-analisis-ventas, ya tenés los montos). 2) Avisarle a los clientes frecuentes de la liquidación (armá el mail con 05-biblioteca-respuestas como base de tono). 3) Revisar el tablero de ventas de esta semana con la mini-herramienta para confirmar si la liquidación mueve el stock parado.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Tratar cada entregable como un archivo aislado en vez de una rutina. El error típico es volver a escribir una respuesta de cero porque no se acordó de mirar la biblioteca, o resubir la misma planilla todas las semanas sin guardar el proceso como algo repetible. También: activar todos los conectores de una porque "por las dudas", sin pensar qué paso real te ahorra cada uno.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Una tienda de ropa arranca el lunes abriendo su Project, que ya sabe que la temporada de invierno está por terminar. Le pide el resumen de tareas de la semana. El Project le recuerda liquidar el stock parado y le sugiere usar su biblioteca de respuestas para avisarle a los clientes frecuentes. La dueña conecta Gmail para que Claude le arme el borrador del mail — lo revisa, lo ajusta y lo envía ella misma.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Escribiste tu rutina semanal real (qué día, qué entregable, para qué).</li>
+        <li>Decidiste conscientemente qué conectores de Google activar y por qué.</li>
+        <li>Revisaste tu decisión de privacidad del M1 sabiendo que ahora aplica también a los conectores.</li>
+        <li>Probaste la rutina al menos una vez con una tarea real de esta semana.</li>
+        <li>Guardaste tu rutina como <code>07-manual-operacion</code> en Sistema IA y podés seguir el sistema solo.</li>
+      </ul>
+    </div>
+
+    <span class="entregable">📦 Entregable · 07-manual-operacion — tu rutina semanal con Claude</span>
+
+    <label class="modcheck" data-mod="7">
+      <input type="checkbox" data-mod="7" aria-label="Completé el módulo 7">
+      <span>Completé el módulo 7 · Tu sistema Claude</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ APLICACIONES ═══ -->
+  <section class="panel" id="p-apps">
+    <div class="sec-head"><span class="numchip" style="font-size:1.1rem">↗</span><h2>Aplicaciones por tipo de negocio</h2></div>
+    <p class="sec-sub">Formas de uso reales por tipo de negocio, sin inflar. En los cuatro casos la base es la misma: subir datos reales (M3), cargarlos una vez en un Project (M4), y automatizar lo repetitivo (M5–M6). Lo que cambia es QUÉ documento subís y QUÉ pregunta le hacés.</p>
+
+    <div class="app-grid">
+      <div class="app">
+        <div class="ic">🛒</div>
+        <h4>Comercio</h4>
+        <p>Tienda, ferretería, kiosco.</p>
+        <ul>
+          <li>Análisis de stock parado y productos que no rotan (M3).</li>
+          <li>Respuestas rápidas a consultas por WhatsApp (M5).</li>
+          <li>Calculadora de precios o tablero de ventas simple (M6).</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">✂️</div>
+        <h4>Servicios</h4>
+        <p>Peluquería, taller, estudio.</p>
+        <ul>
+          <li>Biblioteca de respuestas a preguntas frecuentes de turnos y precios (M5).</li>
+          <li>Checklist de atención al cliente como mini-herramienta (M6).</li>
+          <li>Project con tono y políticas del negocio para no repetir explicaciones (M4).</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">🍽️</div>
+        <h4>Gastronomía</h4>
+        <p>Bar, restaurante, cafetería.</p>
+        <ul>
+          <li>Análisis de qué platos no se venden desde una planilla de ventas (M3).</li>
+          <li>Respuestas a reservas y consultas de menú (M5).</li>
+          <li>Checklist de apertura/cierre como mini-herramienta (M6).</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">💼</div>
+        <h4>Profesional independiente</h4>
+        <p>Contador, abogado, diseñador.</p>
+        <ul>
+          <li>Resumen y detección de cláusulas riesgosas en contratos largos (M3).</li>
+          <li>Project con tu forma de trabajar y tarifas para propuestas consistentes (M4).</li>
+          <li>Plantillas de respuesta a consultas de potenciales clientes (M5).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="next" style="margin-top:20px">
+      <div class="kicker">Explorá los otros modelos</div>
+      <h3>ChatGPT · <span class="c">Gemini</span></h3>
+      <p>Cada IA tiene fortalezas distintas. Aprendelos con el mismo método COCO GO: prompts reales, entregables, sin jerga.</p>
+      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
+    </div>
+  </section>
+
+  <!-- ═══ BONUS ═══ -->
+  <section class="panel" id="p-bonus">
+    <div class="sec-head"><span class="numchip" style="font-size:1.15rem">★</span><h2>Bonus · 4 extras de alto valor</h2></div>
+    <p class="sec-sub">Usalos <strong>después</strong> de completar los módulos — con tu Project y prompt maestro ya cargados.</p>
+
+    <div class="card">
+      <h3>✅ Checklist de lunes con Claude</h3>
+      <p>Antes de arrancar la semana, abrí tu Project y pedile "las 3 tareas prioritarias de esta semana según lo que sabés de mi negocio" (mismo prompt del M7). Dos minutos, te ordena la semana.</p>
+    </div>
+
+    <div class="card">
+      <h3>🧭 Mini-guía "cuando Claude te responde cualquier cosa"</h3>
+      <p>Si la respuesta sale genérica, no es que "no sirve" — es que le faltó contexto. Antes de abandonar, preguntate:</p>
+      <ol>
+        <li>¿Le diste datos reales de tu negocio, no un ejemplo inventado?</li>
+        <li>¿Usaste el prompt universal de refinamiento?</li>
+        <li>¿Le mostraste un ejemplo tuyo anterior para que copie el estilo?</li>
+      </ol>
+      <p>Si contestaste que no a alguna, ahí está el problema.</p>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla de instrucciones de Project</h3>
+      <p>Para cargar en "Instrucciones personalizadas" de tu Project (M4):</p>
+      <div class="prompt">
+        <div class="top"><span>plantilla · instrucciones de project</span><button class="copy">Copiar</button></div>
+<pre>Sos el asistente de <strong class="field">[nombre del negocio]</strong>, un <strong class="field">[rubro]</strong> en <strong class="field">[ciudad/zona]</strong>.
+Mi tono es <strong class="field">[ej: cercano pero profesional / directo y concreto]</strong>.
+Precios y políticas clave: <strong class="field">[pegá tus datos]</strong>.
+Cuando te pida textos para clientes, respondé siempre en español
+rioplatense, listos para copiar y pegar, sin inventar datos que no
+te di.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📡 Radar de datos que cambian</h3>
+      <p>Anotá en tu Project cada vez que cambien precios, horarios o políticas — así el "cerebro del negocio" no queda desactualizado y las respuestas siguen siendo confiables.</p>
+    </div>
+
+    <div class="card" style="margin-top:8px">
+      <h3>⚠️ Cuándo Claude se equivoca (y qué NO delegarle)</h3>
+      <p>Confiar a ciegas es el error más caro. Tené presente:</p>
+      <ul>
+        <li><strong>Inventa datos con seguridad</strong> (alucinación): cifras, links, citas, nombres. Verificá todo dato duro contra la fuente real.</li>
+        <li><strong>No siempre sabe lo último</strong>: precios, normas y noticias recientes pueden estar desactualizados.</li>
+        <li><strong>No conoce a TU cliente</strong>: te da patrones generales, no tu mercado. Validá con personas reales.</li>
+        <li><strong>Nunca para decisiones legales, médicas o financieras serias</strong> sin un profesional.</li>
+        <li><strong>No pegues datos sensibles</strong> (documentos privados de clientes, claves, datos bancarios) en el chat.</li>
+      </ul>
+    </div>
+
+    <div class="next" style="margin-top:20px">
+      <div class="kicker">Explorá los otros modelos</div>
+      <h3>ChatGPT · <span class="c">Gemini</span></h3>
+      <p>Cada IA tiene fortalezas distintas. Aprendelos con el mismo método COCO GO: prompts reales, entregables, sin jerga.</p>
+      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
+    </div>
+  </section>
+
+  <!-- ═══ VERIFICACIÓN ═══ -->
+  <section class="panel" id="p-verif">
+    <div class="sec-head"><span class="numchip" style="font-size:1.15rem">✓</span><h2>Verificación final</h2></div>
+    <p class="sec-sub">Un check por entregable. Marcalo solo si es real, no si "algo se acerca".</p>
+
+    <div class="card">
+      <div class="check-list">
+        <div class="check"><span class="box">✓</span><p>01 · Primer resultado<small>Cuenta creada, privacidad decidida a conciencia, y una respuesta real a un cliente real guardada.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>02 · Prompt maestro<small>Tenés un prompt propio armado con el método de 4 pasos, con datos reales de tu negocio.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>03 · Análisis de ventas<small>Subiste un documento PROPIO y obtuviste una respuesta con un dato concreto que te sirve para decidir.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>04 · Project del negocio<small>Tu Project tiene instrucciones y documentos propios cargados, y responde con ese contexto sin que se lo repitas.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>05 · Biblioteca de respuestas<small>Tenés al menos un FAQ y una pieza de marketing guardados dentro del Project.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>06 · Mini-herramienta<small>Tu Artifact funciona de verdad y lo usaste al menos una vez en tu operación real.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>07 · Manual de operación<small>Escribiste tu rutina semanal, decidiste tus conectores y probaste el sistema completo al menos una vez.</small></p></div>
+      </div>
+    </div>
+
+    <div class="next">
+      <div class="kicker">Cuando termines esto…</div>
+      <h3>Seguí con <span class="c">ChatGPT para tu negocio</span></h3>
+      <p>Ya entendiste Claude. El siguiente paso natural: el asistente más versátil para texto, imágenes y automatizaciones del día a día. Mismo método COCO GO, otra herramienta.</p>
+      <a class="go" href="../chatgpt/">Ir al curso de ChatGPT →</a>
+    </div>
+
+    <div class="card feedbackbox" style="margin-top:20px">
+      <h3>💬 Tu feedback real</h3>
+      <p style="margin-bottom:10px">¿Qué módulo te costó más? ¿Qué te hubiera gustado que explicáramos mejor? ¿Hay algo de tu negocio que este curso no contempló? Escribilo acá — no hay respuesta automática, pero lo leemos.</p>
+      <textarea id="feedback-text" placeholder="Ej: el módulo 3 me costó por el tema de activar code execution, pero el módulo 4 me cambió la forma de trabajar…"></textarea>
+      <div class="fb-actions">
+        <button type="button" class="copy" id="feedback-copy">Copiar mi comentario</button>
+      </div>
+      <div class="fb-paths">
+        <span>Mandalo por Instagram — <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></span>
+        <span>O por mail a <a href="mailto:cocogo.hola@gmail.com?subject=Feedback%20curso%20Claude">cocogo.hola@gmail.com</a> — pegá el comentario que copiaste arriba.</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="wrap" id="catalogo" style="padding:10px 20px 40px">
+  <div class="sec-head"><span class="numchip" style="font-size:1.05rem">＋</span><h2 style="font-size:clamp(1.3rem,3vw,1.7rem)">Otros cursos COCO GO</h2></div>
+  <p class="sec-sub">Mismo método — prompts reales, entregables, sin jerga — aplicado a otras herramientas.</p>
+  <div class="app-grid">
+    <div class="app">
+      <div class="ic">🟢</div>
+      <h4>ChatGPT para tu negocio</h4>
+      <p>El asistente más versátil para texto, imágenes y automatizaciones del día a día.</p>
+      <p style="margin-top:10px"><a class="go" style="padding:9px 16px;font-size:.85rem" href="../chatgpt/">Ir al curso →</a></p>
+    </div>
+    <div class="app">
+      <div class="ic">🔵</div>
+      <h4>Gemini para tu negocio — próximamente</h4>
+      <p>Integrado con Google Workspace: útil si ya vivís en Gmail, Docs y Sheets para tu negocio.</p>
+    </div>
+  </div>
+  <p style="margin-top:14px;font-size:.9rem;color:var(--muted)">Seguinos en <a href="https://instagram.com/cocogo" target="_blank" rel="noopener" style="color:var(--theme-light);text-decoration:none;border-bottom:1px solid rgba(var(--theme-rgb),.3)">@cocogo</a> para enterarte apenas salga.</p>
+</section>
+
+<footer>
+  <img src="../assets/logo-coco-go.svg" class="foot-logo" alt="COCO GO">
+  <div class="socials">
+    <a class="soc" href="https://instagram.com/cocogo" target="_blank" rel="noopener" aria-label="Instagram @cocogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0-2.16C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.94 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg></a>
+    <a class="soc" href="https://x.com/cocogo" target="_blank" rel="noopener" aria-label="X @cocogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93ZM17.61 20.64h2.04L6.49 3.24H4.3Z"/></svg></a>
+  </div>
+  <p>Soporte: <a href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a> (respondemos en 48 h hábiles)</p>
+  <p>Más cursos: <a href="#catalogo">ChatGPT · Gemini</a> — mismo método COCO GO.</p>
+  <p>© COCO GO 2026. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+/* puerta de acceso — código en el link de compra (?k=) o tipeado, recordado en localStorage */
+(function(){
+  var ACCESS_TOKEN='COCO-CLD7-2026';
+  var ACCESS_STORAGE_KEY='coco-go-claude-access-ok';
+  var gate=document.getElementById('access-gate');
+  var input=document.getElementById('access-code-input');
+  var submit=document.getElementById('access-code-submit');
+  var error=document.getElementById('access-gate-error');
+  if(!gate||!input||!submit) return;
+
+  var params=new URLSearchParams(location.search);
+  var fromUrl=(params.get('k')||'').trim();
+  var stored=localStorage.getItem(ACCESS_STORAGE_KEY)==='1';
+
+  function unlock(){
+    try{localStorage.setItem(ACCESS_STORAGE_KEY,'1');}catch(e){}
+    document.body.classList.remove('access-locked');
+    gate.hidden=true;
+    if(fromUrl){
+      params.delete('k');
+      var qs=params.toString();
+      history.replaceState(null,'',location.pathname+(qs?'?'+qs:'')+location.hash);
+    }
+  }
+
+  function tryCode(raw){
+    var code=(raw||'').trim();
+    if(code.toUpperCase()===ACCESS_TOKEN.toUpperCase()){
+      if(error) error.textContent='';
+      unlock();
+      return true;
+    }
+    if(error) error.textContent='Código incorrecto. Revisá el email de compra.';
+    return false;
+  }
+
+  if(stored||(fromUrl&&tryCode(fromUrl))) return;
+
+  document.body.classList.add('access-locked');
+  gate.hidden=false;
+  submit.addEventListener('click',function(){tryCode(input.value);});
+  input.addEventListener('keydown',function(e){if(e.key==='Enter')tryCode(input.value);});
+})();
+
+/* fondo de red animado */
+(function(){
+  var c=document.getElementById('bg'); if(!c) return;
+  var ctx=c.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2);
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var RGB=(getComputedStyle(document.documentElement).getPropertyValue('--theme-rgb').trim())||'16,163,127';
+  var W,H,pts,raf;
+  function resize(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.min(90,Math.max(30,Math.floor(W*H/16000)));pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18});}
+  function frame(move){ctx.clearRect(0,0,W,H);var i,j,a,b,dx,dy,d,o;
+    if(move)for(i=0;i<pts.length;i++){a=pts[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;}
+    for(i=0;i<pts.length;i++)for(j=i+1;j<pts.length;j++){a=pts[i];b=pts[j];dx=a.x-b.x;dy=a.y-b.y;d=dx*dx+dy*dy;
+      if(d<19000){o=(1-d/19000)*.22;ctx.strokeStyle='rgba('+RGB+','+o.toFixed(3)+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+    for(i=0;i<pts.length;i++){a=pts[i];ctx.fillStyle='rgba('+RGB+',.55)';ctx.beginPath();ctx.arc(a.x,a.y,1.5,0,6.283);ctx.fill();}}
+  function loop(){frame(true);raf=requestAnimationFrame(loop);}
+  resize();window.addEventListener('resize',function(){cancelAnimationFrame(raf);resize();reduce?frame(false):loop();});
+  reduce?frame(false):loop();
+})();
+
+/* glosario acordeón: una abierta a la vez */
+(function(){
+  var terms=document.querySelectorAll('.gterm');
+  terms.forEach(function(b){
+    b.addEventListener('click',function(){
+      var open=b.classList.contains('open');
+      terms.forEach(function(o){o.classList.remove('open');o.nextElementSibling.style.maxHeight=null;});
+      if(!open){b.classList.add('open');var d=b.nextElementSibling;d.style.maxHeight=d.scrollHeight+'px';}
+    });
+  });
+  var q=document.getElementById('gloss-q');
+  if(q)q.addEventListener('input',function(){
+    var v=q.value.toLowerCase();
+    document.querySelectorAll('#gloss-list .gitem').forEach(function(it){
+      it.style.display=it.querySelector('.gterm').textContent.toLowerCase().indexOf(v)>-1?'':'none';
+    });
+  });
+})();
+
+/* scroll al tope al cambiar pestaña */
+document.querySelectorAll('input[name="coco-tab"]').forEach(function(r){
+  r.addEventListener('change',function(){window.scrollTo({top:0,behavior:'instant'});});
+});
+
+/* botones copiar con clipboard API */
+document.querySelectorAll('.copy:not(#feedback-copy)').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var pre=btn.closest('.prompt').querySelector('pre');
+    if(!pre) return;
+    var text=pre.textContent.trim();
+    function done(){btn.textContent='✓ Copiado';setTimeout(function(){btn.textContent='Copiar';},1500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text,done);});
+    } else { fallback(text,done); }
+  });
+});
+function fallback(text,cb){
+  var ta=document.createElement('textarea');
+  ta.value=text;ta.style.cssText='position:fixed;left:-9999px;top:0;opacity:0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');cb();}catch(e){}
+  document.body.removeChild(ta);
+}
+
+/* botón copiar del feedback de Verificación */
+(function(){
+  var btn=document.getElementById('feedback-copy');
+  var ta=document.getElementById('feedback-text');
+  if(!btn||!ta) return;
+  btn.addEventListener('click',function(){
+    var text=ta.value.trim();
+    if(!text) return;
+    function done(){btn.textContent='✓ Copiado';setTimeout(function(){btn.textContent='Copiar mi comentario';},1500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text,done);});
+    } else { fallback(text,done); }
+  });
+})();
+
+/* B6 — progreso de módulos (localStorage) */
+(function(){
+  var KEY='cocogo_progreso_claude', TOTAL=7;
+  function load(){try{var v=JSON.parse(localStorage.getItem(KEY));return Array.isArray(v)?v.filter(function(n){return n>=1&&n<=TOTAL;}):[];}catch(e){return [];}}
+  function save(a){try{localStorage.setItem(KEY,JSON.stringify(a));}catch(e){}}
+  var done=load();
+  var inputs=document.querySelectorAll('.modcheck input[data-mod]');
+  if(!inputs.length) return;
+  var checks=document.querySelectorAll('#p-verif .check-list .check');
+  var fill=document.querySelector('.progfill');
+  var label=document.querySelector('.proglabel');
+  var pwrap=document.querySelector('.progwrap');
+  function render(){
+    inputs.forEach(function(inp){
+      var n=+inp.getAttribute('data-mod'), on=done.indexOf(n)>-1;
+      inp.checked=on;
+      inp.closest('.modcheck').classList.toggle('done',on);
+    });
+    checks.forEach(function(c,i){c.classList.toggle('done',done.indexOf(i+1)>-1);});
+    var pct=Math.round(done.length/TOTAL*100);
+    if(fill)fill.style.width=pct+'%';
+    if(label)label.textContent=done.length+'/'+TOTAL;
+    if(pwrap){pwrap.classList.toggle('complete',done.length>=TOTAL);pwrap.setAttribute('aria-valuenow',done.length);}
+  }
+  inputs.forEach(function(inp){
+    inp.addEventListener('change',function(){
+      var n=+inp.getAttribute('data-mod'), i=done.indexOf(n);
+      if(inp.checked&&i<0)done.push(n);
+      else if(!inp.checked&&i>-1)done.splice(i,1);
+      save(done);render();
+    });
+  });
+  render();
+})();
+</script>
+</body>
+</html>
