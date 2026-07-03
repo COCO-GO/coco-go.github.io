@@ -300,3 +300,4 @@ body.access-locked>*:not(.access-gate):not(#bg){display:none!important}
 /* accesibilidad AA — 2026-07-03 */
 a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{outline:2px solid var(--theme-light);outline-offset:2px}
 .modnav .pill.kbfocus{outline:2px solid var(--theme-light);outline-offset:2px}
+.modcheck input:focus-visible{outline:2px solid var(--theme-light);outline-offset:2px}
