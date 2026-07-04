@@ -147,6 +147,8 @@ strong.field{background:rgba(var(--theme-rgb),.14);color:var(--theme-light);font
 .gdef{max-height:0;overflow:hidden;transition:max-height .3s ease}
 .gdef p{padding:0 16px 14px;color:var(--muted);font-size:.96rem;margin:0}
 .gloss-note{margin-top:13px;font-size:.88rem;color:var(--faint)}
+.gloss-group{font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--theme-light);margin:18px 0 2px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.gloss-group:first-child{margin-top:0}
 
 /* aplicaciones */
 .app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:13px;margin-top:16px;margin-bottom:20px}
@@ -301,3 +303,36 @@ body.access-locked>*:not(.access-gate):not(#bg){display:none!important}
 a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{outline:2px solid var(--theme-light);outline-offset:2px}
 .modnav .pill.kbfocus{outline:2px solid var(--theme-light);outline-offset:2px}
 .modcheck input:focus-visible{outline:2px solid var(--theme-light);outline-offset:2px}
+
+/* devsplit — móvil vs. desktop (aditivo, v2 contenido) */
+.devsplit{display:flex;flex-wrap:wrap;gap:13px;margin:16px 0}
+.devsplit-card{flex:1 1 240px;background:rgba(var(--theme-rgb),.06);border:1px solid rgba(var(--theme-rgb),.22);border-radius:14px;padding:16px 17px}
+.devsplit-card .dh{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.devsplit-card .dh .di{flex-shrink:0;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--theme-light),var(--theme));color:#04130E}
+.devsplit-card .dh .di svg{width:16px;height:16px;fill:currentColor}
+.devsplit-card .dh b{font-family:var(--display);font-weight:700;font-size:.95rem;color:var(--text)}
+.devsplit-card p{font-size:.92rem;color:var(--muted);margin:0;line-height:1.55}
+
+/* planes — comparativa Free/Pro/Max (aditivo, v2 contenido, solo M1) */
+.planes{display:flex;flex-wrap:wrap;gap:13px;margin:16px 0}
+.plan-card{flex:1 1 220px;background:linear-gradient(165deg,var(--surface),var(--surface-2));border:1px solid var(--border);border-radius:14px;padding:17px}
+.plan-card h4{font-family:var(--display);font-weight:700;font-size:1rem;margin-bottom:4px}
+.plan-card .price{font-family:var(--mono);font-size:.82rem;color:var(--faint);margin-bottom:10px;display:block}
+.plan-card ul{padding-left:1.1rem;color:var(--muted);font-size:.89rem;margin:0}
+.plan-card li{margin-bottom:.3rem}
+.plan-advice{flex:1 1 100%;border:1.5px solid rgba(var(--theme-rgb),.5);background:rgba(var(--theme-rgb),.08);border-radius:14px;padding:15px 17px;margin-top:2px}
+.plan-advice b{color:var(--theme-light)}
+.plan-advice p{font-size:.92rem;color:var(--text);margin:0;line-height:1.55}
+@media(min-width:640px){.plan-advice{order:4}}
+
+/* uimock — extensión: variante de mock de claude.ai reusando .uimock existente */
+.uimock .toggle-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid #ECECF1}
+.uimock .toggle-row:first-child{border-top:0}
+.uimock .toggle-row span{font-size:.85rem;color:#40414F;font-weight:600}
+.uimock .toggle{flex-shrink:0;width:38px;height:22px;border-radius:999px;background:#D9D9E3;position:relative}
+.uimock .toggle.on{background:var(--theme)}
+.uimock .toggle::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:left .2s}
+.uimock .toggle.on::after{left:18px}
+.uimock .sidebaritem{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:.83rem;color:#40414F}
+.uimock .sidebaritem.on{background:rgba(var(--theme-rgb),.12);color:#04130E;font-weight:700}
+.uimock .publishbtn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--theme-light),var(--theme));color:#04130E;font-weight:700;font-size:.83rem;padding:8px 16px;border-radius:8px}
