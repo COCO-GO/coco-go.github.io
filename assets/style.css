@@ -325,6 +325,79 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{o
 .plan-advice p{font-size:.92rem;color:var(--text);margin:0;line-height:1.55}
 @media(min-width:640px){.plan-advice{order:4}}
 
+/* geminimock — mock fiel de la interfaz de gemini.google.com (componente compartido de fábrica).
+   Misma estructura que .claudemock/.gptmock, pero avatar/acentos toman var(--theme) del curso
+   donde aparezca — NUNCA hardcodear el azul acá. El chip muestra el modelo ("3.5 Flash") o,
+   en M6, la herramienta ("NotebookLM") cuando el hablante es notebooklm: en vez de gemini:. */
+.geminimock{max-width:640px;margin:0 auto 18px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
+.geminimock-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(20,25,40,.08);background:#F7F7F8}
+.geminimock-bar .dot{width:9px;height:9px;border-radius:50%;background:#D8DAE0}
+.geminimock-bar span{font-family:var(--body);font-size:.82rem;font-weight:700;color:#1A1A1A;margin-left:2px}
+.geminimock-body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:14px}
+.geminimock-user{display:flex;justify-content:flex-end}
+.geminimock-user p{background:#F0F0F2;color:#1A1A1A;font-size:.9rem;line-height:1.5;padding:10px 14px;border-radius:16px 16px 3px 16px;max-width:85%;margin:0}
+.geminimock-ai{display:flex;gap:10px;align-items:flex-start}
+.geminimock-ai .ava{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--theme);display:grid;place-items:center;margin-top:1px;overflow:hidden}
+.geminimock-ai .ava img{width:16px;height:16px;display:block}
+.geminimock-ai .aicol{display:flex;flex-direction:column;gap:5px;max-width:88%}
+.geminimock-ai .chip{align-self:flex-start;font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.03em;color:var(--theme-dark);background:rgba(var(--theme-rgb),.12);border:1px solid rgba(var(--theme-rgb),.28);padding:2px 8px;border-radius:999px}
+.geminimock-ai p{color:#2A2B32;font-size:.9rem;line-height:1.55;margin:0}
+.geminimock-ai p b{color:#111}
+@media(max-width:400px){.geminimock-user p,.geminimock-ai p{font-size:13pt}}
+
+/* geminimock — variante imagen: el resultado de un pedido de imagen es una IMAGEN, no texto.
+   Reemplaza el <p> de respuesta por un frame visual (degradé + ficha descriptiva) dentro de
+   la misma estructura .geminimock-ai, para el Módulo 4 (imágenes que venden). Aditivo, tematizable. */
+.geminimock-ai .imgframe{width:100%;max-width:340px;border-radius:12px;overflow:hidden;border:1px solid rgba(var(--theme-rgb),.3);background:linear-gradient(135deg,rgba(var(--theme-rgb),.9),var(--theme-dark) 60%,#0B1220);position:relative;min-height:150px;display:flex;align-items:center;justify-content:center;padding:18px}
+.geminimock-ai .imgframe::before{content:"";position:absolute;inset:0;opacity:.5;background-image:radial-gradient(circle at 20% 20%,rgba(255,255,255,.25),transparent 45%),radial-gradient(circle at 80% 75%,rgba(255,255,255,.15),transparent 50%)}
+.geminimock-ai .imgframe .ic{position:relative;z-index:1;font-size:1.6rem;margin-bottom:8px}
+.geminimock-ai .imgframe span{position:relative;z-index:1;color:#fff;font-size:.82rem;font-weight:600;text-align:center;line-height:1.4;text-shadow:0 1px 4px rgba(0,0,0,.35)}
+.geminimock-ai .imgframe-wrap{display:flex;flex-direction:column;gap:5px}
+
+/* geminimock — variante informe: la respuesta de Deep Research (M5) es un documento largo con
+   estructura, no una burbuja de chat. Mini-documento con título, secciones truncadas y fade
+   final para sugerir "sigue". Aditivo, tematizable, misma familia visual que .geminimock. */
+.geminimock-ai .report{width:100%;max-width:420px;background:#FAFBFD;border:1px solid #E4E8F0;border-radius:10px;padding:12px 14px 10px;position:relative;overflow:hidden}
+.geminimock-ai .report .rt-title{display:flex;align-items:center;gap:6px;font-weight:700;font-size:.83rem;color:#1A1A2E;margin-bottom:8px}
+.geminimock-ai .report .rt-sec{font-size:.78rem;color:#3A3F4B;line-height:1.5;margin-bottom:6px;padding-left:10px;border-left:2px solid rgba(var(--theme-rgb),.4)}
+.geminimock-ai .report .rt-sec b{color:#111}
+.geminimock-ai .report::after{content:"";position:absolute;left:0;right:0;bottom:0;height:26px;background:linear-gradient(180deg,transparent,#FAFBFD)}
+
+/* notebooklm mock — producto DISTINTO de Gemini (M6): panel de fuentes a la izquierda + chat
+   a la derecha, para que se note que es otra interfaz. Aditivo, tematizable por var(--theme). */
+.notebooklmmock{max-width:640px;margin:0 auto 18px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
+.notebooklmmock-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(20,25,40,.08);background:#F7F7F8}
+.notebooklmmock-bar .dot{width:9px;height:9px;border-radius:50%;background:#D8DAE0}
+.notebooklmmock-bar span{font-family:var(--body);font-size:.82rem;font-weight:700;color:#1A1A1A;margin-left:2px}
+.notebooklmmock-layout{display:flex;min-height:150px}
+.notebooklmmock-sources{flex:0 0 128px;background:#F5F6F8;border-right:1px solid #ECECF1;padding:12px 10px;display:flex;flex-direction:column;gap:7px}
+.notebooklmmock-sources .st{font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7A8194;margin-bottom:2px}
+.notebooklmmock-sources .src{display:flex;align-items:center;gap:5px;font-size:.72rem;color:#3A3F4B;background:#fff;border:1px solid #E4E8F0;border-radius:6px;padding:5px 7px;line-height:1.3}
+.notebooklmmock-body{flex:1;padding:14px 16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.notebooklmmock-user{display:flex;justify-content:flex-end}
+.notebooklmmock-user p{background:#F0F0F2;color:#1A1A1A;font-size:.87rem;line-height:1.5;padding:9px 13px;border-radius:14px 14px 3px 14px;max-width:92%;margin:0}
+.notebooklmmock-ai{display:flex;flex-direction:column;gap:5px}
+.notebooklmmock-ai .chip{align-self:flex-start;font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.03em;color:var(--theme-dark);background:rgba(var(--theme-rgb),.12);border:1px solid rgba(var(--theme-rgb),.28);padding:2px 8px;border-radius:999px}
+.notebooklmmock-ai p{color:#2A2B32;font-size:.87rem;line-height:1.55;margin:0}
+.notebooklmmock-ai .cite{font-size:.74rem;color:#7A8194;font-style:italic}
+@media(max-width:480px){.notebooklmmock-layout{flex-direction:column}.notebooklmmock-sources{flex:none;flex-direction:row;flex-wrap:wrap;border-right:0;border-bottom:1px solid #ECECF1}}
+
+/* voicewave — detalle visual de Gemini Live (voz), para el Módulo 8. Icono de micrófono +
+   barras animadas, aditivo y tematizable, respeta prefers-reduced-motion (regla ya global). */
+.voicewave{display:flex;align-items:center;gap:12px;background:rgba(var(--theme-rgb),.07);border:1px solid rgba(var(--theme-rgb),.25);border-radius:14px;padding:14px 17px;margin:12px 0 6px}
+.voicewave .mic{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--theme-light),var(--theme));display:grid;place-items:center;color:#04130E;box-shadow:0 4px 14px rgba(var(--theme-rgb),.4)}
+.voicewave .mic svg{width:18px;height:18px;fill:currentColor}
+.voicewave .bars{display:flex;align-items:flex-end;gap:3px;height:26px}
+.voicewave .bars span{display:block;width:4px;border-radius:2px;background:var(--theme-light);animation:wave 1.1s ease-in-out infinite}
+.voicewave .bars span:nth-child(1){height:40%;animation-delay:0s}
+.voicewave .bars span:nth-child(2){height:75%;animation-delay:.12s}
+.voicewave .bars span:nth-child(3){height:100%;animation-delay:.24s}
+.voicewave .bars span:nth-child(4){height:60%;animation-delay:.36s}
+.voicewave .bars span:nth-child(5){height:85%;animation-delay:.48s}
+.voicewave p{margin:0;font-size:.88rem;color:var(--text);font-weight:600}
+@keyframes wave{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+@media(prefers-reduced-motion:reduce){.voicewave .bars span{animation:none;height:70%!important}}
+
 /* uimock — extensión: variante de mock de claude.ai reusando .uimock existente */
 .uimock .toggle-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid #ECECF1}
 .uimock .toggle-row:first-child{border-top:0}

@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Gemini para tu negocio — COCO GO</title>
+<meta name="description" content="Curso práctico de Gemini para emprendedores y PyMEs. 8 módulos con prompts, plantillas y entregables reales. En español, sin tecnicismos." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Gemini para tu negocio — COCO GO" />
+<meta property="og:description" content="8 módulos concatenados. Cada uno resuelve un problema concreto y te deja un archivo usable esta semana." />
+<meta property="og:site_name" content="COCO GO" />
+<meta property="og:url" content="https://coco-go.github.io/gemini/" />
+<meta property="og:image" content="https://coco-go.github.io/gemini/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="es_AR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Gemini para tu negocio — COCO GO" />
+<meta name="twitter:description" content="8 módulos con prompts, plantillas y entregables reales. En español, sin tecnicismos." />
+<meta name="twitter:image" content="https://coco-go.github.io/gemini/assets/og-image.png" />
+<meta name="theme-color" content="#4285F4" />
+<link rel="canonical" href="https://coco-go.github.io/gemini/" />
+<link rel="icon" type="image/svg+xml" href="../assets/logo-coco-go.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+:root{--theme:#4285F4; --theme-light:#8AB4F8; --theme-rgb:66,133,244; --theme-dark:#1967D2;}
+</style>
+</head>
+<body>
+
+<div class="access-gate" id="access-gate" hidden>
+  <div class="access-gate-card">
+    <h2>COCO GO — Gemini para tu negocio</h2>
+    <p>Ingresá el código de acceso que recibiste al comprar. Si no lo tenés, escribinos a Instagram @cocogo.</p>
+    <label class="access-gate-field" for="access-code-input">
+      <span class="access-gate-label">Código de acceso</span>
+      <input type="text" id="access-code-input" name="access-code" placeholder="Código de acceso…" autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text" />
+    </label>
+    <button type="button" id="access-code-submit">Entrar al curso</button>
+    <p class="access-gate-error" id="access-gate-error" aria-live="polite"></p>
+  </div>
+</div>
+
+<canvas id="bg"></canvas>
+
+<!-- 13 pestañas -->
+<input class="tab" type="radio" name="coco-tab" id="t-inicio" checked>
+<input class="tab" type="radio" name="coco-tab" id="t-gloss">
+<input class="tab" type="radio" name="coco-tab" id="t-m1">
+<input class="tab" type="radio" name="coco-tab" id="t-m2">
+<input class="tab" type="radio" name="coco-tab" id="t-m3">
+<input class="tab" type="radio" name="coco-tab" id="t-m4">
+<input class="tab" type="radio" name="coco-tab" id="t-m5">
+<input class="tab" type="radio" name="coco-tab" id="t-m6">
+<input class="tab" type="radio" name="coco-tab" id="t-m7">
+<input class="tab" type="radio" name="coco-tab" id="t-m8">
+<input class="tab" type="radio" name="coco-tab" id="t-apps">
+<input class="tab" type="radio" name="coco-tab" id="t-bonus">
+<input class="tab" type="radio" name="coco-tab" id="t-verif">
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="brandbar">
+  <div class="wrap">
+    <div class="brand">
+      <img src="../assets/logo-coco-go.svg" class="brand-logo" alt="COCO GO">
+    </div>
+    <span class="theme-chip"><span class="dot"></span>Curso · Gemini</span>
+  </div>
+</header>
+
+<nav class="modnav">
+  <div class="wrap">
+    <div class="progwrap" role="progressbar" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0" aria-label="Progreso del curso">
+      <div class="progtrack"><div class="progfill"></div></div>
+      <span class="proglabel">0/8</span>
+    </div>
+    <div class="scroll">
+    <label class="pill p-inicio" for="t-inicio">Inicio</label>
+    <label class="pill p-apps" for="t-apps">Aplicaciones</label>
+    <label class="pill p-gloss" for="t-gloss">Glosario</label>
+    <label class="pill p-m1" for="t-m1">1 · Arranque</label>
+    <label class="pill p-m2" for="t-m2">2 · Negocio conectado</label>
+    <label class="pill p-m3" for="t-m3">3 · Tu Gem</label>
+    <label class="pill p-m4" for="t-m4">4 · Imágenes</label>
+    <label class="pill p-m5" for="t-m5">5 · Investigación</label>
+    <label class="pill p-m6" for="t-m6">6 · Archivero</label>
+    <label class="pill p-m7" for="t-m7">7 · Mini-herramientas</label>
+    <label class="pill p-m8" for="t-m8">8 · Tu sistema</label>
+    <label class="pill p-verif" for="t-verif">Verificación</label>
+    <label class="pill p-bonus" for="t-bonus">Bonus</label>
+  </div></div>
+</nav>
+
+<main class="wrap" id="contenido" tabindex="-1">
+
+  <!-- ═══ INICIO ═══ -->
+  <section class="panel" id="p-inicio">
+    <span class="eyebrow"><span class="pulse"></span>Primeros pasos con Gemini · nivel básico</span>
+    <h1><img src="../assets/logo-gemini.svg" alt="" style="width:.85em;height:.85em;vertical-align:-.08em;margin-right:.15em" aria-hidden="true">Gemini para tu negocio,<br><span class="grad">paso a paso.</span></h1>
+    <p class="lead">No compraste un curso — compraste soluciones concretas. Cada módulo resuelve un problema real y te deja un archivo usable que abrís el lunes. Gemini ya vive en tu cuenta de Google: arrancás sin instalar nada.</p>
+    <div class="cta-row">
+      <label class="btn btn-primary" for="t-m1">Empezar el módulo 1 →</label>
+      <label class="btn btn-ghost" for="t-gloss">Ver el glosario</label>
+    </div>
+    <div class="trust">
+      <div class="t"><b>8</b><span>módulos concatenados</span></div>
+      <div class="t"><b>0</b><span>jerga sin explicar</span></div>
+      <div class="t"><b>100%</b><span>celular y computadora</span></div>
+      <div class="t"><b>15–30 min</b><span>por módulo</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ GLOSARIO ═══ -->
+  <section class="panel" id="p-gloss">
+    <div class="sec-head"><span class="numchip" style="font-size:1.25rem">Aa</span><h2>Glosario · 40 conceptos clave</h2></div>
+    <p class="sec-sub">Antes de arrancar, leé el estándar de calidad y el mapa del kit (los tenés más abajo).</p>
+
+    <p style="font-weight:700;color:var(--theme-light);font-size:1.02rem;margin:4px 0 10px">👉 ¿Una palabra te traba en algún módulo? Buscala acá — son 40 conceptos explicados simple.</p>
+    <div class="gloss-search"><span>🔎</span><input id="gloss-q" placeholder="Buscar un término…" autocomplete="off"></div>
+
+    <div class="card">
+      <h3>📦 Tu kit al terminar — soluciones en archivos</h3>
+      <p>No es material de estudio. Es lo que abrís cuando tenés un problema en el negocio:</p>
+      <div class="foldertree">
+        <div class="root"><span>📁</span> Sistema IA/</div>
+        <div class="kids">
+          <div class="ft-row"><span class="ft-file"><span>📄</span>01-primer-resultado</span><span class="ft-arrow">→</span><span class="ft-desc">cuenta lista + tu primera respuesta real</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>02-negocio-conectado</span><span class="ft-arrow">→</span><span class="ft-desc">apps conectadas + 1 tarea real sobre datos propios</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>03-gem-negocio</span><span class="ft-arrow">→</span><span class="ft-desc">tu Gem con tono, precios y políticas</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>04-pack-visual</span><span class="ft-arrow">→</span><span class="ft-desc">2-3 piezas visuales listas para publicar</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>05-informe-mercado</span><span class="ft-arrow">→</span><span class="ft-desc">un Deep Research de tu rubro, con decisión</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>06-archivero-negocio</span><span class="ft-arrow">→</span><span class="ft-desc">cuaderno de NotebookLM con tus documentos</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>07-mini-herramienta</span><span class="ft-arrow">→</span><span class="ft-desc">un Canvas funcionando, compartido por link</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>08-manual-operacion</span><span class="ft-arrow">→</span><span class="ft-desc">tu rutina semanal + decisión de plan</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⏱️ Estándar de calidad — un módulo está listo si cumplís las 5</h3>
+      <ol>
+        <li><strong>Datos reales</strong> — precios, servicios, clientes y tono tuyo, no placeholders.</li>
+        <li><strong>Al menos una iteración</strong> — si sonó genérico, pediste ajuste concreto.</li>
+        <li><strong>Prueba en operación</strong> — lo usaste con un cliente o dato real, no de prueba.</li>
+        <li><strong>Guardado en Sistema IA</strong> — archivo nombrado, encontrable el lunes.</li>
+        <li><strong>Repetible sin esta guía</strong> — sabés qué prompt usar y dónde está el entregable.</li>
+      </ol>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <h3>📩 Carta al alumno</h3>
+      <p>Pasaste plata y tiempo comprando este curso. Lo mínimo que merecés es claridad: <strong>no hay magia</strong>. Gemini es una herramienta potente con un límite claro — sin tu contexto real, da respuestas genéricas. Tu trabajo es alimentarlo con datos de tu negocio, iterar hasta que suene bien y usarlo aunque no sea perfecto.</p>
+      <p>Si completás los 8 módulos con datos reales y al menos 1 entregable usado por semana, en un mes vas a tener un sistema que trabaja mientras vos atendés tu negocio.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <h3>🗺️ Mapa del curso</h3>
+      <p><strong>Base:</strong> M1 Arranque → M2 Tu negocio conectado<br>
+      <strong>Voz e imagen:</strong> M3 Tu Gem → M4 Imágenes que venden<br>
+      <strong>Datos:</strong> M5 Investigación → M6 El archivero<br>
+      <strong>Sistema:</strong> M7 Mini-herramientas → M8 Tu sistema Gemini</p>
+      <p style="margin-top:8px;font-size:.9rem;color:var(--faint)">Hacelos en orden la primera vez. Cada módulo asume lo que dejó el anterior. Después podés entrar por cualquier módulo según la urgencia de la semana.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <h3>⚙️ Antes de empezar</h3>
+      <ul>
+        <li>Tu cuenta de Google de siempre (la misma de Gmail) — no hace falta crear ninguna nueva.</li>
+        <li>Una nota o carpeta en el celular o compu donde guardar los entregables — llamala <strong>"Sistema IA"</strong>.</li>
+        <li>15–30 minutos por módulo. No intentes hacerlos todos en un día.</li>
+        <li>Datos reales de tu negocio: qué vendés, a quién, cuánto, con qué tono.</li>
+      </ul>
+    </div>
+
+    <div class="gloss-list" id="gloss-list">
+
+      <p class="gloss-group">Entorno general</p>
+
+      <div class="gitem"><button class="gterm">IA / inteligencia artificial<span class="chev">+</span></button><div class="gdef"><p>Un programa que entiende lenguaje natural (como le hablás a una persona) y te responde, escribe, investiga o dibuja sin que vos programes nada. Gemini es una IA conversacional de Google.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Modelo (de IA)<span class="chev">+</span></button><div class="gdef"><p>El "motor" que hay detrás de Gemini, entrenado para entender y generar texto, imágenes y más. No hace falta saber cómo funciona por dentro para usarlo bien.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Cuenta de Google<span class="chev">+</span></button><div class="gdef"><p>La misma cuenta con la que usás Gmail. Es tu punto de partida para Gemini — no hace falta crear ninguna cuenta nueva.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Google Workspace<span class="chev">+</span></button><div class="gdef"><p>El nombre del paquete de apps de Google — Gmail, Drive, Docs, Calendar y el resto. La versión personal (la que ya usás con tu Gmail de siempre) es gratis. Existe también una versión paga pensada para empresas, con mail propio (@tunegocio.com) en vez de @gmail.com — sus planes se llaman <strong>Business Starter, Standard y Plus</strong> (los precios y qué trae cada uno están en el Módulo 8, para cuando el negocio suma empleados).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Prompt<span class="chev">+</span></button><div class="gdef"><p>El pedido o instrucción que le escribís a Gemini. Cuanto más claro y específico (tu negocio, tu rubro, tu tono), mejor la respuesta.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Chat<span class="chev">+</span></button><div class="gdef"><p>La conversación con Gemini, como un WhatsApp. Cada mensaje tuyo y su respuesta quedan ahí, uno abajo del otro.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Iterar<span class="chev">+</span></button><div class="gdef"><p>Pedirle un ajuste a algo que Gemini ya te dio, en vez de tirarlo y empezar de cero. "Más corto", "con este dato real", "cambiá el color" — cada vuelta es una iteración.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Genérico / respuesta genérica<span class="chev">+</span></button><div class="gdef"><p>Una respuesta correcta pero que podría servirle a cualquier negocio, porque no usó tus datos reales. Es la señal de que falta contexto, no de que "Gemini no sirve".</p></div></div>
+
+      <div class="gitem"><button class="gterm">Multimodal<span class="chev">+</span></button><div class="gdef"><p>Que entiende y genera más de un tipo de contenido — texto, imagen, voz — en la misma herramienta. Es la razón por la que en Gemini escribís un post Y generás su gráfica sin cambiar de app.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Ventana de contexto<span class="chev">+</span></button><div class="gdef"><p>Cuánto puede "tener en la cabeza" Gemini de una sola vez en un chat. En el plan gratis son 32.000 tokens; en Plus, 128.000; en Pro y Ultra, 1.000.000. En criollo: con el gratis alcanza de sobra para un chat del día a día, pero un contrato o manual largo empieza a "ahogarlo" — para eso están NotebookLM o un plan pago con más contexto.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Tokens<span class="chev">+</span></button><div class="gdef"><p>La unidad en la que Gemini mide texto (no son palabras exactas, pero se le parecen). Sirve para entender por qué existe un límite de cuánto podés pegarle de una vez.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Adjunto / adjuntar<span class="chev">+</span></button><div class="gdef"><p>Subir un archivo al chat para que Gemini lo lea. En Gemini podés adjuntar hasta 10 archivos por pedido, de hasta 100 MB cada uno (video hasta 2 GB).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Límites de uso<span class="chev">+</span></button><div class="gdef"><p>Cada plan tiene un tope de cuánto podés usar Gemini en un período. Se renuevan cada pocas horas con un tope semanal — Google no publica números exactos, así que se enseña como criterio ("¿te frenó esta semana?"), no como cifra.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Desplegable<span class="chev">+</span></button><div class="gdef"><p>Un menú que se abre al tocarlo y muestra opciones, como el selector de modelo o el de herramientas en la caja de prompt.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Micrófono / dictado<span class="chev">+</span></button><div class="gdef"><p>El ícono de micrófono en la caja de escritura del celular, para hablarle a Gemini en vez de tipear.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Compartir por link<span class="chev">+</span></button><div class="gdef"><p>La acción de generar un vínculo (tipo g.co/gemini/share) que cualquiera puede abrir sin cuenta paga, para que tu cliente use algo que armaste vos (un cotizador de Canvas, por ejemplo).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Historial<span class="chev">+</span></button><div class="gdef"><p>El registro de tus chats anteriores con Gemini, al que podés volver.</p></div></div>
+
+      <div class="gitem"><button class="gterm">App / aplicación<span class="chev">+</span></button><div class="gdef"><p>Gemini existe como web (gemini.google.com) y como app para celular (Android/iOS). Las dos llevan a la misma cuenta. En la computadora no se instala nada: se usa directo desde el navegador.</p></div></div>
+
+      <p class="gloss-group">Funciones de Gemini</p>
+
+      <div class="gitem"><button class="gterm">Gem<span class="chev">+</span></button><div class="gdef"><p>Un asistente personalizado con instrucciones cargadas una sola vez — tu tono, tus precios, tus políticas. Después, cada respuesta ya sale alineada a tu negocio sin que se lo repitas. Disponible desde el plan gratis, sin límite de cantidad publicado. No funciona con Gemini Live.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Canvas<span class="chev">+</span></button><div class="gdef"><p>El panel que se abre al lado del chat donde Gemini arma algo editable y que persiste más allá de la conversación — un cotizador, un catálogo, un checklist. Se ajusta conversando ("cambiá el color", "agregá una fila") y se comparte por link.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Deep Research<span class="chev">+</span></button><div class="gdef"><p>La función que investiga varias fuentes por vos y te devuelve un informe armado con estructura, en vez de un resumen de buscador. Disponible desde el plan gratis; el límite de usos se renueva cada tanto, sin número fijo publicado.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Gemini Live<span class="chev">+</span></button><div class="gdef"><p>La conversación por voz, manos libres, desde el celular. Pensada para pensar en voz alta, practicar una respuesta o dictar ideas mientras hacés otra cosa. Dato importante: Live NO usa tu Gem — para respuestas con tu tono y tus precios, volvés al chat de texto.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Apps conectadas<span class="chev">+</span></button><div class="gdef"><p>La conexión de Gemini con tu <strong>Gmail, Calendar, Docs, Drive, Keep y Tasks</strong>, para que busque, resuma o redacte sobre datos que YA existen en tu cuenta, sin que se los pegues a mano. Es el diferencial de Gemini frente a otras IA de chat.</p></div></div>
+
+      <div class="gitem"><button class="gterm">NotebookLM<span class="chev">+</span></button><div class="gdef"><p>Un producto aparte de Google (notebooklm.google.com), pensado para cargar documentos propios y consultarlos las veces que quieras sin que el chat se los "olvide". Es "el archivero del negocio": la salida gratis cuando un documento es demasiado largo para el contexto del chat de Gemini.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Cuaderno<span class="chev">+</span></button><div class="gdef"><p>La unidad de trabajo de NotebookLM — un espacio donde subís las fuentes de un mismo tema (precios, contratos, manuales) y le preguntás sobre ellas. El plan Standard (gratis) permite 100 cuadernos.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Fuente<span class="chev">+</span></button><div class="gdef"><p>Cada documento que subís a un cuaderno de NotebookLM (PDF, Google Doc, presentación, texto pegado o link). Hasta 50 fuentes por cuaderno en el plan gratis.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Chat temporal<span class="chev">+</span></button><div class="gdef"><p>Una conversación que no queda guardada en tu historial ni en "Actividad en las apps de Gemini" — se activa con el ícono de reloj/temporizador en la caja de escritura. Útil para una consulta puntual con un dato sensible.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Actividad en las apps de Gemini<span class="chev">+</span></button><div class="gdef"><p>El control de privacidad central (en myactivity.google.com/product/gemini). Activada (default): tus chats se guardan hasta 18 meses y se usan para entrenar modelos de Google, con revisión humana de un subconjunto. Desactivada: no entrenan con tus chats futuros, aunque se retienen 72 horas por motivos operativos.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Selector de modelo<span class="chev">+</span></button><div class="gdef"><p>El desplegable arriba de la caja de prompt donde elegís qué versión de Gemini responde. No hace falta memorizar nombres — importa el criterio, no la versión.</p></div></div>
+
+      <div class="gitem"><button class="gterm">3.1 Flash-Lite<span class="chev">+</span></button><div class="gdef"><p>La opción del selector para respuestas más rápidas, lo simple y urgente.</p></div></div>
+
+      <div class="gitem"><button class="gterm">3.5 Flash<span class="chev">+</span></button><div class="gdef"><p>La opción que viene elegida por defecto, para asistencia general — la que usás para casi todo en el día a día del negocio.</p></div></div>
+
+      <div class="gitem"><button class="gterm">3.1 Pro<span class="chev">+</span></button><div class="gdef"><p>La opción para matemáticas y programación avanzada, cuando la respuesta necesita "pensar" más.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Nivel de pensamiento<span class="chev">+</span></button><div class="gdef"><p>Un ajuste adicional del modelo, Estándar (la mayoría de las preguntas) o Extendido (problemas complejos).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Nano Banana Pro<span class="chev">+</span></button><div class="gdef"><p>El nombre del modelo de generación y edición de imágenes de Gemini. Disponible desde el plan gratis; los planes pagos suman más generaciones.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Créditos (Flow)<span class="chev">+</span></button><div class="gdef"><p>La unidad con la que se paga el video generado (Veo, dentro de Google Flow) — Plus suma 200, Pro 1.000. Para este curso básico: se menciona, no se profundiza.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Plan / suscripción<span class="chev">+</span></button><div class="gdef"><p>El nivel de acceso a Gemini. Gratis, Google AI Plus (USD 4.99/mes), Google AI Pro (USD 19.99/mes) y Google AI Ultra (desde USD 99.99/mes).</p></div></div>
+
+      <p class="gloss-group">Método del curso</p>
+
+      <div class="gitem"><button class="gterm">Gem del negocio<span class="chev">+</span></button><div class="gdef"><p>El Gem que armás en el Módulo 3 con el nombre, los precios, las políticas y el tono reales de tu negocio. Se reusa como base en varios módulos siguientes (imágenes, mini-herramientas).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Sistema IA/<span class="chev">+</span></button><div class="gdef"><p>La carpeta donde vas guardando cada entregable del curso (01 al 08), para tener todo en un mismo lugar al terminar.</p></div></div>
+
+      <div class="gitem"><button class="gterm">IA responsable<span class="chev">+</span></button><div class="gdef"><p>El criterio transversal del curso (heredado del temario oficial de Google): verificar una respuesta antes de usarla con un cliente real y cuidar los datos sensibles que le compartís a Gemini. No es paranoia ni relajo — es el paso final antes de mandar cualquier cosa.</p></div></div>
+
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h3>🔁 El prompt universal de refinamiento</h3>
+      <p>Cuando Gemini te devuelve algo genérico, tibio o que no te sirve, no lo tirés — usá este prompt para que lo mejore con tus datos reales. Funciona en cualquier chat de gemini.google.com (web o app), con o sin Gem, en cualquier módulo de este curso:</p>
+      <div class="prompt">
+        <div class="top"><span>prompt · refinamiento universal</span><button class="copy">Copiar</button></div>
+        <pre>Esta respuesta no me sirve porque [explicá qué falla: muy genérica, no usa
+mis datos, el tono no es el mío, etc.].
+
+Volvé a hacerla, más [concreta / corta / cercana a mi negocio], usando estos
+datos reales: [pegá acá precios, políticas, tono, o lo que corresponda].</pre>
+      </div>
+    </div>
+
+    <p class="gloss-note">Tocá un término para ver la definición. El buscador filtra en tiempo real.</p>
+  </section>
+
+  <!-- ═══ MÓDULO 1 ═══ -->
+  <section class="panel" id="p-m1">
+    <div class="sec-head"><span class="numchip">01</span><h2>Arranque</h2></div>
+    <p class="sec-sub">Ya tenés lo único que hace falta para empezar: una cuenta de Google. Gemini vive ahí adentro, no en una app nueva que tengas que aprender de cero. En este módulo la activás, la dejás configurada como vos querés, y salís con un primer resultado real de tu negocio — no un ejemplo de prueba.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Entrá a gemini.google.com con tu cuenta de Gmail de siempre y escribí: "armame un mensaje corto para avisarle a mis clientes que mañana abro una hora más tarde". Una cuenta que ya tenés, una pregunta, un resultado.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> pensás que para usar IA en el negocio hay que instalar algo, pagar algo o aprender un programa nuevo. Eso te frena semanas.</p>
+      <p><strong>Te llevás:</strong> la certeza de que ya estás adentro — con la misma cuenta de Gmail — y la costumbre de abrir Gemini para la primera tarea real del día.</p>
+      <p><strong>Lo usás cuando:</strong> necesitás una respuesta rápida, un texto corto, una idea ordenada, y no tenés ganas de abrir cinco programas para conseguirla.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que termines el módulo con la cuenta lista, la privacidad decidida a conciencia (no por default sin mirar), el plan elegido con criterio, y un resultado de texto que ya podés usar hoy en tu negocio — no un "hola mundo" de práctica.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>La ventaja de Gemini no es que sea "más inteligente" que otra IA — es que ya vive donde vive tu negocio: tu Gmail, tu Drive, tu agenda. No hay fricción de cuenta nueva ni contraseña nueva. Eso significa que la primera tarea útil está a un click, no a una tarde de configuración. Y el plan gratis de Gemini es, hoy, el más completo de las tres herramientas de IA más usadas: trae generación de imágenes, investigación con informe armado (Deep Research), asistentes personalizados (Gems), conversación por voz (Live) y un panel para crear documentos (Canvas) — todo sin pagar un peso. Empezar gratis acá no es "la versión recortada": es la versión completa para arrancar un negocio chico.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Entrá con tu cuenta de Google.</strong> Andá a gemini.google.com (o abrí la app en tu celular) y tocá "Iniciar sesión" con el mismo mail que usás para Gmail. No hay registro nuevo, no hay contraseña nueva.</li>
+        <li><strong>Decidí tu privacidad, hoy, no "después".</strong> Andá a myactivity.google.com/product/gemini (o desde Gemini: tu foto de perfil → Actividad en las apps de Gemini). Ahí ves un interruptor: si lo dejás <strong>activado</strong> (viene así por defecto), tus chats se guardan hasta 18 meses y se usan para entrenar los modelos de Google, con revisión humana de una parte de las conversaciones (desvinculadas de tu cuenta) — apagarlo no borra lo que ya se guardó. Si lo <strong>desactivás</strong>, tus chats futuros no se usan para entrenar, aunque igual se retienen por un máximo de 72 horas por motivos operativos. Alternativa rápida sin tocar el interruptor general: usar un <strong>chat temporal</strong> (ícono de reloj/temporizador) para una consulta puntual que no querés que quede guardada. La regla para tu negocio: si vas a escribir datos de clientes, precios internos o algo que no compartirías con un desconocido, usá un chat temporal o repensá qué le pegás. No es paranoia ni es despreocupación — es criterio.</li>
+        <li><strong>Conocé el selector de modelo — sin obsesionarte con nombres.</strong> En la caja donde escribís hay un desplegable arriba: <strong>3.1 Flash-Lite</strong> (respuestas más rápidas, para lo simple y urgente), <strong>3.5 Flash</strong> (asistencia general — este viene elegido por defecto y es el que usás para casi todo) y <strong>3.1 Pro</strong> (matemáticas y programación avanzada, para lo que necesita más "pensar"). No hace falta que memorices estos nombres — van a cambiar con el tiempo. Lo que importa es el criterio: para el día a día del negocio, dejá el que viene por defecto y probá el otro solo si la respuesta te queda corta en algo técnico o numérico.</li>
+        <li><strong>Elegí tu plan con criterio, no por miedo a quedarte corto.</strong> Gratis: arrancás acá, ya incluye imágenes, Deep Research, Gems, Live y Canvas. Google AI Plus (USD 4.99/mes): quedate acá cuando el plan gratis te empiece a frenar por uso. Google AI Pro (USD 19.99/mes): subí a este si tu trabajo diario es leer documentos largos. Google AI Ultra (desde USD 99.99/mes): el tope de todo, no es para arrancar. Para hoy: quedate en el plan gratis. Es una decisión, no un límite que te imponen.</li>
+        <li><strong>Si venís del curso de ChatGPT:</strong> los prompts que ya aprendiste ahí — ser específico, dar contexto, pedir el formato que necesitás — funcionan igual acá. No hace falta reaprender nada, solo aplicarlo en esta caja de texto.</li>
+        <li><strong>Hacé tu primera tarea real.</strong> Elegí algo de tu negocio de hoy: un mensaje para clientes, una idea para un posteo, una respuesta a un mail difícil. Usá una de las plantillas de abajo.</li>
+      </ol>
+    </div>
+
+    <span class="gptmock-tag">🔑 Así se ve — iniciar sesión en gemini.google.com</span>
+    <div class="uimock" role="img" aria-label="Mock de gemini.google.com sin sesión iniciada, con el botón Iniciar sesión arriba a la derecha">
+      <div class="bar">gemini.google.com</div>
+      <div class="ubody">
+        <div class="fld"><span class="box">Iniciar sesión con tu cuenta de Google — la misma de Gmail, sin registro nuevo.</span></div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">🔒 Así se ve — Actividad en las apps de Gemini</span>
+    <div class="uimock" role="img" aria-label="Mock de myactivity.google.com/product/gemini con el interruptor de Actividad en las apps de Gemini">
+      <div class="bar">Actividad en las apps de Gemini</div>
+      <div class="ubody">
+        <div class="toggle-row"><span>Actividad en las apps de Gemini</span><span class="toggle on" aria-hidden="true"></span></div>
+        <div class="fld" style="margin-top:10px"><span class="box">Activada: tus chats se guardan hasta 18 meses y pueden usarse para entrenar modelos, con revisión humana de un subconjunto.</span></div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">🧭 Así se ve — selector de modelo</span>
+    <div class="uimock" role="img" aria-label="Mock del desplegable de selector de modelo en la caja de prompt de Gemini">
+      <div class="bar">Selector de modelo</div>
+      <div class="ubody">
+        <div class="sidebaritem">3.1 Flash-Lite — Respuestas más rápidas</div>
+        <div class="sidebaritem on">3.5 Flash — Asistencia general</div>
+        <div class="sidebaritem">3.1 Pro — Matemáticas y programación avanzada</div>
+        <div class="fld" style="margin-top:8px"><span class="box">Nivel de pensamiento: Estándar / Extendido</span></div>
+      </div>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>La app de Gemini en el celu es ideal para esto: la tenés a mano, podés dictar en vez de escribir (ícono de micrófono) y usar Gemini Live si preferís hablarle en vez de tipear. Ideal para una consulta rápida entre atender un cliente y el siguiente.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Para la primera configuración (privacidad, elegir plan, revisar el selector de modelo con calma) conviene la compu: pantalla grande, todos los menús a la vista, sin apurarte. Regla simple: configurar = compu; consulta rápida del día = celular.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — Primer mensaje para tus clientes</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · primer mensaje</span><button class="copy">Copiar</button></div>
+<pre>Tengo <strong class="field">[tipo de negocio, ej: una peluquería / un almacén / un estudio contable]</strong>.
+Necesito avisarles a mis clientes que <strong class="field">[la novedad: cierro tal día, cambio de horario,
+nueva promoción]</strong>. Escribime un mensaje corto para WhatsApp/Instagram, tono <strong class="field">[cálido /
+formal / directo]</strong>, que termine invitando a <strong class="field">[reservar / responder / pasar por el local]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — Ordenar una idea que tenés en la cabeza</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · ordenar idea</span><button class="copy">Copiar</button></div>
+<pre>Tengo esta idea para mi negocio, todavía desordenada: <strong class="field">[pegá 3-4 líneas sueltas de lo
+que pensás]</strong>.
+Ayudame a ordenarla en 3 puntos claros, sin agregar nada que yo no dije.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — Responder un mail o mensaje difícil</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · mensaje difícil</span><button class="copy">Copiar</button></div>
+<pre>Recibí este mensaje de un cliente: "<strong class="field">[pegá el mensaje]</strong>".
+Ayudame a responder de forma <strong class="field">[profesional / firme pero amable / breve]</strong>,
+sin prometer nada que no puedo cumplir. Dame 2 opciones de respuesta.</pre>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Gemini</span>
+    <div class="geminimock">
+      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
+      <div class="geminimock-body">
+        <div class="geminimock-user"><p>Tengo un almacén de barrio. El lunes que viene subo el precio de la leche y las bebidas por un aumento de mis proveedores. Escribime un cartel corto para pegar en la puerta, tono directo pero respetuoso.</p></div>
+        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
+          <div class="aicol"><span class="chip">3.5 Flash</span>
+          <p>"Aviso a nuestros clientes: a partir del lunes 13, actualizamos los precios de lácteos y bebidas por aumento de nuestros proveedores. Seguimos ofreciéndote la misma calidad y atención de siempre. ¡Gracias por elegirnos!" — ¿Querés una versión más corta para redes también?</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Escribir un pedido tan genérico que la respuesta también sale genérica — por ejemplo "ayudame con mi negocio" sin decir cuál es el negocio ni qué necesitás. Gemini no adivina tu contexto: si no se lo das, te devuelve algo que sirve para cualquiera y por eso no sirve para nadie. Contale a qué te dedicás, para quién es el texto, y qué tono querés.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Un dueño de una peluquería quiere avisar a sus clientas que el sábado próximo cierra por una capacitación. En vez de escribir "escribime un aviso", pone: "Tengo una peluquería de barrio. El sábado 12 cierro todo el día por una capacitación del equipo. Escribime un mensaje corto para WhatsApp, tono cálido, que invite a reservar turno para otro día." Gemini responde con un texto de 3 líneas, listo para pegar y mandar, sin nada que editar.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Iniciaste sesión con tu cuenta de Google y revisaste (no dejaste sin mirar) tu configuración de "Actividad en las apps de Gemini".</li>
+        <li>Entendés qué hace el selector de modelo sin necesitar memorizar nombres.</li>
+        <li>Elegiste conscientemente quedarte en el plan gratis por ahora.</li>
+        <li>Generaste un texto real de tu negocio — no un ejemplo — que efectivamente vas a usar o ya usaste.</li>
+        <li>Si salió genérico, le agregaste más contexto y volviste a pedirlo, y podés repetir el proceso solo.</li>
+      </ul>
+    </div>
+
+    <span class="entregable">📦 Entregable · 01-primer-resultado — cuenta configurada + primer resultado real</span>
+
+    <label class="modcheck" data-mod="1">
+      <input type="checkbox" data-mod="1" aria-label="Completé el módulo 1">
+      <span>Completé el módulo 1 · Arranque</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 2 ═══ -->
+  <section class="panel" id="p-m2">
+    <div class="sec-head"><span class="numchip">02</span><h2>Tu negocio conectado</h2></div>
+    <p class="sec-sub">En el Módulo 1 le hablaste a Gemini. Ahora le mostrás dónde vive tu negocio: tu Gmail, tu Drive, tu Calendar. Esta es la diferencia que ninguna otra IA de chat tiene igual — Gemini puede buscar y trabajar sobre lo que YA existe en tu cuenta, sin que se lo tengas que pegar a mano.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Activá la conexión con tus apps y pedile: "buscá en mi Gmail el último mail que le mandé a [un cliente o proveedor] y resumime de qué hablamos". Una conexión, una búsqueda sobre datos reales.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> la información de tu negocio está desparramada — un presupuesto viejo en un mail, una reunión en el calendario, un documento en Drive que no encontrás más. Buscarlo a mano te come el día.</p>
+      <p><strong>Te llevás:</strong> la costumbre de pedirle a Gemini que busque, resuma o redacte sobre lo que ya tenés guardado, en vez de revisar carpeta por carpeta.</p>
+      <p><strong>Lo usás cuando:</strong> necesitás retomar algo que ya hiciste antes — un presupuesto, un mail, una reunión — y no te acordás dónde quedó ni los detalles exactos.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que actives la conexión con tus apps de Google y resuelvas una tarea real sobre datos que ya existen en tu cuenta — encontrar un mail viejo, resumir una seguidilla de correos, armar la segunda versión de un documento que ya mandaste — no un ejemplo inventado.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Acá está el diferencial real de Gemini frente a otras IA de chat: las <strong>apps conectadas</strong>. Gemini puede leer tu <strong>Gmail, Calendar, Docs, Drive, Keep y Tasks</strong> cuando se lo permitís — con una sola conexión a tu cuenta de Google. Esto significa que no tenés que copiar y pegar el mail viejo, ni adjuntar el documento cada vez: se lo pedís y él va a buscarlo. Es la diferencia entre un asistente que solo entiende lo que le tipeás en el momento, y uno que ya conoce el historial de tu negocio porque vive en el mismo lugar donde guardás todo.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Activá la conexión con tus apps.</strong> Desde Gemini, entrá a la configuración (tu foto de perfil) y buscá "Apps conectadas". La ubicación exacta del menú puede variar con las actualizaciones — lo que no cambia es el nombre de la opción. Activá las que uses en tu día a día: Gmail, Calendar, Docs, Drive, Keep, Tasks.</li>
+        <li><strong>Probá una búsqueda simple primero.</strong> Antes de pedir algo complejo, confirmá que la conexión funciona: "buscá en mi Gmail mails de [nombre de un cliente o proveedor real] de este mes". Esto te muestra que Gemini efectivamente está mirando tu cuenta, no inventando.</li>
+        <li><strong>Subí la exigencia a una tarea real de tu negocio.</strong> Por ejemplo: "encontrá el presupuesto que le mandé a [cliente] en marzo y armame la versión 2026 con los mismos ítems, precios actualizados" o "resumime en 5 líneas el hilo de mails con [proveedor] de las últimas dos semanas".</li>
+        <li><strong>Discerní antes de mandar.</strong> Gemini te va a devolver un texto o un número armado a partir de tu propia información — pero el criterio final del negocio es tuyo. Revisá que el presupuesto encontrado sea el correcto, que el resumen no se haya salteado algo importante, y recién ahí lo usás con un cliente real.</li>
+        <li><strong>Guardá el resultado</strong> en tu carpeta <code>Sistema IA/</code> como <code>02-negocio-conectado</code>, con una nota corta de qué conexión usaste y para qué.</li>
+      </ol>
+    </div>
+
+    <span class="gptmock-tag">🔌 Así se ve — activar Apps conectadas</span>
+    <div class="uimock" role="img" aria-label="Mock de la pantalla de Apps conectadas de Gemini con Gmail, Calendar, Docs, Drive, Keep y Tasks">
+      <div class="bar">Configuración · Apps conectadas</div>
+      <div class="ubody">
+        <div class="toggle-row"><span>Gmail</span><span class="toggle on" aria-hidden="true"></span></div>
+        <div class="toggle-row"><span>Calendar</span><span class="toggle on" aria-hidden="true"></span></div>
+        <div class="toggle-row"><span>Drive</span><span class="toggle" aria-hidden="true"></span></div>
+      </div>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Para una consulta rápida — "che, ¿qué reunión tengo mañana a la mañana?" — la app en el celular es perfecta: la conexión con Calendar y Gmail ya está activa y respondés caminando. Ideal también con Gemini Live si preferís preguntarlo por voz mientras manejás o atendés el local.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Para armar un documento nuevo a partir de uno viejo (como un presupuesto reversionado) conviene la compu: vas a querer revisar el resultado con calma, compararlo con el original en otra pestaña, y ajustarlo antes de mandarlo. Regla simple: pregunta rápida = celular; armar algo para entregar = compu.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — Encontrar y reversionar un documento viejo</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · reversionar documento</span><button class="copy">Copiar</button></div>
+<pre>Buscá en mi Gmail/Drive <strong class="field">[el documento o presupuesto]</strong> que le mandé a <strong class="field">[nombre]</strong>
+en <strong class="field">[mes aproximado]</strong>. Armame una nueva versión con <strong class="field">[qué cambia: precios,
+fecha, ítems]</strong> y dejala lista para revisar antes de enviar.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — Resumir un hilo de mails</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · resumir hilo</span><button class="copy">Copiar</button></div>
+<pre>Resumime el hilo de mails con <strong class="field">[nombre de cliente/proveedor]</strong> de
+<strong class="field">[período: esta semana / el último mes]</strong>. Quiero saber: de qué hablamos,
+qué quedó pendiente, y si hay alguna fecha límite.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — Chequear tu agenda antes de comprometerte</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · chequear agenda</span><button class="copy">Copiar</button></div>
+<pre>Mirá mi Calendar de <strong class="field">[período: esta semana / la próxima semana]</strong> y decime
+qué días/horarios tengo libres para <strong class="field">[tipo de compromiso: una reunión de
+1 hora, una entrega, un llamado]</strong>.</pre>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Gemini</span>
+    <div class="geminimock">
+      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
+      <div class="geminimock-body">
+        <div class="geminimock-user"><p>Encontrá el presupuesto que le mandé a Marcela (Diseño Andina) en marzo por mail y armame la versión 2026 con los mismos ítems pero actualizando los precios un 15%.</p></div>
+        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
+          <div class="aicol"><span class="chip">3.5 Flash</span>
+          <p>Encontré el mail del 14 de marzo con el presupuesto a Diseño Andina: 3 ítems (logo, tarjetería, señalética), total $340.000. Versión 2026 con +15%: logo $92.000, tarjetería $138.000, señalética $161.000 — total $391.000. ¿Te lo dejo armado como para reenviar?</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Activar la conexión y después pedir algo tan vago que Gemini no sabe qué buscar — por ejemplo "revisá mi Gmail" sin decir de quién, de cuándo o sobre qué tema. Con tu cuenta conectada tenés años de mails: dale una pista concreta (un nombre, una fecha aproximada, un asunto) para que la búsqueda encuentre lo que necesitás y no un resumen genérico de "tu bandeja de entrada".</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Un contador necesita retomar una consulta que un cliente le hizo hace dos meses por mail y no se acuerda el detalle. En vez de buscar manualmente en la bandeja, le pide a Gemini: "buscá en mi Gmail los mails de [cliente] de mayo sobre monotributo y resumime qué me preguntó y qué le respondí". Gemini encuentra el hilo, lo resume en tres líneas, y el contador retoma la conversación con el cliente sin perder ni media hora revisando correos viejos.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <p>Activaste la conexión con al menos Gmail (y las que uses de Calendar, Docs, Drive, Keep o Tasks), hiciste una búsqueda real sobre datos propios —no un ejemplo inventado— y obtuviste un resultado que revisaste con tu propio criterio antes de darlo por bueno. Si la primera búsqueda salió genérica, agregale un nombre o fecha concreta y repetila. Guardaste el resultado en <code>Sistema IA/02-negocio-conectado</code> y podés repetir el proceso solo, sobre otro dato de tu negocio, sin esta guía.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 02-negocio-conectado — apps conectadas + 1 tarea real sobre datos propios</span>
+
+    <label class="modcheck" data-mod="2">
+      <input type="checkbox" data-mod="2" aria-label="Completé el módulo 2">
+      <span>Completé el módulo 2 · Tu negocio conectado</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 3 ═══ -->
+  <section class="panel" id="p-m3">
+    <div class="sec-head"><span class="numchip">03</span><h2>Tu Gem, tu empleado configurado</h2></div>
+    <p class="sec-sub">Hasta acá le explicaste a Gemini quién sos cada vez que le hablás. Acá dejás de repetirte: vas a crear un Gem, un asistente con tu tono, tus precios y tus políticas cargados una sola vez. Después, cada respuesta sale ya alineada a tu negocio, sin que se lo tengas que volver a explicar.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Creá un Gem nuevo, pegale el nombre de tu negocio, tres datos clave (a qué te dedicás, precios base, una política tuya) y hacele una sola pregunta como si fueras un cliente. Un Gem, tres datos, una prueba.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> cada vez que le pedís algo a Gemini para atender a un cliente, tenés que volver a contarle de cero quién sos, qué vendés y cómo trabajás. Se te escapa un dato, cambia el tono según el día, y terminás corrigiendo lo mismo una y otra vez.</p>
+      <p><strong>Te llevás:</strong> un Gem propio que ya sabe tu tono, tus precios y tus políticas, listo para redactar respuestas, mensajes o textos sin que se lo repitas.</p>
+      <p><strong>Lo usás cuando:</strong> te llega una consulta de un cliente, tenés que responder algo por WhatsApp o redes, o necesitás un texto que "suene" a tu negocio y no a un genérico de IA.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que termines el módulo con un Gem de tu negocio funcionando: cargado con tus datos reales, probado con una consulta real, y guardado para usar de acá en adelante sin repetir la configuración.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Un Gem es información que cargás una vez y Gemini respeta siempre que lo uses, en esa conversación y en las que abras después con el mismo Gem. Es la diferencia entre explicarle tu negocio a un desconocido cada mañana y tener un empleado que ya lo sabe de memoria. Esto está disponible desde el plan gratis, sin límite de cantidad publicado. Un dato honesto: los Gems no funcionan con Gemini Live (la conversación por voz). Si vas a usar tu Gem, es por chat de texto.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Entrá a Gems.</strong> En gemini.google.com, buscá "Gems" en el menú lateral y elegí la opción de crear uno nuevo.</li>
+        <li><strong>Nombralo con el nombre real de tu negocio.</strong> Nada de "Asistente 1": si tu negocio se llama "Almacén Doña Rosa", el Gem se llama así.</li>
+        <li><strong>Cargá las instrucciones con datos propios</strong>, no genéricos: a qué te dedicás y a quién le vendés, tus precios base o rango de precios (los reales), una política concreta (cambios, envíos, formas de pago, horarios) y el tono que querés.</li>
+        <li><strong>Guardá el Gem.</strong></li>
+        <li><strong>Probalo como si fueras un cliente real:</strong> escribile una consulta típica que te llega todas las semanas.</li>
+        <li><strong>Leé la respuesta con ojo crítico:</strong> ¿el precio es el que pusiste? ¿el tono suena a vos? Si algo salió genérico o inventado, volvé a las instrucciones del Gem y agregá el dato que faltó.</li>
+        <li><strong>Guardá el resultado</strong> (la conversación de prueba o una captura) en tu carpeta <code>Sistema IA/03-gem-negocio</code>.</li>
+      </ol>
+    </div>
+
+    <span class="gptmock-tag">🧩 Así se ve — crear un Gem</span>
+    <div class="uimock" role="img" aria-label="Mock de la pantalla de creación de un Gem en Gemini, con campos de nombre e instrucciones">
+      <div class="bar">Gems · Crear nuevo</div>
+      <div class="ubody">
+        <div class="fld"><label>Nombre del Gem</label><span class="box">Almacén Doña Rosa</span></div>
+        <div class="fld"><label>Instrucciones</label><span class="box">Rubro, precios reales, política de retiro en local, tono cercano de barrio…</span></div>
+      </div>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Podés crear y editar tu Gem desde la app sin problema, y es cómodo para probarlo rápido con una consulta mientras estás en el local atendiendo. Ojo: si pensás usar la voz de Gemini Live para hablar manos libres, ahí el Gem no entra en juego — Live no lee las instrucciones del Gem, así que para consultas con precios y políticas seguí por chat de texto.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Para cargar las instrucciones la primera vez, la compu es más cómoda: escribís tranquilo, revisás que cada dato esté completo (precios, políticas, tono) antes de guardar. Una vez armado, lo usás indistinto desde donde te convenga.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — Instrucciones para crear tu Gem</h3>
+      <div class="prompt">
+        <div class="top"><span>instrucciones · gem</span><button class="copy">Copiar</button></div>
+<pre>Sos el asistente de <strong class="field">[nombre de tu negocio]</strong>.
+Rubro: <strong class="field">[a qué te dedicás]</strong>.
+Público: <strong class="field">[a quién le vendés]</strong>.
+Precios: <strong class="field">[lista real de precios o rango]</strong>.
+Políticas: <strong class="field">[envíos / cambios / turnos / formas de pago — las que apliquen]</strong>.
+Tono: <strong class="field">[cercano / formal / con humor — el que uses de verdad]</strong>.
+Cuando no sepas un dato, decilo en vez de inventarlo.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — Probar el Gem con una consulta de cliente</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · probar el gem</span><button class="copy">Copiar</button></div>
+<pre><strong class="field">[Pegá acá una pregunta real que te haga un cliente seguido]</strong></pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — Ajustar el Gem después de la primera prueba</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · ajustar el gem</span><button class="copy">Copiar</button></div>
+<pre>La respuesta anterior <strong class="field">[qué faltó o qué sonó mal]</strong>.
+Sumá este dato a tus instrucciones: <strong class="field">[dato concreto]</strong>.
+Volvé a responder la misma consulta con esto agregado.</pre>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Gemini — creando el Gem</span>
+    <div class="geminimock">
+      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
+      <div class="geminimock-body">
+        <div class="geminimock-user"><p>(creando el Gem "Almacén Doña Rosa") Instrucciones: Somos un almacén de barrio en Córdoba. Vendemos productos de primera necesidad. Precios: pan casero $1200/kg, facturas $800/media docena. Política: no hacemos envíos, retiro en local de 8 a 20 hs. Tono: cercano, como si fueras el dueño hablándole a un vecino.</p></div>
+        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
+          <div class="aicol"><span class="chip">3.5 Flash</span>
+          <p>Gem "Almacén Doña Rosa" creado. Ya puedo responder consultas de clientes con tus precios, tu política de retiro en local y un tono cercano de barrio. Probalo con una pregunta real cuando quieras.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Gemini — dentro del Gem</span>
+    <div class="geminimock">
+      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
+      <div class="geminimock-body">
+        <div class="geminimock-user"><p>(dentro del Gem) Hola, ¿cuánto sale la media docena de facturas y hacen envío a mi casa?</p></div>
+        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
+          <div class="aicol"><span class="chip">3.5 Flash</span>
+          <p>¡Hola! La media docena de facturas sale $800. Por ahora no hacemos envíos a domicilio, pero podés retirarlas en el local de 8 a 20 hs, ¡te esperamos!</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Cargar el Gem con instrucciones vagas ("sé amable y profesional") en vez de datos concretos. Un Gem sin precios reales ni políticas puntuales termina inventando o contestando genérico — exactamente lo que querías evitar. Cuanto más específico el dato que cargás, más útil la respuesta que te devuelve.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Una peluquería crea el Gem "Estilo Marina" con: servicios y precios (corte $3500, color desde $8000), política de turnos (con 24 hs de anticipación, seña del 30%) y tono cálido. Cuando una clienta pregunta por WhatsApp "¿cuánto sale un color y necesito seña?", la dueña copia la pregunta al Gem y en segundos tiene una respuesta lista con el precio correcto y la política de seña, sin tener que redactarla de cero ni buscar el precio en una lista aparte.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <p>Creaste un Gem con el nombre y los datos reales de tu negocio (no un ejemplo de prueba), lo probaste con una consulta real de cliente, y si la primera respuesta salió genérica, volviste a las instrucciones y agregaste el dato que faltaba hasta que sonó a vos. Guardaste el resultado en <code>Sistema IA/03-gem-negocio</code> y podés repetir el proceso — crear otro Gem para otra área del negocio — sin esta guía.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 03-gem-negocio — un Gem con tono, precios y políticas</span>
+
+    <label class="modcheck" data-mod="3">
+      <input type="checkbox" data-mod="3" aria-label="Completé el módulo 3">
+      <span>Completé el módulo 3 · Tu Gem</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 4 ═══ -->
+  <section class="panel" id="p-m4">
+    <div class="sec-head"><span class="numchip">04</span><h2>Imágenes que venden</h2></div>
+    <p class="sec-sub">Ya tenés un Gem que escribe con tu tono y tus precios. Ahora falta lo visual: el post, el flyer de la promo, la foto del producto que subís a mostrar. Gemini genera y edita imágenes gratis, en la misma herramienta donde ya venís trabajando — sin abrir un programa de diseño ni contratar a nadie.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Pedile a Gemini una imagen para un post de tu negocio (un producto, una promo, lo que tengas hoy) y mirá qué te devuelve. Una imagen, mirada crítica, sin guardarla todavía — eso viene después de iterar.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> necesitás imágenes para redes o para una promo, pero no sabés diseñar y pagar a alguien para cada post no cierra en tiempo ni en plata.</p>
+      <p><strong>Te llevás:</strong> la costumbre de generar una primera imagen, mirarla con ojo crítico y pedirle ajustes concretos hasta que sirva para publicar — en vez de conformarte con lo primero que sale.</p>
+      <p><strong>Lo usás cuando:</strong> tenés que anunciar una promo, mostrar un producto nuevo, o armar un post y no tenés una foto que valga la pena o un diseñador a mano.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que termines el módulo con un pack de 2 o 3 piezas visuales de tu negocio real — un post con su gráfica, un flyer de una promo, o una foto de producto mejorada — pensadas para publicar, no para guardar de prueba.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Gemini genera y edita imágenes desde el plan gratis, con la misma herramienta que ya usás para escribir. Lo que marca la diferencia no es la primera imagen que te da — casi siempre sale genérica — sino cómo la refinás: le agregás tu color, tu producto real, tu fondo, hasta que se parezca a algo que publicarías de verdad. Iterar es el método, no un paso opcional. Una honestidad: el plan gratis te da un acceso limitado a Nano Banana Pro (el modelo detrás de esto — el nombre va a ir cambiando con el tiempo; importa lo que hace, no cómo se llama). Si un día te frena a mitad de una tanda de imágenes, esa es la señal de mirar el plan Plus (USD 4.99), no de que hiciste algo mal.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Definí qué pieza necesitás hoy:</strong> un post con gráfica para redes, un flyer de una promo, o una foto de un producto que ya tenés pero se ve poco profesional.</li>
+        <li><strong>Escribí el texto primero con tu Gem del Módulo 3</strong> (el nombre de la promo, el precio, la fecha límite) — así la imagen y el texto van a la par, con los mismos datos reales.</li>
+        <li><strong>Pedile a Gemini la primera imagen</strong>, describiendo tu negocio real: rubro, producto, colores de tu marca si los tenés, y el texto del Gem si va sobre la imagen.</li>
+        <li><strong>Mirá el resultado con ojo crítico:</strong> ¿el producto se parece al tuyo? ¿el texto es legible? ¿el estilo pega con tu negocio? La primera versión casi siempre es genérica — es normal, ahí empieza el trabajo.</li>
+        <li><strong>Iterá con indicaciones concretas</strong>, una a la vez: "cambiá el fondo a un color más cálido", "hacé el texto más grande", "el producto debería verse de frente, no de costado".</li>
+        <li><strong>Si tenés una foto real de tu producto</strong>, subila y pedile que la mejore (fondo prolijo, mejor luz, look más profesional) en vez de generar una desde cero — suele dar resultados más fieles a lo que vendés.</li>
+        <li><strong>Guardá las 2 o 3 piezas finales</strong> en tu carpeta <code>Sistema IA/04-pack-visual</code>.</li>
+      </ol>
+      <p style="margin-top:8px">Una mención honesta: Gemini también genera video (Veo, dentro de Google Flow), pero funciona por créditos limitados y ya es un terreno de nivel intermedio. Si te interesa, video y automatizaciones se profundizan en Gemini intermedio, próximamente.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Este es el caso fuerte del celular en todo el curso: sacás la foto del producto en el momento (en el local, en el mostrador) y desde ahí mismo se la subís a Gemini para que la mejore — fondo prolijo, mejor luz — sin pasar por la compu. Para pedidos rápidos de imagen mientras estás con el cliente enfrente, el celu es más rápido.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Para iterar varias veces sobre la misma pieza (ajustar texto, colores, layout de un flyer con varios elementos) la compu da más comodidad: ves la imagen grande, comparás versiones una al lado de la otra, y es más fácil describir con precisión qué cambiar.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — Primera imagen para un post o flyer</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · primera imagen</span><button class="copy">Copiar</button></div>
+<pre>Genera una imagen para <strong class="field">[post de redes / flyer]</strong> de mi negocio: <strong class="field">[rubro]</strong>.
+Producto o promo: <strong class="field">[detalle real, con el texto que armaste en tu Gem]</strong>.
+Colores de mi marca: <strong class="field">[los tuyos, si los tenés]</strong>.
+Estilo: <strong class="field">[cercano / elegante / divertido — el que uses de verdad]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — Iterar sobre lo que ya generó</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · iterar imagen</span><button class="copy">Copiar</button></div>
+<pre>De la imagen anterior, ajustá esto: <strong class="field">[UN cambio concreto por vez,
+ej: "el texto se superpone con el producto, moverlo arriba"]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — Mejorar una foto real de producto</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · mejorar foto real</span><button class="copy">Copiar</button></div>
+<pre>Adjunto: <strong class="field">[foto real de tu producto, sacada con el celular]</strong>.
+Mejorá esta foto: prolijá el fondo, mejorá la luz, dale un look
+más profesional para publicar en redes. No cambies el producto en sí.</pre>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">🖼️ Así se ve en Gemini — primera imagen generada</span>
+    <div class="geminimock">
+      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
+      <div class="geminimock-body">
+        <div class="geminimock-user"><p>Genera un post para redes de mi vinería. Promo: 20% off en vinos tintos hasta el domingo. Colores: bordó y dorado.</p></div>
+        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
+          <div class="aicol"><span class="chip">Nano Banana Pro</span>
+          <div class="imgframe-wrap">
+            <div class="imgframe" role="img" aria-label="Placeholder de imagen generada: botellas de vino tinto sobre fondo bordó con detalles dorados y el texto 20% OFF destacado"><span class="ic">🖼️</span><span>[post generado — botellas de vino tinto, fondo bordó, detalles dorados, texto "20% OFF"]</span></div>
+          </div>
+          <p>Generé una primera versión con botellas de vino tinto sobre fondo bordó y detalles dorados, con el texto "20% OFF" destacado. Contame si el estilo va para tu marca o preferís ajustar algo.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">🖼️ Así se ve en Gemini — el ajuste, con tu logo real</span>
+    <div class="geminimock">
+      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
+      <div class="geminimock-body">
+        <div class="geminimock-user"><p>Me gusta pero el texto queda tapado por las botellas y quiero mi logo real, no uno inventado. Subo mi logo acá: [logo-vineria.png]</p></div>
+        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
+          <div class="aicol"><span class="chip">Nano Banana Pro</span>
+          <div class="imgframe-wrap">
+            <div class="imgframe" role="img" aria-label="Placeholder de imagen ajustada: texto 20% OFF en franja superior libre de botellas, logo real de la vinería en la esquina inferior derecha"><span class="ic">🖼️</span><span>[versión ajustada — texto en franja superior, logo real en esquina inferior derecha]</span></div>
+          </div>
+          <p>Ajustado: moví el texto "20% OFF" a la franja superior, libre de botellas, y coloqué tu logo real en la esquina inferior derecha. ¿Lo dejamos así o seguimos afinando el tamaño del logo?</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Quedarse con la primera imagen porque "ya está bastante bien". La primera versión casi siempre es genérica: un producto que no es el tuyo, colores que no son los de tu marca, un texto ilegible. Publicarla así diluye tu marca en vez de reforzarla. El paso que la mayoría se salta es pedir el segundo y tercer ajuste — ahí es donde la imagen empieza a parecerse a tu negocio.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Una marca de indumentaria necesita un flyer para el Día del Amigo. La primera imagen que genera Gemini muestra ropa genérica sobre un fondo neutro. La dueña pide: "usá los colores de mi marca (verde y blanco), agregá el texto '2x1 en remeras' que armé con mi Gem, y que la ropa se vea como la que realmente vendo (remeras lisas, no estampadas)". Tres ajustes concretos después, tiene un flyer con su paleta, su promo real y su producto — listo para publicar, no para guardar de prueba.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <p>Generaste al menos una imagen con datos reales de tu negocio, la iteraste con ajustes concretos hasta que dejó de ser genérica, y probaste el resultado mirándolo como si fueras a publicarlo hoy. Guardaste 2 o 3 piezas finales en <code>Sistema IA/04-pack-visual</code> y podés repetir el proceso para la próxima promo o producto, sin esta guía.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 04-pack-visual — 2-3 piezas listas para publicar</span>
+
+    <label class="modcheck" data-mod="4">
+      <input type="checkbox" data-mod="4" aria-label="Completé el módulo 4">
+      <span>Completé el módulo 4 · Imágenes que venden</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 5 ═══ -->
+  <section class="panel" id="p-m5">
+    <div class="sec-head"><span class="numchip">05</span><h2>Investigación que vende</h2></div>
+    <p class="sec-sub">Hasta acá le diste tono, precios e imágenes a tu Gem. Ahora le vas a pedir algo distinto: que investigue por vos. Deep Research mira varias fuentes, arma un informe y te lo entrega ordenado — la tarea que antes te comía una tarde de pestañas abiertas en el navegador.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Pedile a Gemini un Deep Research sobre tu propio rubro: "investigá el mercado de [tu rubro] en [tu ciudad/país]: competencia, precios de referencia y qué buscan los clientes". Una sola consulta, tu negocio real.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> decidís sobre tu negocio — subir un precio, sumar un proveedor, abrir una línea nueva — con la info que juntaste de memoria o de un par de búsquedas sueltas.</p>
+      <p><strong>Te llevás:</strong> la costumbre de pedir un informe armado antes de mover plata, y de anotar la decisión que ese informe te ayudó a tomar.</p>
+      <p><strong>Lo usás cuando:</strong> necesitás mirar el mercado, un competidor o un proveedor antes de decidir algo que te cuesta plata o tiempo si sale mal.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que corras un Deep Research sobre el rubro de tu propio negocio y termines el módulo con una decisión tomada — no con un informe guardado sin usar. El informe es un paso; la decisión es el punto de llegada.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Un Deep Research no es un buscador con memoria: navega varias fuentes, cruza lo que encuentra y te devuelve un informe con estructura, ya masticado. Está disponible desde el plan gratis. Pero un informe de IA no es un oráculo. Acá entra la IA responsable que venís viendo desde el Módulo 1: antes de mover plata en base a lo que dice el informe, revisá si las fuentes son razonables y si el dato coincide con lo que vos ya sabés de tu rubro. Un informe que suena convincente igual puede tener un dato viejo o mal interpretado. La decisión final la tomás vos, con el informe como insumo, no como sentencia.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Elegí la pregunta de negocio, no un tema genérico.</strong> Nada de "contame sobre el mercado de indumentaria". Sí: "¿qué precios cobran 3 competidores de [tu rubro] en [tu zona] por [tu producto/servicio principal]?".</li>
+        <li><strong>Abrí Deep Research en gemini.google.com.</strong> Buscá la herramienta en el selector de herramientas de la caja de prompt (o escribí tu pregunta y elegí "Deep Research" antes de enviar).</li>
+        <li><strong>Escribí el pedido con tu negocio adentro:</strong> rubro, ciudad o zona, y qué necesitás decidir con esa info.</li>
+        <li><strong>Dejalo trabajar.</strong> Gemini navega varias fuentes por unos minutos y te devuelve el informe armado — no hace falta que hagas nada más mientras investiga.</li>
+        <li><strong>Leé el informe completo, no solo el resumen.</strong> Fijate qué fuentes cita y si los datos coinciden con lo que vos ya conocés del mercado.</li>
+        <li><strong>Anotá la decisión.</strong> Al final del informe (o en un documento aparte), escribí en una línea qué vas a hacer distinto esta semana a partir de lo que leíste. Sin esta línea, el módulo no está completo.</li>
+        <li><strong>Guardá el informe con la decisión anotada</strong> en <code>Sistema IA/05-informe-mercado</code>.</li>
+      </ol>
+      <p style="margin-top:8px">Sobre los límites de uso: Deep Research está disponible desde el plan gratis, pero como toda función avanzada tiene un límite de usos que se renueva cada tanto — Google no publica números exactos. Si te frena el límite un día, probá de nuevo más tarde; no rompiste nada.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Desde la app podés lanzar un Deep Research y cerrar el teléfono — te llega la notificación cuando el informe está listo, así que sirve para dispararlo antes de una reunión o mientras hacés otra cosa. Leerlo entero en la pantalla chica, en cambio, cansa.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Para leer el informe completo, comparar secciones y copiar datos a otro documento, la compu rinde más: ves el informe entero sin scrollear tanto. Regla simple: lo disparás donde estés, lo analizás en la compu.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — Radar de competencia</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · radar de competencia</span><button class="copy">Copiar</button></div>
+<pre>Hacé un Deep Research sobre mi competencia en <strong class="field">[tu rubro]</strong> en <strong class="field">[tu ciudad/zona]</strong>.
+Necesito saber:
+1. Qué precios cobran 3-4 competidores por <strong class="field">[tu producto/servicio principal]</strong>.
+2. Qué valoran sus clientes (según reseñas u opiniones públicas).
+3. Algo que estén haciendo que yo no hago.
+
+Es para decidir si <strong class="field">[subo precios / sumo un servicio / cambio algo de mi oferta]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — Evaluar un proveedor nuevo</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · evaluar proveedor</span><button class="copy">Copiar</button></div>
+<pre>Hacé un Deep Research sobre <strong class="field">[nombre o tipo de proveedor]</strong> antes de que decida trabajar con él/ella.
+Buscá:
+1. Reputación pública (reseñas, quejas, tiempo en el mercado).
+2. Precios de referencia si están disponibles.
+3. Alternativas conocidas en el mismo rubro.
+
+Necesito decidir si lo sumo como proveedor de mi negocio este mes.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — Pulso rápido de un producto/servicio nuevo</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · pulso rápido</span><button class="copy">Copiar</button></div>
+<pre>Hacé un Deep Research corto sobre si conviene sumar <strong class="field">[producto o servicio nuevo]</strong> a mi negocio de <strong class="field">[tu rubro]</strong> en <strong class="field">[tu zona]</strong>.
+Decime: hay demanda visible, quién más lo ofrece cerca mío, y qué precio sería razonable.</pre>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">🔎 Así se ve — abrir Deep Research</span>
+    <div class="geminimock">
+      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
+      <div class="geminimock-body">
+        <div class="geminimock-user"><p>Quiero abrir Deep Research desde gemini.google.com para investigar mi rubro</p></div>
+        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
+          <div class="aicol"><span class="chip">3.5 Flash</span>
+          <p>Elegí "Deep Research" entre las herramientas de la caja de escritura (la ubicación exacta puede variar con las actualizaciones). Escribí tu pedido con el contexto de tu negocio y esperá unos minutos — te devuelvo el informe armado.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📄 Así se ve en Gemini — el informe de Deep Research</span>
+    <div class="geminimock">
+      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
+      <div class="geminimock-body">
+        <div class="geminimock-user"><p>Hacé un Deep Research: qué cobran 3 pastelerías artesanales por una torta personalizada en Córdoba capital, y qué valoran los clientes al elegir una.</p></div>
+        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
+          <div class="aicol"><span class="chip">Deep Research</span>
+          <div class="report">
+            <div class="rt-title">📄 Torta personalizada — mercado Córdoba capital</div>
+            <div class="rt-sec"><b>Precios de referencia:</b> entre $18.000 y $26.000 la torta personalizada mediana, sobre 4 pastelerías relevadas.</div>
+            <div class="rt-sec"><b>Qué valoran los clientes:</b> el tiempo de entrega aparece en el 60% de las reseñas positivas, más que el precio.</div>
+            <div class="rt-sec"><b>Fuentes:</b> sitios propios y reseñas públicas — confirmar precios actuales antes de decidir…</div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Pedir el informe y guardarlo sin leerlo con ojo crítico, o peor, sin leerlo del todo. Un Deep Research te ahorra la búsqueda, no el criterio: si el informe dice que un proveedor cobra tal precio y vos sabés que en tu zona es distinto, marcalo y seguí investigando ese punto puntual antes de decidir. El informe más convincente es exactamente el que más conviene revisar antes de gastar plata en base a él.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Una dueña de un local de repostería quiere saber si puede subir el precio de las tortas personalizadas. Le pide a Gemini un Deep Research sobre 3-4 pastelerías de su ciudad. El informe vuelve con un rango de precios de la competencia y menciona que varias reseñas destacan el tiempo de entrega como motivo de elección, más que el precio. Ella cruza ese dato con sus propios pedidos, confirma que su tiempo de entrega ya es más corto que el promedio, y decide: sube el precio un 12% y lo comunica destacando la entrega rápida. Esa es la decisión anotada, no solo el informe.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <p>Corriste un Deep Research sobre el rubro de tu propio negocio (no un ejemplo genérico), leíste el informe completo y revisaste si los datos son razonables, y anotaste en una línea la decisión que tomaste a partir de eso. Si el informe salió genérico o poco útil, afiná la pregunta con más detalle de tu negocio y repetilo antes de dar el módulo por cerrado. Guardaste el informe con la decisión anotada en <code>Sistema IA/05-informe-mercado</code> y podés repetir el proceso solo, sin esta guía.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 05-informe-mercado — un Deep Research de tu rubro, con decisión</span>
+
+    <label class="modcheck" data-mod="5">
+      <input type="checkbox" data-mod="5" aria-label="Completé el módulo 5">
+      <span>Completé el módulo 5 · Investigación que vende</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 6 ═══ -->
+  <section class="panel" id="p-m6">
+    <div class="sec-head"><span class="numchip">06</span><h2>El archivero del negocio</h2></div>
+    <p class="sec-sub">Ya sabés qué documentos importan en tu negocio (los organizaste en el Módulo 2). Ahora les vas a dar un lugar fijo donde consultarlos: NotebookLM. Es otra herramienta de Google, gratis, pensada para que le cargues tus propios archivos y le preguntes sobre ellos las veces que quieras — sin que el chat se los "olvide".</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Entrá a notebooklm.google.com, creá un cuaderno nuevo y subile un solo documento de tu negocio (una lista de precios, un manual, un contrato). Preguntale algo puntual sobre ese documento.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> tenés manuales, listas de precios y contratos guardados en carpetas que nadie relee, y cada vez que necesitás un dato puntual tenés que buscarlo a mano o volver a subir el archivo al chat de siempre.</p>
+      <p><strong>Te llevás:</strong> un cuaderno permanente con los documentos de tu negocio adentro, listo para preguntarle en cualquier momento, sin volver a adjuntar nada.</p>
+      <p><strong>Lo usás cuando:</strong> necesitás consultar un manual, una lista de precios o un contrato que ya tenés guardado, y querés la respuesta ya, sin releer el documento entero.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que termines el módulo con un cuaderno de NotebookLM armado con documentos reales de tu negocio — no un cuaderno de prueba — y hayas comprobado que le podés preguntar y te contesta con base en esos archivos.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>El plan gratis de Gemini tiene una ventana de contexto de 32K (cuánto puede "tener en la cabeza" de una sola vez — entrada completa en el Glosario). Para un chat rápido alcanza de sobra, pero un manual largo o varios contratos empiezan a "ahogar" la conversación. Acá entra NotebookLM: un producto aparte de Google, pensado justamente para guardar documentos y consultarlos. En su plan Standard (gratis) tenés 100 cuadernos, 50 fuentes por cuaderno, 50 chats por día y 3 resúmenes de audio por día — de sobra para organizar la documentación de un negocio chico o mediano. Esto no reemplaza tu criterio: si el documento tiene un dato viejo, la respuesta también lo va a tener.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Entrá a notebooklm.google.com</strong> con la misma cuenta de Google que ya usás en Gemini.</li>
+        <li><strong>Creá un cuaderno nuevo</strong> y ponele un nombre claro: el de tu negocio o el tipo de documentos que vas a guardar ahí (ej: "Precios y proveedores 2026").</li>
+        <li><strong>Subí tus documentos reales</strong>, los que ya identificaste como importantes en el Módulo 2: lista de precios, manual de procedimientos, contratos vigentes, catálogo de productos.</li>
+        <li><strong>Esperá a que procese las fuentes</strong> (unos segundos a un par de minutos según el tamaño).</li>
+        <li><strong>Hacele una pregunta puntual</strong> sobre el contenido: "¿cuál es el precio de [producto] según la lista que subí?" o "¿qué dice el contrato sobre el plazo de pago?".</li>
+        <li><strong>Revisá las citas.</strong> NotebookLM marca de qué documento y qué parte sacó cada dato — usalo para confirmar que no está inventando nada.</li>
+        <li><strong>Sumá más documentos con el tiempo</strong> a medida que los necesites: el cuaderno queda ahí, no se resetea entre consultas.</li>
+        <li><strong>Guardá el link del cuaderno</strong> en <code>Sistema IA/06-archivero-negocio</code>.</li>
+      </ol>
+      <p style="margin-top:8px">Sobre análisis directo de archivos en Gemini (sin pasar por NotebookLM): también podés adjuntar hasta 10 archivos por pedido, de hasta 100 MB cada uno, directo en el chat. Sirve para una consulta puntual sobre uno o dos documentos sueltos. Pero si son documentos que vas a consultar seguido o se acumulan, el archivero de NotebookLM es la herramienta pensada para eso.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Para hacerle una pregunta rápida a un cuaderno que ya armaste —por ejemplo, confirmar un precio parado en el mostrador— la app o la web de NotebookLM desde el celular funciona bien: entrás, preguntás, tenés la respuesta.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Para armar el cuaderno la primera vez —subir varios documentos, organizarlos, revisar que las citas coincidan con la fuente correcta— conviene la compu: acceso directo a tus archivos y podés arrastrar varios de una vez. Regla simple: lo armás en la compu, lo consultás desde donde estés.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — Consulta puntual sobre un documento cargado</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · consulta puntual</span><button class="copy">Copiar</button></div>
+<pre>Según <strong class="field">[nombre del documento que subiste]</strong>, ¿cuál es <strong class="field">[el dato que necesitás: precio, plazo, procedimiento]</strong>?
+Citame de qué parte del documento sacaste la respuesta.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — Resumen de varios documentos cargados</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · resumen de varios documentos</span><button class="copy">Copiar</button></div>
+<pre>Tengo cargados <strong class="field">[cantidad]</strong> documentos sobre <strong class="field">[tema: precios / contratos / procedimientos]</strong>.
+Hacé un resumen de los puntos en común y marcá si encontrás alguna diferencia o contradicción entre ellos.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — Preparar un cuaderno nuevo</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · preparar cuaderno</span><button class="copy">Copiar</button></div>
+<pre>Voy a crear un cuaderno para organizar <strong class="field">[tipo de documentos]</strong> de mi negocio de <strong class="field">[tu rubro]</strong>.
+¿Qué tipo de preguntas te conviene que le pueda hacer más adelante, para saber cómo nombrar y organizar las fuentes?</pre>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📚 Así se ve en NotebookLM — cuaderno con fuentes</span>
+    <div class="notebooklmmock">
+      <div class="notebooklmmock-bar"><div class="dot"></div><span>NotebookLM</span></div>
+      <div class="notebooklmmock-layout">
+        <div class="notebooklmmock-sources">
+          <div class="st">Fuentes</div>
+          <div class="src">📄 lista-precios.pdf</div>
+          <div class="src">📄 manual-taller.pdf</div>
+        </div>
+        <div class="notebooklmmock-body">
+          <div class="notebooklmmock-user"><p>¿Cuánto cobramos por alineación y balanceo según la lista de precios?</p></div>
+          <div class="notebooklmmock-ai"><span class="chip">NotebookLM</span>
+            <p>Según lista-precios.pdf (sección "Servicios de alineación"), el precio de alineación y balanceo es $15.000. La fuente indica que ese valor no incluye el service de suspensión si hace falta.</p>
+            <span class="cite">Fuente citada: lista-precios.pdf</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Gemini — análisis directo, sin NotebookLM</span>
+    <div class="geminimock">
+      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
+      <div class="geminimock-body">
+        <div class="geminimock-user"><p>Analizá este contrato de proveedor directo en el chat, sin NotebookLM: [archivo adjunto: contrato-proveedor.pdf]. ¿Qué plazo de pago establece?</p></div>
+        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
+          <div class="aicol"><span class="chip">3.5 Flash</span>
+          <p>El contrato establece un plazo de pago de 30 días desde la fecha de factura, con un recargo del 2% por cada semana de atraso. Si necesitás consultarlo seguido, te conviene sumarlo a un cuaderno de NotebookLM en vez de volver a adjuntarlo cada vez.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Cargar documentos viejos o de prueba "para probar cómo funciona" y no volver con los reales. El cuaderno solo te sirve si tiene la lista de precios vigente, el contrato que hoy está en pie, el manual que tu equipo usa de verdad. Un cuaderno con datos viejos te va a dar respuestas seguras en el tono, pero equivocadas en el dato — más peligroso que no tener el cuaderno.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Un taller mecánico tiene un manual interno de 40 páginas con los procedimientos de cada servicio, y una lista de precios que actualiza cada dos meses. Antes, cada empleado nuevo tenía que leer el manual entero o preguntarle al dueño. Ahora suben ambos documentos a un cuaderno de NotebookLM. Cuando un empleado necesita saber un procedimiento o un precio, le pregunta al cuaderno y obtiene la respuesta con la cita exacta de dónde salió, sin interrumpir al dueño.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <p>Creaste un cuaderno de NotebookLM con al menos un documento real de tu negocio (no de prueba), le hiciste una pregunta puntual y comprobaste que la respuesta cita la fuente correcta. Si la respuesta no coincidió con el documento, revisá que subiste la versión correcta y volvé a preguntar antes de cerrar el módulo. Guardaste el link del cuaderno en <code>Sistema IA/06-archivero-negocio</code> y podés seguir sumando documentos y repitiendo el proceso solo, sin esta guía.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 06-archivero-negocio — un cuaderno de NotebookLM con tus documentos</span>
+
+    <label class="modcheck" data-mod="6">
+      <input type="checkbox" data-mod="6" aria-label="Completé el módulo 6">
+      <span>Completé el módulo 6 · El archivero del negocio</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 7 ═══ -->
+  <section class="panel" id="p-m7">
+    <div class="sec-head"><span class="numchip">07</span><h2>Mini-herramientas con Canvas</h2></div>
+    <p class="sec-sub">Hasta acá usaste Gemini para pensar, escribir y buscar. Ahora vas a construir algo que tu cliente puede usar sin que vos estés al lado: un cotizador, un catálogo, un checklist. Se llama Canvas, y no necesitás saber programar para armarlo.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Entrá a gemini.google.com y escribí: "armame un cotizador simple para mi negocio, con los productos y precios que te paso ahora". Pegá 3-4 productos con precio y mirá qué te devuelve en el panel de Canvas.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> cotizar, mostrar el catálogo o tomar datos de un cliente te consume tiempo — mandás un mensaje, esperás la respuesta, corregís un precio a mano cada vez.</p>
+      <p><strong>Te llevás:</strong> una mini-herramienta con tus datos reales, que funciona con un link, sin que vos tengas que estar respondiendo cada consulta.</p>
+      <p><strong>Lo usás cuando:</strong> un cliente pregunta "¿cuánto sale?", cuando querés mostrar tu catálogo ordenado sin mandar 15 fotos sueltas, o cuando necesitás juntar información de alguien.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que termines el módulo con una herramienta propia — cotizador, catálogo o checklist — armada con los datos reales de tu negocio, compartida por link y probada por al menos una persona (un cliente o un conocido).</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Canvas es el panel donde Gemini no solo te contesta: te arma algo que después podés seguir editando, y que existe más allá de la conversación. La diferencia con mandar un PDF o un Excel es que esto vive en un link: se lo pasás a tu cliente y él lo usa solo, sin depender de que vos estés disponible para cotizar o mostrar el catálogo. Es la primera vez en el curso que armás algo que trabaja para vos incluso cuando no estás mirando el chat.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Elegí qué herramienta necesitás primero:</strong> un cotizador (productos/servicios con precio, que calcule un total), un catálogo compartible (fotos, descripción y precio) o un checklist/quiz (para que un cliente te cuente qué necesita antes de que lo llames).</li>
+        <li><strong>Juntá los datos reales</strong> antes de pedirle nada a Gemini: la lista de productos/servicios con precios actualizados, o las preguntas que le harías a un cliente nuevo. Si tenés el Gem del Módulo 3 o el cuaderno del Módulo 6, sacá los datos de ahí.</li>
+        <li><strong>Pedile la herramienta con tus datos adentro</strong>, no en abstracto. Cuanto más específico el pedido, menos vas a tener que corregir después.</li>
+        <li><strong>Mirá lo que armó en el panel de Canvas</strong> (aparece al lado de la conversación). Probalo vos primero: cargá un producto de prueba, recorré el catálogo, respondé el checklist como si fueras el cliente.</li>
+        <li><strong>Pedí ajustes en el mismo chat:</strong> "cambiá el color", "agregá una columna de descuento", "sacá este producto y poné este otro". Canvas se edita conversando.</li>
+        <li><strong>Compartilo por link.</strong> Usá la opción "Compartir" del panel de Canvas: Gemini genera un vínculo (del tipo g.co/gemini/share) que cualquiera abre sin tener cuenta paga. Los cambios que hagas después se guardan solos.</li>
+        <li><strong>Mandale el link a un cliente real o un conocido</strong> y pedile que lo use delante tuyo o que te cuente cómo le fue. Anotá qué corrigió, qué no entendió, qué faltó.</li>
+        <li><strong>Guardá el link y la herramienta</strong> en tu carpeta <code>Sistema IA/07-mini-herramienta</code>.</li>
+      </ol>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Desde el celular podés pedir la herramienta y revisar cómo quedó, pero editar dentro de Canvas con precisión (mover columnas, ajustar un checklist largo) se hace incómodo en pantalla chica. Sirve para el pedido inicial y para probar el link una vez armado, como si fueras el cliente.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Para armar y ajustar la herramienta —corregir precios, reordenar productos, revisar el checklist— la compu rinde mucho más: ves el panel de Canvas completo al lado del chat, sin scrollear. Armá ahí, probá el link después desde el celu para chequear que se vea bien como lo verá tu cliente.</p>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">🧮 Así se ve — Canvas con el botón Compartir</span>
+    <div class="uimock" role="img" aria-label="Mock del panel de Canvas con un cotizador y el botón Compartir arriba a la derecha">
+      <div class="bar">Canvas · Cotizador de tortas <span class="publishbtn" style="margin-left:auto">Compartir</span></div>
+      <div class="ubody">
+        <div class="fld"><span class="box">Chocolate $8.000 · Vainilla $7.000 · Red velvet $9.500 — cantidad y total actualizado</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — Cotizador con tus datos reales</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · cotizador</span><button class="copy">Copiar</button></div>
+<pre>Armame un cotizador simple para mi negocio de <strong class="field">[rubro]</strong>.
+Mis productos/servicios con precio:
+- <strong class="field">[producto 1]</strong>: $<strong class="field">[precio]</strong>
+- <strong class="field">[producto 2]</strong>: $<strong class="field">[precio]</strong>
+- <strong class="field">[producto 3]</strong>: $<strong class="field">[precio]</strong>
+
+Que el cliente pueda elegir cantidad y vea el total actualizado.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — Catálogo compartible</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · catálogo compartible</span><button class="copy">Copiar</button></div>
+<pre>Armame un catálogo de mis productos para compartir por link.
+Productos: <strong class="field">[lista con nombre, descripción corta y precio]</strong>.
+Ordenalos por <strong class="field">[precio / categoría / lo que vendo más]</strong>.
+Dejá espacio para que yo suba una foto de cada uno.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — Checklist/quiz para clientes nuevos</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · checklist para clientes</span><button class="copy">Copiar</button></div>
+<pre>Armame un checklist corto (5-6 preguntas) para clientes nuevos de mi negocio de <strong class="field">[rubro]</strong>.
+Necesito saber: <strong class="field">[ej: qué servicio busca, urgencia, presupuesto, disponibilidad]</strong>.
+Que sea rápido de responder desde el celular.</pre>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Gemini — armar el cotizador</span>
+    <div class="geminimock">
+      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
+      <div class="geminimock-body">
+        <div class="geminimock-user"><p>Armame un cotizador simple. Vendo tortas: chocolate $8.000, vainilla $7.000, red velvet $9.500. Que el cliente elija cantidad y le sume el total.</p></div>
+        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
+          <div class="aicol"><span class="chip">3.5 Flash</span>
+          <p>Armé el cotizador en el panel de Canvas: tres tortas con sus precios, un campo de cantidad para cada una y un total que se actualiza solo. ¿Querés que agregue una opción de "envío" con costo aparte?</p></div>
+        </div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Gemini — el ajuste del catálogo</span>
+    <div class="geminimock">
+      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
+      <div class="geminimock-body">
+        <div class="geminimock-user"><p>Al catálogo agregale una foto de cada torta y ordenalas de la más barata a la más cara.</p></div>
+        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
+          <div class="aicol"><span class="chip">3.5 Flash</span>
+          <p>Listo, reordené por precio (vainilla, chocolate, red velvet) y dejé un espacio para que subas la foto de cada una directo en el panel. ¿Tenés las fotos a mano para que te diga cómo pegarlas?</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Pedir la herramienta "en general" ("haceme un cotizador para mi negocio") sin pasar los datos reales. Te va a devolver algo genérico con productos inventados que después tenés que reescribir entero. Pegá tu lista real de productos y precios en el mismo pedido — ahorra dos o tres vueltas de corrección.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Una peluquera arma un checklist para clientas nuevas: "¿qué servicio buscás? ¿tenés alguna alergia o tratamiento previo? ¿qué día te queda mejor?". Lo comparte por link en su Instagram. Antes, cada consulta por WhatsApp le llevaba ida y vuelta de preguntas; ahora la clienta completa el checklist antes de escribirle, y ella arranca la conversación ya con la información que necesita para armar el turno.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <p>Armaste una herramienta con los datos reales de tu negocio (no un ejemplo de prueba), la ajustaste al menos una vez pidiendo cambios en el chat, la compartiste por link con un cliente o un conocido y probaste que funciona del otro lado. Si la primera versión salió genérica, volvé a pedirla con tus datos concretos antes de dar el módulo por cerrado. Guardaste el link en <code>Sistema IA/07-mini-herramienta</code> y podés repetir el proceso solo, con otra herramienta, sin esta guía.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 07-mini-herramienta — 1 Canvas útil, compartido por link</span>
+
+    <label class="modcheck" data-mod="7">
+      <input type="checkbox" data-mod="7" aria-label="Completé el módulo 7">
+      <span>Completé el módulo 7 · Mini-herramientas con Canvas</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 8 ═══ -->
+  <section class="panel" id="p-m8">
+    <div class="sec-head"><span class="numchip">08</span><h2>Tu sistema Gemini</h2></div>
+    <p class="sec-sub">Ya armaste siete piezas: tu cuenta lista, tu negocio conectado, un Gem con tu tono, imágenes, un informe de mercado, un archivero y una mini-herramienta. Este módulo no suma una función nueva — te ayuda a ordenar todo eso en una rutina que uses de verdad, semana a semana, y a decidir con criterio cuándo (si alguna vez) te conviene pagar.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Abrí tu carpeta <code>Sistema IA/</code> y mirá los seis entregables que ya tenés (02 al 07). Elegí uno solo que NO hayas vuelto a usar desde que lo armaste, y usalo hoy para algo real de esta semana.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> aprendiste varias herramientas sueltas, pero sin una rutina se te olvidan y volvés a hacer todo a mano como antes.</p>
+      <p><strong>Te llevás:</strong> una rutina semanal escrita, con qué día usás cada pieza del sistema, y la decisión de plan ya tomada (no pendiente).</p>
+      <p><strong>Lo usás cuando:</strong> arranca la semana y necesitás saber, sin pensarlo, qué le tocás a Gemini cada día.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que salgas con una rutina semanal escrita —qué feature usás cada día y con qué entregable— más una decisión de plan tomada con criterio (seguir gratis, o pasar a Plus/Pro cuando corresponda), y no una promesa vaga de "voy a usarlo más".</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Un curso te puede enseñar ocho herramientas; si no las bajás a una rutina, en un mes te acordás de dos. El valor real de todo lo que hiciste en los módulos 2 a 7 no está en haber "aprendido Canvas" o "aprendido Deep Research" — está en que ese Gem, ese cuaderno, ese cotizador sigan trabajando para tu negocio la semana que viene, y la que sigue. Este módulo también es donde tenés que ser honesto con vos mismo sobre dos cosas: qué NO hace Gemini y cuándo un límite del plan gratis te está costando más tiempo del que ahorrás pagando USD 4.99.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Armá tu rutina semanal integrando M2 a M7.</strong> Repasá qué entregable dejó cada módulo y asignale un momento fijo de la semana: lunes (Gmail/Calendar/Drive conectados, M2) para revisar la semana; cuando armás marketing (Gem M3 + pack visual M4); una vez por mes (Deep Research M5); cuando llega un documento nuevo (archivero de NotebookLM M6); cuando un cliente pregunta precio (mini-herramienta de Canvas M7).</li>
+        <li><strong>Sumá Gemini Live a la rutina, desde el celular.</strong> Es la conversación por voz, manos libres: la abrís en la app y le hablás como a una persona — mientras manejás, cocinás, o caminás entre tareas del local. Sirve para pensar en voz alta un problema del negocio o practicar cómo le vas a explicar algo a un cliente. Honestidad importante: <strong>Live NO funciona con tus Gems</strong> — para respuestas con tu tono y precios, volvés al chat de texto.</li>
+        <li><strong>Sumá el dictado por voz</strong> para escribir rápido sin tipear: en el celular, el micrófono de la caja de texto te deja dictar hablando en vez de escribiendo.</li>
+        <li><strong>Revisá tus límites de uso reales de esta semana.</strong> Gemini gratis tiene límites que se renuevan cada pocas horas con un tope semanal — el dato lo generás vos: ¿te frenó el límite alguna vez esta semana? ¿en qué herramienta?</li>
+        <li><strong>Tomá la decisión de plan con este criterio, no antes:</strong> seguís en gratis si esta semana no te frenó ningún límite; pasás a Google AI Plus (USD 4.99/mes) el día que un límite te frene en medio de una tarea real; pasás a Google AI Pro (USD 19.99/mes) si tu negocio vive de documentos largos; Google AI Ultra (desde USD 99.99/mes) es el tope, no para arrancar.</li>
+        <li><strong>Si tenés empleados con mail propio</strong>, hay una capa más: Google Workspace con Gemini incluido, plan Business Starter desde USD 7 por usuario al mes (hay escalones con más alcance: Standard USD 14, Plus USD 22 por usuario). No es parte de este curso básico — se profundiza en el nivel para equipos, próximamente.</li>
+        <li><strong>Cerrá con IA responsable, transversal a todo el sistema:</strong> antes de mandarle algo a un cliente —una cotización, un mail, una respuesta de tu Gem— revisalo vos. Gemini te ahorra el primer borrador, no el criterio final. Y cuidado con qué datos sensibles de clientes subís.</li>
+        <li><strong>Guardá la rutina</strong> en tu carpeta <code>Sistema IA/08-manual-operacion</code>.</li>
+      </ol>
+    </div>
+
+    <div class="voicewave">
+      <div class="mic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-2.08A7 7 0 0 0 19 12h-2Z"/></svg></div>
+      <div class="bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      <p>Gemini Live — conversación por voz, manos libres. No usa tu Gem.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Acá está el caso fuerte del celular en todo el curso: <strong>Gemini Live</strong> (conversación por voz manos libres) y el <strong>dictado</strong> en la caja de texto. Los usás caminando, manejando, entre tareas del local — pensar en voz alta, practicar una respuesta, dictar una idea. Recordá: Live no trae puesto tu Gem.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Para armar o revisar la rutina escrita, ajustar tu Gem, o trabajar con el archivero de NotebookLM, la compu sigue siendo mejor: más pantalla, más precisión. La voz es del celular; el sistema se ordena en la compu.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — Armar la rutina semanal</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · rutina semanal</span><button class="copy">Copiar</button></div>
+<pre>Ayudame a armar mi rutina semanal de uso de Gemini para mi negocio de <strong class="field">[rubro]</strong>.
+Ya tengo armado: <strong class="field">[listá tus entregables 02-07, ej: "Gem con mi tono y precios,
+un cuaderno de NotebookLM con mis contratos, un cotizador en Canvas"]</strong>.
+Decime qué día de la semana conviene usar cada uno, en una lista corta.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — Chequeo de límites antes de decidir plan</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · chequeo de límites</span><button class="copy">Copiar</button></div>
+<pre>Esta semana usé Gemini para <strong class="field">[listá tareas: cotizar, Deep Research, imágenes, etc.]</strong>
+y me frenó el límite en <strong class="field">[detallá dónde/cuándo]</strong>.
+¿Qué plan de los que existen (gratis, Plus, Pro) resuelve puntualmente esa traba,
+sin pagar de más por cosas que no uso?</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — Practicar una conversación difícil con Live</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · practicar con live</span><button class="copy">Copiar</button></div>
+<pre>Quiero practicar cómo responderle a un cliente sobre <strong class="field">[tema: demora, precio,
+reclamo]</strong>. Hacé de cliente primero, después decime qué mejorarías de mi respuesta.</pre>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">🎙️ Así se ve en Gemini Live — por voz</span>
+    <div class="geminimock">
+      <div class="geminimock-bar"><div class="dot"></div><span>Gemini Live</span></div>
+      <div class="geminimock-body">
+        <div class="geminimock-user"><p>(por voz, desde el celular) Tengo un cliente que se queja de una demora de entrega. Ayudame a pensar cómo le respondo sin sonar a excusa.</p></div>
+        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
+          <div class="aicol"><span class="chip">Live · 3.5 Flash</span>
+          <p>Reconocé la demora primero, sin justificarla de entrada. Después dale una fecha concreta y algo a cambio (envío gratis en la próxima, un descuento chico). Evitá "estamos trabajando en eso" solo — sumale el cuándo.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📱 Así se ve en Gemini — chequeo de límites</span>
+    <div class="geminimock">
+      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
+      <div class="geminimock-body">
+        <div class="geminimock-user"><p>Esta semana Deep Research me frenó dos veces cuando quise re-consultar precios de la competencia. ¿Me conviene pagar algo?</p></div>
+        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
+          <div class="aicol"><span class="chip">3.5 Flash</span>
+          <p>Si te pasa seguido, Google AI Plus (USD 4.99/mes) duplica tus límites y te da más contexto — es el escalón más barato antes de Pro. Si fue algo puntual de esta semana, probá esperar la renovación (cada pocas horas) antes de pagar.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Tratar este módulo como un repaso y no escribir nada. Si no queda una rutina escrita con día y herramienta concreta, en dos semanas volviste a cotizar de memoria y a buscar mails a mano. Escribila, aunque sea corta — cinco líneas alcanzan si son reales.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Un gomero arma su rutina: lunes revisa pedidos pendientes con Gemini conectado a Gmail (M2); cuando un cliente pregunta precio, le pasa el link del cotizador de Canvas (M7); una vez al mes corre un Deep Research de precios de neumáticos de la zona (M5); y cuando maneja entre locales, usa Live para pensar en voz alta cómo responder un reclamo. Termina la semana sin haber pagado nada, porque ningún límite lo frenó — decisión tomada: sigue en gratis.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Tenés una rutina semanal escrita que nombra, para cada día o momento, qué herramienta de Gemini usás y qué entregable de los Módulos 2 a 7 le corresponde.</li>
+        <li>Probaste Live por voz al menos una vez desde el celular.</li>
+        <li>Revisaste tus límites reales de la semana y tomaste una decisión de plan concreta (seguir gratis o pasar a un plan pago, con el motivo escrito).</li>
+        <li>Guardaste todo en <code>Sistema IA/08-manual-operacion</code> y podés sostener el sistema solo, sin esta guía.</li>
+      </ul>
+    </div>
+
+    <span class="entregable">📦 Entregable · 08-manual-operacion — rutina semanal + decisión de plan</span>
+
+    <label class="modcheck" data-mod="8">
+      <input type="checkbox" data-mod="8" aria-label="Completé el módulo 8">
+      <span>Completé el módulo 8 · Tu sistema Gemini</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ APLICACIONES ═══ -->
+  <section class="panel" id="p-apps">
+    <div class="sec-head"><span class="numchip" style="font-size:1.1rem">↗</span><h2>Aplicaciones por tipo de negocio</h2></div>
+    <p class="sec-sub">Formas de uso reales por área de un negocio chico, usando las capacidades fuertes de Gemini. Estos ejemplos son orientativos, no una lista cerrada: están para que veas el patrón y lo adaptes a tu rubro.</p>
+
+    <div class="card" style="border-left:4px solid var(--theme-light);background:rgba(var(--theme-rgb),.07)">
+      <p style="margin:0">Si tu negocio no aparece acá, agarrá el caso que más se le parezca — la mecánica es la misma en cualquier área: conectar tus datos reales (M2), dejarle tono y precios cargados a un Gem (M3), y automatizar lo repetitivo con Canvas o NotebookLM (M6–M7). Lo que cambia es QUÉ dato conectás y QUÉ herramienta le pedís que arme.</p>
+    </div>
+
+    <div class="app-grid">
+      <div class="app">
+        <div class="ic">🛒</div>
+        <h4>Ventas</h4>
+        <p>Cotizar y mostrar catálogo sin depender de vos.</p>
+        <ul>
+          <li>Cotizador o catálogo compartible por link armado en Canvas (M7).</li>
+          <li>Deep Research de precios de la competencia antes de ajustar una lista (M5).</li>
+          <li>Gem con precios y políticas para responder consultas de venta (M3).</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">💬</div>
+        <h4>Atención al cliente</h4>
+        <p>Respuestas consistentes, con tu tono.</p>
+        <ul>
+          <li>Gem con tono y políticas cargadas para respuestas por WhatsApp o redes (M3).</li>
+          <li>Gemini Live para practicar una respuesta difícil o pensar en voz alta (M8).</li>
+          <li>Búsqueda en Gmail de un hilo viejo con un cliente para retomar sin perder contexto (M2).</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">📣</div>
+        <h4>Marketing</h4>
+        <p>Imagen y texto, en la misma herramienta.</p>
+        <ul>
+          <li>Posts con gráfica y flyers generados y editados con Nano Banana, con la voz del Gem sobre la imagen (M4).</li>
+          <li>Deep Research de qué valoran los clientes del rubro antes de definir un mensaje (M5).</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">📋</div>
+        <h4>Operaciones</h4>
+        <p>Lo repetitivo, sin interrumpir al dueño.</p>
+        <ul>
+          <li>Checklist de apertura/cierre o de datos de un cliente nuevo armado en Canvas (M7).</li>
+          <li>NotebookLM como archivero de manuales de procedimiento para que el equipo consulte solo (M6).</li>
+          <li>Calendar conectado para organizar la semana (M2).</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">🗂️</div>
+        <h4>Administración</h4>
+        <p>Documentos que ya existen, sin buscarlos a mano.</p>
+        <ul>
+          <li>Análisis de un contrato o presupuesto viejo encontrado en Gmail/Drive (M2).</li>
+          <li>Cuaderno de NotebookLM con contratos y listas de precios vigentes, con cita exacta (M6).</li>
+          <li>Deep Research para evaluar un proveedor nuevo antes de sumarlo (M5).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="next" style="margin-top:20px">
+      <div class="kicker">Explorá los otros modelos</div>
+      <h3>ChatGPT · <span class="c">Claude · Grok</span></h3>
+      <p>Cada IA tiene fortalezas distintas. Aprendelos con el mismo método COCO GO: prompts reales, entregables, sin jerga.</p>
+      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
+    </div>
+  </section>
+
+  <!-- ═══ BONUS ═══ -->
+  <section class="panel" id="p-bonus">
+    <div class="sec-head"><span class="numchip" style="font-size:1.15rem">★</span><h2>Bonus · extras de alto valor</h2></div>
+    <p class="sec-sub">Usalos <strong>después</strong> de completar los módulos — con tu Gem y tus apps conectadas ya cargados.</p>
+
+    <div class="card">
+      <h3>✅ Checklist de lunes con tu Gem</h3>
+      <p>Al arrancar la semana, abrí tu Gem del negocio (M3) y pedile "resumime los pendientes de mi Gmail y Calendar de esta semana y decime qué necesito resolver primero" (con las apps conectadas del M2 activas). Dos minutos, te ordena la semana antes de arrancar.</p>
+    </div>
+
+    <div class="card">
+      <h3>🧭 Mini-guía "cuando Gemini te responde cualquier cosa"</h3>
+      <p>Si la respuesta sale genérica, no es que "Gemini no sirve" — es que le faltó algo. Antes de abandonar, revisá:</p>
+      <ol>
+        <li>¿Le diste datos reales de tu negocio, no un ejemplo inventado (tu rubro, tus precios, tu tono real)?</li>
+        <li>¿Iteraste con el prompt universal de refinamiento (Glosario) en vez de conformarte con la primera respuesta?</li>
+        <li>¿Tenía el contexto que necesitaba — el Gem correcto activado, la app conectada que corresponde, o el documento cargado en NotebookLM?</li>
+      </ol>
+      <p>Si contestaste que no a alguna, ahí está el problema, no en la herramienta.</p>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla de instrucciones para el Gem de tu negocio</h3>
+      <p>Para pegar al crear tu Gem (M3):</p>
+      <div class="prompt">
+        <div class="top"><span>plantilla · instrucciones del gem</span><button class="copy">Copiar</button></div>
+<pre>Sos el asistente de <strong class="field">[nombre de tu negocio]</strong>.
+Rubro: <strong class="field">[a qué te dedicás]</strong>.
+Público: <strong class="field">[a quién le vendés]</strong>.
+Precios: <strong class="field">[lista real de precios o rango]</strong>.
+Políticas: <strong class="field">[envíos / cambios / turnos / formas de pago — las que apliquen]</strong>.
+Tono: <strong class="field">[cercano / formal / con humor — el que uses de verdad]</strong>.
+Cuando no sepas un dato, decilo en vez de inventarlo.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📡 Radar de datos que cambian</h3>
+      <p>Cada vez que cambien precios, horarios o políticas de tu negocio, actualizá dos lugares el mismo día: las instrucciones de tu Gem (M3) y el documento correspondiente en tu cuaderno de NotebookLM (M6). Un Gem o un archivero con datos viejos da respuestas seguras en el tono, pero equivocadas en el dato — más peligroso que no tenerlos.</p>
+    </div>
+
+    <div class="card" style="margin-top:8px">
+      <h3>🎓 El curso oficial gratis de Google</h3>
+      <p>"Domina la IA con Gemini" — curso oficial, ~1 hora, con certificado/badge al terminar. Es un buen complemento para reforzar lo visto acá con el enfoque propio de Google. Se accede vía <a href="https://grow.google/intl/es/ai-opportunity/" target="_blank" rel="noopener">grow.google/intl/es/ai-opportunity/</a>.</p>
+    </div>
+
+    <div class="next" style="margin-top:20px">
+      <div class="kicker">Explorá los otros modelos</div>
+      <h3>ChatGPT · <span class="c">Claude · Grok</span></h3>
+      <p>Cada IA tiene fortalezas distintas. Aprendelos con el mismo método COCO GO: prompts reales, entregables, sin jerga.</p>
+      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
+    </div>
+  </section>
+
+  <!-- ═══ VERIFICACIÓN ═══ -->
+  <section class="panel" id="p-verif">
+    <div class="sec-head"><span class="numchip" style="font-size:1.15rem">✓</span><h2>Verificación final</h2></div>
+    <p class="sec-sub">Un check por entregable. Marcalo solo si es real, no si "algo se acerca".</p>
+
+    <div class="card">
+      <div class="check-list">
+        <div class="check"><span class="box">✓</span><p>01 · Primer resultado<small>Iniciaste sesión con tu cuenta de Google, decidiste a conciencia tu configuración de "Actividad en las apps de Gemini", y generaste un texto real de tu negocio que ya usaste o vas a usar hoy.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>02 · Negocio conectado<small>Activaste al menos una app conectada (Gmail y las que uses) e hiciste una búsqueda real sobre datos propios, no un ejemplo inventado.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>03 · Gem del negocio<small>Tu Gem tiene el nombre, los precios y las políticas reales de tu negocio cargados, y lo probaste con una consulta típica de cliente.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>04 · Pack visual<small>Generaste al menos una imagen con datos reales de tu negocio y la iteraste con ajustes concretos hasta que dejó de ser genérica; tenés 2-3 piezas guardadas listas para publicar.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>05 · Informe de mercado<small>Corriste un Deep Research sobre el rubro de tu propio negocio, leíste el informe completo y anotaste en una línea la decisión que tomaste a partir de eso.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>06 · Archivero del negocio<small>Creaste un cuaderno de NotebookLM con al menos un documento real de tu negocio y comprobaste que la respuesta cita la fuente correcta.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>07 · Mini-herramienta<small>Tu Canvas (cotizador, catálogo o checklist) funciona con datos reales, lo compartiste por link, y una persona real lo probó del otro lado.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>08 · Manual de operación<small>Tenés una rutina semanal escrita que nombra, para cada momento, qué herramienta de Gemini usás y qué entregable le corresponde, más una decisión de plan tomada con el motivo escrito.</small></p></div>
+      </div>
+    </div>
+
+    <div class="next">
+      <div class="kicker">Cuando termines esto…</div>
+      <h3>Seguí con <span class="c">ChatGPT para tu negocio</span></h3>
+      <p>Ya entendiste Gemini. El siguiente paso natural: el asistente más versátil para texto, imágenes y automatizaciones del día a día. Mismo método COCO GO, otra herramienta.</p>
+      <a class="go" href="../chatgpt/">Ir al curso de ChatGPT →</a>
+    </div>
+
+    <div class="card feedbackbox" style="margin-top:20px">
+      <h3>💬 Tu feedback real</h3>
+      <p style="margin-bottom:10px">¿Qué módulo te costó más? ¿Qué te hubiera gustado que explicáramos mejor? ¿Hay algo de tu negocio que este curso no contempló? Escribilo acá — no hay respuesta automática, pero lo leemos.</p>
+      <textarea id="feedback-text" placeholder="Ej: el módulo 5 me costó por el tema de Deep Research, pero el módulo 3 me cambió la forma de responder a los clientes…"></textarea>
+      <div class="fb-actions">
+        <button type="button" class="copy" id="feedback-copy">Copiar mi comentario</button>
+      </div>
+      <div class="fb-paths">
+        <span>Mandalo por Instagram — <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></span>
+        <span>O por mail a <a href="mailto:cocogo.hola@gmail.com?subject=Feedback%20curso%20Gemini">cocogo.hola@gmail.com</a> — pegá el comentario que copiaste arriba.</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="wrap" id="catalogo" style="padding:10px 20px 40px">
+  <div class="sec-head"><span class="numchip" style="font-size:1.05rem">＋</span><h2 style="font-size:clamp(1.3rem,3vw,1.7rem)">Otros cursos <img src="../assets/logo-coco-go.svg" alt="COCO GO" style="height:1.1em;vertical-align:-0.15em"></h2></div>
+  <p class="sec-sub">Mismo método — prompts reales, entregables, sin jerga — aplicado a otras herramientas.</p>
+  <div class="app-grid">
+    <div class="app">
+      <div class="ic"><img src="../assets/logo-openai.svg" alt="" aria-hidden="true" style="width:24px;height:24px;display:block"></div>
+      <h4>ChatGPT para tu negocio</h4>
+      <p>El asistente más versátil para texto, imágenes y automatizaciones del día a día.</p>
+      <p style="margin-top:10px"><a class="go" style="padding:9px 16px;font-size:.85rem" href="../chatgpt/">Ir al curso →</a></p>
+    </div>
+    <div class="app">
+      <div class="ic"><img src="../claude/assets/logo-claude.svg" alt="" aria-hidden="true" style="width:24px;height:24px;display:block"></div>
+      <h4>Claude para tu negocio</h4>
+      <p>El asistente que lee documentos enteros y arma mini-herramientas sin programar.</p>
+      <p style="margin-top:10px"><a class="go" style="padding:9px 16px;font-size:.85rem" href="../claude/">Ir al curso →</a></p>
+    </div>
+    <div class="app">
+      <div class="ic"><img src="../assets/logo-grok.svg" alt="" aria-hidden="true" style="width:24px;height:24px;display:block"></div>
+      <h4>Grok para tu negocio <span class="entregable" style="margin:0 0 0 6px;padding:3px 9px;font-size:.72rem">próximamente</span></h4>
+      <p>Integrado con X: útil para negocios que viven de la conversación en tiempo real y las tendencias.</p>
+    </div>
+  </div>
+  <p style="margin-top:14px;font-size:.9rem;color:var(--muted)">Seguinos en <a href="https://instagram.com/cocogo" target="_blank" rel="noopener" style="color:var(--theme-light);text-decoration:none;border-bottom:1px solid rgba(var(--theme-rgb),.3)">@cocogo</a> para enterarte apenas salga.</p>
+</section>
+
+<footer>
+  <img src="../assets/logo-coco-go.svg" class="foot-logo" alt="COCO GO">
+  <div class="socials">
+    <a class="soc" href="https://instagram.com/cocogo" target="_blank" rel="noopener" aria-label="Instagram @cocogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0-2.16C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.94 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg></a>
+    <a class="soc" href="https://x.com/cocogo" target="_blank" rel="noopener" aria-label="X @cocogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93ZM17.61 20.64h2.04L6.49 3.24H4.3Z"/></svg></a>
+  </div>
+  <p>Soporte: <a href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a> (respondemos en 48 h hábiles)</p>
+  <p>Más cursos: <a href="#catalogo">ChatGPT · Claude · Grok</a> — mismo método COCO GO.</p>
+  <p>© COCO GO 2026. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+/* puerta de acceso — código en el link de compra (?k=) o tipeado, recordado en localStorage */
+(function(){
+  var ACCESS_TOKEN='COCO-GEM8-2026';
+  var ACCESS_STORAGE_KEY='cocogo_gemini_access_ok';
+  var gate=document.getElementById('access-gate');
+  var input=document.getElementById('access-code-input');
+  var submit=document.getElementById('access-code-submit');
+  var error=document.getElementById('access-gate-error');
+  if(!gate||!input||!submit) return;
+
+  var params=new URLSearchParams(location.search);
+  var fromUrl=(params.get('k')||'').trim();
+  var stored=localStorage.getItem(ACCESS_STORAGE_KEY)==='1';
+
+  function unlock(){
+    try{localStorage.setItem(ACCESS_STORAGE_KEY,'1');}catch(e){}
+    document.body.classList.remove('access-locked');
+    gate.hidden=true;
+    if(fromUrl){
+      params.delete('k');
+      var qs=params.toString();
+      history.replaceState(null,'',location.pathname+(qs?'?'+qs:'')+location.hash);
+    }
+  }
+
+  function tryCode(raw){
+    var code=(raw||'').trim();
+    if(code.toUpperCase()===ACCESS_TOKEN.toUpperCase()){
+      if(error) error.textContent='';
+      unlock();
+      return true;
+    }
+    if(error) error.textContent='Código incorrecto. Revisá el email de compra.';
+    return false;
+  }
+
+  if(stored||(fromUrl&&tryCode(fromUrl))) return;
+
+  document.body.classList.add('access-locked');
+  gate.hidden=false;
+  submit.addEventListener('click',function(){tryCode(input.value);});
+  input.addEventListener('keydown',function(e){if(e.key==='Enter')tryCode(input.value);});
+})();
+
+/* fondo de red animado */
+(function(){
+  var c=document.getElementById('bg'); if(!c) return;
+  var ctx=c.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2);
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var RGB=(getComputedStyle(document.documentElement).getPropertyValue('--theme-rgb').trim())||'66,133,244';
+  var W,H,pts,raf;
+  function resize(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.min(90,Math.max(30,Math.floor(W*H/16000)));pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18});}
+  function frame(move){ctx.clearRect(0,0,W,H);var i,j,a,b,dx,dy,d,o;
+    if(move)for(i=0;i<pts.length;i++){a=pts[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;}
+    for(i=0;i<pts.length;i++)for(j=i+1;j<pts.length;j++){a=pts[i];b=pts[j];dx=a.x-b.x;dy=a.y-b.y;d=dx*dx+dy*dy;
+      if(d<19000){o=(1-d/19000)*.22;ctx.strokeStyle='rgba('+RGB+','+o.toFixed(3)+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+    for(i=0;i<pts.length;i++){a=pts[i];ctx.fillStyle='rgba('+RGB+',.55)';ctx.beginPath();ctx.arc(a.x,a.y,1.5,0,6.283);ctx.fill();}}
+  function loop(){frame(true);raf=requestAnimationFrame(loop);}
+  resize();window.addEventListener('resize',function(){cancelAnimationFrame(raf);resize();reduce?frame(false):loop();});
+  reduce?frame(false):loop();
+})();
+
+/* glosario acordeón: una abierta a la vez */
+(function(){
+  var terms=document.querySelectorAll('.gterm');
+  terms.forEach(function(b){
+    b.addEventListener('click',function(){
+      var open=b.classList.contains('open');
+      terms.forEach(function(o){o.classList.remove('open');o.nextElementSibling.style.maxHeight=null;});
+      if(!open){b.classList.add('open');var d=b.nextElementSibling;d.style.maxHeight=d.scrollHeight+'px';}
+    });
+  });
+  var q=document.getElementById('gloss-q');
+  if(q)q.addEventListener('input',function(){
+    var v=q.value.toLowerCase();
+    document.querySelectorAll('#gloss-list .gitem').forEach(function(it){
+      it.style.display=it.querySelector('.gterm').textContent.toLowerCase().indexOf(v)>-1?'':'none';
+    });
+  });
+})();
+
+/* scroll al tope al cambiar pestaña */
+document.querySelectorAll('input[name="coco-tab"]').forEach(function(r){
+  r.addEventListener('change',function(){window.scrollTo({top:0,behavior:'instant'});});
+});
+
+/* botones copiar con clipboard API */
+document.querySelectorAll('.copy:not(#feedback-copy)').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var pre=btn.closest('.prompt').querySelector('pre');
+    if(!pre) return;
+    var text=pre.textContent.trim();
+    function done(){btn.textContent='✓ Copiado';setTimeout(function(){btn.textContent='Copiar';},1500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text,done);});
+    } else { fallback(text,done); }
+  });
+});
+function fallback(text,cb){
+  var ta=document.createElement('textarea');
+  ta.value=text;ta.style.cssText='position:fixed;left:-9999px;top:0;opacity:0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');cb();}catch(e){}
+  document.body.removeChild(ta);
+}
+
+/* botón copiar del feedback de Verificación */
+(function(){
+  var btn=document.getElementById('feedback-copy');
+  var ta=document.getElementById('feedback-text');
+  if(!btn||!ta) return;
+  btn.addEventListener('click',function(){
+    var text=ta.value.trim();
+    if(!text) return;
+    function done(){btn.textContent='✓ Copiado';setTimeout(function(){btn.textContent='Copiar mi comentario';},1500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text,done);});
+    } else { fallback(text,done); }
+  });
+})();
+
+/* progreso de módulos (localStorage) */
+(function(){
+  var KEY='cocogo_progreso_gemini', TOTAL=8;
+  function load(){try{var v=JSON.parse(localStorage.getItem(KEY));return Array.isArray(v)?v.filter(function(n){return n>=1&&n<=TOTAL;}):[];}catch(e){return [];}}
+  function save(a){try{localStorage.setItem(KEY,JSON.stringify(a));}catch(e){}}
+  var done=load();
+  var inputs=document.querySelectorAll('.modcheck input[data-mod]');
+  if(!inputs.length) return;
+  var checks=document.querySelectorAll('#p-verif .check-list .check');
+  var fill=document.querySelector('.progfill');
+  var label=document.querySelector('.proglabel');
+  var pwrap=document.querySelector('.progwrap');
+  function render(){
+    inputs.forEach(function(inp){
+      var n=+inp.getAttribute('data-mod'), on=done.indexOf(n)>-1;
+      inp.checked=on;
+      inp.closest('.modcheck').classList.toggle('done',on);
+    });
+    checks.forEach(function(c,i){c.classList.toggle('done',done.indexOf(i+1)>-1);});
+    var pct=Math.round(done.length/TOTAL*100);
+    if(fill)fill.style.width=pct+'%';
+    if(label)label.textContent=done.length+'/'+TOTAL;
+    if(pwrap){pwrap.classList.toggle('complete',done.length>=TOTAL);pwrap.setAttribute('aria-valuenow',done.length);}
+  }
+  inputs.forEach(function(inp){
+    inp.addEventListener('change',function(){
+      var n=+inp.getAttribute('data-mod'), i=done.indexOf(n);
+      if(inp.checked&&i<0)done.push(n);
+      else if(!inp.checked&&i>-1)done.splice(i,1);
+      save(done);render();
+    });
+  });
+  render();
+})();
+
+/* accesibilidad AA — foco visible en pestañas (radios .tab son invisibles) */
+document.querySelectorAll('input.tab').forEach(function(t){
+  var lbl=document.querySelector('.modnav label[for="'+t.id+'"]');
+  if(!lbl) return;
+  t.addEventListener('focus',function(){lbl.classList.add('kbfocus');});
+  t.addEventListener('blur',function(){lbl.classList.remove('kbfocus');});
+});
+</script>
+</body>
+</html>
