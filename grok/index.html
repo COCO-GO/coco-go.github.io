@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Grok para tu negocio — COCO GO</title>
+<meta name="description" content="Curso práctico de Grok para emprendedores y PyMEs. 7 módulos con prompts, plantillas y entregables reales. En español, sin tecnicismos." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Grok para tu negocio — COCO GO" />
+<meta property="og:description" content="7 módulos concatenados. Cada uno resuelve un problema concreto y te deja un archivo usable esta semana." />
+<meta property="og:site_name" content="COCO GO" />
+<meta property="og:url" content="https://coco-go.github.io/grok/" />
+<meta property="og:image" content="https://coco-go.github.io/grok/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="es_AR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Grok para tu negocio — COCO GO" />
+<meta name="twitter:description" content="7 módulos con prompts, plantillas y entregables reales. En español, sin tecnicismos." />
+<meta name="twitter:image" content="https://coco-go.github.io/grok/assets/og-image.png" />
+<meta name="theme-color" content="#111111" />
+<link rel="canonical" href="https://coco-go.github.io/grok/" />
+<link rel="icon" type="image/svg+xml" href="../assets/logo-coco-go.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+:root{--theme:#111111; --theme-dark:#000000; --theme-light:#C4C7CC; --theme-rgb:120,124,130;}
+
+/* ═══ COMPONENTES NUEVOS — solo para el curso Grok ═══ */
+
+/* .grokmock — burbuja de chat de Grok, misma familia visual que .geminimock/.claudemock,
+   pero con avatar NEGRO (no --theme) y el logo-grok.svg (blanco) adentro. */
+.grokmock{max-width:640px;margin:0 auto 18px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
+.grokmock-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(20,25,40,.08);background:#F7F7F8}
+.grokmock-bar .dot{width:9px;height:9px;border-radius:50%;background:#D8DAE0}
+.grokmock-bar span{font-family:var(--body);font-size:.82rem;font-weight:700;color:#1A1A1A;margin-left:2px}
+.grokmock-body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:14px}
+.grokmock-user{display:flex;justify-content:flex-end}
+.grokmock-user p{background:#F0F0F2;color:#1A1A1A;font-size:.9rem;line-height:1.5;padding:10px 14px;border-radius:16px 16px 3px 16px;max-width:85%;margin:0}
+.grokmock-ai{display:flex;gap:10px;align-items:flex-start}
+.grokmock-ai .ava{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#000000;display:grid;place-items:center;margin-top:1px;overflow:hidden}
+.grokmock-ai .ava img{width:14px;height:14px;display:block}
+.grokmock-ai .aicol{display:flex;flex-direction:column;gap:5px;max-width:88%}
+.grokmock-ai .chip{align-self:flex-start;font-family:var(--mono);font-size:.6875rem;font-weight:700;letter-spacing:.03em;color:#000;background:rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.22);padding:2px 8px;border-radius:999px}
+.grokmock-ai p{color:#2A2B32;font-size:.9rem;line-height:1.55;margin:0}
+.grokmock-ai p b{color:#111}
+@media(max-width:400px){.grokmock-user p,.grokmock-ai p{font-size:13pt}}
+
+/* Badges de puerta — sello de las 3 puertas de Grok (🆓 Free / 💲 X Premium desde ~USD 5-8 / 💰 SuperGrok $30) */
+.gate-badges{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px}
+.gate-badge{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;letter-spacing:.02em;padding:6px 12px;border-radius:999px;border:1px solid var(--border-strong);background:var(--surface);color:var(--text)}
+.gate-badge .ic{font-size:.9rem;line-height:1}
+.gate-badge.free{border-color:rgba(120,200,150,.45);background:rgba(120,200,150,.1);color:#8FE0AC}
+.gate-badge.premium{border-color:rgba(230,180,60,.45);background:rgba(230,180,60,.1);color:#F0CB6A}
+.gate-badge.super{border-color:rgba(var(--theme-rgb),.55);background:rgba(var(--theme-rgb),.14);color:var(--theme-light)}
+.gate-badges-inline{display:inline-flex;gap:6px;vertical-align:middle;margin-left:8px}
+
+/* Bloque antes/después — dos columnas contrastadas (módulo 3) */
+.antesdespues{display:flex;flex-wrap:wrap;gap:13px;margin:16px 0}
+.ad-col{flex:1 1 260px;border-radius:14px;padding:16px 17px;border:1px solid var(--border)}
+.ad-col.ad-sin{background:rgba(180,60,60,.08);border-color:rgba(180,60,60,.3)}
+.ad-col.ad-con{background:rgba(var(--theme-rgb),.09);border-color:rgba(var(--theme-rgb),.35)}
+.ad-col .ad-tag{display:block;font-size:.73rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;margin-bottom:7px}
+.ad-col.ad-sin .ad-tag{color:#E08080}
+.ad-col.ad-con .ad-tag{color:var(--theme-light)}
+.ad-col p{margin:0;font-size:.9rem;line-height:1.55;color:var(--text)}
+
+/* Diagrama del sistema (módulo 7) — cajas fieles al ASCII, legible en mobile */
+.sysdiagram{margin:18px 0;display:flex;flex-direction:column;align-items:center;gap:0}
+.sysdiagram .sd-box{width:100%;max-width:420px;border-radius:12px;padding:13px 16px;text-align:center;border:1px solid var(--border-strong);background:var(--surface)}
+.sysdiagram .sd-box.sd-base{border-color:rgba(var(--theme-rgb),.55);background:rgba(var(--theme-rgb),.1)}
+.sysdiagram .sd-box.sd-final{border-color:rgba(var(--theme-rgb),.7);background:linear-gradient(165deg,rgba(var(--theme-rgb),.18),rgba(var(--theme-rgb),.05))}
+.sysdiagram .sd-num{display:block;font-family:var(--mono);font-size:.72rem;font-weight:700;color:var(--theme-light);letter-spacing:.06em;margin-bottom:3px}
+.sysdiagram .sd-title{display:block;font-weight:700;font-size:.93rem;margin-bottom:3px}
+.sysdiagram .sd-desc{display:block;font-size:.8rem;color:var(--muted);line-height:1.4}
+.sysdiagram .sd-arrow{font-family:var(--mono);color:var(--theme-light);font-size:1.1rem;line-height:1;margin:4px 0}
+.sysdiagram .sd-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;width:100%;max-width:820px}
+.sysdiagram .sd-row .sd-box{flex:1 1 180px;max-width:200px}
+.sysdiagram .sd-puerta{display:inline-block;margin-top:6px;font-size:.7rem;font-weight:700;color:var(--theme-light);background:rgba(var(--theme-rgb),.12);border:1px solid rgba(var(--theme-rgb),.3);border-radius:999px;padding:2px 8px}
+@media(max-width:640px){.sysdiagram .sd-row{flex-direction:column;align-items:center}.sysdiagram .sd-row .sd-box{max-width:420px;width:100%}}
+/* mock de imagen generada (Imagine, módulo 5) — reglas propias de grokmock (el CSS compartido solo las tiene scoped a .geminimock-ai) */
+.grokmock-ai .imgframe-wrap{display:flex;flex-direction:column;gap:5px}
+.grokmock-ai .imgframe{width:100%;max-width:340px;border-radius:12px;overflow:hidden;border:1px solid rgba(var(--theme-rgb),.3);background:linear-gradient(135deg,rgba(var(--theme-rgb),.9),var(--theme-dark) 60%,#0B1220);position:relative;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px}
+.grokmock-ai .imgframe::before{content:"";position:absolute;inset:0;opacity:.5;background-image:radial-gradient(circle at 20% 20%,rgba(255,255,255,.25),transparent 45%),radial-gradient(circle at 80% 75%,rgba(255,255,255,.15),transparent 50%)}
+.grokmock-ai .imgframe .ic{position:relative;z-index:1;font-size:1.6rem;margin-bottom:8px}
+.grokmock-ai .imgframe span{position:relative;z-index:1;color:#fff;font-size:.82rem;font-weight:600;text-align:center;line-height:1.4;text-shadow:0 1px 4px rgba(0,0,0,.35)}
+/* pill activa — override para el monocromo de Grok: el halo rgba(--theme-rgb) del CSS compartido queda como niebla gris que desborda. Acá: plata sólido, texto casi negro, sombra oscura sutil */
+#t-inicio:checked~.modnav .p-inicio,#t-gloss:checked~.modnav .p-gloss,#t-m1:checked~.modnav .p-m1,#t-m2:checked~.modnav .p-m2,#t-m3:checked~.modnav .p-m3,#t-m4:checked~.modnav .p-m4,#t-m5:checked~.modnav .p-m5,#t-m6:checked~.modnav .p-m6,#t-m7:checked~.modnav .p-m7,#t-apps:checked~.modnav .p-apps,#t-bonus:checked~.modnav .p-bonus,#t-verif:checked~.modnav .p-verif{color:#0A0A0A;background:var(--theme-light);border-color:transparent;box-shadow:0 4px 12px rgba(0,0,0,.4)}
+
+/* .homemock — mock fiel de la Home del chat de Grok: fondo oscuro real, chips reales y barra de input con botones (no texto descriptivo en cajas) */
+.homemock{max-width:560px;margin:12px 0 6px;background:#0B0B0D;border:1px solid rgba(255,255,255,.1);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);overflow:hidden}
+.homemock-bar{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid rgba(255,255,255,.08);font-family:var(--display);font-weight:700;font-size:.85rem;color:#E7E8EC}
+.homemock-bar .dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.18)}
+.homemock-body{padding:20px 16px 16px;display:flex;flex-direction:column;gap:18px}
+.homemock-chips{display:flex;flex-wrap:wrap;gap:8px}
+.homemock-chips .chip{font-family:var(--body);font-size:.74rem;font-weight:600;color:#D6D8DE;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:999px;white-space:nowrap}
+.homemock-input{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:8px 8px 8px 14px}
+.homemock-input .ph{flex:1;font-size:.85rem;color:rgba(230,231,236,.5)}
+.homemock-input .ibtn{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;gap:4px;font-family:var(--body);font-size:.74rem;font-weight:700;color:#E7E8EC;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:999px;width:30px;height:30px}
+.homemock-input .ibtn.wide{width:auto;padding:0 12px}
+.homemock-input .ibtn.solid{background:#E7E8EC;color:#0B0B0D;border-color:transparent}
+@media(max-width:420px){.homemock-input .ibtn span.lbl{display:none}.homemock-input .ibtn.wide{width:30px;padding:0}}
+
+/* mocks fieles del selector de modelo y chat privado — fondo oscuro, misma familia visual que .homemock (el .uimock claro no encajaba con la UI real de Grok) */
+.darkmock{max-width:560px;margin:12px 0 6px;background:#0B0B0D;border:1px solid rgba(255,255,255,.1);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);overflow:hidden}
+.darkmock-bar{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid rgba(255,255,255,.08);font-family:var(--display);font-weight:700;font-size:.85rem;color:#E7E8EC}
+.darkmock-bar .dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.18)}
+.darkmock-body{padding:10px}
+.darkmock-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 12px;border-radius:10px}
+.darkmock-row+.darkmock-row{margin-top:2px}
+.darkmock-row.on{background:rgba(255,255,255,.08)}
+.darkmock-row .rtxt b{display:block;font-size:.86rem;color:#E7E8EC;font-weight:700}
+.darkmock-row .rtxt span{display:block;font-size:.76rem;color:rgba(230,231,236,.55);margin-top:2px}
+.darkmock-row .rcheck{flex-shrink:0;width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);display:grid;place-items:center}
+.darkmock-row.on .rcheck{background:#E7E8EC;border-color:#E7E8EC;color:#0B0B0D;font-size:.7rem;font-weight:900}
+.darkmock-private{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:26px 20px}
+.darkmock-private .pic{font-size:1.8rem;line-height:1}
+.darkmock-private p{font-size:.82rem;color:rgba(230,231,236,.75);margin:0;max-width:320px;line-height:1.5}
+</style>
+</head>
+<body>
+
+<div class="access-gate" id="access-gate" hidden>
+  <div class="access-gate-card">
+    <h2>COCO GO — Grok para tu negocio</h2>
+    <p>Ingresá el código de acceso que recibiste al comprar. Si no lo tenés, escribinos a Instagram @cocogo.</p>
+    <label class="access-gate-field" for="access-code-input">
+      <span class="access-gate-label">Código de acceso</span>
+      <input type="text" id="access-code-input" name="access-code" placeholder="Código de acceso…" autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text" />
+    </label>
+    <button type="button" id="access-code-submit">Entrar al curso</button>
+    <p class="access-gate-error" id="access-gate-error" aria-live="polite"></p>
+  </div>
+</div>
+
+<canvas id="bg"></canvas>
+
+<!-- 12 pestañas -->
+<input class="tab" type="radio" name="coco-tab" id="t-inicio" checked>
+<input class="tab" type="radio" name="coco-tab" id="t-gloss">
+<input class="tab" type="radio" name="coco-tab" id="t-m1">
+<input class="tab" type="radio" name="coco-tab" id="t-m2">
+<input class="tab" type="radio" name="coco-tab" id="t-m3">
+<input class="tab" type="radio" name="coco-tab" id="t-m4">
+<input class="tab" type="radio" name="coco-tab" id="t-m5">
+<input class="tab" type="radio" name="coco-tab" id="t-m6">
+<input class="tab" type="radio" name="coco-tab" id="t-m7">
+<input class="tab" type="radio" name="coco-tab" id="t-apps">
+<input class="tab" type="radio" name="coco-tab" id="t-bonus">
+<input class="tab" type="radio" name="coco-tab" id="t-verif">
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="brandbar">
+  <div class="wrap">
+    <div class="brand">
+      <img src="../assets/logo-coco-go.svg" class="brand-logo" alt="COCO GO">
+    </div>
+    <span class="theme-chip"><span class="dot"></span>Curso · Grok</span>
+  </div>
+</header>
+
+<nav class="modnav">
+  <div class="wrap">
+    <div class="progwrap" role="progressbar" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" aria-label="Progreso del curso">
+      <div class="progtrack"><div class="progfill"></div></div>
+      <span class="proglabel">0/7</span>
+    </div>
+    <div class="scroll">
+    <label class="pill p-inicio" for="t-inicio">Inicio</label>
+    <label class="pill p-apps" for="t-apps">Aplicaciones</label>
+    <label class="pill p-gloss" for="t-gloss">Glosario</label>
+    <label class="pill p-m1" for="t-m1">1 · Entrás y conocés Grok</label>
+    <label class="pill p-m2" for="t-m2">2 · Grok conoce tu negocio</label>
+    <label class="pill p-m3" for="t-m3">3 · Tu radar</label>
+    <label class="pill p-m4" for="t-m4">4 · Tus papeles</label>
+    <label class="pill p-m5" for="t-m5">5 · Imágenes</label>
+    <label class="pill p-m6" for="t-m6">6 · Conectado</label>
+    <label class="pill p-m7" for="t-m7">7 · Tu sistema</label>
+    <label class="pill p-verif" for="t-verif">Verificación</label>
+    <label class="pill p-bonus" for="t-bonus">Bonus</label>
+  </div></div>
+</nav>
+
+<main class="wrap" id="contenido" tabindex="-1">
+
+  <!-- ═══ INICIO ═══ -->
+  <section class="panel" id="p-inicio">
+    <span class="eyebrow"><span class="pulse"></span>Primeros pasos con Grok · nivel básico</span>
+    <h1><img src="../assets/logo-grok.svg" alt="" style="width:.85em;height:.85em;vertical-align:-.08em;margin-right:.15em;filter:invert(1)" aria-hidden="true">Grok para tu negocio,<br><span class="grad">paso a paso.</span></h1>
+    <p class="lead">No compraste un curso — compraste soluciones concretas. Cada módulo resuelve un problema real y te deja un archivo usable que abrís el lunes. Grok tiene algo que casi ningún otro tiene: está enchufado al ahora, busca en la web y en X en vivo.</p>
+    <div class="cta-row">
+      <label class="btn btn-primary" for="t-m1">Empezar el módulo 1 →</label>
+      <label class="btn btn-ghost" for="t-gloss">Ver el glosario</label>
+    </div>
+    <div class="trust">
+      <div class="t"><b>7</b><span>módulos concatenados</span></div>
+      <div class="t"><b>3</b><span>puertas: 🆓 💲 💰</span></div>
+      <div class="t"><b>100%</b><span>celular y computadora</span></div>
+      <div class="t"><b>15–30 min</b><span>por módulo</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ GLOSARIO ═══ -->
+  <section class="panel" id="p-gloss">
+    <div class="sec-head"><span class="numchip" style="font-size:1.25rem">Aa</span><h2>Glosario · 62 conceptos clave</h2></div>
+    <p class="sec-sub">Antes de arrancar, leé el estándar de calidad y el mapa del kit (los tenés más abajo).</p>
+
+    <p style="font-weight:700;color:var(--theme-light);font-size:1.02rem;margin:4px 0 10px">👉 ¿Una palabra te traba en algún módulo? Buscala acá — son 62 conceptos explicados simple.</p>
+    <div class="gloss-search"><span>🔎</span><input id="gloss-q" placeholder="Buscar un término…" autocomplete="off"></div>
+
+    <div class="card">
+      <h3>📦 Tu kit al terminar — soluciones en archivos</h3>
+      <p>No es material de estudio. Es lo que abrís cuando tenés un problema en el negocio:</p>
+      <div class="foldertree">
+        <div class="root"><span>📁</span> Sistema IA/Grok/</div>
+        <div class="kids">
+          <div class="ft-row"><span class="ft-file"><span>📄</span>01-cuenta-y-puertas</span><span class="ft-arrow">→</span><span class="ft-desc">cuenta creada + puerta elegida + privacidad decidida</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>02-contexto-de-mi-negocio</span><span class="ft-arrow">→</span><span class="ft-desc">Personaliza a Grok con tono, precios y políticas</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>03-mi-radar</span><span class="ft-arrow">→</span><span class="ft-desc">búsqueda en vivo con Fuentes + decisión anotada</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>04-papeles-resueltos</span><span class="ft-arrow">→</span><span class="ft-desc">1 documento real analizado y verificado</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>05-piezas-visuales</span><span class="ft-arrow">→</span><span class="ft-desc">2-3 imágenes con Grok Imagine, listas para publicar</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>06-grok-conectado</span><span class="ft-arrow">→</span><span class="ft-desc">1 Connector + 1 Skill propia, probados</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>07-mi-sistema-grok</span><span class="ft-arrow">→</span><span class="ft-desc">rutina semanal + puerta elegida con criterio</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⏱️ Estándar de calidad — un módulo está listo si cumplís las 5</h3>
+      <ol>
+        <li><strong>Datos reales</strong> — precios, servicios, clientes y tono tuyo, no placeholders.</li>
+        <li><strong>Al menos una iteración</strong> — si sonó genérico, pediste ajuste concreto.</li>
+        <li><strong>Prueba en operación</strong> — lo usaste con un cliente o dato real, no de prueba.</li>
+        <li><strong>Guardado en Sistema IA/Grok</strong> — archivo nombrado, encontrable el lunes.</li>
+        <li><strong>Repetible sin esta guía</strong> — sabés qué prompt usar y dónde está el entregable.</li>
+      </ol>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <h3>📩 Carta al alumno</h3>
+      <p>Invertiste plata y tiempo en este curso. Lo mínimo que merecés es claridad: <strong>no hay magia</strong>. Grok es una herramienta potente con un límite claro — sin tu contexto real, da respuestas genéricas, y puede alucinar (inventar algo creíble pero falso). Tu trabajo es alimentarlo con datos de tu negocio, iterar hasta que suene bien, verificar antes de usar, y usarlo aunque no sea perfecto.</p>
+      <p>Si completás los 7 módulos con datos reales y al menos 1 entregable usado por semana, en un mes vas a tener un sistema que trabaja mientras vos atendés tu negocio.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <h3>🗺️ Mapa del curso</h3>
+      <p><strong>Base:</strong> el módulo 1, <i>Entrás y conocés Grok</i> → el módulo 2, <i>Grok conoce tu negocio</i><br>
+      <strong>Capacidades fuertes:</strong> el módulo 3, <i>Tu radar</i> → el módulo 4, <i>Tus papeles</i> → el módulo 5, <i>Grok te hace las imágenes</i><br>
+      <strong>Sistema:</strong> el módulo 6, <i>Grok conectado y con tu forma</i> → el módulo 7, <i>Tu sistema Grok</i></p>
+      <p style="margin-top:8px;font-size:.9rem;color:var(--faint)">Hacelos en orden la primera vez. Cada módulo asume lo que dejó el anterior. Después podés entrar por cualquier módulo según la urgencia de la semana.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <h3>⚙️ Antes de empezar</h3>
+      <ul>
+        <li>Una cuenta en grok.com o la app de Grok (iOS/Android) — no hace falta cuenta de X.</li>
+        <li>Una nota o carpeta en el celular o compu donde guardar los entregables — llamala <strong>"Sistema IA/Grok"</strong>.</li>
+        <li>15–30 minutos por módulo. No intentes hacerlos todos en un día.</li>
+        <li>Datos reales de tu negocio: qué vendés, a quién, cuánto, con qué tono.</li>
+      </ul>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <h3>🚪 Las 3 puertas de Grok — el sello de este curso</h3>
+      <div class="gate-badges">
+        <span class="gate-badge free"><span class="ic">🆓</span>Free — $0/mes</span>
+        <span class="gate-badge premium"><span class="ic">💲</span>X Premium — desde ~USD 8/mes</span>
+        <span class="gate-badge super"><span class="ic">💰</span>SuperGrok — $30/mes</span>
+      </div>
+      <div class="planes">
+        <div class="plan-card">
+          <h4>🆓 Free</h4>
+          <span class="price">$0/mes</span>
+          <ul>
+            <li>Chat, subir y analizar archivos</li>
+            <li>Connectors (Gmail, Drive, Calendar…)</li>
+            <li>Búsqueda en tiempo real "Limited"</li>
+            <li>Te alcanza hasta el módulo 4</li>
+          </ul>
+        </div>
+        <div class="plan-card">
+          <h4>💲 X Premium</h4>
+          <span class="price">desde ~USD 8/mes según el país (en Argentina hoy se ve ~USD 5)</span>
+          <ul>
+            <li>La puerta más barata con Grok Imagine</li>
+            <li>Imágenes y video (con límites)</li>
+            <li>El precio exacto lo ves en la pantalla Premium de tu app de X</li>
+            <li>Te sirve desde el módulo 5</li>
+          </ul>
+        </div>
+        <div class="plan-card">
+          <h4>💰 SuperGrok</h4>
+          <span class="price">$30/mes</span>
+          <ul>
+            <li>Búsqueda "Expert" (investigación profunda)</li>
+            <li>Imágenes prácticamente ilimitadas</li>
+            <li>Los límites más altos en todo</li>
+            <li>Conviene si tu negocio vive del radar (módulo 3)</li>
+          </ul>
+        </div>
+        <div class="plan-advice"><p><b>Consejo simple:</b> arrancás gratis; sumás X Premium (esos ~USD 5-8 según tu país, pagados en X) si necesitás imágenes; vas a $30 si necesitás investigación profunda de verdad. No hace falta pagar todo de una — cada módulo te dice cuándo te conviene subir de puerta.</p></div>
+      </div>
+    </div>
+
+    <div class="gloss-list" id="gloss-list">
+
+      <p class="gloss-group">Entorno general</p>
+
+      <div class="gitem"><button class="gterm">IA / inteligencia artificial<span class="chev">+</span></button><div class="gdef"><p>Un programa que entiende lenguaje natural (como le hablás a una persona) y te responde, escribe, investiga, dibuja o busca en internet sin que vos programes nada. Grok es una IA conversacional de xAI.</p></div></div>
+
+      <div class="gitem"><button class="gterm">xAI<span class="chev">+</span></button><div class="gdef"><p>La empresa que hace Grok (X.AI LLC). Separada de X/Twitter, aunque están vinculadas.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Grok<span class="chev">+</span></button><div class="gdef"><p>El asistente de IA de xAI. Chat que además busca en vivo, ve imágenes y documentos, habla y crea imágenes/video.</p></div></div>
+
+      <div class="gitem"><button class="gterm">grok.com<span class="chev">+</span></button><div class="gdef"><p>El sitio web oficial para usar Grok en la computadora.</p></div></div>
+
+      <div class="gitem"><button class="gterm">App de Grok<span class="chev">+</span></button><div class="gdef"><p>La aplicación para el celular (iOS y Android), funciona sola sin X.</p></div></div>
+
+      <div class="gitem"><button class="gterm">X (antes Twitter)<span class="chev">+</span></button><div class="gdef"><p>La red social. Grok puede buscar dentro de X en tiempo real; también hay una versión de Grok dentro de X (vía secundaria, se rige por reglas de X, no de xAI).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Prompt<span class="chev">+</span></button><div class="gdef"><p>Lo que le escribís o pedís a Grok (la instrucción o pregunta). Cuanto más claro y específico (tu negocio, tu rubro, tu tono), mejor la respuesta.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Chat / Hilo (thread)<span class="chev">+</span></button><div class="gdef"><p>Una conversación con Grok; podés seguir preguntando y mantiene el contexto.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Genérico / respuesta genérica<span class="chev">+</span></button><div class="gdef"><p>Una respuesta correcta pero que podría servirle a cualquier negocio, porque no usó tus datos reales. Es la señal de que falta contexto, no de que "Grok no sirve".</p></div></div>
+
+      <div class="gitem"><button class="gterm">Iterar<span class="chev">+</span></button><div class="gdef"><p>Pedirle un ajuste a algo que Grok ya te dio, en vez de tirarlo y empezar de cero: "más corto", "con este dato real", "cambiá el fondo" — cada vuelta es una iteración.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Multimodal<span class="chev">+</span></button><div class="gdef"><p>Que entiende y genera más de un tipo de contenido (texto, imagen, voz, video) en la misma herramienta, en el mismo hilo, sin cambiar de app.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Contexto (context window)<span class="chev">+</span></button><div class="gdef"><p>Cuánto texto puede "tener en mente" Grok a la vez. Grok 4.3: 1 millón de tokens.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Token<span class="chev">+</span></button><div class="gdef"><p>La unidad con la que Grok mide el texto que procesa (no son palabras exactas, pero se le parecen).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Corte de conocimiento (knowledge cutoff)<span class="chev">+</span></button><div class="gdef"><p>La fecha hasta la que Grok "aprendió" de entrenamiento (Grok 4.3: diciembre 2025); para lo posterior necesita la búsqueda en vivo.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Alucinación<span class="chev">+</span></button><div class="gdef"><p>Cuando la IA inventa algo que suena creíble pero es falso. xAI lo admite oficialmente: siempre hay que verificar antes de usar un dato con un cliente real.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Adjuntar / subir archivo<span class="chev">+</span></button><div class="gdef"><p>Agregar un documento, foto, audio o video al chat con el botón <b>+</b> para que Grok lo lea. Tipos soportados: PDF, DOCX, XLSX, CSV, PPTX, imágenes, audio, video. Hasta ~150 MB por archivo.</p></div></div>
+
+      <p class="gloss-group">Puertas y planes</p>
+
+      <div class="gitem"><button class="gterm">Cómo funcionan las puertas, en criollo<span class="chev">+</span></button><div class="gdef"><p>Cada plan te da un set de <b>HERRAMIENTAS</b> desbloqueadas (por ejemplo, generar imágenes) y una <b>TASA DE USO</b> — cuántos pedidos podés hacerle a Grok antes de que te frene por un rato. No es que un plan te dé "otro Grok": el plan mejor te da MÁS de las dos cosas (más herramientas Y más tasa de uso), no un Grok distinto.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Free / SuperGrok Lite / SuperGrok / SuperGrok Heavy<span class="chev">+</span></button><div class="gdef"><p>Los planes de pago de Grok, de gratis a $300/mes.</p></div></div>
+
+      <div class="gitem"><button class="gterm">X Premium / Premium+<span class="chev">+</span></button><div class="gdef"><p>Suscripciones de X (se contratan DESDE X, no desde la app de Grok) que también dan más uso de Grok (vía secundaria). X Premium es la puerta más barata con Grok Imagine: cuesta desde ~USD 8/mes según el país — en Argentina hoy se ve ~USD 5 — el precio exacto lo ves en la pantalla Premium de tu app de X.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Puertas del curso (🆓/💲/💰)<span class="chev">+</span></button><div class="gdef"><p>La forma en que este curso marca qué necesitás para cada módulo: 🆓 Free ($0), 💲 X Premium (desde ~USD 5-8/mes según el país, pagado en X), 💰 SuperGrok ($30/mes). Cada módulo indica su puerta para que sepas si te alcanza con lo gratis o si conviene sumar plan.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Grok 4 / Grok 4.3<span class="chev">+</span></button><div class="gdef"><p>La familia y la versión del "cerebro" de Grok. 4.3 es la vigente en el chat de consumo (2026).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Grok 4.5<span class="chev">+</span></button><div class="gdef"><p>Lo más nuevo de xAI (julio 2026), pensado para programar y automatizar. Por ahora se usa desde Grok Build y la API; se aprovecha de lleno en el Grok intermedio.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Grok 4 Heavy<span class="chev">+</span></button><div class="gdef"><p>Versión más potente (multi-agente), solo en el plan Heavy.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Grok Build<span class="chev">+</span></button><div class="gdef"><p>La herramienta de Grok para programar código (técnica, para desarrolladores). No se usa en este curso básico; se profundiza en el Grok intermedio, con Grok 4.5 como modelo de base.</p></div></div>
+
+      <p class="gloss-group">La pantalla y sus controles</p>
+
+      <div class="gitem"><button class="gterm">Home (del chat)<span class="chev">+</span></button><div class="gdef"><p>La pantalla principal: input "Pregunta lo que quieras" abajo, con botón <b>+</b>, botón <b>Expert</b>, micrófono y botón <b>Habla</b>; arriba, un carrusel de chips de acceso rápido (Prueba habilidades, Crear videos, Editar imagen, Modo Voz, Abrir cámara, Analizar documentos, Personaliza a Grok).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Botón +<span class="chev">+</span></button><div class="gdef"><p>Al lado del input. Abre el menú para subir archivos (Cámara, Fotos, Archivos) o usar Conectores y Habilidades.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Selector de modelo (botón Expert)<span class="chev">+</span></button><div class="gdef"><p>Se abre tocando <b>Expert</b> en el input. Da 4 opciones: <b>Heavy</b> ("Team of Experts", el más potente), <b>Expert</b> ("Thinks hard", el que razona a fondo), <b>Fast</b> ("Quick responses", el más rápido), <b>Auto</b> (Grok elige solo entre Fast o Expert según la pregunta). Para arrancar, "Auto" alcanza.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Expert (mode)<span class="chev">+</span></button><div class="gdef"><p>Nivel superior de búsqueda/razonamiento en planes pagos (vs "Limited" en Free). Es la función que reemplazó a lo que antes se llamaba "DeepSearch" — hoy no existe un botón separado con ese nombre; el razonamiento profundo vive integrado en la elección de modelo.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Búsqueda en tiempo real<span class="chev">+</span></button><div class="gdef"><p>Grok busca en la web y en X en el momento para responder con lo que pasa ahora. En Free va como "Limited"; en pagos, "Expert". Es el rasgo más distintivo de Grok frente a otras IA de chat.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Fuentes<span class="chev">+</span></button><div class="gdef"><p>El número que aparece al pie de una respuesta cuando Grok salió a buscar en vivo; es la prueba de que no te está devolviendo memoria vieja. Conviene abrir al menos una para verificar.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Historial<span class="chev">+</span></button><div class="gdef"><p>Se llega tocando tu foto de perfil arriba a la izquierda. Panel con Automatizaciones, Compañeros, sección "Anclado", sección "Conversaciones", buscador, Settings y botón de chat nuevo.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Anclado<span class="chev">+</span></button><div class="gdef"><p>Sección del historial donde fijás los chats que más usás, para no tener que buscarlos entre todos los demás.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Automatizaciones<span class="chev">+</span></button><div class="gdef"><p>Acceso dentro del panel de historial (mención lateral en este curso básico; no se profundiza en los 7 módulos).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Companions (Compañeros)<span class="chev">+</span></button><div class="gdef"><p>Personajes/avatares interactivos, solo en la app de iOS.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Chat privado<span class="chev">+</span></button><div class="gdef"><p>Modo en el que la conversación no queda en tu historial y se borra en 30 días. Se activa con el ícono de sombrero y anteojos oscuros ("incógnito") en la pantalla del chat.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Settings<span class="chev">+</span></button><div class="gdef"><p>El menú de ajustes: secciones Aplicación, Grok, Voz, Datos e Información, Suscripción.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Personaliza a Grok<span class="chev">+</span></button><div class="gdef"><p>Settings → Grok → Personaliza a Grok. Ahí vive el campo <b>Estilo</b> y el cuadro de <b>Instrucciones</b> con el que le cargás tu negocio a Grok.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Estilo<span class="chev">+</span></button><div class="gdef"><p>El campo de Personaliza a Grok donde elegís el tono de base de las respuestas de texto: Predeterminado, Personalizado, Concise, Formal, Tutor, Comprehensive. Es editable como instrucción de sistema en texto libre.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Instrucciones<span class="chev">+</span></button><div class="gdef"><p>El cuadro de texto libre dentro de Personaliza a Grok donde escribís quién sos, qué vendés, tus precios, tus políticas y tu tono. Los cambios solo aplican a conversaciones nuevas, no a las que ya tenías abiertas.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Conectores (Connectors)<span class="chev">+</span></button><div class="gdef"><p>Conexiones a tus apps reales (Gmail, Google Drive, Google Calendar, Outlook, SharePoint, OneDrive, Teams, Salesforce) para que Grok lea o trabaje con tus datos. Confirmado oficial: disponibles para todos los usuarios de Grok, incluido Free. 🆓</p></div></div>
+
+      <div class="gitem"><button class="gterm">Habilidades (Skills)<span class="chev">+</span></button><div class="gdef"><p>Reglas o formatos que le enseñás a Grok una vez (tu tono, tu estructura de presupuesto, etc.) y aplica siempre que las uses. La cuenta trae 5 de fábrica: Word Documents, PDFs, Presentations, Skill Creator, Spreadsheets.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Crear con Grok<span class="chev">+</span></button><div class="gdef"><p>El botón dentro de Settings → Habilidades para armar tu propia Skill, contándole el formato o tono que querés que repita.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Skill Creator<span class="chev">+</span></button><div class="gdef"><p>Una de las 5 skills de fábrica: sirve justamente para construir Skills propias conversando.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Memoria (Memory)<span class="chev">+</span></button><div class="gdef"><p>Grok recuerda cosas tuyas entre chats; se ve, edita y borra desde Settings.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Projects<span class="chev">+</span></button><div class="gdef"><p>Carpetas para agrupar conversaciones y archivos de un mismo tema.</p></div></div>
+
+      <p class="gloss-group">Grok Imagine (imágenes y video)</p>
+
+      <div class="gitem"><button class="gterm">Grok Imagine<span class="chev">+</span></button><div class="gdef"><p>La parte de Grok que crea imágenes y video a partir de texto o de una foto de referencia, y que te deja editar/re-estilar lo ya generado con follow-ups en el mismo hilo. Imagen hasta 2K de resolución; video hasta 15 segundos a 720p (en pantalla vas a ver botones de duración, por ejemplo 6 o 10 segundos, según el modo). Pago desde el 19 de marzo de 2026 (0 generaciones gratis en Free). 💲</p></div></div>
+
+      <div class="gitem"><button class="gterm">Agent Mode / modo Agente (Imagine)<span class="chev">+</span></button><div class="gdef"><p>Un modo dentro de Imagine, visible como chip en inglés ("Agente") en el input, para un flujo más conversacional de crear y editar.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Anima tus fotos<span class="chev">+</span></button><div class="gdef"><p>Carrusel de Imagine que usa fotos de tu rollo como punto de partida para animarlas.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Crear desde plantilla<span class="chev">+</span></button><div class="gdef"><p>Carrusel de Imagine con plantillas visuales ya armadas (por ejemplo, estilos de producto) para adaptar a lo tuyo si no sabés por dónde arrancar.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Marca de agua (watermark)<span class="chev">+</span></button><div class="gdef"><p>El sello "grok" en imágenes/videos generados; no se puede quitar. Identifica que el contenido fue hecho con IA.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Uso comercial<span class="chev">+</span></button><div class="gdef"><p>Los resultados que genera Grok (imágenes, video, texto) son tuyos: podés usarlos para vender, sin restricción, atribuyendo a Grok según las guías de marca de xAI.</p></div></div>
+
+      <p class="gloss-group">Modo Voz</p>
+
+      <div class="gitem"><button class="gterm">Modo Voz (Voice)<span class="chev">+</span></button><div class="gdef"><p>Hablar con Grok y que te responda con voz, con latencia casi instantánea. En iOS puede además ver por la cámara y comentar en tiempo real.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Compartir pantalla (en Voz)<span class="chev">+</span></button><div class="gdef"><p>Durante una charla de voz, mostrarle tu pantalla a Grok para que vea en vivo lo que tenés adelante. Dispara el picker nativo de iOS ("Transmisión de pantalla" → "Grok Screen Share").</p></div></div>
+
+      <div class="gitem"><button class="gterm">Personalidad (de voz)<span class="chev">+</span></button><div class="gdef"><p>Sección de Settings → Voz → Configuración de voz. Chips como Asistente, Terapeuta, Cuentacuentos, Meditation, Grok "Doc", y variantes 18+. Es distinto del "Estilo" de texto.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Voz (timbre)<span class="chev">+</span></button><div class="gdef"><p>El selector de la voz con la que te habla Grok: Ara, Eve, Leo, Rex, Sal, Gork (este último 18+).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Dictado<span class="chev">+</span></button><div class="gdef"><p>Pasar voz a texto sin abrir el Modo Voz completo (hold-to-dictate).</p></div></div>
+
+      <p class="gloss-group">Privacidad y datos</p>
+
+      <div class="gitem"><button class="gterm">Data Controls / Controles de datos<span class="chev">+</span></button><div class="gdef"><p>Sección de Settings → Datos e Información para manejar entrenamiento, personalización y borrado de tus datos.</p></div></div>
+
+      <div class="gitem"><button class="gterm">"Improve the model"<span class="chev">+</span></button><div class="gdef"><p>La opción (en Controles de datos) para permitir o NO que tus chats entrenen a Grok. Por defecto puede estar activada.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Info sensible<span class="chev">+</span></button><div class="gdef"><p>Datos personales, contraseñas, tarjetas, o datos de terceros. Regla de oro del curso: nunca meterlos en un prompt.</p></div></div>
+
+      <p class="gloss-group">Método del curso</p>
+
+      <div class="gitem"><button class="gterm">Sistema IA/Grok/<span class="chev">+</span></button><div class="gdef"><p>La carpeta donde vas guardando cada entregable del curso (01 al 07), para tener todo en un mismo lugar al terminar.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Radar (de negocio)<span class="chev">+</span></button><div class="gdef"><p>El hábito, armado en el módulo 3, de preguntarle a Grok algo puntual de tu rubro o competencia con búsqueda en vivo y Fuentes citadas.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Verificar antes de usar<span class="chev">+</span></button><div class="gdef"><p>El criterio transversal del curso: toda respuesta de Grok se revisa contra el dato real (documento, precio, política) antes de mandarla a un cliente, por el riesgo de alucinación.</p></div></div>
+
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h3>🔁 El prompt universal de refinamiento</h3>
+      <p>Cuando Grok te devuelve algo genérico, tibio, o que se aleja de tu negocio, no lo tires — usá este prompt para que lo mejore con tus datos reales. Funciona en cualquier chat de Grok (grok.com o app), con o sin tus instrucciones de Personaliza a Grok cargadas, en cualquier módulo de este curso:</p>
+      <div class="prompt">
+        <div class="top"><span>prompt · refinamiento universal</span><button class="copy">Copiar</button></div>
+        <pre>Esta respuesta no me sirve porque [explicá qué falla: muy genérica, no usa
+mis datos, el tono no es el mío, inventó algo, etc.].
+
+Volvé a hacerla, más [concreta / corta / cercana a mi negocio], usando estos
+datos reales: [pegá acá precios, políticas, tono, o lo que corresponda].</pre>
+      </div>
+    </div>
+
+    <p class="gloss-note">Tocá un término para ver la definición. El buscador filtra en tiempo real.</p>
+  </section>
+
+  <!-- ═══ MÓDULO 1 ═══ -->
+  <section class="panel" id="p-m1">
+    <div class="sec-head"><span class="numchip">01</span><h2>Entrás y conocés Grok</h2></div>
+    <div class="gate-badges"><span class="gate-badge free"><span class="ic">🆓</span>Free</span></div>
+    <p class="sec-sub">Grok es el asistente de xAI al que le hablás natural, en texto o por voz, y que tiene algo que casi ningún otro tiene: está enchufado al ahora, busca en la web y en X en vivo. Acá lo abrís por primera vez —desde el navegador, desde tu celular, o instalándolo como app en la compu—, reconocés la pantalla, entendés qué te da cada puerta (gratis, X Premium o SuperGrok) y dejás decidida tu privacidad desde el día uno. Además, lo más nuevo de Grok (Grok 4.5, julio 2026) está pensado para programar y automatizar — eso se aprovecha en el nivel intermedio, acá alcanza con saber que existe.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Entrá a grok.com desde el navegador (o bajate la app de Grok en tu celular), escribile una pregunta cualquiera de tu negocio en el chat, y mirá qué te responde. Un chat, una pregunta real, un primer resultado.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> no sabés qué es Grok, dónde se usa, ni si tenés que pagar algo — y si no lo aclarás desde el arranque, terminás perdido entre botones, buscando en el lugar equivocado, o pagando de más por algo que la puerta gratis ya te daba.</p>
+      <p><strong>Te llevás:</strong> una cuenta funcionando, sabés en qué dispositivo te conviene usarlo, reconocés la pantalla (dónde escribís, dónde elegís el modo, dónde está tu historial), entendés qué te da cada puerta, y dejás tu privacidad decidida.</p>
+      <p><strong>Lo usás cuando:</strong> abrís Grok por primera vez, cuando te perdés en la pantalla y no encontrás algo, o cuando dudás si te conviene pagar o no.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que termines el módulo con Grok abierto y usado de verdad: una cuenta lista, un primer resultado real sobre tu negocio (no un "hola, ¿cómo estás?"), sabiendo desde qué dispositivo lo vas a usar, entendiendo qué te da cada puerta, y con la opción de privacidad que quieras activada. No es "conocer la pantalla" — es salir con algo hecho.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Grok es de xAI, una empresa separada de X (Twitter), aunque están vinculadas. Eso importa porque la entrada principal es <b>grok.com</b> (o la app de celular), que funciona sola, sin necesitar cuenta de X. También podés usar Grok dentro de X, pero ahí las reglas las pone X, no xAI, así que es una puerta lateral, no la entrada recomendada. Importa también entender que no hay "un solo lugar" para usar Grok: según estés en la compu o en la calle, te conviene una forma u otra (lo vemos abajo). Y elegir bien la puerta de acceso desde el arranque: pagar de más por algo que no vas a usar es tirar plata, y quedarte corto te frena justo cuando el negocio lo necesita. Por último, la privacidad: por defecto, xAI puede usar lo que le escribís para entrenar a Grok — vos decidís si eso te sirve o no, y hay una opción para que no pase.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Entrá por la vía principal, según dónde estés.</strong> Elegí la forma que te quede cómoda (las tres llevan a la misma cuenta — ver el bloque <i>Dónde se usa Grok</i> más abajo): en la <b>computadora</b>, andá a <b>grok.com</b> en tu navegador (Chrome, Safari, el que uses); en el <b>celular</b>, bajate la app "Grok" (iOS o Android) — no hace falta tener X; si ya tenés cuenta de X, podés entrar con esa cuenta o crear una nueva con tu email — cualquiera de las dos te lleva a la misma cuenta de Grok.</li>
+        <li><strong>Reconocé la pantalla.</strong> El input de abajo es donde escribís. El botón <b>+</b> abre el menú para subir archivos, conectar tus apps o usar habilidades (lo vas a usar en módulos siguientes). El botón <b>Expert</b> abre el selector de modo — ahí elegís cómo piensa Grok para tu pregunta. Para arrancar, dejalo en <b>Auto</b>: Grok elige solo si responde rápido (Fast) o piensa más (Expert) según lo que le preguntes. Ojo puerta: "Expert" a su capacidad plena es de plan pago (💰); en Free, la búsqueda y el razonamiento van en versión "Limited".</li>
+        <li><strong>Encontrá tu historial.</strong> Tocá tu foto de perfil arriba a la izquierda (en la app) para ver el panel con tus conversaciones. Ahí también están "Automatizaciones" y "Compañeros", una sección "Anclado" para fijar chats importantes, el buscador, el engranaje de Settings y el lápiz para arrancar un chat nuevo.</li>
+        <li><strong>Entendé qué te da cada puerta.</strong> Con la pantalla ya reconocida, mirá el bloque <i>Cómo funcionan las 3 puertas</i> (más abajo) y decidí con qué arrancás. Lo normal: arrancar gratis.</li>
+        <li><strong>Decidí tu privacidad.</strong> Andá a Settings → sección "Datos e Información" → <b>Controles de datos</b>. Ahí podés desactivar <b>"Improve the model"</b> si no querés que tus chats se usen para entrenar a Grok. Para una conversación puntual que no quede guardada, usá el <b>Chat privado</b> (ícono de sombrero y anteojos, en la pantalla del chat): no aparece en tu historial y se borra solo.</li>
+        <li><strong>Probalo con algo real.</strong> Volvé al chat y escribile una pregunta de tu negocio de verdad (ver plantillas del punto 9). Esa es tu primera prueba real, no un saludo de cortesía.</li>
+      </ol>
+    </div>
+
+    <span class="gptmock-tag">🏠 Así se ve — Home del chat de Grok</span>
+    <div class="homemock" role="img" aria-label="Mock de la Home del chat de Grok: fondo oscuro, fila de chips de acceso rápido y barra de input abajo con botones + izquierda, Expert, micrófono y Habla a la derecha">
+      <div class="homemock-bar"><div class="dot"></div><span>Grok · grok.com / app</span></div>
+      <div class="homemock-body">
+        <div class="homemock-chips">
+          <span class="chip">Prueba habilidades</span>
+          <span class="chip">Crear videos</span>
+          <span class="chip">Editar imagen</span>
+          <span class="chip">Modo Voz</span>
+          <span class="chip">Abrir cámara</span>
+          <span class="chip">Analizar documentos</span>
+          <span class="chip">Personaliza a Grok</span>
+        </div>
+        <div class="homemock-input">
+          <span class="ibtn">+</span>
+          <span class="ibtn wide">💡 <span class="lbl">Expert</span></span>
+          <span class="ph">Pregunta lo que quieras</span>
+          <span class="ibtn">🎤</span>
+          <span class="ibtn wide solid"><span class="lbl">Habla</span></span>
+        </div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">🧠 Así se ve — selector de modelo (botón Expert)</span>
+    <div class="darkmock" role="img" aria-label="Mock del selector de modelo con 4 opciones: Heavy, Expert, Fast, Auto">
+      <div class="darkmock-bar"><div class="dot"></div><span>Selector de modelo</span></div>
+      <div class="darkmock-body">
+        <div class="darkmock-row"><div class="rtxt"><b>Heavy</b><span>Team of Experts</span></div><div class="rcheck"></div></div>
+        <div class="darkmock-row on"><div class="rtxt"><b>Expert</b><span>Thinks hard</span></div><div class="rcheck">✓</div></div>
+        <div class="darkmock-row"><div class="rtxt"><b>Fast</b><span>Quick responses</span></div><div class="rcheck"></div></div>
+        <div class="darkmock-row"><div class="rtxt"><b>Auto</b><span>Chooses Fast or Expert</span></div><div class="rcheck"></div></div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">🕶️ Así se ve — Chat privado activado</span>
+    <div class="darkmock" role="img" aria-label="Mock de Chat privado activado, ícono de sombrero y anteojos oscuros al centro">
+      <div class="darkmock-bar"><div class="dot"></div><span>Chat privado</span></div>
+      <div class="darkmock-private">
+        <span class="pic">🕶️</span>
+        <p>Este chat no aparecerá en el historial y será completamente borrado.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🌐 Dónde se usa Grok (y en qué se diferencia)</h3>
+      <p>No hay "un solo lugar": Grok es el mismo en todos, con tu misma cuenta y tu mismo historial, pero cada forma tiene lo suyo.</p>
+      <div class="devsplit">
+        <div class="devsplit-card">
+          <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>🌐 En el navegador (grok.com)</b></div>
+          <p>La forma más directa en la computadora: entrás a grok.com en Chrome, Safari o el navegador que uses, y listo. Ideal para cargar textos largos, leer respuestas extensas y copiar/pegar cómodo.</p>
+        </div>
+        <div class="devsplit-card">
+          <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-4Zm0 2.2 6 3v4.8c0 3.9-2.6 7-6 8-3.4-1-6-4.1-6-8V7.2l6-3Z"/></svg></span><b>💻 Instalado como app en la compu</b></div>
+          <p>En Chrome (y navegadores parecidos), cuando estás en grok.com aparece un botón <b>"Instalar"</b> en la barra de direcciones. Al tocarlo, Grok queda como una <b>app en su propia ventana</b>, separada de las pestañas del navegador —como si fuera un programa de escritorio—, y después lo abrís directo con "Abrir en la app". No descargás nada aparte ni es una extensión: es el mismo grok.com, pero cómodo y a un clic. Útil si lo vas a usar seguido en la computadora.</p>
+        </div>
+        <div class="devsplit-card">
+          <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 App de celular (iOS/Android)</b></div>
+          <p>La bajás de la tienda y funciona sola, sin X. Trae de fábrica cosas que en la compu no tenés igual de a mano: <b>Modo Voz</b> (hablarle manos libres), <b>cámara</b> en vivo y <b>compartir pantalla</b>. Ideal para el mostrador o para cuando estás caminando.</p>
+        </div>
+      </div>
+      <p style="margin-top:4px;font-size:.88rem;color:var(--muted)">El grueso del curso lo podés hacer desde cualquiera de las tres. Donde una forma es claramente mejor para una tarea (por ejemplo, la voz del celular para el módulo 3, <i>tu radar</i>, o la pantalla grande para cargar tu contexto en el módulo 2), te lo vamos avisando en cada módulo.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <h3>🚪 Cómo funcionan las 3 puertas</h3>
+      <p>Antes de los precios, la idea simple: <strong>un plan más caro no te da "otro Grok" mágico — te da MÁS de dos cosas.</strong> (1) Más <b>herramientas</b> desbloqueadas (por ejemplo, generar imágenes) y (2) más <b>tasa de uso</b>: la cantidad de pedidos que podés hacer antes de que Grok te frene por un rato. En Free tenés menos de las dos; a medida que pagás, se sube el techo. Elegís según qué herramientas necesitás y cuánto las vas a usar.</p>
+      <div class="planes">
+        <div class="plan-card">
+          <h4>🆓 Free</h4>
+          <span class="price">$0/mes</span>
+          <ul>
+            <li>Chat, subir y analizar archivos, Connectors</li>
+            <li>Búsqueda en tiempo real "Limited"</li>
+            <li>Te alcanza para arrancar el curso hasta el módulo 4, <i>tus papeles</i></li>
+            <li>Tasa de uso más baja: si le das mucho de golpe, te frena un rato y después se repone</li>
+          </ul>
+        </div>
+        <div class="plan-card">
+          <h4>💲 X Premium</h4>
+          <span class="price">desde ~USD 8/mes según el país (en Argentina hoy se ve ~USD 5)</span>
+          <ul>
+            <li>La puerta más barata para generar imágenes y video con Grok Imagine (con límites, no ilimitado)</li>
+            <li><b>Ojo importante: es un servicio de X, NO se contrata desde la app de Grok — se paga y se activa dentro de X (x.com).</b> Muchos lo buscan en grok.com y no lo encuentran: va por X. El precio exacto lo ves en la pantalla Premium de tu app de X.</li>
+            <li>Te sirve cuando llegues al módulo 5, <i>las imágenes</i></li>
+          </ul>
+        </div>
+        <div class="plan-card">
+          <h4>💰 SuperGrok</h4>
+          <span class="price">$30/mes</span>
+          <ul>
+            <li>Se contrata desde el propio Grok (Settings → Suscripción)</li>
+            <li>Búsqueda "Expert" (investigación profunda automática, reemplazó a "DeepSearch")</li>
+            <li>Imágenes prácticamente ilimitadas, la tasa de uso más alta en todo</li>
+            <li>Conviene si tu negocio necesita monitorear su rubro o competencia a fondo (módulo 3, <i>tu radar</i>)</li>
+          </ul>
+        </div>
+        <div class="plan-advice"><p><b>Consejo simple:</b> arrancás gratis; sumás X Premium (esos ~USD 5-8 según tu país, pagados en X) si necesitás imágenes; vas a $30 si necesitás investigación profunda de verdad. No hace falta pagar todo de una — cada módulo te dice cuándo te conviene subir de puerta.</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — Primera pregunta real de tu negocio</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · primera pregunta</span><button class="copy">Copiar</button></div>
+<pre>Tengo un/a <strong class="field">[tipo de negocio]</strong> en <strong class="field">[tu ciudad/zona]</strong>.
+Dame <strong class="field">[3 ideas / un texto corto / una respuesta]</strong> para <strong class="field">[lo que necesites: un
+producto nuevo, un mensaje para un cliente, una duda del día a día]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — Probar el modo Auto con algo que requiera pensar</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · modo auto</span><button class="copy">Copiar</button></div>
+<pre>Necesito decidir entre <strong class="field">[opción A]</strong> y <strong class="field">[opción B]</strong> para mi negocio.
+Pensá los pros y contras de cada una antes de responder.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — Chequear qué plan te conviene (antes de pagar)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · chequear plan</span><button class="copy">Copiar</button></div>
+<pre>Contame para qué usarías Grok esta semana en tu negocio, en una lista corta.
+<strong class="field">[Escribí tu lista real: por ejemplo "responder consultas de clientes", "hacer
+una imagen para redes", "investigar precios de la competencia"]</strong></pre>
+      </div>
+      <p style="margin-top:8px;font-size:.88rem;color:var(--muted)">Con esa lista a la vista, comparás contra el bloque de puertas de arriba y ves si te alcanza con Free.</p>
+    </div>
+
+    <span class="gptmock-tag">💬 Así se ve en Grok</span>
+    <div class="grokmock">
+      <div class="grokmock-bar"><div class="dot"></div><span>Grok</span></div>
+      <div class="grokmock-body">
+        <div class="grokmock-user"><p>Tengo una heladería en Córdoba. Dame 3 ideas de gustos nuevos para el verano, pensando en un público familiar.</p></div>
+        <div class="grokmock-ai"><div class="ava"><img src="../assets/logo-grok.svg" alt=""></div>
+          <div class="aicol"><span class="chip">Auto</span>
+          <p>Tres ideas con buen potencial para verano familiar: 1) Dulce de leche con brownie y nuez, 2) Limón con menta y un toque de jengibre (refrescante, distinto), 3) Frutos rojos con crema y granola crocante. Los tres combinan algo conocido con un detalle nuevo, fáciles de explicar en el mostrador.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Pensar que hay que pagar para "usar Grok en serio" y saltar directo a un plan de $30 sin haber probado la puerta gratis. La mayoría de lo que necesitás en los primeros módulos de este curso (chat, subir archivos, conectar tus apps) funciona en Free. Pagá cuando una necesidad concreta lo pida — imágenes (módulo 5, <i>las imágenes</i>) o búsqueda profunda (módulo 3, <i>tu radar</i>) — no antes.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Un dueño de una heladería nunca usó Grok. Entra a grok.com desde la compu, crea la cuenta con su email (sin tocar X), le pregunta a Grok "dame tres ideas de gustos nuevos para el verano en Argentina" y recibe una respuesta con ideas concretas. Reconoce la pantalla, ve que el chat gratis le alcanza para esto, desactiva "Improve the model" porque no quiere que sus datos de negocio entrenen el modelo, y sigue al módulo 2 (<i>Grok conoce tu negocio</i>) con la cuenta lista.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Tenés la cuenta creada (por grok.com o la app, sin depender de X).</li>
+        <li>Sabés desde qué dispositivo te conviene usarlo.</li>
+        <li>Reconocés dónde está el input, el botón <b>+</b>, el selector de modo y tu historial.</li>
+        <li>Le hiciste al menos una pregunta real sobre tu negocio y la respuesta te sirvió.</li>
+        <li>Entendés qué te da cada puerta y con cuál arrancás (lo normal: Free).</li>
+        <li>Decidiste tu privacidad (Improve the model desactivado si no querés entrenar el modelo, o Chat privado activado para lo puntual).</li>
+      </ul>
+      <p style="margin-top:8px">Guardaste esa decisión en tu entregable y podés volver a entrar sin esta guía.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 01-cuenta-y-puertas — cuenta creada + puerta elegida + privacidad decidida</span>
+
+    <label class="modcheck" data-mod="1">
+      <input type="checkbox" data-mod="1" aria-label="Completé el módulo 1">
+      <span>Completé el módulo 1 · Entrás y conocés Grok</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 2 ═══ -->
+  <section class="panel" id="p-m2">
+    <div class="sec-head"><span class="numchip">02</span><h2>Grok conoce tu negocio</h2></div>
+    <div class="gate-badges"><span class="gate-badge free"><span class="ic">🆓</span>Free</span></div>
+    <p class="sec-sub">En el módulo 1 dejaste la cuenta lista. Ahora le cargás a Grok quién sos, qué vendés y cómo hablás — una sola vez — para que de acá en adelante te responda con TU contexto, no con un genérico de internet. Esta es la base: todo lo que viene en el curso se apoya en lo que cargues acá.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Andá a Settings → Personaliza a Grok, escribí en el campo de instrucciones quién sos, qué vendés y un dato de tu tono, guardá, y hacele una pregunta como si fueras un cliente tuyo. Una configuración, una prueba.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> cada vez que le pedís algo a Grok para tu negocio, tenés que explicarle de cero quién sos, qué vendés y cómo hablás. Se te olvida un dato, el tono cambia según el día, y terminás corrigiendo lo mismo una y otra vez.</p>
+      <p><strong>Te llevás:</strong> Grok configurado con tu contexto real (rubro, público, tono), cargado una sola vez, listo para usar en cualquier chat nuevo.</p>
+      <p><strong>Lo usás cuando:</strong> vas a pedirle a Grok algo para tu negocio (una respuesta a un cliente, un texto, una idea) y no querés repetirle el contexto cada vez.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que termines el módulo con tu negocio cargado en Grok de verdad: instrucciones con datos propios (no un ejemplo de prueba), probadas con una consulta real, ajustadas si la primera respuesta salió genérica, y guardadas como tu base para el resto del curso.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>El campo <b>"Estilo"</b> de Personaliza a Grok no es un simple selector de tono — es una instrucción de sistema en texto libre que Grok respeta en las conversaciones nuevas que abras después de guardarlo (no en las viejas, ojo con ese detalle). Es la diferencia entre explicarle tu negocio a un desconocido cada mañana y tener un asistente que ya sabe con quién está hablando. Esto importa doble en Grok porque es superconversacional por diseño: sin contexto, tiende a responder con un tono genérico o a inventar detalles que no le diste. Con tu contexto cargado, cada respuesta — desde una idea de contenido hasta una respuesta a un cliente — sale ya alineada a cómo hablás y qué vendés, sin que se lo tengas que aclarar en cada mensaje.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Entrá a Personaliza a Grok.</strong> Settings → sección "Grok" → Personaliza a Grok. También podés llegar directo desde el chip "Personaliza a Grok" que aparece en el carrusel de la Home.</li>
+        <li><strong>Elegí un Estilo de base.</strong> Tocá el campo "Estilo" y elegí entre: Predeterminado, Personalizado, Concise, Formal, Tutor, Comprehensive. Si tu negocio necesita respuestas cortas y directas, probá "Concise"; si necesitás un tono más serio para propuestas o contratos, "Formal".</li>
+        <li><strong>Cargá las instrucciones con datos propios</strong>, no genéricos: a qué te dedicás y a quién le vendés (una línea), tus precios base o rango de precios (los reales), una política concreta (cambios, envíos, formas de pago, horarios), y el tono que querés, en tus palabras.</li>
+        <li><strong>Guardá</strong> con el check ✓ arriba a la derecha.</li>
+        <li><strong>Abrí un chat nuevo y probalo como si fueras un cliente real:</strong> escribile una consulta típica que te llega seguido ("¿hacen envíos?", "¿cuánto sale tal producto?", "¿atienden los sábados?").</li>
+        <li><strong>Leé la respuesta con ojo crítico:</strong> ¿el precio es el que pusiste? ¿el tono suena a vos, o suena a IA genérica? Si algo salió inventado o vacío, volvé a las instrucciones y agregá el dato puntual que faltó — no reescribas todo de nuevo, sumá lo que falta.</li>
+        <li><strong>Guardá el resultado</strong> (una captura de la conversación de prueba, o copiá el texto) en tu carpeta <code>Sistema IA/Grok/02-contexto-de-mi-negocio</code>.</li>
+      </ol>
+    </div>
+
+    <span class="gptmock-tag">⚙️ Así se ve — Settings, sección Grok</span>
+    <div class="uimock" role="img" aria-label="Mock de Settings, sección Grok, con Personaliza a Grok, Habilidades, Conectores, Memoria y Avanzado">
+      <div class="bar">Settings · Grok</div>
+      <div class="ubody">
+        <div class="sidebaritem">🎚️ Personaliza a Grok</div>
+        <div class="sidebaritem">⚙️ Habilidades</div>
+        <div class="sidebaritem">🧩 Conectores</div>
+        <div class="sidebaritem">📖 Memoria</div>
+        <div class="sidebaritem">Avanzado</div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">🎨 Así se ve — selector de Estilo</span>
+    <div class="uimock" role="img" aria-label="Mock del selector de Estilo desplegado, con Formal seleccionado">
+      <div class="bar">Personaliza a Grok · Estilo</div>
+      <div class="ubody">
+        <div class="sidebaritem">Predeterminado</div>
+        <div class="sidebaritem">Personalizado</div>
+        <div class="sidebaritem">Concise</div>
+        <div class="sidebaritem on">Formal ✓</div>
+        <div class="sidebaritem">Tutor</div>
+        <div class="sidebaritem">Comprehensive</div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">📝 Así se ve — cuadro de Instrucciones</span>
+    <div class="uimock" role="img" aria-label="Mock del cuadro de Instrucciones de Personaliza a Grok, con nota al pie sobre conversaciones nuevas">
+      <div class="bar">Personaliza a Grok · Instrucciones</div>
+      <div class="ubody">
+        <div class="fld"><label>Estilo</label><span class="box">Formal</span></div>
+        <div class="fld"><label>Instrucciones</label><span class="box">Texto de sistema en texto libre: rubro, precios, políticas, tono…</span></div>
+        <p style="font-size:.82rem;color:#5B5B6E;margin:0">Nota al pie: "Los cambios solo se aplicarán a las conversaciones nuevas, no a las existentes."</p>
+      </div>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Podés entrar a Personaliza a Grok y ajustar el Estilo o las instrucciones desde el celular sin problema, cómodo para un cambio rápido mientras estás en el local. Y podés probarlo por voz: activá el Modo Voz y hacele la misma consulta de cliente hablando — Grok responde con el mismo contexto cargado, así que es una buena forma de chequear que "suena a vos" también hablado.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Para escribir las instrucciones la primera vez, la compu es más cómoda: revisás con calma que cada dato esté completo (precios, políticas, tono) antes de guardar. Una vez cargado, usalo indistinto desde donde te convenga.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — Instrucciones para Personaliza a Grok</h3>
+      <div class="prompt">
+        <div class="top"><span>instrucciones · personaliza a grok</span><button class="copy">Copiar</button></div>
+<pre>Rubro: <strong class="field">[a qué te dedicás]</strong>.
+Público: <strong class="field">[a quién le vendés]</strong>.
+Precios: <strong class="field">[lista real o rango de precios]</strong>.
+Políticas: <strong class="field">[envíos / cambios / turnos / formas de pago — las que apliquen a tu negocio]</strong>.
+Tono: <strong class="field">[cercano / formal / con humor — el que uses de verdad, no un genérico]</strong>.
+Cuando no sepas un dato mío, decilo en vez de inventarlo.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — Probar con una consulta real de cliente</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · probar con consulta real</span><button class="copy">Copiar</button></div>
+<pre><strong class="field">[Pegá acá una pregunta real que te haga un cliente seguido]</strong></pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — Ajustar después de la primera prueba</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · ajustar</span><button class="copy">Copiar</button></div>
+<pre>La respuesta anterior <strong class="field">[qué faltó, qué sonó genérico o qué inventó]</strong>.
+Sumá este dato a mis instrucciones: <strong class="field">[dato concreto y real]</strong>.
+Volvé a responder la misma consulta con esto agregado.</pre>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">💬 Así se ve en Grok — cargando las instrucciones</span>
+    <div class="grokmock">
+      <div class="grokmock-bar"><div class="dot"></div><span>Grok</span></div>
+      <div class="grokmock-body">
+        <div class="grokmock-user"><p>(dentro de Personaliza a Grok, campo Instrucciones) Vendo ropa de mujer en Rosario, público de 25 a 45 años. Remeras desde $8.000, vestidos desde $15.000. Cambios dentro de los 7 días con etiqueta. Tono cercano, como si le hablara a una amiga.</p></div>
+        <div class="grokmock-ai"><div class="ava"><img src="../assets/logo-grok.svg" alt=""></div>
+          <div class="aicol"><span class="chip">Personaliza a Grok</span>
+          <p>Instrucciones guardadas. De acá en más, en tus chats nuevos voy a responder con este contexto: tu rubro, tus precios base y tu política de cambios de 7 días, en un tono cercano. Probalo con una consulta real cuando quieras.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">💬 Así se ve en Grok — la prueba con un cliente real</span>
+    <div class="grokmock">
+      <div class="grokmock-bar"><div class="dot"></div><span>Grok</span></div>
+      <div class="grokmock-body">
+        <div class="grokmock-user"><p>Hola, ¿puedo cambiar un vestido si no me queda bien?</p></div>
+        <div class="grokmock-ai"><div class="ava"><img src="../assets/logo-grok.svg" alt=""></div>
+          <div class="aicol"><span class="chip">Auto</span>
+          <p>¡Hola! Sí, claro — tenés 7 días desde la compra para cambiarlo, con la etiqueta puesta. Traelo cuando quieras y vemos otro talle o modelo juntas.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Cargar instrucciones vagas tipo "sé amable y profesional" en vez de datos concretos de tu negocio. Grok sin precios reales ni políticas puntuales termina inventando respuestas creíbles pero falsas — exactamente la alucinación que xAI mismo advierte que puede pasar. Cuanto más específico el dato que cargás (precio exacto, política exacta), menos margen le dejás a Grok para inventar.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Una dueña de un local de indumentaria carga en Personaliza a Grok: "Vendo ropa de mujer en Rosario, público de 25 a 45 años. Remeras desde $8.000, vestidos desde $15.000. Cambios dentro de los 7 días con etiqueta. Tono cercano, como si le hablara a una amiga." Prueba con "¿puedo cambiar un vestido si no me queda?" y Grok responde con la política de 7 días exacta y el tono pedido, sin inventar un plazo distinto.</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <p>Cargaste Personaliza a Grok con datos reales de tu negocio (no un ejemplo de prueba), lo probaste con una consulta real de cliente en un chat nuevo, y si la primera respuesta salió genérica o inventó algo, volviste a las instrucciones y agregaste el dato concreto que faltaba hasta que sonó a vos. Guardaste el resultado en <code>Sistema IA/Grok/02-contexto-de-mi-negocio</code> y podés repetir el ajuste — sumar otro dato, otra política — sin esta guía.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 02-contexto-de-mi-negocio — instrucciones con tono/rubro/precios/políticas reales</span>
+
+    <label class="modcheck" data-mod="2">
+      <input type="checkbox" data-mod="2" aria-label="Completé el módulo 2">
+      <span>Completé el módulo 2 · Grok conoce tu negocio</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 3 ═══ -->
+  <section class="panel" id="p-m3">
+    <div class="sec-head"><span class="numchip">03</span><h2>Grok al día: tu radar</h2></div>
+    <div class="gate-badges"><span class="gate-badge free"><span class="ic">🆓</span>Free</span><span class="gate-badge super"><span class="ic">💰</span>SuperGrok $30</span></div>
+    <p class="sec-sub">Grok ya sabe quién sos y qué vendés (módulo 2). Ahora vamos a usar lo que lo hace distinto de cualquier otra IA: puede salir a buscar en la web y en X <b>en vivo</b>, ahora mismo, y contarte con Fuentes qué está pasando en tu rubro. No es memoria vieja de entrenamiento — es el radar prendido.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Hacele a Grok UNA pregunta sobre tu rubro que necesite información de esta semana (no de siempre) y fijate que la respuesta venga con Fuentes citadas.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> tu negocio compite en un mercado que se mueve todas las semanas — precios, tendencias, lo que dice la gente de tu rubro — y enterarte a tiempo te cuesta rato de buscar en varios lados.</p>
+      <p><strong>Te llevás:</strong> el hábito de preguntarle a Grok algo puntual de tu rubro o tu competencia y recibir una respuesta con fuentes reales, no una opinión inventada.</p>
+      <p><strong>Lo usás cuando:</strong> necesitás saber qué se dice de tu marca o tu competencia esta semana, si hay una tendencia arrancando en tu rubro, o si algo cambió (precios, normativa, una moda) que te conviene conocer antes de decidir.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que termines el módulo con una búsqueda real hecha en Grok sobre tu rubro o tu competencia, con Fuentes a la vista, y una decisión chica anotada a partir de esa respuesta — no un ejercicio de práctica, un dato que realmente vas a usar.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Todas las demás IA de este tipo de curso responden con lo que aprendieron hasta una fecha de corte. Grok también puede hacer eso, pero además sale a buscar en la web y en X en tiempo real y te muestra de dónde sacó cada dato — el número de "Fuentes" que aparece abajo de la respuesta. Para un negocio esto es un radar: enterarte de un cambio de precio de la competencia, una queja repetida de clientes en redes, o una tendencia que está arrancando, sin tener que buscar vos en cinco pestañas distintas. Ojo con la letra chica: en el plan Free esa búsqueda es limitada; la versión a fondo (modo Expert) es de pago. Igual, el Free ya te sirve para el uso semanal de "¿qué pasó esta semana en mi rubro" — no necesitás pagar para arrancar el radar.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Elegí un tema concreto de TU negocio.</strong> No "qué hay de nuevo en mi rubro" (muy amplio) — algo puntual: un competidor, un producto, una tendencia que escuchaste nombrar.</li>
+        <li><strong>Escribile a Grok en el chat normal</strong>, pidiendo explícitamente que busque información actual y cite fuentes. No hace falta un botón especial: Grok detecta cuándo necesita salir a buscar.</li>
+        <li><strong>Mirá el pie de la respuesta.</strong> Ahí aparece la cantidad de Fuentes que usó — es la prueba de que salió a buscar y no te está devolviendo memoria vieja.</li>
+        <li><strong>Abrí al menos una fuente</strong> para chequear que lo que te dijo es real y está bien representado (regla de oro: verificar antes de actuar, Grok puede equivocarse).</li>
+        <li><strong>Anotá una decisión chica</strong> que salga de esa respuesta: "voy a bajar el precio de tal producto", "voy a publicar sobre tal tema esta semana", "voy a contestar tal comentario".</li>
+        <li><strong>Guardá la conversación</strong> (o una captura con la decisión anotada al lado) en <code>Sistema IA/Grok/03-mi-radar</code>.</li>
+      </ol>
+    </div>
+
+    <div class="antesdespues">
+      <div class="ad-col ad-sin"><span class="ad-tag">Sin radar</span><p>Grok responde solo con lo que aprendió hasta su corte de conocimiento (diciembre 2025) — memoria vieja, sin saber qué pasó esta semana en tu rubro.</p></div>
+      <div class="ad-col ad-con"><span class="ad-tag">Con radar</span><p>Grok sale a buscar en la web y en X en vivo, y cita al pie cuántas <b>Fuentes</b> usó — información de esta semana, con de dónde la sacó para que la puedas chequear.</p></div>
+    </div>
+
+    <span class="gptmock-tag">💬 Así se ve en Grok — con Fuentes</span>
+    <div class="grokmock">
+      <div class="grokmock-bar"><div class="dot"></div><span>Grok</span></div>
+      <div class="grokmock-body">
+        <div class="grokmock-user"><p>¿Qué se está comentando esta semana en X y en la web sobre [tu rubro/competencia]? Buscá info actual y decime las fuentes.</p></div>
+        <div class="grokmock-ai"><div class="ava"><img src="../assets/logo-grok.svg" alt=""></div>
+          <div class="aicol"><span class="chip">Búsqueda en vivo · 6 Fuentes</span>
+          <p>Encontré actividad reciente sobre el tema: dos publicaciones de esta semana mencionan una suba de precios en el sector y varios comentarios en X sobre demoras de entrega. 6 Fuentes.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Perfecto para el chequeo rápido del día — le tirás la pregunta desde el celular en cualquier momento y hasta podés pedírselo por voz mientras hacés otra cosa. Ideal para el "¿qué pasó hoy con mi competencia" de 2 minutos.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Mejor para cuando la búsqueda te abre varias fuentes para revisar: en la compu es más cómodo abrir los links citados, comparar, y anotar la decisión al lado sin perder la pantalla del chat.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Pedirle una búsqueda "en general" ("contame qué pasa en mi rubro") sin acotar tema ni plazo. Sin un foco concreto, Grok te devuelve una respuesta amplia y genérica que se parece más a lo que ya sabía que a algo recién buscado — y a veces ni activa la búsqueda en vivo. Cuanto más puntual la pregunta (un competidor, un producto, una semana), más útil y más verificable sale la respuesta.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>El dueño de una tienda de indumentaria le pregunta a Grok: "¿Hay alguna tendencia de moda para el próximo mes que esté apareciendo en X sobre indumentaria en Argentina?" Grok responde con 4 Fuentes, mencionando un color y un tipo de prenda que empezaron a repetirse en publicaciones recientes. El dueño chequea una de las fuentes, confirma que es real, y anota la decisión: "pedir dos modelos en ese color a mi proveedor esta semana."</p>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — Monitoreo de competencia</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · monitoreo de competencia</span><button class="copy">Copiar</button></div>
+<pre>¿Qué está haciendo <strong class="field">[nombre de tu competidor]</strong> esta semana en X y en la web
+(precios, promociones, novedades)? Buscá información actual y citá las fuentes.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — Tendencia del rubro</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · tendencia del rubro</span><button class="copy">Copiar</button></div>
+<pre>Buscá en la web y en X qué tendencia está apareciendo esta semana en
+<strong class="field">[tu rubro]</strong> en <strong class="field">[tu país/ciudad]</strong>. Necesito info reciente, no general, con fuentes.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — Qué se dice de mi marca</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · qué se dice de mi marca</span><button class="copy">Copiar</button></div>
+<pre>Buscá menciones recientes de "<strong class="field">[nombre de tu negocio]</strong>" en X y en la web.
+Contame el tono general (positivo/negativo/neutro) y citá las fuentes que encontraste.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <p>Hiciste una búsqueda real sobre tu rubro o tu competencia (no un tema de prueba), viste la respuesta con Fuentes citadas, abriste al menos una para verificar, y anotaste una decisión chica que vas a aplicar de verdad. Guardaste todo en <code>Sistema IA/Grok/03-mi-radar</code> y podés repetir el proceso solo, cambiando el tema, sin necesitar esta guía.</p>
+      <p style="margin-top:8px">💰 Esto que hiciste en Free fue con búsqueda <b>Limited</b> — te alcanza para un chequeo semanal de tu rubro. Si en algún momento necesitás una investigación más profunda y automática (modo Expert, de SuperGrok $30/mes), esa función se profundiza en el Grok intermedio, próximamente.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 03-mi-radar — búsqueda en vivo con Fuentes + decisión anotada</span>
+
+    <label class="modcheck" data-mod="3">
+      <input type="checkbox" data-mod="3" aria-label="Completé el módulo 3">
+      <span>Completé el módulo 3 · Grok al día: tu radar</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 4 ═══ -->
+  <section class="panel" id="p-m4">
+    <div class="sec-head"><span class="numchip">04</span><h2>Grok con tus papeles</h2></div>
+    <div class="gate-badges"><span class="gate-badge free"><span class="ic">🆓</span>Free</span></div>
+    <p class="sec-sub">Todo negocio tiene papeles: un contrato, una factura, una planilla de ventas, una foto de un comprobante. En vez de leerlos vos línea por línea, se los subís a Grok y le pedís que te diga qué dicen, qué falta o qué número te interesa. Acá vas a hacerlo con un documento real tuyo.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Subí UN documento real (un PDF, una planilla o una foto de un papel) por el botón + y pedile a Grok un resumen o los datos puntuales que necesitás de ese documento.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> tenés contratos, facturas, planillas de ventas o comprobantes que revisar, y hacerlo a mano te lleva tiempo o te hace pasar por alto algo importante.</p>
+      <p><strong>Te llevás:</strong> el hábito de subirle un documento a Grok y pedirle exactamente lo que necesitás sacar de él — un resumen, un dato puntual, una lista extraída — en vez de leerlo entero vos.</p>
+      <p><strong>Lo usás cuando:</strong> te llega un contrato para revisar, necesitás sacar un total o una lista de una planilla, o le sacás una foto a un comprobante y querés saber qué dice sin transcribirlo a mano.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que termines el módulo con un documento real de tu negocio ya subido y analizado por Grok — un resumen, una extracción de datos o un análisis concreto — guardado como el primer caso resuelto de esta forma de trabajar.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Grok "ve" lo que le subís: puede leer texto dentro de un PDF, entender una planilla, y también leer imágenes (una foto de una factura, un cartel, un gráfico). Esto te ahorra la parte más pesada de administrar un negocio chico: pasar en limpio papeles. En vez de vos armando el resumen o buscando el dato a mano, se lo pedís a Grok y lo revisás. La condición es la misma de siempre: verificá el dato antes de usarlo con un cliente o un proveedor, porque Grok puede leer mal un número o inventar algo si el documento viene borroso o incompleto.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Elegí un documento real</strong> que tengas a mano: un PDF (contrato, factura), una planilla (ventas, gastos) o una foto de un papel/comprobante.</li>
+        <li><strong>Tocá el botón +</strong> al lado del input del chat.</li>
+        <li><strong>Elegí la fuente</strong>: Cámara (sacarle una foto ahí mismo), Fotos (una que ya tenés) o Archivos (un PDF/planilla guardada). En la compu también podés arrastrar el archivo directo al chat.</li>
+        <li><strong>Escribí qué necesitás</strong>, no solo "analizá esto" — pedí algo concreto: un resumen en 3 puntos, el total de una columna, los datos de un cliente, las cláusulas que te convienen revisar.</li>
+        <li><strong>Leé la respuesta con ojo crítico.</strong> Si es un número importante (un total, una fecha, un monto), abrí el documento original y confirmá que coincide.</li>
+        <li><strong>Si te falta algo</strong>, pedile que profundice sobre esa parte puntual del mismo documento, sin tener que volver a subirlo.</li>
+        <li><strong>Guardá la conversación</strong> (con el resumen o dato extraído) en <code>Sistema IA/Grok/04-papeles-resueltos</code>.</li>
+      </ol>
+    </div>
+
+    <span class="gptmock-tag">➕ Así se ve — menú del botón +</span>
+    <div class="uimock" role="img" aria-label="Mock del menú desplegable del botón + con Cámara, Fotos, Archivos, Conectores y Habilidades">
+      <div class="bar">Menú · botón +</div>
+      <div class="ubody">
+        <div class="sidebaritem">📷 Cámara</div>
+        <div class="sidebaritem">🖼️ Fotos</div>
+        <div class="sidebaritem">📁 Archivos</div>
+        <div class="sidebaritem">🧩 Conectores</div>
+        <div class="sidebaritem">⚙️ Habilidades</div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">💬 Así se ve en Grok</span>
+    <div class="grokmock">
+      <div class="grokmock-bar"><div class="dot"></div><span>Grok</span></div>
+      <div class="grokmock-body">
+        <div class="grokmock-user"><p>(adjunta foto de una factura de proveedor) Decime el total, la fecha de vencimiento y si hay algún ítem que se repite dos veces por error.</p></div>
+        <div class="grokmock-ai"><div class="ava"><img src="../assets/logo-grok.svg" alt=""></div>
+          <div class="aicol"><span class="chip">Análisis de archivo</span>
+          <p>Total: $184.500. Vencimiento: 15 de este mes. Encontré un ítem duplicado: "Insumos de limpieza" aparece dos veces con el mismo importe — vale la pena confirmarlo con el proveedor antes de pagar.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Tiene una ventaja que la compu no tiene: la <b>Cámara</b> en el menú + te deja sacarle la foto al papel ahí mismo y subirla al toque — perfecto para un comprobante o una factura en papel que tenés físicamente en la mano. También podés usar Voz + compartir pantalla para mostrarle algo en vivo y pedirle ayuda mientras lo mirás juntos.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Para planillas grandes o varios archivos a la vez, la compu es más cómoda: arrastrás el archivo directo al chat (drag-and-drop) sin pasar por el menú +, y es más fácil tener el documento original abierto al lado para verificar los datos.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Subir el documento y escribir solo "analizá esto" o "resumime". Sin decirle QUÉ necesitás (un total, una fecha, una cláusula, una lista), Grok te devuelve un resumen genérico de todo el documento — largo y con datos que no te sirven mezclados con los que sí. Pedile el dato puntual y vas a tardar la mitad y acertar más.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Una contadora de un taller mecánico chico sube la planilla de gastos del mes (XLSX) y pregunta: "¿Cuál fue el gasto total en repuestos este mes y qué proveedor facturó más?" Grok lee la planilla, suma la columna correcta y responde con el total y el nombre del proveedor con mayor monto — un trabajo que a mano le hubiera llevado revisar fila por fila.</p>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — Resumen de contrato o documento largo</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · resumen de contrato</span><button class="copy">Copiar</button></div>
+<pre>Te subo <strong class="field">[tipo de documento]</strong>. Resumime en 3 puntos qué dice y marcame
+si hay alguna cláusula/condición que me convenga revisar con cuidado.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — Extracción de datos de una planilla</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · extracción de datos</span><button class="copy">Copiar</button></div>
+<pre>De esta planilla, decime <strong class="field">[el dato puntual: total de una columna,
+cliente con mayor compra, fecha más próxima, lo que necesites]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — Análisis de una foto/comprobante</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · análisis de foto</span><button class="copy">Copiar</button></div>
+<pre>Te subo una foto de <strong class="field">[factura/comprobante/cartel]</strong>. Decime <strong class="field">[el dato concreto
+que buscás]</strong> y avisame si algo se ve ilegible o dudoso.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <p>Subiste un documento real de tu negocio (no un ejemplo de prueba), le pediste algo concreto en vez de "analizá esto", verificaste el dato importante contra el documento original, y guardaste el resultado en <code>Sistema IA/Grok/04-papeles-resueltos</code>. Podés repetir esto con cualquier papel que te llegue de acá en adelante, sin necesitar esta guía.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 04-papeles-resueltos — 1 documento real analizado y verificado</span>
+
+    <label class="modcheck" data-mod="4">
+      <input type="checkbox" data-mod="4" aria-label="Completé el módulo 4">
+      <span>Completé el módulo 4 · Grok con tus papeles</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 5 ═══ -->
+  <section class="panel" id="p-m5">
+    <div class="sec-head"><span class="numchip">05</span><h2>Grok te hace las imágenes</h2></div>
+    <div class="gate-badges"><span class="gate-badge premium"><span class="ic">💲</span>X Premium (~USD 5-8)</span></div>
+    <p class="sec-sub">Con el tono y la marca de tu negocio ya cargados (el módulo 2, <i>Grok conoce tu negocio</i>), acá vas a generar piezas visuales de verdad: imágenes hasta 2K y video de hasta 15 segundos para redes o catálogo. Esta parte de Grok se llama <b>Grok Imagine</b> y, a diferencia de todo lo anterior en el curso, es de pago — te lo explicamos simple antes de arrancar. Lo mejor no es solo generar de cero: es que podés <b>editar y re-estilar lo que ya generaste con un simple mensaje de seguimiento, en el mismo hilo</b>, sin salir de la conversación.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Con el plan que corresponda activo, generá UNA imagen de un producto o pieza de tu negocio en Grok Imagine, usando una plantilla como punto de partida.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> necesitás imágenes o un video corto para vender en redes o catálogo, y contratar un diseñador o editar vos mismo te consume tiempo o plata que no siempre tenés disponible.</p>
+      <p><strong>Te llevás:</strong> 2 o 3 piezas visuales (imágenes o un clip corto) generadas con Grok Imagine, con el tono de tu marca, listas para publicar — y al menos una de ellas corregida o re-estilada por conversación, no de una sola pasada.</p>
+      <p><strong>Lo usás cuando:</strong> necesitás una imagen para anunciar un producto, un flyer simple para una promo, un clip corto para redes sin armar una producción, o cuando ya generaste algo y solo hace falta ajustarlo.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que termines el módulo con 2 o 3 piezas visuales reales de tu negocio generadas, revisadas y guardadas — material que podés publicar o usar en tu catálogo, no una prueba descartable.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Una imagen o un video corto bien hecho vende más rápido que un texto solo: para redes, catálogo o una promo puntual, tener una pieza visual lista marca la diferencia entre publicar hoy o postergarlo por no tener con qué armarla. Grok Imagine te deja escribir lo que querés ver y te devuelve una <b>imagen de hasta 2K de resolución</b> o un <b>video de hasta 15 segundos a 720p</b> (en la pantalla vas a ver botones de duración, por ejemplo 6 o 10 segundos, según el modo), con plantillas de partida si no sabés por dónde arrancar. Podés generar desde texto solo, o subiendo una foto tuya (de un producto, de tu local) como referencia para que Grok trabaje sobre eso.</p>
+      <p>Lo que más distingue a Imagine, según quienes ya lo usan a fondo: la <b>edición conversacional</b>. No hace falta que salga perfecto a la primera — le seguís pidiendo ajustes ("cambiá el fondo", "hacelo de noche", "sacá ese objeto", "dale otro estilo") en el mismo hilo, y Grok corrige o re-estila sin que arranques de cero. Es la diferencia entre "generar una imagen" y "trabajar una imagen hasta que quede bien".</p>
+      <p>Dos cosas importantes antes de usarlo: <b>toda imagen o video que genera Grok lleva una marca de agua "grok" que no se puede quitar</b> (así se identifica que fue hecho con IA), y <b>los resultados son tuyos: podés usarlos para vender, sin restricción de uso comercial.</b></p></div></div>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--theme-light);background:rgba(var(--theme-rgb),.07)">
+      <h3>💲 La puerta de este módulo</h3>
+      <p>Acá cambia algo respecto a todo lo anterior — <b>Grok Imagine ya no genera nada gratis</b> (el plan Free dejó de tener imágenes/video desde el 19 de marzo de 2026). Para usarlo necesitás alguna suscripción paga. La puerta más barata confirmada que te da imágenes y video es <b>X Premium</b> (desde ~USD 8/mes según el país — en Argentina hoy se ve ~USD 5 — el precio exacto lo ves en la pantalla Premium de tu app de X). Recordá: X Premium se contrata <b>desde X, no desde la app de Grok</b>. Si más adelante necesitás generación sin límite o mejor calidad, existen escalones arriba (SuperGrok Lite $10, SuperGrok $30), pero para arrancar con piezas reales de tu negocio, X Premium alcanza. Este módulo no es una práctica gratuita — es la puerta de entrada más chica a algo que sí vas a pagar.</p>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Confirmá que tenés activa</strong> la suscripción que da Grok Imagine (X Premium o superior, contratada desde X). Sin eso, el paso de "generar" te va a mostrar un aviso para suscribirte.</li>
+        <li><strong>Entrá a Grok Imagine</strong> y elegí el modo: <b>Imagen</b> o <b>Video</b>.</li>
+        <li><strong>Si no sabés por dónde arrancar</strong>, mirá el carrusel "Crear desde plantilla" — hay plantillas visuales ya armadas que podés adaptar a tu producto. Si preferís partir de algo real, usá "Anima tus fotos" y subí una foto tuya (un producto, tu local) como referencia en vez de arrancar de texto puro.</li>
+        <li><strong>Escribí lo que querés ver</strong>, con tu producto o marca como protagonista, y ajustá el estilo y la calidad con los chips que te ofrece la pantalla.</li>
+        <li><strong>Generá y mirá el resultado.</strong> Si no quedó como querías, <b>no empieces de cero</b>: seguí pidiendo ajustes en el mismo hilo ("cambiá el fondo", "hacelo más luminoso", "sacá ese objeto del costado", "probá otro estilo") — Grok edita y re-estila sobre lo que ya generó.</li>
+        <li><strong>Repetí para 2 o 3 piezas distintas</strong> de tu negocio (un producto, una promo, una portada para redes), y asegurate de que al menos una pase por al menos un ajuste conversacional.</li>
+        <li><strong>Guardá las piezas finales</strong> en <code>Sistema IA/Grok/05-piezas-visuales</code>, listas para publicar.</li>
+      </ol>
+    </div>
+
+    <span class="gptmock-tag">🖼️ Así se ve — Grok Imagine, modo Imagen</span>
+    <div class="uimock" role="img" aria-label="Mock de Grok Imagine modo Imagen, con carruseles Anima tus fotos y Crear desde plantilla, chips de ajuste de estilo y calidad, e input Escribe para crear una imagen">
+      <div class="bar">Grok Imagine · Imagen</div>
+      <div class="ubody">
+        <div class="fld"><label>Carruseles</label><span class="box">Anima tus fotos · Crear desde plantilla (miniaturas)</span></div>
+        <div class="fld"><label>Chips de ajuste</label><span class="box">Estilo y calidad, sobre el input</span></div>
+        <div class="fld"><label>Input</label><span class="box">"Escribe para crear una imagen" — ícono Imagen resaltado como modo activo</span></div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">💬 Así se ve en Grok Imagine — generar y después ajustar por conversación</span>
+    <div class="grokmock">
+      <div class="grokmock-bar"><div class="dot"></div><span>Grok Imagine</span></div>
+      <div class="grokmock-body">
+        <div class="grokmock-user"><p>Una foto de producto de [tu producto], fondo claro y prolijo, estilo catálogo, buena luz.</p></div>
+        <div class="grokmock-ai"><div class="ava"><img src="../assets/logo-grok.svg" alt=""></div>
+          <div class="aicol"><span class="chip">Grok Imagine</span>
+          <div class="imgframe-wrap">
+            <div class="imgframe" role="img" aria-label="Placeholder de imagen generada: producto sobre fondo claro y prolijo, estilo catálogo, con marca de agua grok"><span class="ic">🖼️</span><span>[imagen generada — fondo claro, estilo catálogo, marca de agua "grok"]</span></div>
+          </div>
+          <p>Generé la imagen, estilo catálogo con fondo claro. Recordá que lleva la marca de agua "grok" — es válida para uso comercial igual.</p></div>
+        </div>
+        <div class="grokmock-user"><p>Quedó bien, pero cambiá el fondo a uno más oscuro y acercá un poco más el producto.</p></div>
+        <div class="grokmock-ai"><div class="ava"><img src="../assets/logo-grok.svg" alt=""></div>
+          <div class="aicol"><span class="chip">Ajuste conversacional</span>
+          <div class="imgframe-wrap">
+            <div class="imgframe" role="img" aria-label="Placeholder de la misma imagen re-estilada: fondo oscuro, producto más cerca"><span class="ic">🖼️</span><span>[misma imagen re-estilada — fondo oscuro, producto más cerca]</span></div>
+          </div>
+          <p>Listo, reestilé la misma imagen con fondo oscuro y el producto más cerca — no tuviste que describir todo de nuevo, seguí sobre la que ya tenías.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Cómodo para generar y revisar rápido desde donde estés, y para sacarle una foto a algo real (un producto, un ambiente) y usarla como referencia con "Anima tus fotos".</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Más cómodo cuando vas a generar varias piezas seguidas y compararlas una al lado de la otra antes de elegir cuál publicar, o cuando necesitás bajar los archivos finales a una carpeta ordenada.</p>
+      </div>
+    </div>
+
+    <div class="antesdespues">
+      <div class="ad-col ad-sin"><span class="ad-tag">Sin editar (una sola pasada)</span><p>Pedís una imagen, no queda como querías, y volvés a escribir el pedido entero desde cero — perdés el encuadre y el estilo que sí habían salido bien.</p></div>
+      <div class="ad-col ad-con"><span class="ad-tag">Con follow-up (edición conversacional)</span><p>Pedís un ajuste puntual ("cambiá el fondo", "acercá el producto") sobre lo ya generado, en el mismo hilo — Grok mantiene lo que funcionaba y corrige solo lo que pediste.</p></div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Pedir una imagen genérica ("una foto linda de mi producto"), quedarse con el primer resultado sin ajustar, y volver a escribir el pedido entero de cero cuando algo no gustó. Cuanto más detalle das (fondo, luz, ángulo, para qué la vas a usar: catálogo, redes, promo), más cerca sale del resultado que necesitás — y cuando falta algo, se lo pedís como ajuste en el mismo hilo, no como un pedido nuevo desde cero.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Una dueña de una marca de velas artesanales genera con Grok Imagine tres piezas: una foto de producto estilo catálogo para su tienda online, una imagen cuadrada con frase promocional para redes, y un clip corto mostrando la vela encendida para una historia de Instagram. Para la foto de catálogo, sube primero una foto real de la vela con el celular y le pide a Grok que la use de base y la reestilice con fondo prolijo — no arranca de texto puro. Las tres piezas las arma en una sola sesión, ajustando cada pedido con follow-ups después de ver el primer resultado.</p>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — Foto de producto para catálogo (desde texto)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · foto de producto</span><button class="copy">Copiar</button></div>
+<pre>Una foto de producto de <strong class="field">[tu producto]</strong>, fondo <strong class="field">[claro/oscuro/de marca]</strong>,
+estilo catálogo, buena iluminación.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — Foto de producto a partir de una foto real tuya</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · desde foto de referencia</span><button class="copy">Copiar</button></div>
+<pre><strong class="field">[Subís una foto de tu producto/local]</strong> Usá esta foto como base y generá una
+versión estilo catálogo, fondo <strong class="field">[claro/de marca]</strong>, buena luz.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — Pieza para redes con mensaje</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · pieza para redes</span><button class="copy">Copiar</button></div>
+<pre>Una imagen para redes sociales de <strong class="field">[tu negocio/producto]</strong>,
+con espacio para el texto "<strong class="field">[tu promo o frase]</strong>", estilo <strong class="field">[moderno/cálido/minimalista]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla D — Clip corto para historia o reel</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · clip corto</span><button class="copy">Copiar</button></div>
+<pre>Un video corto de <strong class="field">[tu producto/servicio]</strong> en uso, estilo <strong class="field">[el tono de tu marca]</strong>,
+pensado para <strong class="field">[Instagram/TikTok/catálogo]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla E — Ajustar sin empezar de cero (follow-up)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · ajuste conversacional</span><button class="copy">Copiar</button></div>
+<pre>Quedó bien, pero <strong class="field">[qué cambiar: el fondo, el ángulo, sacar un objeto,
+otro estilo]</strong>. Mantené el resto igual.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <p>Generaste entre 2 y 3 piezas visuales reales de tu negocio (no de prueba), ajustaste al menos una después del primer resultado para que quedara mejor, confirmaste que la puerta de pago que usaste es la que necesitabas, y guardaste las piezas finales en <code>Sistema IA/Grok/05-piezas-visuales</code> listas para publicar. Podés repetir el proceso para nuevas piezas cuando lo necesites, sin esta guía.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 05-piezas-visuales — 2-3 imágenes con Grok Imagine, listas para publicar</span>
+
+    <label class="modcheck" data-mod="5">
+      <input type="checkbox" data-mod="5" aria-label="Completé el módulo 5">
+      <span>Completé el módulo 5 · Grok te hace las imágenes</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 6 ═══ -->
+  <section class="panel" id="p-m6">
+    <div class="sec-head"><span class="numchip">06</span><h2>Grok conectado y con tu forma</h2></div>
+    <div class="gate-badges"><span class="gate-badge free"><span class="ic">🆓</span>Free</span><span class="gate-badge premium"><span class="ic">💲</span>+ imágenes si aplica</span></div>
+    <p class="sec-sub">Hasta acá le diste a Grok tu contexto (módulo 2), lo pusiste a buscar en vivo (módulo 3), le mostraste tus papeles (módulo 4) y, si sumaste X Premium, le pediste imágenes (módulo 5). Ahora falta la parte que hace que todo eso deje de ser "cargar de nuevo cada vez": conectar Grok a tus apps reales (Gmail, Drive, Calendar) y enseñarle una vez tu forma de trabajar — con una <b>Skill propia</b> — para que la repita sola.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Conectá UNA app tuya real (Gmail, Drive o Calendar) desde el botón + → Conectores, y hacele a Grok una sola pregunta que use esa conexión. Un conector, una pregunta real.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> cada vez que necesitás que Grok te resuma un mail, organice tus archivos o te arme un documento con tu formato de siempre, tenés que copiar y pegar contenido a mano o explicarle el formato desde cero.</p>
+      <p><strong>Te llevás:</strong> Grok conectado a al menos una app tuya (lee/organiza lo tuyo sin que se lo pegues) y una Skill propia que aplica tu tono o tu formato cada vez que la usás, sin repetir la explicación.</p>
+      <p><strong>Lo usás cuando:</strong> necesitás que Grok lea correos o archivos tuyos directo, o cuando redactás siempre el mismo tipo de documento (presupuesto, reporte, mensaje) y estás cansado de explicarle el formato cada vez.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que termines el módulo con un Connector activo conectado a una cuenta real tuya (no de prueba) y una Skill propia creada con tu tono o tu formato, probada al menos una vez con un caso real de tu negocio.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Connectors y Skills son las dos piezas que convierten a Grok de "asistente al que le explico todo de nuevo" en "asistente que ya sabe cómo trabajás". Los Connectors (Gmail, Google Drive, Google Calendar, entre otros) están confirmados oficialmente como disponibles para <b>todos los usuarios de Grok</b> — no hace falta plan pago para conectar tu correo o tu Drive.</p>
+      <p><b>¿Qué es una Skill, en criollo?</b> Es una regla o un formato que le enseñás a Grok UNA vez — cómo armás siempre tu presupuesto, qué secciones lleva un reporte tuyo, con qué tono contestás un reclamo — y a partir de ahí Grok la aplica cada vez que se lo pedís, sin que vuelvas a explicar nada. Es la diferencia entre "explicarle el formato de nuevo en cada chat" y "decirle: usá mi Skill". La cuenta ya trae 5 de fábrica (Word Documents, PDFs, Presentations, Spreadsheets, y el propio Skill Creator para armar las tuyas), y creás las propias con el botón <b>"Crear con Grok"</b>: le contás en texto libre el formato, le das un ejemplo real, y queda guardada para usar cuando quieras. Dato oficial: las Skills se crean y se comparten desde web, iOS o Android, y sirven en particular para generar documentos, presentaciones (decks) y planillas con tu formato — justo el tipo de tarea repetitiva de un negocio chico.</p>
+      <p><b>Ejemplo concreto de una Skill propia:</b> un kiosco de barrio arma una Skill llamada "Pedido a proveedor" con "Crear con Grok": le explica que siempre pide en el mismo orden (bebidas, golosinas, cigarrillos, limpieza), con cantidades en cajas y no en unidades sueltas, y el nombre del proveedor arriba del todo. Después, cada semana, le dice "usando la Skill Pedido a proveedor, armame el pedido de esta semana: [lista]" y Grok se lo devuelve ya ordenado como siempre lo necesita, sin que tenga que explicar el formato de nuevo.</p>
+      <p>Esto le suma valor real a lo que ya armaste: en el módulo 2 le enseñaste tu tono; en el módulo 3, qué datos de tu rubro importan monitorear; en el módulo 4, qué tipo de papeles subís. Acá lo conectás a la fuente (tu Gmail, tu Drive) y le fijás el formato con una Skill para que no tengas que repetir ni el tono ni el tipo de dato cada vez.</p>
+      <p style="border-left:3px solid var(--theme-light);padding-left:12px">Esto que estás viendo de Skills es apenas la puerta de entrada: armar Skills más elaboradas, encadenarlas con automatizaciones y programar tareas a medida es justamente lo que se profundiza en el <b>Grok intermedio</b> (con Grok Build y Grok 4.5, el modelo pensado para eso) — próximamente.</p>
+      <p>Un dato aparte, solo de orientación: existen <b>Memory</b> (Grok recuerda cosas entre chats) y <b>Projects</b> (agrupar conversaciones y archivos), pero ninguna de las dos tiene confirmación oficial clara de estar en Free — probablemente rinden más, o directamente están, en los planes pagos. No son parte de la práctica de este módulo; si te interesan, se verifican en producto cuando subas de puerta.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <ol>
+        <li><strong>Abrí el menú de Conectores.</strong> Tocá el botón + al lado del input del chat.</li>
+        <li><strong>Elegí "Conectores" y conectá una app real tuya.</strong> Gmail para que lea/resuma tus correos, Google Drive para que busque en tus documentos, o Google Calendar para que organice tu agenda. También se llega por Settings → Grok → Conectores.</li>
+        <li><strong>Autorizá el acceso</strong> con tu cuenta real (no una de prueba) — es la única forma de que Grok trabaje con datos tuyos de verdad.</li>
+        <li><strong>Probalo con una pregunta concreta</strong> que use esa conexión: "resumime los últimos correos de un cliente", "buscá en mi Drive el presupuesto de tal proyecto", "decime qué tengo agendado esta semana".</li>
+        <li><strong>Andá a Settings → Grok → Habilidades</strong> para ver las 5 skills de fábrica (Word Documents, PDFs, Presentations, Skill Creator, Spreadsheets).</li>
+        <li><strong>Creá tu Skill propia</strong> con el botón "Crear con Grok": contale el formato o el tono que querés que aplique siempre (por ejemplo, cómo armás un presupuesto, o cómo redactás un mensaje de cobro).</li>
+        <li><strong>Probá la Skill con un caso real</strong> — pedile que la use en un documento o mensaje de tu negocio, no un ejemplo genérico.</li>
+        <li><strong>Guardá el resultado</strong> (conector activo + Skill probada) en <code>Sistema IA/Grok/06-grok-conectado</code>.</li>
+      </ol>
+    </div>
+
+    <span class="gptmock-tag">➕ Así se ve — menú del botón + con Conectores</span>
+    <div class="uimock" role="img" aria-label="Mock del menú del botón + con Cámara, Fotos, Archivos, Conectores y Habilidades, overlay sobre el chat">
+      <div class="bar">Menú · botón +</div>
+      <div class="ubody">
+        <div class="sidebaritem">📷 Cámara</div>
+        <div class="sidebaritem">🖼️ Fotos</div>
+        <div class="sidebaritem">📁 Archivos</div>
+        <div class="sidebaritem on">🧩 Conectores</div>
+        <div class="sidebaritem">⚙️ Habilidades</div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">⚙️ Así se ve — Settings → Habilidades</span>
+    <div class="uimock" role="img" aria-label="Mock de Settings → Habilidades, con Mis habilidades vacío y botón Crear con Grok, y sección Integrado con las 5 skills de fábrica">
+      <div class="bar">Settings · Habilidades</div>
+      <div class="ubody">
+        <div class="fld"><label>Mis habilidades</label><span class="box">"Aún no hay habilidades personalizadas" <span class="publishbtn">Crear con Grok</span></span></div>
+        <div class="fld"><label>Integrado</label><span class="box">Word Documents · PDFs · Presentations · Skill Creator · Spreadsheets</span></div>
+      </div>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Conectar Gmail o Drive desde el celular es rápido porque ya estás logueado en esas cuentas en el teléfono — la autorización sale en dos toques. Es también donde más vas a usar la Skill ya armada: pedirle a Grok por voz que te arme un mensaje con tu formato mientras estás en el mostrador.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Para crear la Skill la primera vez, la compu ayuda a escribir con calma las instrucciones completas (todo el formato, todos los datos), sin apurarte por el teclado chico. Una vez creada, la usás indistinto desde donde estés.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Conectar una app y no probarla con nada real, o crear una Skill con instrucciones vagas ("que sea prolijo y profesional") en vez de un formato concreto (qué secciones lleva, qué datos van primero, qué tono exacto). Una Skill sin ejemplo concreto termina aplicando un formato genérico — lo mismo que pasaba si no la creabas. Cuanto más específico el formato que le das, más se nota la diferencia la próxima vez que la uses.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>Un contador conecta su Gmail y le pide a Grok que le resuma los correos de la última semana de un cliente puntual — Grok responde con los tres temas pendientes sin que tenga que abrir la bandeja de entrada. Después crea una Skill con "Crear con Grok" explicándole cómo arma siempre sus presupuestos (rubro, ítems, subtotal, IVA aparte, condiciones de pago a 30 días). La próxima vez que necesita un presupuesto nuevo, se lo pide con dos líneas y Grok lo arma ya con esa estructura, sin que tenga que repetir el formato.</p>
+    </div>
+
+    <span class="gptmock-tag">💬 Así se ve en Grok — con Gmail conectado</span>
+    <div class="grokmock">
+      <div class="grokmock-bar"><div class="dot"></div><span>Grok</span></div>
+      <div class="grokmock-body">
+        <div class="grokmock-user"><p>(con Gmail conectado) Resumime los correos de esta semana de Farmacity sobre la renovación del contrato.</p></div>
+        <div class="grokmock-ai"><div class="ava"><img src="../assets/logo-grok.svg" alt=""></div>
+          <div class="aicol"><span class="chip">Connector · Gmail</span>
+          <p>Encontré 3 correos de esta semana con Farmacity: piden extender el plazo de pago a 45 días, confirman la renovación por 6 meses más, y todavía falta que envíes la factura proforma actualizada.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <span class="gptmock-tag">💬 Así se ve en Grok — usando una Skill propia</span>
+    <div class="grokmock">
+      <div class="grokmock-bar"><div class="dot"></div><span>Grok</span></div>
+      <div class="grokmock-body">
+        <div class="grokmock-user"><p>(usando la Skill "Presupuestos Contador Pérez") Armame un presupuesto para una PyME de indumentaria, servicio de liquidación de sueldos mensual, 8 empleados.</p></div>
+        <div class="grokmock-ai"><div class="ava"><img src="../assets/logo-grok.svg" alt=""></div>
+          <div class="aicol"><span class="chip">Skill propia</span>
+          <p>Presupuesto armado con tu formato: liquidación de sueldos (8 empleados) $95.000/mes + IVA aparte, condiciones a 30 días. ¿Lo dejo así o sumás algún ítem extra (aportes, cargas sociales)?</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — Usar un Connector recién conectado</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · usar un connector</span><button class="copy">Copiar</button></div>
+<pre>Con <strong class="field">[Gmail/Drive/Calendar]</strong> ya conectado: resumime/buscame/organizame
+<strong class="field">[lo que necesites: los últimos correos de tal cliente / el archivo de tal proyecto /
+lo que tengo agendado esta semana]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — Crear una Skill con "Crear con Grok"</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · crear una skill</span><button class="copy">Copiar</button></div>
+<pre>Quiero una Skill para <strong class="field">[tipo de documento o mensaje: presupuestos, respuestas a clientes,
+reportes semanales]</strong>.
+Formato: <strong class="field">[secciones o datos que siempre lleva, en orden]</strong>.
+Tono: <strong class="field">[el mismo que ya cargaste en el módulo 2]</strong>.
+Ejemplo real de cómo lo armo yo: <strong class="field">[pegá un ejemplo tuyo real]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — Probar la Skill con un caso real</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · probar la skill</span><button class="copy">Copiar</button></div>
+<pre>Usando la Skill <strong class="field">[nombre de tu Skill]</strong>: armame <strong class="field">[el documento/mensaje]</strong> para
+<strong class="field">[cliente o situación real de esta semana]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <p>Tenés un Connector activo conectado a una cuenta real tuya (no de prueba) y lo probaste con una pregunta real, creaste una Skill propia con tu tono o formato y la probaste con un caso concreto de tu negocio, y si la primera respuesta salió genérica, volviste a las instrucciones de la Skill y agregaste el dato que faltaba. Guardaste todo en <code>Sistema IA/Grok/06-grok-conectado</code> y podés repetir el proceso —conectar otra app, crear otra Skill— sin esta guía.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 06-grok-conectado — 1 Connector + 1 Skill propia, probados</span>
+
+    <label class="modcheck" data-mod="6">
+      <input type="checkbox" data-mod="6" aria-label="Completé el módulo 6">
+      <span>Completé el módulo 6 · Grok conectado y con tu forma</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 7 ═══ -->
+  <section class="panel" id="p-m7">
+    <div class="sec-head"><span class="numchip">07</span><h2>Tu sistema Grok</h2></div>
+    <div class="gate-badges"><span class="gate-badge free"><span class="ic">🆓</span>Free</span></div>
+    <p class="sec-sub">Llegaste hasta acá con piezas sueltas que en realidad no son sueltas: cada módulo usó lo que dejó el anterior. Este cierre no te enseña nada nuevo de Grok — te muestra el sistema que ya armaste, te da una rutina real para usarlo cada semana, y te deja las reglas de uso seguro para que no se te escape nada.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Elegí UN día y UN horario fijo de esta semana para tu "rutina Grok" (por ejemplo, lunes 9 AM) y anotá en tu entregable qué vas a revisar ese día usando lo que ya armaste. Un horario, una rutina que arranca ya.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> tenés seis entregables armados (cuenta, contexto, radar, papeles, imágenes, conectores y skills) pero si no los usás con una rutina fija, se quedan guardados sin trabajar para tu negocio.</p>
+      <p><strong>Te llevás:</strong> una rutina semanal concreta (qué día, qué revisás, con qué entregable), la regla de uso seguro para no exponerte, y en claro qué puerta te conviene según lo que de verdad usás.</p>
+      <p><strong>Lo usás cuando:</strong> arrancás la semana y necesitás saber por dónde empezar con Grok, o cuando dudás si te conviene subir de plan.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Que termines el módulo con tu sistema Grok armado en un solo lugar: una rutina semanal escrita (qué día usás cada entregable), la puerta que te conviene decidida con criterio (no por moda), y las reglas de uso seguro incorporadas antes de seguir usando Grok solo.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Un curso que termina en "ya conocés todas las funciones de Grok" te deja con seis herramientas y ninguna costumbre. La diferencia real la hace la rutina: si el radar del módulo 3 no lo revisás nunca, es lo mismo que no tenerlo. Si la Skill del módulo 6 la creaste pero no la usás en el próximo presupuesto real, quedó de adorno. Este módulo existe para que la inversión de tiempo de los seis anteriores se convierta en un hábito de negocio, no en una lista de funciones probadas una sola vez. También importa cerrar con la letra chica: xAI mismo admite que Grok puede darte información inexacta (alucinar). Nunca es un detalle menor cuando lo que le pediste va a un cliente real. Y la privacidad que decidiste en el módulo 1 se sostiene acá: nunca metas datos sensibles (números de tarjeta, contraseñas, datos médicos de terceros) en un prompt, sea cual sea el módulo que estés usando.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Pasos</h3>
+      <p>Armá tu sistema en cuatro pasos concretos, ahora mismo:</p>
+      <ol>
+        <li><strong>Repasá tus seis entregables.</strong> Abrí la carpeta <code>Sistema IA/Grok/</code> y confirmá que tenés del 01 al 06 (cuenta, contexto, radar, papeles, imágenes, conectores/skills). Lo que falte es lo que te quedó pendiente de un módulo anterior.</li>
+        <li><strong>Elegí un día y un horario fijo</strong> para tu "rutina Grok" (por ejemplo, lunes 9 AM) y anotálo en tu entregable.</li>
+        <li><strong>Escribí qué revisás o usás cada día, con qué entregable:</strong> qué día prendés el radar (el módulo 3), cuándo subís papeles (el módulo 4), cada cuánto pedís imágenes (el módulo 5), cuándo usás tu Skill de tono (el módulo 6).</li>
+        <li><strong>Decidí tu puerta con criterio</strong> (🆓 Free / 💲 X Premium para imágenes / 💰 $30 Expert) según lo que de verdad vas a usar cada semana, no por moda — usá la Plantilla B de abajo para que Grok te ayude a decidir.</li>
+      </ol>
+      <p style="margin-top:8px">El diagrama de abajo muestra cómo se encadenan las piezas — es el sistema que acabás de ordenar. Cada módulo no es un tema suelto: usa lo que dejó el anterior.</p>
+    </div>
+
+    <div class="sysdiagram">
+      <div class="sd-box sd-base">
+        <span class="sd-num">Mód. 1</span><span class="sd-title">01-cuenta-y-puertas</span>
+        <span class="sd-desc">cuenta creada + puerta elegida + privacidad decidida</span>
+      </div>
+      <span class="sd-arrow">↓</span>
+      <div class="sd-box sd-base">
+        <span class="sd-num">Mód. 2 · LA BASE</span><span class="sd-title">02-contexto-de-mi-negocio</span>
+        <span class="sd-desc">tono + instrucciones de tu negocio cargados — todo lo de abajo la usa</span>
+      </div>
+      <span class="sd-arrow">↓</span>
+      <div class="sd-row">
+        <div class="sd-box">
+          <span class="sd-num">Mód. 3</span><span class="sd-title">03-mi-radar</span>
+          <span class="sd-desc">búsqueda en vivo con Fuentes</span>
+          <span class="sd-puerta">🆓/💰</span>
+        </div>
+        <div class="sd-box">
+          <span class="sd-num">Mód. 4</span><span class="sd-title">04-papeles-resueltos</span>
+          <span class="sd-desc">1 documento analizado</span>
+          <span class="sd-puerta">🆓</span>
+        </div>
+        <div class="sd-box">
+          <span class="sd-num">Mód. 5</span><span class="sd-title">05-piezas-visuales</span>
+          <span class="sd-desc">2-3 imágenes/clip</span>
+          <span class="sd-puerta">💲</span>
+        </div>
+        <div class="sd-box">
+          <span class="sd-num">Mód. 6</span><span class="sd-title">06-grok-conectado</span>
+          <span class="sd-desc">Connectors + 1 Skill (usa qué datos importan de los módulos 3 y 4)</span>
+          <span class="sd-puerta">🆓/💲</span>
+        </div>
+      </div>
+      <span class="sd-arrow">↓</span>
+      <div class="sd-box sd-final">
+        <span class="sd-num">Mód. 7</span><span class="sd-title">07-mi-sistema-grok</span>
+        <span class="sd-desc">rutina semanal + qué usás cada día + tu puerta</span>
+      </div>
+    </div>
+
+    <p style="font-size:.9rem;color:var(--muted);margin:-6px 0 16px"><b>Cómo se lee:</b> el módulo 2 (contexto de tu negocio) es la base de todo — sin él, el radar del módulo 3 busca sin saber qué te importa, los papeles del módulo 4 se analizan sin tu criterio, las imágenes del módulo 5 salen sin tu marca, y la Skill del módulo 6 no tiene tu tono para aplicar. El módulo 6, además, usa directamente lo que aprendiste en 3 y 4 sobre qué datos le importan a tu negocio para decidir qué conectar. Este módulo 7 no agrega una pieza nueva: te hace mirar las seis juntas y ponerles un horario.</p>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Tratar cada entregable como un logro cerrado ("ya hice el módulo 3") en vez de como una pieza que se usa de nuevo la semana que viene. El error más común al cerrar un curso así es guardar todo en la carpeta <code>Sistema IA/Grok/</code> y no volver a abrirla. Si no le ponés un día fijo en el calendario, la rutina no existe.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p>La dueña de una tienda de indumentaria arma su rutina: lunes a la mañana revisa el radar (módulo 3) por tendencias de la semana; cuando le llega una factura de proveedor, la sube y la analiza con Grok (módulo 4); una vez al mes pide imágenes nuevas para redes (módulo 5, con su X Premium pagado en X); y cuando necesita un mensaje de cobro, usa la Skill que armó en el módulo 6, que ya tiene su tono cargado desde el módulo 2. Con eso decide que su puerta real es Free + X Premium (no necesita el modo Expert de $30 por ahora, porque su radar semanal ya le alcanza en la versión Limited).</p>
+    </div>
+
+    <span class="gptmock-tag">💬 Así se ve en Grok — decidiendo la puerta</span>
+    <div class="grokmock">
+      <div class="grokmock-bar"><div class="dot"></div><span>Grok</span></div>
+      <div class="grokmock-body">
+        <div class="grokmock-user"><p>Repasemos: uso el radar los lunes, subo facturas cuando llegan, pido imágenes una vez al mes y uso mi Skill de cobros cuando hace falta. ¿Con esto me alcanza el plan gratis + X Premium para imágenes, o necesito el de $30?</p></div>
+        <div class="grokmock-ai"><div class="ava"><img src="../assets/logo-grok.svg" alt=""></div>
+          <div class="aicol"><span class="chip">Auto</span>
+          <p>Con esa rutina, Free + X Premium te cubre todo: el radar semanal funciona en modo Limited sin problema para un chequeo así, y las imágenes ya las tenés cubiertas con X Premium. El plan de $30 (modo Expert) te serviría solo si necesitaras investigación profunda y automática de tu rubro, no un chequeo semanal como el tuyo.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — Armar tu rutina semanal con Grok como ayuda</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · rutina semanal</span><button class="copy">Copiar</button></div>
+<pre>Tengo estos entregables armados en Grok: contexto de mi negocio, radar de rubro,
+análisis de papeles, imágenes para redes, y Connectors/Skills.
+Ayudame a armar una rutina semanal simple: qué día uso cada uno,
+pensando en que mi negocio es <strong class="field">[tu rubro]</strong> y mi semana típica es <strong class="field">[describila]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — Chequear qué puerta te conviene de verdad</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · chequear puerta</span><button class="copy">Copiar</button></div>
+<pre>Esta es mi rutina real con Grok: <strong class="field">[pegá la rutina que armaste]</strong>.
+Con esa rutina, ¿me alcanza con Free, necesito sumar X Premium para imágenes,
+o necesito el plan de $30 para investigación profunda? Explicame por qué.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — Chequeo de uso seguro antes de pegar algo a Grok</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · uso seguro</span><button class="copy">Copiar</button></div>
+<pre>Antes de pegar esto en un chat: ¿tiene datos sensibles (contraseñas,
+tarjetas, datos personales de un cliente o de un tercero)? Si tiene,
+sacalo o reemplazalo por un dato genérico antes de continuar.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <p>Escribiste tu rutina semanal real (qué día usás cada entregable del 02 al 06), revisaste con criterio qué puerta te conviene según lo que de verdad usás (no la más cara ni la más barata porque sí), e incorporaste la regla de uso seguro (nunca información sensible, siempre verificar antes de mandarle algo a un cliente real). Guardaste todo en <code>Sistema IA/Grok/07-mi-sistema-grok</code> y podés seguir usando Grok en tu negocio de acá en más sin depender de esta guía.</p>
+      <p style="margin-top:8px">💰 Este curso te dejó un sistema completo trabajando en Free (y X Premium si sumaste imágenes). Si tu negocio crece y empezás a necesitar programar automatizaciones a medida o investigación profunda a fondo todas las semanas, eso se profundiza en el <b>Grok intermedio</b> (Grok Build para código, búsqueda Expert completa, y Grok 4.5 — el modelo nuevo de xAI pensado justo para programar y automatizar) — próximamente.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 07-mi-sistema-grok — rutina semanal + puerta elegida con criterio</span>
+
+    <label class="modcheck" data-mod="7">
+      <input type="checkbox" data-mod="7" aria-label="Completé el módulo 7">
+      <span>Completé el módulo 7 · Tu sistema Grok</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ APLICACIONES ═══ -->
+  <section class="panel" id="p-apps">
+    <div class="sec-head"><span class="numchip" style="font-size:1.1rem">↗</span><h2>Aplicaciones por tipo de negocio</h2></div>
+    <p class="sec-sub">Estos ejemplos son ORIENTATIVOS, no una lista cerrada: están para que veas el patrón y lo adaptes a tu rubro. Si tu negocio no aparece acá, agarrá el caso que más se le parezca — la mecánica es la misma en cualquier área.</p>
+
+    <div class="card" style="border-left:4px solid var(--theme-light);background:rgba(var(--theme-rgb),.07)">
+      <p style="margin:0">Formas de uso por área de un negocio chico, usando las capacidades fuertes de Grok (tiempo real + X, contexto/Estilo, papeles, imágenes, connectors/skills, voz). En las cinco áreas la base es la misma: el contexto cargado en Personaliza a Grok (el módulo 2, <i>Grok conoce tu negocio</i>) es lo que hace que cualquier respuesta salga ya alineada a tu negocio. Lo que cambia es QUÉ capacidad de Grok usás para cada tarea puntual.</p>
+    </div>
+
+    <div class="app-grid">
+      <div class="app">
+        <div class="ic">🛒</div>
+        <h4>Ventas</h4>
+        <p>Precios y promos, con tono real y radar de competencia.</p>
+        <ul>
+          <li>Responder "¿cuánto sale?" o "¿hacen envíos?" con el tono y los precios reales cargados en Personaliza a Grok (el módulo 2, <i>Grok conoce tu negocio</i>).</li>
+          <li>Chequear qué está haciendo la competencia en precios o promos esta semana con búsqueda en vivo y Fuentes (el módulo 3, <i>Grok al día: tu radar</i>).</li>
+          <li>Armar piezas visuales de producto para catálogo con Grok Imagine (el módulo 5, <i>Grok te hace las imágenes</i>).</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">💬</div>
+        <h4>Atención al cliente</h4>
+        <p>Respuestas consistentes, sin inventar plazos.</p>
+        <ul>
+          <li>Instrucciones con tu política de cambios/envíos cargadas para responder consultas típicas sin inventar plazos (módulo 2).</li>
+          <li>Gmail conectado para resumir el historial con un cliente puntual antes de contestarle (el módulo 6, <i>Grok conectado y con tu forma</i>).</li>
+          <li>Una Skill propia con tu formato de respuesta para mensajes de cobro o reclamos (módulo 6).</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">📣</div>
+        <h4>Marketing</h4>
+        <p>Radar, imagen y texto, en la misma herramienta.</p>
+        <ul>
+          <li>Monitorear qué se dice de tu marca en X y en la web esta semana, con Fuentes (módulo 3).</li>
+          <li>Imágenes y clips cortos para redes con tu marca y tono (módulo 5).</li>
+          <li>Redactar posts o textos con el Estilo ya cargado (módulo 2).</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">📋</div>
+        <h4>Operaciones</h4>
+        <p>Planillas y agenda, sin revisar fila por fila.</p>
+        <ul>
+          <li>Analizar una planilla de ventas o gastos y sacar el total o el proveedor que más facturó (el módulo 4, <i>Grok con tus papeles</i>).</li>
+          <li>Google Calendar conectado para organizar la semana (módulo 6).</li>
+          <li>Una Skill para el formato fijo de un reporte interno que se repite siempre (módulo 6).</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">🗂️</div>
+        <h4>Administración</h4>
+        <p>Papeles y normativa, resueltos sin buscar a mano.</p>
+        <ul>
+          <li>Subir un contrato o factura y pedir un resumen en 3 puntos o el dato puntual que necesitás (módulo 4).</li>
+          <li>Google Drive conectado para buscar un presupuesto viejo sin ir a mano por las carpetas (módulo 6).</li>
+          <li>Tendencia o cambio normativo del rubro detectado con búsqueda en vivo antes de decidir un ajuste (módulo 3).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="next" style="margin-top:20px">
+      <div class="kicker">Explorá los otros modelos</div>
+      <h3>ChatGPT · <span class="c">Claude · Gemini</span></h3>
+      <p>Cada IA tiene fortalezas distintas. Aprendelos con el mismo método COCO GO: prompts reales, entregables, sin jerga.</p>
+      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
+    </div>
+  </section>
+
+  <!-- ═══ BONUS ═══ -->
+  <section class="panel" id="p-bonus">
+    <div class="sec-head"><span class="numchip" style="font-size:1.15rem">★</span><h2>Bonus · extras de alto valor</h2></div>
+    <p class="sec-sub">Usalos <strong>después</strong> de completar los módulos — con tus instrucciones de Personaliza a Grok ya cargadas.</p>
+
+    <div class="card">
+      <h3>📎 Cheat-sheet de prompts para Grok</h3>
+      <p>Una consulta típica que te frena, resuelta en un prompt corto:</p>
+      <ul>
+        <li><b>Radar semanal:</b> "Buscá en la web y en X qué pasó esta semana con [competidor/rubro]. Citá fuentes."</li>
+        <li><b>Papeles:</b> "De este [documento], decime solo [el dato puntual que necesitás]."</li>
+        <li><b>Imagen:</b> "Una foto de producto de [tu producto], fondo [claro/de marca], estilo catálogo."</li>
+        <li><b>Skill/formato fijo:</b> "Usando la Skill [nombre]: armame [documento] para [situación real]."</li>
+        <li><b>Ajuste de imagen (follow-up):</b> "Quedó bien, pero [qué cambiar]. Mantené el resto igual."</li>
+        <li><b>Ajuste rápido:</b> "Esa respuesta [qué falló]. Volvé a hacerla con [dato real que faltó]."</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>⚙️ Guía de usabilidad — para sacarle el jugo a Grok desde el día 1</h3>
+      <ol>
+        <li><strong>Cargá el contexto antes de pedir cosas puntuales</strong> (Personaliza a Grok, módulo 2) — te ahorra repetir rubro, tono y precios en cada chat.</li>
+        <li><strong>Un hilo por tema, no todo mezclado.</strong> Si cambiás de asunto, arrancá un chat nuevo — así Grok no arrastra contexto de otra cosa a tu pregunta.</li>
+        <li><strong>Iterá, no reescribas de cero.</strong> Ya sea texto o imagen, seguí pidiendo ajustes en el mismo hilo ("más corto", "cambiá el fondo", "con este dato real") en vez de empezar de nuevo cada vez — Grok mantiene el hilo de lo que ya generó.</li>
+        <li><strong>Usá voz cuando estés con las manos ocupadas</strong> (mostrador, auto, caminando) y texto cuando necesites precisión o vayas a copiar el resultado.</li>
+        <li><strong>Guardá lo bueno en <code>Sistema IA/Grok/</code></strong> apenas te sirve — no confíes en encontrarlo de nuevo en el historial.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>🧭 Checklist anti-alucinación — para que Grok "no invente ni delire"</h3>
+      <p>Si la respuesta sale genérica o inventada, no es que "Grok no sirve" — revisá antes de abandonar:</p>
+      <ol>
+        <li>¿Le diste datos reales de tu negocio, no un ejemplo inventado (tu rubro, tus precios, tu tono real)?</li>
+        <li>¿Verificaste las Fuentes cuando la respuesta vino de una búsqueda en vivo (módulo 3)? Un número de Fuentes al pie no es garantía si nunca abriste ninguna.</li>
+        <li>¿Le pediste explícitamente que cite de dónde sacó el dato ("¿de dónde sale eso?", "citá la fuente") antes de repetirlo vos como un hecho?</li>
+        <li>¿Te quedaste con la primera respuesta o la pusiste en duda con una segunda pregunta ("¿estás seguro?", "confirmá ese dato de otra forma") antes de usarla con un cliente real?</li>
+        <li>¿Iteraste con el prompt universal de refinamiento (Glosario) en vez de conformarte con la primera respuesta?</li>
+        <li>¿Tenía el contexto que necesitaba — las instrucciones de Personaliza a Grok cargadas (el módulo 2), el Connector correcto activo, o el documento/Estilo que correspondía?</li>
+        <li>¿Marcaste vos lo sensible antes de mandarlo? Nunca pegues contraseñas, tarjetas o datos de terceros en un prompt, tenga o no tenga que ver con la respuesta.</li>
+      </ol>
+      <p>Si contestaste que no a alguna, ahí está el problema, no en la herramienta. Regla de oro: <b>toda respuesta de Grok se verifica contra el dato real antes de mandarla a un cliente.</b></p>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla de instrucciones del negocio para Personaliza a Grok → Estilo</h3>
+      <div class="prompt">
+        <div class="top"><span>plantilla · instrucciones del negocio</span><button class="copy">Copiar</button></div>
+<pre>Rubro: <strong class="field">[a qué te dedicás]</strong>.
+Público: <strong class="field">[a quién le vendés]</strong>.
+Precios: <strong class="field">[lista real o rango de precios]</strong>.
+Políticas: <strong class="field">[envíos / cambios / turnos / formas de pago — las que apliquen]</strong>.
+Tono: <strong class="field">[cercano / formal / con humor — el que uses de verdad]</strong>.
+Cuando no sepas un dato mío, decilo en vez de inventarlo.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📡 Radar de datos que cambian</h3>
+      <p>Cada vez que cambien precios, horarios o políticas de tu negocio, actualizá el mismo día las instrucciones de Personaliza a Grok (el módulo 2, <i>Grok conoce tu negocio</i>). Un Grok con datos viejos responde seguro en el tono, pero equivocado en el dato — más peligroso que no tenerlo configurado.</p>
+    </div>
+
+    <div class="next" style="margin-top:20px">
+      <div class="kicker">Explorá los otros modelos</div>
+      <h3>ChatGPT · <span class="c">Claude · Gemini</span></h3>
+      <p>Cada IA tiene fortalezas distintas. Aprendelos con el mismo método COCO GO: prompts reales, entregables, sin jerga.</p>
+      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
+    </div>
+  </section>
+
+  <!-- ═══ VERIFICACIÓN ═══ -->
+  <section class="panel" id="p-verif">
+    <div class="sec-head"><span class="numchip" style="font-size:1.15rem">✓</span><h2>Verificación final</h2></div>
+    <p class="sec-sub">Un check por entregable. Marcalo solo si es real, no si "algo se acerca".</p>
+
+    <div class="card">
+      <div class="check-list">
+        <div class="check"><span class="box">✓</span><p>01 · Cuenta y puertas<small>Tenés la cuenta de Grok creada (grok.com o app, sin depender de X), le hiciste al menos una pregunta real sobre tu negocio, elegiste conscientemente tu puerta de arranque (normalmente Free), y decidiste tu privacidad (Improve the model on/off, o Chat privado para lo puntual).</small></p></div>
+        <div class="check"><span class="box">✓</span><p>02 · Contexto de mi negocio<small>Cargaste Personaliza a Grok con datos reales (rubro, precios, políticas, tono reales, no un ejemplo de prueba) y lo probaste con una consulta típica de cliente real.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>03 · Mi radar<small>Hiciste una búsqueda real en vivo sobre tu rubro o tu competencia, viste la respuesta con Fuentes citadas, abriste al menos una para verificar, y anotaste una decisión concreta que vas a aplicar.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>04 · Papeles resueltos<small>Subiste un documento real tuyo (no de prueba), le pediste un dato o resumen concreto (no "analizá esto" a secas), y verificaste el dato importante contra el documento original.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>05 · Piezas visuales<small>Generaste entre 2 y 3 piezas visuales reales de tu negocio con Grok Imagine, ajustaste al menos una después del primer resultado, y confirmaste que tenías la puerta de pago correspondiente activa.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>06 · Grok conectado<small>Tenés un Connector activo conectado a una cuenta real tuya (no de prueba) probado con una pregunta real, y una Skill propia creada y probada con un caso concreto de tu negocio.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>07 · Mi sistema Grok<small>Escribiste tu rutina semanal real (qué día usás cada entregable del 02 al 06), revisaste con criterio qué puerta te conviene según lo que de verdad usás, e incorporaste la regla de uso seguro (nunca info sensible, siempre verificar antes de mandarle algo a un cliente real).</small></p></div>
+      </div>
+    </div>
+
+    <div class="next">
+      <div class="kicker">Cuando termines esto…</div>
+      <h3>Seguí con <span class="c">Gemini para tu negocio</span></h3>
+      <p>Ya entendiste Grok. El siguiente paso natural: el asistente que ya vive en tu Gmail, Drive y Calendar. Mismo método COCO GO, otra herramienta.</p>
+      <a class="go" href="../gemini/">Ir al curso de Gemini →</a>
+    </div>
+
+    <div class="card feedbackbox" style="margin-top:20px">
+      <h3>💬 Tu feedback real</h3>
+      <p style="margin-bottom:10px">¿Qué módulo te costó más? ¿Qué te hubiera gustado que explicáramos mejor? ¿Hay algo de tu negocio que este curso no contempló? Escribinos — nos sirve para mejorar el próximo curso de la serie.</p>
+      <textarea id="feedback-text" placeholder="Ej: el módulo 5 me costó por el tema del pago, pero el módulo 3 me cambió la forma de ver a la competencia…"></textarea>
+      <div class="fb-actions">
+        <button type="button" class="copy" id="feedback-copy">Copiar mi comentario</button>
+      </div>
+      <div class="fb-paths">
+        <span>Mandalo por Instagram — <a href="https://instagram.com/cocogo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@cocogo →</a></span>
+        <span>O por mail a <a href="mailto:cocogo.hola@gmail.com?subject=Feedback%20curso%20Grok">cocogo.hola@gmail.com</a> — pegá el comentario que copiaste arriba.</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="wrap" id="catalogo" style="padding:10px 20px 40px">
+  <div class="sec-head"><span class="numchip" style="font-size:1.05rem">＋</span><h2 style="font-size:clamp(1.3rem,3vw,1.7rem)">Otros cursos <img src="../assets/logo-coco-go.svg" alt="COCO GO" style="height:1.1em;vertical-align:-0.15em"></h2></div>
+  <p class="sec-sub">Mismo método — prompts reales, entregables, sin jerga — aplicado a otras herramientas.</p>
+  <div class="app-grid">
+    <div class="app">
+      <div class="ic"><img src="../assets/logo-openai.svg" alt="" aria-hidden="true" style="width:24px;height:24px;display:block"></div>
+      <h4>ChatGPT para tu negocio</h4>
+      <p>El asistente más versátil para texto, imágenes y automatizaciones del día a día.</p>
+      <p style="margin-top:10px"><a class="go" style="padding:9px 16px;font-size:.85rem" href="../chatgpt/">Ir al curso →</a></p>
+    </div>
+    <div class="app">
+      <div class="ic"><img src="../assets/logo-claude.svg" alt="" aria-hidden="true" style="width:24px;height:24px;display:block"></div>
+      <h4>Claude para tu negocio</h4>
+      <p>El asistente que lee documentos enteros y arma mini-herramientas sin programar.</p>
+      <p style="margin-top:10px"><a class="go" style="padding:9px 16px;font-size:.85rem" href="../claude/">Ir al curso →</a></p>
+    </div>
+    <div class="app">
+      <div class="ic"><img src="../assets/logo-gemini.svg" alt="" aria-hidden="true" style="width:24px;height:24px;display:block"></div>
+      <h4>Gemini para tu negocio</h4>
+      <p>El asistente que ya vive en tu Gmail, Drive y Calendar — sin instalar nada nuevo.</p>
+      <p style="margin-top:10px"><a class="go" style="padding:9px 16px;font-size:.85rem" href="../gemini/">Ir al curso →</a></p>
+    </div>
+  </div>
+  <p style="margin-top:14px;font-size:.9rem;color:var(--muted)">Seguinos en <a href="https://instagram.com/cocogo" target="_blank" rel="noopener" style="color:var(--theme-light);text-decoration:none;border-bottom:1px solid rgba(var(--theme-rgb),.3)">@cocogo</a> para enterarte de las novedades.</p>
+</section>
+
+<footer>
+  <img src="../assets/logo-coco-go.svg" class="foot-logo" alt="COCO GO">
+  <div class="socials">
+    <a class="soc" href="https://instagram.com/cocogo" target="_blank" rel="noopener" aria-label="Instagram @cocogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0-2.16C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.94 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg></a>
+    <a class="soc" href="https://x.com/cocogo" target="_blank" rel="noopener" aria-label="X @cocogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93ZM17.61 20.64h2.04L6.49 3.24H4.3Z"/></svg></a>
+  </div>
+  <p>Soporte: <a href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a> (respondemos en 48 h hábiles)</p>
+  <p>Más cursos: <a href="#catalogo">ChatGPT · Claude · Gemini</a> — mismo método COCO GO.</p>
+  <p>© COCO GO 2026. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+/* puerta de acceso — código en el link de compra (?k=) o tipeado, recordado en localStorage */
+(function(){
+  var ACCESS_TOKEN='COCO-GRK7-2026';
+  var ACCESS_STORAGE_KEY='cocogo_grok_access_ok';
+  var gate=document.getElementById('access-gate');
+  var input=document.getElementById('access-code-input');
+  var submit=document.getElementById('access-code-submit');
+  var error=document.getElementById('access-gate-error');
+  if(!gate||!input||!submit) return;
+
+  var params=new URLSearchParams(location.search);
+  var fromUrl=(params.get('k')||'').trim();
+  var stored=localStorage.getItem(ACCESS_STORAGE_KEY)==='1';
+
+  function unlock(){
+    try{localStorage.setItem(ACCESS_STORAGE_KEY,'1');}catch(e){}
+    document.body.classList.remove('access-locked');
+    gate.hidden=true;
+    if(fromUrl){
+      params.delete('k');
+      var qs=params.toString();
+      history.replaceState(null,'',location.pathname+(qs?'?'+qs:'')+location.hash);
+    }
+  }
+
+  function tryCode(raw){
+    var code=(raw||'').trim();
+    if(code.toUpperCase()===ACCESS_TOKEN.toUpperCase()){
+      if(error) error.textContent='';
+      unlock();
+      return true;
+    }
+    if(error) error.textContent='Código incorrecto. Revisá el email de compra.';
+    return false;
+  }
+
+  if(stored||(fromUrl&&tryCode(fromUrl))) return;
+
+  document.body.classList.add('access-locked');
+  gate.hidden=false;
+  submit.addEventListener('click',function(){tryCode(input.value);});
+  input.addEventListener('keydown',function(e){if(e.key==='Enter')tryCode(input.value);});
+})();
+
+/* fondo de red animado */
+(function(){
+  var c=document.getElementById('bg'); if(!c) return;
+  var ctx=c.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2);
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var RGB=(getComputedStyle(document.documentElement).getPropertyValue('--theme-rgb').trim())||'120,124,130';
+  var W,H,pts,raf;
+  function resize(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.min(90,Math.max(30,Math.floor(W*H/16000)));pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18});}
+  function frame(move){ctx.clearRect(0,0,W,H);var i,j,a,b,dx,dy,d,o;
+    if(move)for(i=0;i<pts.length;i++){a=pts[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;}
+    for(i=0;i<pts.length;i++)for(j=i+1;j<pts.length;j++){a=pts[i];b=pts[j];dx=a.x-b.x;dy=a.y-b.y;d=dx*dx+dy*dy;
+      if(d<19000){o=(1-d/19000)*.22;ctx.strokeStyle='rgba('+RGB+','+o.toFixed(3)+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+    for(i=0;i<pts.length;i++){a=pts[i];ctx.fillStyle='rgba('+RGB+',.55)';ctx.beginPath();ctx.arc(a.x,a.y,1.5,0,6.283);ctx.fill();}}
+  function loop(){frame(true);raf=requestAnimationFrame(loop);}
+  resize();window.addEventListener('resize',function(){cancelAnimationFrame(raf);resize();reduce?frame(false):loop();});
+  reduce?frame(false):loop();
+})();
+
+/* glosario acordeón: una abierta a la vez */
+(function(){
+  var terms=document.querySelectorAll('.gterm');
+  terms.forEach(function(b){
+    b.addEventListener('click',function(){
+      var open=b.classList.contains('open');
+      terms.forEach(function(o){o.classList.remove('open');o.nextElementSibling.style.maxHeight=null;});
+      if(!open){b.classList.add('open');var d=b.nextElementSibling;d.style.maxHeight=d.scrollHeight+'px';}
+    });
+  });
+  var q=document.getElementById('gloss-q');
+  if(q)q.addEventListener('input',function(){
+    var v=q.value.toLowerCase();
+    document.querySelectorAll('#gloss-list .gitem').forEach(function(it){
+      it.style.display=it.querySelector('.gterm').textContent.toLowerCase().indexOf(v)>-1?'':'none';
+    });
+  });
+})();
+
+/* scroll al tope al cambiar pestaña */
+document.querySelectorAll('input[name="coco-tab"]').forEach(function(r){
+  r.addEventListener('change',function(){window.scrollTo({top:0,behavior:'instant'});});
+});
+
+/* botones copiar con clipboard API */
+document.querySelectorAll('.copy:not(#feedback-copy)').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var pre=btn.closest('.prompt').querySelector('pre');
+    if(!pre) return;
+    var text=pre.textContent.trim();
+    function done(){btn.textContent='✓ Copiado';setTimeout(function(){btn.textContent='Copiar';},1500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text,done);});
+    } else { fallback(text,done); }
+  });
+});
+function fallback(text,cb){
+  var ta=document.createElement('textarea');
+  ta.value=text;ta.style.cssText='position:fixed;left:-9999px;top:0;opacity:0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');cb();}catch(e){}
+  document.body.removeChild(ta);
+}
+
+/* botón copiar del feedback de Verificación */
+(function(){
+  var btn=document.getElementById('feedback-copy');
+  var ta=document.getElementById('feedback-text');
+  if(!btn||!ta) return;
+  btn.addEventListener('click',function(){
+    var text=ta.value.trim();
+    if(!text) return;
+    function done(){btn.textContent='✓ Copiado';setTimeout(function(){btn.textContent='Copiar mi comentario';},1500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text,done);});
+    } else { fallback(text,done); }
+  });
+})();
+
+/* progreso de módulos (localStorage) */
+(function(){
+  var KEY='cocogo_progreso_grok', TOTAL=7;
+  function load(){try{var v=JSON.parse(localStorage.getItem(KEY));return Array.isArray(v)?v.filter(function(n){return n>=1&&n<=TOTAL;}):[];}catch(e){return [];}}
+  function save(a){try{localStorage.setItem(KEY,JSON.stringify(a));}catch(e){}}
+  var done=load();
+  var inputs=document.querySelectorAll('.modcheck input[data-mod]');
+  if(!inputs.length) return;
+  var checks=document.querySelectorAll('#p-verif .check-list .check');
+  var fill=document.querySelector('.progfill');
+  var label=document.querySelector('.proglabel');
+  var pwrap=document.querySelector('.progwrap');
+  function render(){
+    inputs.forEach(function(inp){
+      var n=+inp.getAttribute('data-mod'), on=done.indexOf(n)>-1;
+      inp.checked=on;
+      inp.closest('.modcheck').classList.toggle('done',on);
+    });
+    checks.forEach(function(c,i){c.classList.toggle('done',done.indexOf(i+1)>-1);});
+    var pct=Math.round(done.length/TOTAL*100);
+    if(fill)fill.style.width=pct+'%';
+    if(label)label.textContent=done.length+'/'+TOTAL;
+    if(pwrap){pwrap.classList.toggle('complete',done.length>=TOTAL);pwrap.setAttribute('aria-valuenow',done.length);}
+  }
+  inputs.forEach(function(inp){
+    inp.addEventListener('change',function(){
+      var n=+inp.getAttribute('data-mod'), i=done.indexOf(n);
+      if(inp.checked&&i<0)done.push(n);
+      else if(!inp.checked&&i>-1)done.splice(i,1);
+      save(done);render();
+    });
+  });
+  render();
+})();
+
+/* accesibilidad AA — foco visible en pestañas (radios .tab son invisibles) */
+document.querySelectorAll('input.tab').forEach(function(t){
+  var lbl=document.querySelector('.modnav label[for="'+t.id+'"]');
+  if(!lbl) return;
+  t.addEventListener('focus',function(){lbl.classList.add('kbfocus');});
+  t.addEventListener('blur',function(){lbl.classList.remove('kbfocus');});
+});
+</script>
+</body>
+</html>

@@ -4,14 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>COCO GO — Cursos prácticos de IA para tu negocio</title>
-<meta name="description" content="COCO GO: cursos prácticos y guías paso a paso para usar IA en tu emprendimiento o PyME. Primer curso: ChatGPT para tu negocio." />
+<meta name="description" content="COCO GO: cursos prácticos de ChatGPT, Claude, Gemini y Grok para emprendedores y PyMEs." />
 <link rel="canonical" href="https://coco-go.github.io/">
 <meta name="theme-color" content="#0A0E1A">
 <link rel="icon" type="image/svg+xml" href="assets/logo-coco-go.svg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://coco-go.github.io/">
 <meta property="og:title" content="COCO GO — Cursos prácticos de IA para tu negocio">
-<meta property="og:description" content="Guías paso a paso para usar inteligencia artificial en tu emprendimiento o PyME. Primer curso: ChatGPT para tu negocio.">
+<meta property="og:description" content="Guías paso a paso: ChatGPT, Claude, Gemini y Grok para tu emprendimiento o PyME.">
 <meta property="og:image" content="https://coco-go.github.io/chatgpt/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,7 @@ html{-webkit-text-size-adjust:100%}
 body{
   font-family:var(--body);background:var(--bg);color:var(--text);
   min-height:100vh;display:flex;align-items:center;justify-content:center;
-  padding:2rem;text-align:center;position:relative;overflow:hidden;
+  padding:2rem;text-align:center;position:relative;overflow-x:hidden;
 }
 body::before{
   content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
@@ -40,20 +40,31 @@ body::before{
     radial-gradient(45% 40% at 90% 96%, rgba(var(--coral-rgb),.12), transparent 60%),
     linear-gradient(180deg, var(--ink), var(--bg) 45%, var(--ink));
 }
-.card{max-width:480px}
+.card{max-width:480px;width:100%}
 .logo{height:56px;width:auto;display:block;margin:0 auto 1.75rem}
 h1{
   font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,5vw,2.1rem);
   line-height:1.25;color:var(--text);margin-bottom:.85rem;
 }
 h1 .go{color:var(--coral)}
-p{color:var(--muted);font-size:1rem;line-height:1.6;margin-bottom:1.75rem}
+.lead{color:var(--muted);font-size:1rem;line-height:1.6;margin-bottom:1.5rem}
 .badge{
   display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.03em;
   color:var(--coral);background:rgba(var(--coral-rgb),.1);
   border:1px solid rgba(var(--coral-rgb),.3);padding:.4rem .9rem;border-radius:999px;
   margin-bottom:1.75rem;
 }
+.lista{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.75rem}
+.curso{
+  display:block;text-align:left;background:var(--surface);
+  border:1px solid var(--border);border-left:3px solid var(--accent, rgb(var(--theme-rgb)));
+  border-radius:12px;padding:.9rem 1.1rem;text-decoration:none;color:inherit;
+  transition:border-color .15s, background .15s, transform .15s;
+}
+.curso:hover{background:#141b30;border-color:rgba(255,107,74,.35);transform:translateY(-1px)}
+.curso strong{display:block;font-family:var(--display);font-size:1.02rem;margin-bottom:.2rem;color:var(--text)}
+.curso span{color:var(--muted);font-size:.88rem;line-height:1.45}
+.curso .go{font-size:.78rem;color:var(--coral);font-weight:600;margin-top:.35rem}
 .ig{
   display:inline-flex;align-items:center;gap:.5rem;color:var(--text);
   text-decoration:none;font-weight:600;font-size:.95rem;
@@ -62,24 +73,35 @@ p{color:var(--muted);font-size:1rem;line-height:1.6;margin-bottom:1.75rem}
 }
 .ig:hover{border-color:var(--coral);background:rgba(var(--coral-rgb),.08)}
 .ig svg{width:18px;height:18px;flex-shrink:0}
-.curso{
-  display:block;text-align:left;background:var(--surface);
-  border:1px solid var(--border);border-left:3px solid rgb(var(--theme-rgb));
-  border-radius:12px;padding:.9rem 1.1rem;margin:0 auto 1.75rem;
-}
-.curso strong{display:block;font-family:var(--display);font-size:1.02rem;margin-bottom:.25rem}
-.curso span{color:var(--muted);font-size:.9rem;line-height:1.5}
 </style>
 </head>
 <body>
 <div class="card">
   <img src="assets/logo-coco-go.svg" class="logo" alt="COCO GO">
-  <span class="badge">Primer curso: muy pronto a la venta</span>
+  <span class="badge">4 cursos listos · acceso web</span>
   <h1>Cursos prácticos de <span class="go">IA</span> para tu negocio</h1>
-  <p>Guías paso a paso para usar inteligencia artificial en tu emprendimiento o PyME. Con resultados reales desde el primer módulo.</p>
-  <div class="curso">
-    <strong>ChatGPT para tu negocio</strong>
-    <span>8 módulos concatenados para armar tu Sistema IA: perfil, mensajes de venta, contenido y rutina semanal.</span>
+  <p class="lead">Guías paso a paso para emprendedores y PyMEs. Elegí un modelo y entrá.</p>
+  <div class="lista">
+    <a class="curso" style="--accent:#10A37F" href="chatgpt/">
+      <strong>ChatGPT para tu negocio</strong>
+      <span>Sistema IA: perfil, contenido, ventas y rutina semanal.</span>
+      <div class="go">Abrir curso →</div>
+    </a>
+    <a class="curso" style="--accent:#D97757" href="claude/">
+      <strong>Claude para tu negocio</strong>
+      <span>Documentos largos, Projects, escritura y Artifacts.</span>
+      <div class="go">Abrir curso →</div>
+    </a>
+    <a class="curso" style="--accent:#4285F4" href="gemini/">
+      <strong>Gemini para tu negocio</strong>
+      <span>Gems, imágenes, Deep Research y NotebookLM.</span>
+      <div class="go">Abrir curso →</div>
+    </a>
+    <a class="curso" style="--accent:#E8E8E8" href="grok/">
+      <strong>Grok para tu negocio</strong>
+      <span>Voz, tiempo real con X, archivos e Imagine.</span>
+      <div class="go">Abrir curso →</div>
+    </a>
   </div>
   <a class="ig" href="https://instagram.com/cocogo" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
