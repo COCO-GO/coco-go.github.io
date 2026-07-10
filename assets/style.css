@@ -158,6 +158,35 @@ strong.field{background:rgba(var(--theme-rgb),.14);color:var(--theme-light);font
 .app p{font-size:.93rem;color:var(--muted);margin:0}
 .app ul{font-size:.9rem;color:var(--muted);padding-left:1.1rem;margin-top:8px}
 .app li{margin-bottom:.3rem}
+/* catálogo de cursos — CTA unificado + combo */
+.app.curso-cta{display:flex;flex-direction:column}
+.app.curso-cta h4{margin-bottom:6px}
+.app.curso-cta .cta-curso,
+.app.curso-cta .cta-combo{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  margin-top:auto;padding:10px 16px;border-radius:11px;font-weight:700;font-size:.88rem;
+  text-decoration:none;color:var(--text);background:rgba(255,255,255,.05);
+  border:1px solid var(--border-strong);transition:color .2s,border-color .2s,background .2s,transform .15s;
+  align-self:flex-start;
+}
+.app.curso-cta .cta-curso:hover{
+  color:var(--coral);border-color:var(--coral);background:rgba(var(--coral-rgb),.08);
+  transform:translateY(-1px);
+}
+.app.curso-cta .cta-combo{
+  color:#fff;background:var(--coral);border-color:var(--coral);
+}
+.app.curso-cta .cta-combo:hover{
+  background:#FF8566;border-color:#FF8566;color:#fff;transform:translateY(-1px);
+}
+.app.curso-cta .cta-price{
+  display:block;margin-top:8px;font-size:.92rem;font-weight:800;color:var(--coral);
+}
+.app.curso-cta .cta-logos{
+  display:flex;align-items:center;gap:8px;margin:8px 0 4px;flex-wrap:wrap;
+}
+.app.curso-cta .cta-logos img{width:22px;height:22px;display:block;border-radius:5px}
+.app.curso-cta .cta-names{font-size:.88rem;color:var(--muted);margin:0 0 10px}
 .fw-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:16px}
 .fw-box{flex:1;min-width:240px;border-radius:12px;padding:14px}
 .fw-box h4{font-size:.85rem;font-weight:700;margin-bottom:6px}
