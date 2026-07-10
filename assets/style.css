@@ -158,11 +158,11 @@ strong.field{background:rgba(var(--theme-rgb),.14);color:var(--theme-light);font
 .app p{font-size:.93rem;color:var(--muted);margin:0}
 .app ul{font-size:.9rem;color:var(--muted);padding-left:1.1rem;margin-top:8px}
 .app li{margin-bottom:.3rem}
-/* catálogo de cursos — CTA unificado + combo (compacto, aire del texto, a la izquierda) */
-.app.curso-cta{display:flex;flex-direction:column;align-items:flex-start}
+/* catálogo de cursos — CTA unificado + combo (compacto, aire del texto, a la derecha) */
+.app.curso-cta{display:flex;flex-direction:column;align-items:stretch}
 .app.curso-cta h4{margin-bottom:6px}
 .app.curso-cta > p{margin-bottom:0}
-/* botones: chicos, pegados al bloque de texto con respiro (no margin-top:auto → no al fondo de la card) */
+/* botones: chicos, respiro del texto, alineados a la derecha */
 .app.curso-cta .cta-curso,
 .app.curso-cta .cta-combo{
   display:inline-flex;align-items:center;justify-content:center;gap:5px;
@@ -170,15 +170,16 @@ strong.field{background:rgba(var(--theme-rgb),.14);color:var(--theme-light);font
   line-height:1.2;text-decoration:none;color:var(--muted);
   background:transparent;border:1px solid var(--border);
   transition:color .2s,border-color .2s,background .2s;
+  align-self:flex-end;
 }
 .app.curso-cta .cta-curso:hover{
   color:var(--coral);border-color:rgba(var(--coral-rgb),.45);background:rgba(var(--coral-rgb),.07);
 }
-/* pie del combo: precio + botón en columna alineados a la izquierda (en escuadra) */
+/* pie del combo: precio + botón en columna alineados a la derecha (en escuadra) */
 .app.curso-cta .cta-foot{
-  display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-top:14px;width:100%;
+  display:flex;flex-direction:column;align-items:flex-end;gap:8px;margin-top:14px;width:100%;
 }
-.app.curso-cta .cta-foot .cta-combo{margin-top:0}
+.app.curso-cta .cta-foot .cta-combo{margin-top:0;align-self:flex-end}
 .app.curso-cta .cta-combo{
   color:#fff;background:var(--coral);border-color:var(--coral);font-weight:700;
 }
