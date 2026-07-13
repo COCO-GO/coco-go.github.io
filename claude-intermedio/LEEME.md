@@ -17,9 +17,12 @@ Agregados de forma aditiva a `assets/style.css` (no rompen los otros cursos):
 - `.codemock` — vista panorámica de Claude Code (dark/terminal, a propósito distinto del resto del curso).
 - `.freqchips`, `.routinetable`, `.faltanote` — utilitarios menores (frecuencia, tabla de rutina, avisos ⚠️FALTA).
 
-## ⚠️FALTA pendiente
-- **og.png (1200×630):** no se generó el binario — el HTML referencia `og.png` con comentario `<!-- FALTA og.png 1200x630 -->` en el `<head>`. Falta crear y subir la imagen antes de publicar para que el share preview funcione.
-- Los `⚠️FALTA` de contenido (nº máximo de tareas agendadas, vencimiento de permisos de conector, uso incluido exacto) vienen del contenido fuente y están marcados en el HTML tal cual — no se inventó ningún dato.
+## Estado diseño (2026-07-13)
+- **og.png:** generado (1200×630) en esta carpeta; meta OK.
+- **Ritmo color:** cards con clases `card-sol|warn|example|plantilla|step|map|kit` (0 planas).
+- **Mocks:** aire fábrica (margin-bottom 36px) — no apilar.
+- **Playbook:** `specs/FABRICA-MAQUETADO-INTERMEDIO-2026-07-13.md` (lecciones Gemini+Claude int).
+- Los `⚠️FALTA` de **contenido** (nº máximo de tareas, permisos de conector, uso incluido exacto) siguen del .md fuente — no inventar datos.
 
 ## No se tocó
 - Ningún otro curso (`claude/`, `chatgpt/`, `gemini/`, `grok/`).
