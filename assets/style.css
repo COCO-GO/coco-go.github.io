@@ -446,3 +446,202 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{o
 .uimock .sidebaritem{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:.83rem;color:#40414F}
 .uimock .sidebaritem.on{background:rgba(var(--theme-rgb),.12);color:#04130E;font-weight:700}
 .uimock .publishbtn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--theme-light),var(--theme));color:#04130E;font-weight:700;font-size:.83rem;padding:8px 16px;border-radius:8px}
+
+/* ═══ CURSO CLAUDE INTERMEDIO — componentes nuevos, aditivo, tematizable por var(--theme).
+   No tocan ninguna regla existente: solo suman clases nuevas para los mocks pedidos en el
+   brief (Cowork, tareas agendadas, conectores, Project/RAG, modelo/créditos, Claude Code). */
+
+/* chips de frecuencia (hourly/daily/weekly/weekdays/manual) — M1, M3 */
+.freqchips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.freqchip{font-family:var(--mono);font-size:.76rem;font-weight:600;color:var(--muted);padding:7px 13px;border-radius:999px;border:1px solid var(--border-strong);background:rgba(255,255,255,.03)}
+.freqchip.sel{color:#04130E;background:linear-gradient(135deg,var(--theme-light),var(--theme));border-color:transparent;font-weight:700}
+
+/* coworkmock — flujo Cowork: describir → plan propuesto → aprobar → ejecutando (M2, M6) */
+.coworkmock{max-width:640px;margin:0 auto 18px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
+.coworkmock-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(20,25,40,.08);background:#F7F7F8}
+.coworkmock-bar .dot{width:9px;height:9px;border-radius:50%;background:#D8DAE0}
+.coworkmock-bar .mode{font-family:var(--body);font-size:.82rem;font-weight:700;color:#1A1A1A;margin-left:2px}
+.coworkmock-bar .modechip{margin-left:auto;font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.03em;color:var(--theme-dark);background:rgba(var(--theme-rgb),.14);border:1px solid rgba(var(--theme-rgb),.3);padding:3px 9px;border-radius:999px}
+.coworkmock-body{padding:16px 16px 18px}
+.coworkmock-body .cw-hint{color:#5B5B6E;font-size:.87rem;font-style:italic;margin:0}
+.cw-plan-label{display:block;font-weight:700;font-size:.82rem;color:#1A1A1A;margin-bottom:8px}
+.coworkmock-body ol{margin:0 0 14px;padding-left:1.15rem;color:#2A2B32;font-size:.86rem;line-height:1.6}
+.coworkmock-body ol li{margin-bottom:4px}
+.cw-actions{display:flex;gap:9px;flex-wrap:wrap}
+.cw-approve{font-weight:700;font-size:.82rem;padding:9px 16px;border-radius:9px;border:0;background:var(--theme);color:#fff}
+.cw-adjust{font-weight:600;font-size:.82rem;padding:9px 16px;border-radius:9px;border:1px solid #D9D9E3;background:#fff;color:#40414F}
+.cw-exec{display:flex;align-items:center;gap:9px;font-size:.85rem;font-weight:600;color:#1A1A1A;margin-bottom:8px}
+.cw-exec .lit{width:8px;height:8px;border-radius:50%;background:var(--theme);animation:ping2 1.3s ease-in-out infinite;flex-shrink:0}
+@keyframes ping2{0%,100%{opacity:1}50%{opacity:.3}}
+.cw-execbar{height:6px;border-radius:999px;background:#ECECF1;overflow:hidden;margin-bottom:8px}
+.cw-execfill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--theme-light),var(--theme))}
+.cw-execnote{color:#5B5B6E;font-size:.82rem;margin:0}
+
+/* schedulemock — panel "Scheduled" / tarjeta de tarea con frecuencia y estado (M1, M3) */
+.schedulemock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px 0 6px}
+.schedulemock-bar{display:flex;align-items:center;justify-content:space-between;padding:11px 15px;border-bottom:1px solid #ECECF1;font-family:var(--display);font-weight:700;font-size:.9rem;color:#1a1a2e}
+.schedulemock-bar .sm-new{font-family:var(--body);font-size:.72rem;font-weight:700;color:#fff;background:var(--theme);border:0;padding:6px 11px;border-radius:7px}
+.schedulemock-list{padding:6px 8px}
+.sm-row{display:flex;align-items:center;gap:11px;padding:11px 8px;border-bottom:1px solid #F0F0F2}
+.sm-row:last-child{border-bottom:0}
+.sm-status{flex-shrink:0;width:9px;height:9px;border-radius:50%;background:#34D399}
+.sm-status.paused{background:#FBBF24}
+.sm-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.sm-name{font-size:.85rem;font-weight:700;color:#1A1A1A}
+.sm-freq{font-family:var(--mono);font-size:.71rem;color:#7A8194}
+.sm-badge{flex-shrink:0;font-size:.68rem;font-weight:700;color:#04130E;background:rgba(var(--theme-rgb),.18);border:1px solid rgba(var(--theme-rgb),.35);padding:3px 9px;border-radius:999px}
+.sm-badge.paused{color:#7A5B00;background:rgba(251,191,36,.18);border-color:rgba(251,191,36,.4)}
+.sm-menu{display:flex;gap:6px;padding:0 8px 10px;flex-wrap:wrap}
+.sm-menu span{font-size:.71rem;font-weight:600;color:#40414F;background:#F0F0F2;padding:4px 9px;border-radius:6px}
+.sm-editnote{padding:0 8px 10px;font-size:.72rem;color:#7A8194;font-style:italic}
+
+/* connectorsmock — grilla de conectores + estado conectado (M4) */
+.connectorsmock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px 0 6px;padding:15px}
+.cn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:10px}
+.cn-card{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;background:#F7F7F8;border:1px solid #ECECF1;border-radius:11px;padding:14px 10px}
+.cn-card.featured{background:rgba(var(--theme-rgb),.08);border-color:rgba(var(--theme-rgb),.3)}
+.cn-logo{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:.92rem;font-family:var(--display)}
+.cn-name{font-size:.79rem;font-weight:700;color:#1A1A1A}
+.cn-btn{font-size:.7rem;font-weight:700;color:var(--theme-dark);background:rgba(var(--theme-rgb),.12);border:1px solid rgba(var(--theme-rgb),.3);padding:5px 11px;border-radius:999px}
+.cn-status{display:flex;align-items:center;gap:5px;font-size:.7rem;font-weight:700;color:#0C8A5E}
+.cn-status .dt{width:7px;height:7px;border-radius:50%;background:#34D399}
+.cn-mail{font-size:.66rem;color:#7A8194}
+
+/* projectmock — base de conocimiento con archivos + indicador RAG (M5) */
+.projectmock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px 0 6px}
+.projectmock-bar{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid #ECECF1;font-family:var(--display);font-weight:700;font-size:.88rem;color:#1a1a2e}
+.projectmock-body{padding:14px 15px}
+.pm-files{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.pm-file{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.76rem;color:#2A2B32;background:#F7F7F8;border:1px solid #ECECF1;border-radius:7px;padding:7px 10px}
+.pm-empty{font-size:.8rem;color:#7A8194;font-style:italic}
+.pm-rag{display:flex;align-items:center;gap:7px;font-size:.79rem;font-weight:600;color:var(--theme-dark);background:rgba(var(--theme-rgb),.1);border:1px solid rgba(var(--theme-rgb),.28);border-radius:9px;padding:9px 11px}
+
+/* modelmock — selector de modelo + Settings>Usage / claude.ai/upgrade (M1, M6) */
+.modelmock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px 0 6px}
+.modelmock-bar{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid #ECECF1;font-family:var(--display);font-weight:700;font-size:.88rem;color:#1a1a2e}
+.modelmock-body{padding:13px 15px;display:flex;flex-direction:column;gap:8px}
+.mm-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:9px;border:1px solid #ECECF1;background:#F7F7F8}
+.mm-opt.sel{border-color:rgba(var(--theme-rgb),.4);background:rgba(var(--theme-rgb),.09)}
+.mm-opt b{font-size:.84rem;color:#1A1A1A}
+.mm-opt small{font-size:.8rem;color:#7A8194;display:block;margin-top:1px}
+.mm-opt .check{color:var(--theme-dark);font-weight:800}
+.usagebar{margin-top:2px}
+.usagebar .ub-row{display:flex;justify-content:space-between;font-size:.75rem;color:#5B5B6E;margin-bottom:5px}
+.usagebar .ub-track{height:8px;border-radius:999px;background:#ECECF1;overflow:hidden}
+.usagebar .ub-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--theme-light),var(--theme))}
+.usage-toggles{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.usage-toggles span{font-size:.71rem;font-weight:600;color:#40414F;background:#F0F0F2;padding:5px 10px;border-radius:7px}
+
+/* codemock — vista panorámica de Claude Code (M7): dark/terminal a propósito, para que se
+   sienta "otro terreno" frente al resto del curso (que es claro, no-técnico) */
+.codemock{max-width:660px;background:#0D1117;border:1px solid rgba(255,255,255,.08);border-radius:14px;box-shadow:0 10px 34px rgba(0,0,0,.5);overflow:hidden;margin:14px 0 6px;font-family:var(--mono)}
+.codemock-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:#161B22;border-bottom:1px solid rgba(255,255,255,.06)}
+.codemock-bar .dt{width:10px;height:10px;border-radius:50%}
+.codemock-bar .dt.r{background:#FF5F57}
+.codemock-bar .dt.y{background:#FEBC2E}
+.codemock-bar .dt.g{background:#28C840}
+.codemock-bar .title{margin-left:8px;font-size:.72rem;color:#8B949E}
+.codemock-layout{display:flex;min-height:150px}
+.codemock-files{flex:0 0 138px;background:#0A0D12;border-right:1px solid rgba(255,255,255,.06);padding:10px 8px;display:flex;flex-direction:column;gap:5px}
+.codemock-files .cf{font-size:.71rem;color:#8B949E;padding:3px 5px;border-radius:4px}
+.codemock-files .cf.active{background:rgba(var(--theme-rgb),.2);color:#EAF0FB}
+.codemock-chat{flex:1;padding:12px 14px;display:flex;flex-direction:column;gap:9px;min-width:0}
+.codemock-chat .cc-user{align-self:flex-end;background:#1F2937;color:#EAF0FB;font-size:.75rem;padding:8px 11px;border-radius:9px 9px 2px 9px;max-width:90%}
+.codemock-chat .cc-step{font-size:.71rem;color:#8B949E;display:flex;gap:6px;align-items:flex-start;line-height:1.5}
+.codemock-chat .cc-step .ck{color:#34D399;flex-shrink:0}
+@media(max-width:520px){.codemock-layout{flex-direction:column}.codemock-files{flex:none;flex-direction:row;flex-wrap:wrap;border-right:0;border-bottom:1px solid rgba(255,255,255,.06)}}
+
+/* routinetable — tabla de rutina semanal (M6), envuelta en .tablewrap para scroll horizontal */
+.tablewrap{overflow-x:auto;margin:12px 0}
+.routinetable{width:100%;border-collapse:collapse;font-size:.86rem;min-width:460px}
+.routinetable th,.routinetable td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--border)}
+.routinetable th{color:var(--theme-light);font-weight:700;font-size:.74rem;text-transform:uppercase;letter-spacing:.03em}
+.routinetable td{color:var(--muted)}
+.routinetable td:first-child{color:var(--text);font-weight:600;white-space:nowrap}
+
+/* nota de aviso ⚠️FALTA — dato no confirmado, no se inventa */
+.faltanote{display:flex;gap:8px;align-items:flex-start;font-size:.86rem;color:#E8C468;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.25);border-radius:10px;padding:10px 13px;margin-top:10px}
+.faltanote span{flex-shrink:0}
+
+/* ═══ CURSO CHATGPT INTERMEDIO — componentes nuevos, aditivo, tematizable por var(--theme).
+   No tocan ninguna regla existente: solo suman clases nuevas para los mocks pedidos en el
+   brief (GPT Builder, análisis de datos, ChatGPT Work, ChatGPT Sites, diálogo de permisos). */
+
+/* tab extra "Horizonte" — aditivo a las reglas de visibilidad/pill activa ya existentes */
+#t-horizonte:checked~main #p-horizonte{display:block;animation:rise .55s cubic-bezier(.2,.7,.3,1)}
+#t-horizonte:checked~.modnav .p-horizonte{color:#04130E;background:linear-gradient(135deg,var(--theme-light),var(--theme));border-color:transparent;box-shadow:0 6px 20px rgba(var(--theme-rgb),.4)}
+
+/* buildermock — GPT Builder: tabs Create/Configure + campos + vista previa (M2) */
+.buildermock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px 0 6px}
+.buildermock-tabs{display:flex;border-bottom:1px solid #ECECF1;background:#F7F7F8}
+.buildermock-tabs .bt{flex:1;text-align:center;padding:10px 12px;font-size:.82rem;font-weight:700;color:#7A8194;border-bottom:2px solid transparent}
+.buildermock-tabs .bt.on{color:#1A1A1A;border-bottom-color:var(--theme);background:#fff}
+.buildermock-layout{display:flex}
+.buildermock-config{flex:1;padding:14px 15px;min-width:0;border-right:1px solid #ECECF1}
+.buildermock-preview{flex:1;padding:14px 15px;min-width:0;background:#FAFBFD}
+.buildermock-preview .bp-label{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#7A8194;margin-bottom:8px;display:block}
+.buildermock-preview .bp-box{border:1px dashed #D9D9E3;border-radius:9px;min-height:70px;display:flex;align-items:center;justify-content:center;color:#ABB2C4;font-size:.8rem;text-align:center;padding:12px}
+.bm-field{margin-bottom:12px}
+.bm-field:last-child{margin-bottom:0}
+.bm-field label{display:block;font-size:.76rem;font-weight:700;color:#40414F;margin-bottom:4px}
+.bm-field .box{border:1px solid #D9D9E3;border-radius:8px;padding:8px 10px;font-size:.8rem;color:#5B5B6E;background:#F7F7F8;min-height:32px;line-height:1.4}
+.bm-starters{display:flex;flex-direction:column;gap:6px}
+.bm-starters span{font-size:.78rem;color:#2A2B32;background:#F0F0F2;border-radius:7px;padding:6px 10px;display:block}
+.bm-file{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.74rem;color:#2A2B32;background:#F7F7F8;border:1px solid #ECECF1;border-radius:7px;padding:6px 9px;margin-bottom:5px}
+.bm-file:last-child{margin-bottom:0}
+@media(max-width:560px){.buildermock-layout{flex-direction:column}.buildermock-config{border-right:0;border-bottom:1px solid #ECECF1}}
+
+/* datamock — análisis de datos: tabla + gráfico simple en CSS, sin librerías (M5) */
+.datamock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px 0 6px}
+.datamock-bar{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid #ECECF1;font-family:var(--display);font-weight:700;font-size:.88rem;color:#1a1a2e}
+.datamock-body{padding:14px 15px}
+.dm-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.dm-table th,.dm-table td{padding:6px 8px;text-align:left;border-bottom:1px solid #ECECF1;color:#2A2B32}
+.dm-table th{color:#7A8194;font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.02em}
+.dm-note{font-size:.79rem;color:#5B5B6E;margin-top:10px;line-height:1.5}
+.dm-chart{display:flex;align-items:flex-end;gap:10px;height:120px;padding:6px 4px 0}
+.dm-bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;justify-content:flex-end;height:100%}
+.dm-bar .bfill{width:100%;border-radius:5px 5px 0 0;background:linear-gradient(180deg,var(--theme-light),var(--theme))}
+.dm-bar .blabel{font-size:.64rem;color:#7A8194;text-align:center;line-height:1.25}
+
+/* workmock — flujo ChatGPT Work: delegar → trabajando → entregable (Horizonte) */
+.workmock{display:flex;align-items:stretch;gap:8px;margin:14px 0;flex-wrap:wrap}
+.wk-step{flex:1;min-width:150px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.2);padding:14px 15px;display:flex;flex-direction:column;gap:8px}
+.wk-step .wk-ic{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:rgba(var(--theme-rgb),.12);color:var(--theme-dark);font-size:.95rem}
+.wk-step .wk-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:#7A8194}
+.wk-step p{font-size:.81rem;color:#2A2B32;margin:0;line-height:1.45}
+.wk-step.active{border-color:rgba(var(--theme-rgb),.4)}
+.wk-dots{display:flex;gap:4px}
+.wk-dots span{width:6px;height:6px;border-radius:50%;background:var(--theme);animation:ping2 1.3s ease-in-out infinite}
+.wk-dots span:nth-child(2){animation-delay:.2s}
+.wk-dots span:nth-child(3){animation-delay:.4s}
+.wk-arrow{align-self:center;color:#8A96B0;font-size:1.1rem;flex:0 0 auto;display:flex;align-items:center}
+@media(max-width:640px){.workmock{flex-direction:column}.wk-arrow{transform:rotate(90deg);margin-left:14px}}
+@media(prefers-reduced-motion:reduce){.wk-dots span{animation:none}}
+
+/* sitemock — armado de un Site: descripción → vista previa de la página generada (Horizonte) */
+.sitemock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px 0 6px}
+.sitemock-bar{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid #ECECF1;font-family:var(--display);font-weight:700;font-size:.88rem;color:#1a1a2e}
+.sitemock-body{padding:14px 15px;display:flex;flex-direction:column;gap:12px}
+.sitemock .st-desc{font-size:.82rem;color:#5B5B6E;background:#F7F7F8;border:1px solid #ECECF1;border-radius:9px;padding:10px 12px;font-style:italic;margin:0}
+.sitemock .st-preview{border:1px solid #ECECF1;border-radius:10px;overflow:hidden}
+.sitemock .st-preview .st-topbar{background:#1a1a2e;color:#fff;font-size:.66rem;padding:5px 10px;display:flex;align-items:center;gap:6px}
+.sitemock .st-preview .st-dot{width:6px;height:6px;border-radius:50%;background:#555}
+.sitemock .st-preview .st-body{padding:16px;background:linear-gradient(160deg,#FAFBFD,#F0F2F7);display:flex;flex-direction:column;gap:9px;align-items:flex-start}
+.sitemock .st-preview .st-title{font-weight:700;color:#1A1A1A;font-size:.9rem}
+.sitemock .st-preview .st-line{height:8px;border-radius:4px;background:#E4E8F0;width:70%}
+.sitemock .st-preview .st-btn{margin-top:4px;font-size:.74rem;font-weight:700;color:#fff;background:var(--theme);padding:6px 14px;border-radius:999px}
+
+/* permdialog — diálogo de permisos "ChatGPT quiere acceder a…" fiel al [MOCKUP] (M4) */
+.permdialog{max-width:520px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px auto 6px}
+.permdialog-head{padding:15px 18px 11px;font-family:var(--display);font-weight:700;font-size:.94rem;color:#1a1a2e;border-bottom:1px solid #ECECF1}
+.permdialog-body{padding:13px 18px 4px}
+.permdialog .pd-group{margin-bottom:13px}
+.permdialog .pd-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:#7A8194;margin-bottom:7px;display:block}
+.permdialog ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.permdialog li{font-size:.82rem;color:#2A2B32;display:flex;gap:7px;align-items:flex-start;line-height:1.42}
+.permdialog .pd-group.can li::before{content:"✓";color:#0C8A5E;flex-shrink:0;font-weight:700}
+.permdialog .pd-group.cannot li::before{content:"✕";color:#B3261E;flex-shrink:0;font-weight:700}
+.permdialog-actions{display:flex;justify-content:flex-end;gap:9px;padding:12px 18px 16px;border-top:1px solid #ECECF1}
+.permdialog .pd-cancel{font-weight:600;font-size:.82rem;padding:8px 15px;border-radius:9px;border:1px solid #D9D9E3;background:#fff;color:#40414F}
+.permdialog .pd-allow{font-weight:700;font-size:.82rem;padding:8px 16px;border-radius:9px;border:0;background:var(--theme);color:#fff}

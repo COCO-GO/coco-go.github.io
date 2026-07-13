@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>ChatGPT para tu negocio · Intermedio — COCO GO</title>
+<meta name="description" content="Curso intermedio de ChatGPT para emprendedores y PyMEs: GPT personalizados, Projects con memoria del negocio, Apps/conectores, análisis de datos y Tareas programadas. 6 módulos, en español, sin tecnicismos." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="ChatGPT para tu negocio · Intermedio — COCO GO" />
+<meta property="og:description" content="El empleado que ya no espera que le dictes cada cosa: armá tu GPT propio, cargale la memoria del negocio, conectalo a tus herramientas y ponelo en piloto automático. 6 módulos con entregables reales." />
+<meta property="og:site_name" content="COCO GO" />
+<meta property="og:url" content="https://coco-go.github.io/chatgpt-intermedio/" />
+<meta property="og:image" content="https://coco-go.github.io/chatgpt-intermedio/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="es_AR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ChatGPT para tu negocio · Intermedio — COCO GO" />
+<meta name="twitter:description" content="GPT personalizados, Projects, Apps/conectores, análisis de datos y Tareas programadas. 6 módulos con prompts, plantillas y entregables reales." />
+<meta name="twitter:image" content="https://coco-go.github.io/chatgpt-intermedio/og.png" />
+<meta name="theme-color" content="#10A37F" />
+<link rel="canonical" href="https://coco-go.github.io/chatgpt-intermedio/" />
+<link rel="icon" type="image/svg+xml" href="../assets/logo-coco-go.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+:root{--theme:#10A37F; --theme-light:#34E0B0; --theme-rgb:16,163,127; --theme-dark:#0B7C60;}
+/* botones-link dentro de card alineados a la derecha (regla de marca — solo este curso, no toca assets/style.css) */
+.next{display:flex;flex-direction:column}
+.next .go{align-self:flex-end}
+.lvl-chip{display:inline-block;margin:0 0 12px;background:rgba(var(--theme-rgb),.14);color:var(--theme-light);border:1px solid rgba(var(--theme-rgb),.38);border-radius:999px;padding:3px 13px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<div class="access-gate" id="access-gate" hidden>
+  <div class="access-gate-card">
+    <h2>COCO GO — ChatGPT Intermedio</h2>
+    <p>Ingresá el código de acceso que recibiste al comprar. Si no lo tenés, escribinos a Instagram @coco-go.app.</p>
+    <label class="access-gate-field" for="access-code-input">
+      <span class="access-gate-label">Código de acceso</span>
+      <input type="text" id="access-code-input" name="access-code" placeholder="Código de acceso…" autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text" />
+    </label>
+    <button type="button" id="access-code-submit">Entrar al curso</button>
+    <p class="access-gate-error" id="access-gate-error" aria-live="polite"></p>
+  </div>
+</div>
+
+<canvas id="bg"></canvas>
+
+<!-- 13 pestañas -->
+<input class="tab" type="radio" name="coco-tab" id="t-inicio" checked>
+<input class="tab" type="radio" name="coco-tab" id="t-gloss">
+<input class="tab" type="radio" name="coco-tab" id="t-m1">
+<input class="tab" type="radio" name="coco-tab" id="t-m2">
+<input class="tab" type="radio" name="coco-tab" id="t-m3">
+<input class="tab" type="radio" name="coco-tab" id="t-m4">
+<input class="tab" type="radio" name="coco-tab" id="t-m5">
+<input class="tab" type="radio" name="coco-tab" id="t-m6">
+<input class="tab" type="radio" name="coco-tab" id="t-horizonte">
+<input class="tab" type="radio" name="coco-tab" id="t-apps">
+<input class="tab" type="radio" name="coco-tab" id="t-bonus">
+<input class="tab" type="radio" name="coco-tab" id="t-verif">
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="brandbar">
+  <div class="wrap">
+    <div class="brand">
+      <img src="../assets/logo-coco-go.svg" class="brand-logo" alt="COCO GO">
+    </div>
+    <span class="theme-chip"><span class="dot"></span>Curso · ChatGPT Intermedio</span>
+  </div>
+</header>
+
+<nav class="modnav">
+  <div class="wrap">
+    <div class="progwrap" role="progressbar" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0" aria-label="Progreso del curso">
+      <div class="progtrack"><div class="progfill"></div></div>
+      <span class="proglabel">0/6</span>
+    </div>
+    <div class="scroll">
+    <label class="pill p-inicio" for="t-inicio">Inicio</label>
+    <label class="pill p-apps" for="t-apps">Aplicaciones</label>
+    <label class="pill p-gloss" for="t-gloss">Glosario</label>
+    <label class="pill p-m1" for="t-m1">1 · El salto</label>
+    <label class="pill p-m2" for="t-m2">2 · Tu primer empleado</label>
+    <label class="pill p-m3" for="t-m3">3 · Memoria del negocio</label>
+    <label class="pill p-m4" for="t-m4">4 · Conectá herramientas</label>
+    <label class="pill p-m5" for="t-m5">5 · Tus números</label>
+    <label class="pill p-m6" for="t-m6">6 · Piloto automático</label>
+    <label class="pill p-horizonte" for="t-horizonte">Horizonte</label>
+    <label class="pill p-verif" for="t-verif">Verificación</label>
+    <label class="pill p-bonus" for="t-bonus">Bonus</label>
+  </div></div>
+</nav>
+
+<main class="wrap" id="contenido" tabindex="-1">
+
+  <!-- ═══ INICIO ═══ -->
+  <section class="panel" id="p-inicio">
+    <span class="eyebrow"><span class="pulse"></span>· Intermedio · el empleado que ya no espera que le dictes cada cosa</span>
+    <span class="lvl-chip">Nivel Intermedio</span>
+    <h1><img src="../assets/logo-openai.svg" alt="" style="width:.85em;height:.85em;vertical-align:-.08em;margin-right:.15em" aria-hidden="true">ChatGPT para tu negocio<br><span class="grad">· Intermedio.</span></h1>
+    <p class="lead">El empleado que ya no espera que le dictes cada cosa. En el básico le explicabas todo, tarea por tarea. Acá armás algo que trabaja por vos: un GPT con el rol de tu negocio, la memoria de tu empresa cargada, conectado a tus herramientas y corriendo solo en piloto automático.</p>
+    <div class="cta-row">
+      <label class="btn btn-primary" for="t-m1">Empezar el módulo 1 →</label>
+      <label class="btn btn-ghost" for="t-gloss">Ver el glosario</label>
+    </div>
+    <div class="trust">
+      <div class="t"><b>6</b><span>módulos concatenados</span></div>
+      <div class="t"><b>US$5,99</b><span>Go — el plan de entrada de este curso</span></div>
+      <div class="t"><b>6</b><span>entregables reales al terminar</span></div>
+      <div class="t"><b>100%</b><span>celular y computadora</span></div>
+    </div>
+
+    <div class="card" style="margin-top:26px">
+      <h3>🔗 ¿Venís del básico?</h3>
+      <p>Este curso asume que ya sabés usar el chat de ChatGPT (crear cuenta, escribir un prompt, adjuntar un archivo, Instrucciones personalizadas). Si todavía no hiciste el básico, es la base natural antes de arrancar acá: <a href="../chatgpt/">ChatGPT para tu negocio · básico →</a></p>
+    </div>
+
+    <div class="card">
+      <h3>🧭 ChatGPT recién se movió de lugar — y es una ventaja, no un problema</h3>
+      <p>ChatGPT tuvo un relanzamiento grande el 9 de julio de 2026 y varias piezas todavía están en despliegue gradual. Este curso te enseña el criterio y el para-qué de cada cosa (un GPT propio, una memoria de negocio, una herramienta conectada, un análisis, una tarea que corre sola), no la posición exacta de cada botón. Si una opción no está donde el módulo dice, buscala por su nombre — la ubicación puede variar, lo que aprendas acá sigue sirviendo.</p>
+    </div>
+
+    <div class="card">
+      <h3>🗺️ El mapa de este curso</h3>
+      <p><strong>El salto (Mód. 1):</strong> planes y modelos de hoy, activás Go y programás tu primera Tarea.<br>
+      <strong>Tu empleado (Mód. 2–3):</strong> un GPT personalizado → cargale la memoria grande del negocio con Projects.<br>
+      <strong>Alcance (Mód. 4–5):</strong> conectalo a tus herramientas → enseñale a leer tus números.<br>
+      <strong>Piloto automático (Mód. 6):</strong> todo lo anterior, corriendo solo con Tareas programadas.</p>
+      <p style="margin-top:8px;font-size:.9rem;color:var(--faint)">Hacelos en orden la primera vez — cada módulo asume lo que dejó el anterior (lo vas a ver marcado como "módulo 2, <em>Armá tu primer empleado</em>", nunca como una sigla pelada).</p>
+    </div>
+  </section>
+
+  <!-- ═══ GLOSARIO ═══ -->
+  <section class="panel" id="p-gloss">
+    <div class="sec-head"><span class="numchip" style="font-size:1.25rem">Aa</span><h2>Glosario · 40 conceptos clave</h2></div>
+    <p class="sec-sub">Este glosario asume que ya hiciste el básico de ChatGPT (ahí quedaron definidos: cuenta, chat, prompt, instrucciones personalizadas, voz de marca, adjuntar un archivo). Acá entra lo NUEVO de este nivel: armar asistentes propios, memoria grande del negocio, herramientas conectadas, análisis de datos, automatización y el asomo a lo que viene.</p>
+
+    <p style="font-weight:700;color:var(--theme-light);font-size:1.02rem;margin:4px 0 10px">👉 ¿Una palabra te traba en algún módulo? Buscala acá.</p>
+    <div class="gloss-search"><span>🔎</span><input id="gloss-q" placeholder="Buscar un término…" autocomplete="off"></div>
+
+    <div class="card">
+      <h3>📦 Tu kit al terminar — soluciones en archivos</h3>
+      <p>No es material de estudio. Es lo que abrís cuando tenés que tocar tu sistema:</p>
+      <div class="foldertree">
+        <div class="root"><span>📁</span> Sistema IA/Negocio/</div>
+        <div class="kids">
+          <div class="ft-row"><span class="ft-file"><span>📄</span>01-primera-automatizacion</span><span class="ft-arrow">→</span><span class="ft-desc">plan pago activado + primera Tarea programada</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>02-mi-gpt</span><span class="ft-arrow">→</span><span class="ft-desc">un GPT propio con rol de negocio funcionando</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>03-project-base</span><span class="ft-arrow">→</span><span class="ft-desc">Project con la memoria real del negocio cargada</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>04-herramienta-conectada</span><span class="ft-arrow">→</span><span class="ft-desc">un conector activo, permisos revisados</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>05-analisis-real</span><span class="ft-arrow">→</span><span class="ft-desc">resumen + tabla + gráfico de datos reales</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>06-tarea-sola</span><span class="ft-arrow">→</span><span class="ft-desc">una Tarea programada que integra todo el curso</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>07-decision-avanzado</span><span class="ft-arrow">→</span><span class="ft-desc">tu decisión sobre Work y Sites (sección Horizonte)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <h3>📩 Carta al alumno</h3>
+      <p>El básico te enseñó a pedirle bien las cosas a ChatGPT. Acá el salto no es "pedir mejor" — es <strong>dejar de ser vos el que dispara cada acción</strong>. Eso solo rinde si de verdad armás el GPT, cargás la memoria, conectás las herramientas y dejás algo corriendo solo — no si activás el plan y seguís copiando y pegando como en el básico.</p>
+      <p>Si terminás los 6 módulos con al menos una pieza de cada uno funcionando de verdad en tu negocio, vas a tener un sistema que trabaja mientras vos atendés — no seis demos sueltas.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <h3>⚙️ Antes de empezar</h3>
+      <ul>
+        <li>Haber hecho (o poder hacer) el básico de ChatGPT — no es cero absoluto.</li>
+        <li>El plan <strong>Go (US$5,99/mes)</strong> como mínimo — Free no crea GPTs ni tiene Tareas programadas (lo activás en el módulo 1).</li>
+        <li>La carpeta <code>Sistema IA/Negocio/</code> lista para guardar los 6 (+1) entregables.</li>
+        <li>Datos reales de tu negocio: catálogo, precios, manuales, una planilla que uses seguido.</li>
+      </ul>
+    </div>
+
+    <div class="gloss-list" id="gloss-list">
+
+      <p class="gloss-group">Planes, modelo y cuenta</p>
+
+      <div class="gitem"><button class="gterm">ChatGPT Free<span class="chev">+</span></button><div class="gdef"><p>El plan gratuito. Alcanza para el básico, pero en este curso te quedás corto: no permite crear GPTs propios ni Tareas programadas, y el análisis de datos y la carga de archivos vienen limitados.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Go (US$5,99/mes)<span class="chev">+</span></button><div class="gdef"><p>El plan de entrada para este curso. Desde acá creás y compartís GPTs propios (módulo 2), tenés Projects con base de conocimiento completa (módulo 3), Tareas programadas (hasta 3 activas) y análisis de datos pleno. No incluye: Apps a herramientas internas de trabajo (eso pide Plus) ni Work completo fuera de la app de escritorio.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Plus (US$19,99/mes)<span class="chev">+</span></button><div class="gdef"><p>Suma sobre Go el modelo más potente (GPT-5.6 Sol), Apps a herramientas internas, 5 Tareas programadas activas, Work también en web y móvil, y acceso a Sites (beta, plan pago).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Pro<span class="chev">+</span></button><div class="gdef"><p>El plan tope: más Tareas programadas (15), el modelo Sol Pro, y el techo más alto de todo lo demás. No hace falta arrancar acá — conviene cuando Go o Plus ya se quedan cortos en el uso diario.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Selector de modelo<span class="chev">+</span></button><div class="gdef"><p>El nombre del modelo en la pantalla del chat. Tocándolo elegís con cuál trabaja ChatGPT en esa conversación — se puede cambiar cuando quieras.</p></div></div>
+
+      <div class="gitem"><button class="gterm">GPT-5.5 Instant<span class="chev">+</span></button><div class="gdef"><p>El modelo por defecto en Free y Go. Responde rápido, sin razonar paso a paso; rinde bien para la mayoría de las tareas de este curso.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Modo razonamiento liviano ("Thinking Mini")<span class="chev">+</span></button><div class="gdef"><p>La opción del selector para cuando un pedido necesita que ChatGPT piense por pasos antes de responder, en vez de contestar directo. Disponible en Free/Go como versión liviana del razonamiento — no es lo mismo que el modelo de Plus.</p></div></div>
+
+      <div class="gitem"><button class="gterm">GPT-5.6 Sol<span class="chev">+</span></button><div class="gdef"><p>El modelo de Plus en adelante, con niveles Medium/High/Extra High. Conviene para trabajos largos o que cruzan mucha información: Work, análisis de datos complejos, investigación.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Sol Pro<span class="chev">+</span></button><div class="gdef"><p>El modelo del plan Pro, un escalón más arriba de Sol.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Memoria<span class="chev">+</span></button><div class="gdef"><p>La sección que guarda datos sueltos que le contás entre chats (preferencias, datos de tu negocio) para no repetirlos cada vez. Cambió de motor en el relanzamiento de julio 2026: se actualiza sola, sin que vayas borrando lo viejo a mano. Sigue siendo un complemento a los Projects (módulo 3), no un reemplazo.</p></div></div>
+
+      <p class="gloss-group">GPTs personalizados</p>
+
+      <div class="gitem"><button class="gterm">GPT personalizado<span class="chev">+</span></button><div class="gdef"><p>Un asistente armado por vos dentro de ChatGPT, con un rol fijo (atención al cliente, armador de propuestas, onboarding), instrucciones propias y, si querés, archivos de referencia. Tu primer "empleado" configurado una vez.</p></div></div>
+
+      <div class="gitem"><button class="gterm">GPT Builder<span class="chev">+</span></button><div class="gdef"><p>La pantalla donde armás un GPT, con pestañas <strong>Create</strong> (describir en lenguaje simple qué querés que haga) y <strong>Configure</strong> (rol/instrucciones, archivos, nombre a mano). Pide plan Go en adelante — Free no puede crear GPTs.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Instrucciones (del GPT)<span class="chev">+</span></button><div class="gdef"><p>El texto que define cómo responde tu GPT — tono, qué sabe, qué NO debe hacer nunca. Es el "manual de inducción", lo primero que le da personalidad antes de cargarle archivos.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Archivos de referencia<span class="chev">+</span></button><div class="gdef"><p>Los documentos que subís al GPT Builder para que ese GPT en particular los use como base fija (distinto de un Project, más flexible y con más chats adentro — módulo 3).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Publicar/compartir un GPT<span class="chev">+</span></button><div class="gdef"><p>La acción de dejar tu GPT disponible para vos, tu equipo, o públicamente en el GPT Store. ⚠️ El nombre exacto del botón puede variar según tu cuenta.</p></div></div>
+
+      <p class="gloss-group">Memoria grande: Projects</p>
+
+      <div class="gitem"><button class="gterm">Project<span class="chev">+</span></button><div class="gdef"><p>Una carpeta de trabajo dentro de ChatGPT. Le subís archivos reales de tu negocio y adentro abrís todos los chats que necesites, todos consultando esos mismos archivos sin volver a subirlos.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Base de conocimiento<span class="chev">+</span></button><div class="gdef"><p>Los documentos que cargás en un Project (catálogo, precios, manual, histórico) para que cualquier chat de ese Project los use como contexto real.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Archivos por Project (tope según plan)<span class="chev">+</span></button><div class="gdef"><p>Free 5 archivos · Go/Plus 25 · Pro/Business/Edu 40. ⚠️ Dato del research, verificalo en tu cuenta — puede variar.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Pérdida de continuidad<span class="chev">+</span></button><div class="gdef"><p>Cuando un chat dentro de un Project se hace muy largo, puede "olvidar" un dato mencionado muchos mensajes atrás o mezclar detalles. Es una limitación real documentada, no un error tuyo — se mitiga abriendo un chat nuevo dentro del mismo Project en vez de estirar uno eterno.</p></div></div>
+
+      <p class="gloss-group">Apps, conectores y permisos</p>
+
+      <div class="gitem"><button class="gterm">Apps (antes "Connectors")<span class="chev">+</span></button><div class="gdef"><p>La sección de ChatGPT donde conectás herramientas externas de tu negocio (Drive y similares) para trabajar sobre datos vivos, no solo sobre lo que subís a mano.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Conector/app<span class="chev">+</span></button><div class="gdef"><p>El puente ya construido entre ChatGPT y otra herramienta. Alguien más hizo el trabajo técnico; vos solo elegís, autorizás y usás — no requiere programar nada.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Plugin Directory (antes "App Directory")<span class="chev">+</span></button><div class="gdef"><p>El catálogo de apps y plugins disponibles para conectar. Cambió de nombre en el relanzamiento de julio 2026; el contenido es el mismo tipo de catálogo de siempre.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Permisos<span class="chev">+</span></button><div class="gdef"><p>El alcance exacto que le das a una app al conectarla: qué puede ver y qué puede hacer. Aparece como un diálogo tipo "ChatGPT quiere acceder a…" antes de actuar; conviene leerlo antes de aceptar, no aceptarlo de taco.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Apps a herramientas internas (workspace)<span class="chev">+</span></button><div class="gdef"><p>Conectar herramientas de uso interno de tu equipo, no solo apps públicas. ⚠️ Pide plan Plus en adelante — Free y Go no lo tienen.</p></div></div>
+
+      <p class="gloss-group">Análisis de datos y archivos</p>
+
+      <div class="gitem"><button class="gterm">Análisis de datos<span class="chev">+</span></button><div class="gdef"><p>La función para leer una planilla o archivo y devolver tablas, cálculos y gráficos a partir de esos datos reales, en vez de una respuesta de texto suelta. En Free viene limitado; en Go en adelante, pleno.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Planilla<span class="chev">+</span></button><div class="gdef"><p>El archivo de datos en filas y columnas (Excel, Google Sheets exportado, CSV) que subís para que ChatGPT lo analice.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Adjunto/archivo subido<span class="chev">+</span></button><div class="gdef"><p>Cualquier documento que cargás en un chat, GPT o Project (PDF, Word, Excel, imagen) para que ChatGPT lo use como base de su respuesta.</p></div></div>
+
+      <p class="gloss-group">Automatización: Tareas programadas</p>
+
+      <div class="gitem"><button class="gterm">Tarea programada<span class="chev">+</span></button><div class="gdef"><p>Un pedido que ChatGPT ejecuta solo, con la frecuencia que definiste, sin que se lo repitas cada vez. ⚠️ No corre "sobre" un GPT personalizado ni accede sola a los archivos de un Project — el rol y los datos que necesite se los das como texto, pegados en la instrucción. Sí puede usar en vivo las apps/conectores que tengas conectados.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Disponibilidad por plan<span class="chev">+</span></button><div class="gdef"><p>Free no tiene · Go sí (hasta 3 tareas activas) · Plus (5) · Pro (15). ⚠️ No la soportan los modelos "Pro" del selector; el máximo es 1 corrida por hora.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Frecuencia<span class="chev">+</span></button><div class="gdef"><p>Cada cuánto corre una tarea programada (diaria, semanal, un día y hora fijos). ⚠️ Las opciones exactas del menú pueden variar según tu cuenta.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Panel de Tareas<span class="chev">+</span></button><div class="gdef"><p>La sección donde ves, editás, pausás o borrás tus tareas programadas ("Scheduled" en inglés).</p></div></div>
+
+      <p class="gloss-group">Horizonte: lo último que llegó</p>
+
+      <div class="gitem"><button class="gterm">ChatGPT Work<span class="chev">+</span></button><div class="gdef"><p>El agente que toma un objetivo tuyo y devuelve el trabajo terminado (investigación, documento, planilla, presentación), en vez de ir contestando paso a paso. En la app de escritorio llega a todos los planes (limitado); en web y celular pide Plus en adelante. Sigue en rollout gradual.</p></div></div>
+
+      <div class="gitem"><button class="gterm">ChatGPT Sites<span class="chev">+</span></button><div class="gdef"><p>La función para armar una web o app liviana describiéndola en palabras, sin código. Beta, solo planes pagos (no Free/Go), todavía no llega a todos los países. Un Site no es un Project — son herramientas distintas.</p></div></div>
+
+      <div class="gitem"><button class="gterm">App de escritorio unificada<span class="chev">+</span></button><div class="gdef"><p>La nueva app de ChatGPT para Mac/Windows con tres modos: Chat, Work y Codex. La superficie más completa: accede a archivos y apps de tu computadora, cosa que la web no hace.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Codex<span class="chev">+</span></button><div class="gdef"><p>El modo de la app de escritorio para trabajar directo con código. Terreno técnico — no forma parte de este curso, pero es la puerta al nivel avanzado (bloque Siguiente Curso).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Beta<span class="chev">+</span></button><div class="gdef"><p>Una función ya disponible para probar, pero que OpenAI todavía puede seguir cambiando antes de la versión final. Sites está en esta etapa hoy.</p></div></div>
+
+      <p class="gloss-group">Canvas</p>
+
+      <div class="gitem"><button class="gterm">Canvas<span class="chev">+</span></button><div class="gdef"><p>Un espacio de edición aparte del chat, para escribir o revisar un documento largo con cambios puntuales. Figura en todos los planes, pero ⚠️ no funciona en los modelos nuevos (GPT-5.5 en adelante ni los "Pro") — hace falta un modelo legacy, o trabajar por bloques dentro del chat normal.</p></div></div>
+
+      <p class="gloss-group">Método del curso</p>
+
+      <div class="gitem"><button class="gterm">Sistema IA/Negocio/<span class="chev">+</span></button><div class="gdef"><p>La carpeta única donde vas guardando, entregable por entregable, la prueba de que cada pieza de este curso quedó andando de verdad en tu negocio.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Entregable<span class="chev">+</span></button><div class="gdef"><p>Lo que guardás al final de cada módulo (<code>01-primera-automatizacion</code> … <code>07-decision-avanzado</code>) — no un resumen para archivar, la prueba de que algo real quedó funcionando.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Respuesta genérica<span class="chev">+</span></button><div class="gdef"><p>Una respuesta correcta pero que le serviría a cualquier negocio, porque no usó tus datos reales. En un GPT, una tarea programada o un Work delegado, una respuesta genérica que nadie corrige se repite sola — por eso conviene revisar los primeros resultados.</p></div></div>
+
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h3>🔁 El prompt universal de refinamiento</h3>
+      <p>Cuando un GPT, un Project, un análisis de datos o una tarea programada te devuelve algo genérico o tibio, no lo tirés ni lo dejés correr así — usá este prompt para que lo mejore con tus datos reales:</p>
+      <div class="prompt">
+        <div class="top"><span>prompt · refinamiento universal</span><button class="copy">Copiar</button></div>
+        <pre>Revisá tu [respuesta / el resultado de esta tarea programada / la configuración de este GPT].
+Está genérico/no me sirve porque [explicá qué falla: muy general, no usa mis datos
+reales, no cruzó lo que le pedí, etc.].
+
+Ajustalo usando estos datos reales de mi negocio: [pegá acá precios, horarios, tono, el
+archivo o herramienta conectada que corresponda]. Si esto va a repetirse solo (tarea
+programada o un GPT que uso seguido), actualizá también sus instrucciones para que la
+próxima vez ya salga así.</pre>
+      </div>
+      <p style="margin-top:10px">Funciona en cualquier chat, dentro o fuera de un Project, y en cualquier módulo de este curso — es tu herramienta para cuando "salió, pero no es lo que necesitaba mi negocio".</p>
+    </div>
+
+    <p class="gloss-note">Tocá un término para ver la definición. El buscador filtra en tiempo real.</p>
+  </section>
+
+  <!-- ═══ MÓDULO 1 ═══ -->
+  <section class="panel" id="p-m1">
+    <div class="sec-head"><span class="numchip">01</span><h2>El salto: de dictarle todo a que trabaje solo</h2></div>
+    <p class="sec-sub">En el básico usabas ChatGPT tarea por tarea, siempre vos al mando. Acá montás algo que trabaja por vos: un asistente con el rol de tu negocio, memoria cargada, conectado a tus herramientas, capaz de correr solo. (ChatGPT se relanzó el 9/7/2026 y sigue en despliegue gradual — te enseñamos el criterio, no la posición exacta de cada botón.)</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Activá el plan <strong>Go (US$5,99/mes)</strong>, abrí un chat nuevo y escribile a ChatGPT, tal cual: <em>"Todos los lunes a las 9 de la mañana, armame un resumen de las facturas o pagos pendientes de esta semana y avisame."</em> ChatGPT te va a guiar para convertirlo en una Tarea programada. Confirmá el horario, guardala — ya tenés tu primera automatización corriendo.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> en el básico, cada vez que necesitás algo tenés que abrir el chat y explicarle de nuevo el contexto. Vos sos el motor: si no entrás a preguntar, no pasa nada.</p>
+      <p><strong>Te llevás:</strong> un panorama claro de qué modelo y plan te conviene, un plan pago activado con una razón concreta, y sobre todo una Tarea corriendo sola, sin que vos la dispares cada vez.</p>
+      <p><strong>Lo usás cuando:</strong> el plan Free te frena (mensajes limitados, sin automatizaciones), o repetís la misma consulta a mano semana tras semana.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Cerrar el módulo con tres cosas: (1) entender la diferencia entre planes y modelos de hoy, (2) un plan pago activado con la Memoria revisada, y (3) una Tarea programada real corriendo en piloto automático.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>El módulo 2 (crear un GPT) pide Go como mínimo, y la Memoria cambió de motor: se actualiza sola con lo que conversás, ya no es un cajón de notas que se desactualiza. Si dejás pasar la primera automatización, el "que trabaje por vos" queda en promesa.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 1 — Mirá qué modelo estás usando hoy</h3>
+      <p>Hoy el modelo por defecto en todos los planes —incluido Free— es <strong>GPT-5.5 Instant</strong>: rápido, para el día a día. Si tenés Plus, además vas a encontrar <strong>GPT-5.6 Sol</strong> (niveles Medium/High/Extra High), pensado para trabajo más pesado — ese salto no está en Free ni en Go.</p>
+      <div class="uimock">
+        <div class="bar">💬 Chat — selector de modelo</div>
+        <div class="ubody">
+          <div class="fld"><label>Modelo activo</label><div class="box">GPT-5.5 Instant ✓ — rápido, para el día a día (preguntas, redacción, tareas simples)</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 2 — Decidí tu plan: ¿Go o Plus?</h3>
+      <div class="planes">
+        <div class="plan-card"><h4>Free</h4><span class="price">US$0</span><ul>
+          <li>GPT-5.5 Instant, mensajes y cargas limitados</li>
+          <li>NO crea GPTs personalizados</li>
+          <li>NO tiene Tareas programadas</li>
+        </ul></div>
+        <div class="plan-card"><h4>Go</h4><span class="price">US$5,99/mes</span><ul>
+          <li>Más mensajes, cargas y memoria</li>
+          <li>Creá y compartí GPTs personalizados</li>
+          <li>Tareas programadas (hasta 3 activas)</li>
+        </ul></div>
+        <div class="plan-card"><h4>Plus</h4><span class="price">US$19,99/mes</span><ul>
+          <li>GPT-5.6 Sol (razonamiento avanzado)</li>
+          <li>Cargas, mensajes y memoria ampliados</li>
+          <li>5 Tareas programadas, más alcance de Work</li>
+        </ul></div>
+        <div class="plan-advice"><p><b>Consejo por nivel:</b> arrancá con <strong>Go</strong> — alcanza para tu primera Tarea (este módulo) y tu primer GPT (módulo 2). Subí a <strong>Plus</strong> recién si: (1) necesitás razonamiento más profundo y GPT-5.5 Instant se queda corto, (2) 3 Tareas activas ya te quedan chicas, o (3) querés Work completo desde la web o el celular, no solo desde la compu.</p></div>
+      </div>
+      <div class="faltanote"><span>⚠️</span><p>Si Business o Enterprise tienen sentido para tu PyME: están pensados para equipos de 2+ personas con facturación centralizada. Si tu negocio crece a un equipo, vale una consulta aparte — no lo cubre este curso.</p></div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 3 — Activá el plan que elegiste</h3>
+      <p>Desde tu cuenta buscá la opción de planes ("Actualizar plan", "Upgrade" o similar — el nombre y la ubicación varían entre celular, web y escritorio). Elegí Go o Plus, confirmá el método de pago y listo: en segundos tu cuenta pasa a estar en el plan pago.</p>
+      <div class="modelmock">
+        <div class="modelmock-bar">Comparar planes — elegí el tuyo</div>
+        <div class="modelmock-body">
+          <div class="mm-opt"><b>Free</b><small>US$0</small></div>
+          <div class="mm-opt sel"><b>Go <span class="check">✓</span></b><small>US$5,99/mes — GPTs personalizados, Tareas programadas (hasta 3), más mensajes y cargas</small></div>
+          <div class="mm-opt"><b>Plus</b><small>US$19,99/mes — GPT-5.6 Sol, 5 tareas, Apps a herramientas internas</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 4 — Revisá tu Memoria (cambió el motor)</h3>
+      <p>Antes ChatGPT guardaba notas sueltas que podían desactualizarse. El sistema nuevo se actualiza solo, a medida que conversás — sin que tengas que borrar nada a mano. Está en despliegue gradual (arrancó en EE.UU., cuentas Plus/Pro); si todavía ves la versión anterior, es normal. Andá a <strong>Configuración → Personalización → Memoria</strong>.</p>
+      <div class="uimock">
+        <div class="bar">⚙️ Configuración → Personalización → Memoria</div>
+        <div class="ubody">
+          <div class="fld"><label>Resumen de memoria</label><div class="box">Rubro del negocio, forma de tratar a los clientes, datos que usás seguido…</div></div>
+          <div class="fld"><label>Acciones por entrada</label><div class="box">No volver a mencionar / Borrar</div></div>
+        </div>
+      </div>
+      <p>Dedicale 2 minutos a corregir lo que esté mal o incompleto. Cuanto mejor curada esté, mejor arrancan los módulos que siguen — sobre todo el módulo 2, donde tu GPT se apoya en ese mismo contexto.</p>
+    </div>
+
+    <div class="card">
+      <h3>Paso 5 — Creá tu primera Tarea programada</h3>
+      <p>Una Tarea programada es que ChatGPT haga algo por su cuenta, en el futuro, una vez o repetido, y te avise — sin que vuelvas a pedirlo. Dos caminos, los dos sin código: en lenguaje natural desde el chat, o desde la sección dedicada (puede figurar como "Scheduled" o "Tareas" en la barra lateral). Elegí algo que te sirva de verdad esta semana, no una tarea de prueba vacía. Dos límites: no corre más de una vez por hora, y no funciona sobre GPTs personalizados ni archivos de un Project (eso lo integrás en el módulo 6).</p>
+      <span class="gptmock-tag">📱 Así se ve en ChatGPT</span>
+      <div class="gptmock">
+        <div class="gptmock-bar"><div class="dot"></div><span>ChatGPT</span></div>
+        <div class="gptmock-body">
+          <div class="gptmock-user"><p>Todos los lunes a las 9 de la mañana, armame un resumen de las facturas o pagos pendientes de esta semana en mi negocio y avisame por acá.</p></div>
+          <div class="gptmock-ai"><div class="ava" style="overflow:hidden"><img src="../assets/logo-openai.svg" alt="" style="width:16px;height:16px;display:block"></div>
+            <p>Perfecto. Voy a crear una tarea programada que corre todos los lunes a las 9:00 AM y te va a avisar con el resumen. Para armarlo bien, contame: ¿dónde llevás el registro de facturas o pagos pendientes hoy (planilla, cuaderno, sistema)?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 6 — Confirmá y guardá tu entregable</h3>
+      <p>Revisá que el resumen o la confirmación tenga sentido — si salió genérico, corregilo antes de cerrar el módulo. Creá <code>Sistema IA/Negocio/</code> si no la tenés, y guardá qué tarea armaste, con qué frecuencia corre y qué plan activaste, con el nombre <code>01-primera-automatizacion</code>.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Activar el plan, revisar la Memoria y crear la Tarea desde el chat en lenguaje natural funcionan igual de bien en la app móvil — el lugar más cómodo para pedirla "al vuelo".</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Para comparar planes con calma, revisar el resumen de Memoria con pantalla grande, y armar la Tarea desde la sección dedicada, la compu o la web son más cómodas.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Doble: <strong>pagar de más sin necesitarlo</strong> (pasar directo a Plus "para tener lo mejor" sin haber probado si Go alcanza), y <strong>armar una tarea de prueba sin sustancia</strong> ("recordame algo cada 5 minutos") en vez de resolver algo real desde el arranque. Recordá: las tareas no corren más de una vez por hora.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Antes:</strong> Marina tiene un local de indumentaria y usa ChatGPT Free cada tanto. Todos los lunes revisa a mano qué proveedores le quedaron pendientes de pago — 20 a 30 minutos, y a veces se olvida.</p>
+      <p><strong>Después:</strong> activa Go, ajusta su Memoria (rubro indumentaria, pagos a proveedores) y crea una Tarea: todos los lunes a las 9 AM le arma el resumen. No volvió a olvidarse un pago y recuperó ese tiempo — sin explicar todo de nuevo cada vez.</p>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — Tarea recurrente simple</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · tarea recurrente</span><button class="copy">Copiar</button></div>
+<pre>Todos los <strong class="field">[lunes / días / el 1° de cada mes]</strong> a las <strong class="field">[hora]</strong>,
+<strong class="field">[qué querés que haga: armame un resumen de / recordame / avisame si]</strong>.
+
+Contexto de mi negocio: <strong class="field">[rubro, qué información usa, dónde está hoy]</strong>.
+
+Avisame por <strong class="field">[notificación / email]</strong> cuando esté listo.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — Tarea de monitoreo (avisa solo si hay novedad)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · monitoreo</span><button class="copy">Copiar</button></div>
+<pre>Quiero que revises periódicamente <strong class="field">[precios de un competidor / novedades de mi rubro]</strong>
+y me avises SOLO si encontrás algo nuevo o relevante, no un reporte todas las veces.
+
+Frecuencia: <strong class="field">[cada día / cada semana]</strong>.
+Qué me interesa puntualmente: <strong class="field">[detalle]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — Pedirle a ChatGPT que te ayude a decidir la frecuencia</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · decidir frecuencia</span><button class="copy">Copiar</button></div>
+<pre>Quiero automatizar esta tarea de mi negocio: <strong class="field">[describí la tarea que hoy hacés a mano]</strong>.
+
+Ayudame a decidir: ¿tiene sentido que corra una vez por semana, una vez al día, o
+solo cuando cambie algo? Explicame brevemente el porqué antes de armar la tarea.</pre>
+      </div>
+      <span class="gptmock-tag">📱 Así se ve en ChatGPT</span>
+      <div class="gptmock">
+        <div class="gptmock-bar"><div class="dot"></div><span>ChatGPT</span></div>
+        <div class="gptmock-body">
+          <div class="gptmock-user"><p>Quiero automatizar esta tarea de mi negocio: todos los lunes reviso a mano qué productos se me están por agotar en el local. Ayudame a decidir si conviene que corra una vez por semana o algo más seguido.</p></div>
+          <div class="gptmock-ai"><div class="ava" style="overflow:hidden"><img src="../assets/logo-openai.svg" alt="" style="width:16px;height:16px;display:block"></div>
+            <p>Para stock, lo más común es una revisión semanal, salvo que tengas productos de rotación muy rápida. Te propongo armarla los lunes a las 8 AM, antes de que abras el local. ¿Dónde llevás el registro de stock hoy?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Sabés qué modelo y qué plan tenés activo hoy, y por qué elegiste ese y no otro.</li>
+        <li>Activaste un plan pago (Go como mínimo) con una razón concreta.</li>
+        <li>Revisaste tu Memoria y corregiste al menos un dato real de tu negocio.</li>
+        <li>Tenés una Tarea programada corriendo, con datos reales (no un ejemplo de prueba).</li>
+        <li>Guardaste el resultado como <code>01-primera-automatizacion</code> en <code>Sistema IA/Negocio/</code>.</li>
+      </ul>
+    </div>
+
+    <span class="entregable">📦 Entregable · 01-primera-automatizacion — plan activado + primera Tarea programada</span>
+
+    <label class="modcheck" data-mod="1">
+      <input type="checkbox" data-mod="1" aria-label="Completé el módulo 1">
+      <span>Completé el módulo 1 · El salto</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco-go.app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@coco-go.app →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 2 ═══ -->
+  <section class="panel" id="p-m2">
+    <div class="sec-head"><span class="numchip">02</span><h2>Armá tu primer empleado: un GPT personalizado</h2></div>
+    <p class="sec-sub">En el módulo 1 dejaste una Tarea corriendo sola. Pero seguís siendo vos el que explica todo desde cero cada chat nuevo: quién sos, cómo hablás, qué vende tu negocio. Este módulo rompe con eso: armás un <strong>GPT personalizado</strong> con un rol fijo, que ya sabe cómo hablás y dónde tiene que frenar.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Andá a la barra lateral, buscá <strong>GPTs</strong> y elegí <strong>Create</strong>. Contale en una frase qué rol querés — ej: <em>"Armame un asistente de atención al cliente para mi negocio, que responda dudas de productos y horarios con un tono cercano y profesional"</em>. Dejá que te proponga un borrador y guardalo así nomás — ya tenés un GPT propio andando.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> cada chat nuevo empieza en cero. Si necesitás que ChatGPT responda "como el negocio" — mismo tono, mismos datos, mismos límites — hoy hay que re-explicarlo cada vez.</p>
+      <p><strong>Te llevás:</strong> un GPT propio, con rol de negocio definido (tono y límites) y archivos de referencia cargados, que cualquiera puede abrir y usar sin re-explicarle nada.</p>
+      <p><strong>Lo usás cuando:</strong> tenés una tarea que se repite con el mismo criterio — atención al cliente, propuestas, onboarding — y ya lo tenés claro en tu cabeza, solo falta pasárselo a ChatGPT una vez.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Terminar con: (1) entender la diferencia entre chatear genérico y usar un GPT con rol fijo, (2) un GPT propio probado en la vista previa, y (3) guardarlo como tu primer "empleado" en <code>Sistema IA/Negocio/</code>.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Armar un GPT no es "entrenar una IA" — es más parecido a un manual de inducción: instrucciones claras + los documentos que necesita. Un GPT con instrucciones vagas se comporta igual que el ChatGPT de siempre. Este es el primer eslabón: en el módulo 3 recibe una base de conocimiento más completa.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 1 — Confirmá que tu plan te deja crear GPTs</h3>
+      <p>Crear o editar un GPT pide plan pago — Free no llega, con <strong>Go en adelante</strong> ya podés armar el tuyo. Usar un GPT que ya armó otra persona sí es gratis con cualquier cuenta.</p>
+    </div>
+
+    <div class="card">
+      <h3>Paso 2 — Abrí GPTs y elegí crear uno nuevo</h3>
+      <p>En la barra lateral buscá <strong>GPTs</strong> y elegí crear uno nuevo. Vas a llegar a una pantalla dividida: un lado para armarlo, y una vista previa donde lo probás en vivo.</p>
+      <div class="buildermock">
+        <div class="buildermock-tabs"><span class="bt on">Create</span><span class="bt">Configure</span></div>
+        <div class="buildermock-layout">
+          <div class="buildermock-config"><p style="font-size:.82rem;color:#5B5B6E;margin:0">Contale en una conversación qué querés que sea tu GPT…</p></div>
+          <div class="buildermock-preview"><span class="bp-label">Vista previa</span><div class="bp-box">Probá tu GPT acá</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 3 — Elegí tu camino: Create (conversación) o Configure (formulario)</h3>
+      <p><strong>Create</strong> es lo más simple para arrancar: le contás en conversación qué querés y él propone nombre, descripción e instrucciones. <strong>Configure</strong> es el formulario directo con los mismos campos, para completar a mano. Podés usar Create para el primer borrador y pasar a Configure para afinar.</p>
+    </div>
+
+    <div class="card">
+      <h3>Paso 4 — En Create, contale el rol de negocio que necesitás</h3>
+      <p>Sé específico: qué rol cumple, qué tono tiene tu marca, y qué NO tiene que hacer nunca. Cuanto más concreto acá, menos corregís después.</p>
+      <span class="gptmock-tag">📱 Así se ve en ChatGPT</span>
+      <div class="gptmock">
+        <div class="gptmock-bar"><div class="dot"></div><span>ChatGPT</span></div>
+        <div class="gptmock-body">
+          <div class="gptmock-user"><p>Armame un asistente de atención al cliente para [tu negocio]. Responde dudas de productos, precios y horarios con un tono cercano pero profesional. Si le preguntan algo que necesita una decisión (un reclamo, una devolución), tiene que decir que va a derivar la consulta a una persona del equipo, nunca inventar una respuesta.</p></div>
+          <div class="gptmock-ai"><div class="ava" style="overflow:hidden"><img src="../assets/logo-openai.svg" alt="" style="width:16px;height:16px;display:block"></div>
+            <p>Perfecto, armé un primer borrador: lo llamé "Atención [tu negocio]", con instrucciones de tono cercano-profesional y la regla de derivar reclamos y devoluciones a una persona. ¿Querés que ajustemos algo antes de pasar a los detalles?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 5 — Pasá a Configure y revisá el campo de instrucciones</h3>
+      <p>Las instrucciones son el manual de inducción: quién es, cómo habla, qué sabe, qué NO tiene que responder nunca. Ajustá hasta que quede como el rol real de tu negocio (plantillas listas en el punto 9).</p>
+      <div class="buildermock">
+        <div class="buildermock-tabs"><span class="bt">Create</span><span class="bt on">Configure</span></div>
+        <div class="buildermock-layout">
+          <div class="buildermock-config">
+            <div class="bm-field"><label>Name</label><div class="box">Atención [tu negocio]</div></div>
+            <div class="bm-field"><label>Description</label><div class="box">Responde dudas de clientes sobre productos, precios y horarios</div></div>
+            <div class="bm-field"><label>Instructions</label><div class="box">[cuadro de texto largo — acá va el "manual de inducción" completo]</div></div>
+          </div>
+          <div class="buildermock-preview"><span class="bp-label">Vista previa</span><div class="bp-box">Probá tu GPT acá</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 6 — Sumale saludos iniciales o prompts de ejemplo</h3>
+      <p>Son atajos: preguntas típicas que la persona que usa tu GPT toca con un click. Pensá las 3 o 4 que más se repiten (puede figurar como "conversation starters").</p>
+      <div class="buildermock">
+        <div class="buildermock-tabs"><span class="bt">Create</span><span class="bt on">Configure</span></div>
+        <div class="buildermock-layout">
+          <div class="buildermock-config">
+            <div class="bm-field"><label>Conversation starters</label>
+              <div class="bm-starters">
+                <span>¿Tienen [producto] disponible?</span>
+                <span>¿Cuál es el horario de atención?</span>
+                <span>¿Hacen envíos a domicilio?</span>
+                <span>¿Cómo es la política de cambios?</span>
+              </div>
+            </div>
+          </div>
+          <div class="buildermock-preview"><span class="bp-label">Vista previa</span><div class="bp-box">Probá tu GPT acá</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 7 — Subí los archivos de referencia reales de tu negocio</h3>
+      <p>Catálogo, lista de precios, FAQ, guía de tono — lo que separa un GPT genérico de uno útil. Si todavía no los tenés, no es impedimento: con las instrucciones ya funciona (puede figurar como "Knowledge").</p>
+      <div class="buildermock">
+        <div class="buildermock-tabs"><span class="bt">Create</span><span class="bt on">Configure</span></div>
+        <div class="buildermock-layout">
+          <div class="buildermock-config">
+            <div class="bm-field"><label>Knowledge</label>
+              <div class="bm-file">catalogo-productos.pdf ✓</div>
+              <div class="bm-file">lista-precios-2026.xlsx ✓</div>
+            </div>
+          </div>
+          <div class="buildermock-preview"><span class="bp-label">Vista previa</span><div class="bp-box">Probá tu GPT acá</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 8 — Activá solo las capacidades que tu rol necesita</h3>
+      <p>Vas a ver opciones como búsqueda web o generación de imágenes — activá solo las que le sirven al rol. También vas a ver <strong>Apps</strong> (conectar algo que ya usás, módulo 4) o <strong>Actions</strong> (conectar una API propia, un GPT usa una de las dos, no las dos). Actions queda fuera de este curso — con instrucciones + archivos alcanza para un GPT de rol de negocio.</p>
+    </div>
+
+    <div class="card">
+      <h3>Paso 9 — Probalo en la vista previa antes de guardarlo</h3>
+      <p>Escribile las preguntas reales que le va a hacer un cliente. Si contesta genérico, se inventa algo o no deriva cuando debería, volvé a las instrucciones del paso 5 — un primer borrador casi nunca queda perfecto a la primera.</p>
+      <span class="gptmock-tag">📱 Así se ve en ChatGPT</span>
+      <div class="gptmock">
+        <div class="gptmock-bar"><div class="dot"></div><span>ChatGPT</span></div>
+        <div class="gptmock-body">
+          <div class="gptmock-user"><p>¿Tienen envío a Rosario?</p></div>
+          <div class="gptmock-ai"><div class="ava" style="overflow:hidden"><img src="../assets/logo-openai.svg" alt="" style="width:16px;height:16px;display:block"></div>
+            <p>Sí, hacemos envíos a Rosario y todo el país. El costo depende del peso del pedido — te paso el link de la lista de envíos, o si querés te calculo uno puntual. ¿Qué producto estás mirando?</p>
+          </div>
+        </div>
+      </div>
+      <div class="buildermock">
+        <div class="buildermock-tabs"><span class="bt">Create</span><span class="bt on">Configure</span></div>
+        <div class="buildermock-layout">
+          <div class="buildermock-preview" style="border-right:0"><span class="bp-label">Panel derecho — Vista previa</span><div class="bp-box">conversación de prueba en curso</div></div>
+        </div>
+        <div style="padding:0 15px 14px;text-align:right"><span style="display:inline-block;font-weight:700;font-size:.82rem;padding:8px 16px;border-radius:9px;background:var(--theme);color:#fff">Guardar</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 10 — Guardalo y decidí quién lo puede usar</h3>
+      <p>Al guardar vas a ver opciones sobre quién accede (solo vos, gente con un link, o público en el GPT Store). Para este módulo alcanza con guardarlo privado o compartido con tu equipo; publicarlo públicamente pide Plus o Pro. Aunque lo compartas, vos como creador no ves las conversaciones individuales que otros tienen con tu GPT.</p>
+    </div>
+
+    <div class="card">
+      <h3>Paso 11 — Probalo en tu operación real</h3>
+      <p>No hace falta entrar siempre a la sección GPTs: en cualquier chat nuevo escribí <code>@</code> seguido del nombre de tu GPT para invocarlo. Usalo esta semana con una consulta real, no de prueba.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Podés chatear con un GPT ya armado sin problema, invocándolo con <code>@</code>. Lo que conviene evitar es armarlo o afinarlo: instrucciones largas y varios archivos son más cómodos con teclado grande.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Acá conviene hacer el módulo entero: Create/Configure y la vista previa lado a lado, pegar texto largo sin pelearte con el teclado, y subir varios archivos de una vez.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Escribir instrucciones vagas ("sé simpático y ayudá a los clientes") y esperar un resultado específico — así tu GPT se comporta igual que el ChatGPT de siempre. El manual de inducción tiene que decir tono, qué SÍ y qué NO responde, y qué hacer cuando no está seguro (derivar, no inventar). El segundo error, más silencioso: guardarlo y usarlo directo sin pasar por la vista previa del paso 9.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Antes:</strong> el dueño de un local de indumentaria online contesta a mano, de noche, las mismas cinco preguntas por Instagram y WhatsApp — algunos clientes se cansan de esperar.</p>
+      <p><strong>Después:</strong> arma "Atención [su marca]" con tono cercano-profesional, regla de derivar reclamos, conversation starters con las preguntas frecuentes, y su catálogo como archivo. Lo prueba, ajusta una instrucción sobre envíos al interior, y lo deja funcionando. Ahora las consultas repetidas se resuelven solas a cualquier hora.</p>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla A — GPT de atención al cliente</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · atención al cliente</span><button class="copy">Copiar</button></div>
+<pre>Sos el asistente de atención al cliente de <strong class="field">[nombre de tu negocio]</strong>. Respondé
+con un tono <strong class="field">[cercano / profesional / el que uses vos]</strong>, como si fueras
+alguien del equipo. Contestá dudas sobre <strong class="field">[productos/servicios]</strong>, precios,
+horarios y <strong class="field">[política de envíos/cambios]</strong>.
+
+Nunca inventes un precio, un talle/stock o una política que no esté en
+los archivos que te cargué. Si no tenés el dato o la consulta es un
+reclamo, una devolución o algo que necesita una decisión de una persona,
+decilo con claridad y avisá que vas a derivar la consulta al equipo.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla B — GPT armador de propuestas/presupuestos</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · propuestas</span><button class="copy">Copiar</button></div>
+<pre>Sos el asistente que arma primeros borradores de propuestas para
+<strong class="field">[nombre de tu negocio]</strong>. Cuando te den los datos de un cliente, armá un
+borrador con: resumen de lo solicitado, servicios/productos incluidos
+según el catálogo que te cargué, y un espacio claro para el precio final
+(NO inventes precios que no estén en los archivos).
+
+Usá un tono <strong class="field">[el de tu marca]</strong>. Dejá siempre una línea aclarando que es
+un borrador a revisar antes de enviar al cliente.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantilla C — GPT de onboarding / conocimiento interno</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · onboarding</span><button class="copy">Copiar</button></div>
+<pre>Sos el asistente de onboarding de <strong class="field">[nombre de tu negocio]</strong>. Tu trabajo es
+responder preguntas de alguien que recién se suma al equipo, usando SOLO
+la información de los archivos que te cargué (manual interno, procesos).
+
+Si te preguntan algo que no está en esos archivos, decilo claramente y
+sugerí consultarlo con <strong class="field">[el responsable / el área correspondiente]</strong> —
+nunca completes con una suposición.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Armaste un GPT con un rol real y le escribiste instrucciones específicas de tono, qué sabe y qué NO responde nunca.</li>
+        <li>Le subiste al menos un archivo de referencia real de tu negocio.</li>
+        <li>Lo probaste en la vista previa con preguntas reales y ajustaste lo que salió genérico o mal.</li>
+        <li>Lo usaste (o alguien de tu equipo) con una consulta real, no de prueba.</li>
+        <li>Guardaste el GPT y sabés cómo volver a editarlo.</li>
+      </ul>
+    </div>
+
+    <span class="entregable">📦 Entregable · 02-mi-gpt — un GPT propio con rol de negocio funcionando</span>
+
+    <label class="modcheck" data-mod="2">
+      <input type="checkbox" data-mod="2" aria-label="Completé el módulo 2">
+      <span>Completé el módulo 2 · Tu primer empleado</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco-go.app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@coco-go.app →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 3 ═══ -->
+  <section class="panel" id="p-m3">
+    <div class="sec-head"><span class="numchip">03</span><h2>Cargale la memoria del negocio: Projects</h2></div>
+    <p class="sec-sub">Tu GPT del módulo 2 ya sabe <strong>cómo</strong> hablar por tu negocio. Lo que no tiene es la memoria <strong>grande</strong>: catálogo completo, precios actualizados, manual de procesos. Hoy se lo cargás con <strong>Projects</strong> — una carpeta de trabajo donde subís archivos una vez y abrís todos los chats que necesites, todos consultando esos mismos archivos.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Creá un Project nuevo, ponele el nombre de tu negocio, subile UN solo archivo (el que más usás) y hacele una pregunta sobre ese archivo dentro del Project. Con eso ya probaste el mecanismo completo: crear, cargar, consultar.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> cada chat nuevo arranca en blanco. Aunque tengas un GPT armado, si necesitás datos específicos y extensos (un catálogo de 40 productos, precios que cambian cada mes) tenés que volver a subirlos en cada conversación.</p>
+      <p><strong>Te llevás:</strong> un Project con los documentos centrales de tu negocio cargados una sola vez, y tantos chats como necesites adentro, todos con acceso a esos mismos documentos.</p>
+      <p><strong>Lo usás cuando:</strong> necesitás que ChatGPT responda con el contexto real de tu negocio — armar una cotización con precios reales, resolver una duda contra tu manual de garantías.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Un Project armado con, como mínimo, el catálogo o lista de servicios y la lista de precios vigente. Segundo objetivo: entender cuándo conviene abrir un Project nuevo en vez de meter todo en uno solo.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Con la base cargada ganás consistencia (la respuesta de hoy y la de dentro de un mes citan el mismo dato), velocidad real y la posibilidad de que tu equipo consulte sin interrumpirte. Sin esto, tu GPT tiene personalidad pero no memoria real, y termina abandonado.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 1 — Decidí el corte de tu Project</h3>
+      <p>Antes de crear nada: ¿el contenido que vas a subir es todo del mismo tema/cliente, o mezcla cosas distintas? Para la mayoría de los negocios chicos, arrancá con un único Project general (el nombre de tu negocio). Un cliente grande con condiciones propias merece su propio Project separado — se retoma en el paso 7.</p>
+    </div>
+
+    <div class="card">
+      <h3>Paso 2 — Creá el Project</h3>
+      <p>Buscá la opción para crear un Project nuevo (el nombre del botón puede variar — buscalo por "Project" o "Proyecto"). Ponele un nombre claro: el de tu negocio.</p>
+      <div class="projectmock">
+        <div class="projectmock-bar">Ferretería Don Mario</div>
+        <div class="projectmock-body">
+          <div class="pm-files"><span class="pm-empty">Archivos: (vacío — recién creado)</span></div>
+          <span class="pm-empty">Chats dentro: (vacío — recién creado)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 3 — Subí los archivos base de tu negocio</h3>
+      <p>Orden de prioridad: (1) catálogo o lista de servicios, (2) lista de precios vigente, (3) manual de procesos o atención al cliente, (4) histórico útil (casos resueltos, FAQ reales). Subí los que tengas hoy, no hace falta tener los cuatro.</p>
+      <div class="faltanote"><span>⚠️</span><p>Tope de archivos por Project según el plan (verificalo en tu cuenta, puede variar): Free 5 · Go y Plus 25 · Pro/Business/Edu 40. Si tenés más documentos que el tope, priorizá los más consultados y consolidá el resto.</p></div>
+      <div class="projectmock">
+        <div class="projectmock-bar">Ferretería Don Mario</div>
+        <div class="projectmock-body">
+          <div class="pm-files">
+            <span class="pm-file">📄 catalogo-productos-2026.pdf</span>
+            <span class="pm-file">📄 lista-precios-julio-2026.xlsx</span>
+            <span class="pm-file">📄 politica-garantias.docx</span>
+          </div>
+          <span class="pm-empty">Chats dentro: (vacío — todavía no abriste ninguno)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 4 — Abrí tu primer chat dentro del Project y probalo</h3>
+      <p>Hacele una pregunta que solo se puede responder mirando esos archivos, así confirmás que los usa y no inventa.</p>
+      <span class="gptmock-tag">📱 Así se ve en ChatGPT</span>
+      <div class="gptmock">
+        <div class="gptmock-bar"><div class="dot"></div><span>ChatGPT</span></div>
+        <div class="gptmock-body">
+          <div class="gptmock-user"><p>¿Cuál es el precio de la amoladora angular 4 1/2" según la lista que subí?</p></div>
+          <div class="gptmock-ai"><div class="ava" style="overflow:hidden"><img src="../assets/logo-openai.svg" alt="" style="width:16px;height:16px;display:block"></div>
+            <p>Según lista-precios-julio-2026.xlsx, la amoladora angular 4 1/2" (código AA-450) está a $34.900. Tenés dos variantes en el catálogo: la versión estándar y la profesional a $52.300 — ¿querés que te arme un texto de cotización con alguna de las dos?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 5 — Probá un caso de uso real de tu día a día</h3>
+      <p>Ahora sí, un caso real de tu negocio — el tipo de consulta que recibís seguido. Notá que acá se combina el rol del GPT (módulo 2) con el dato real de este módulo: esa combinación es el salto de valor del curso.</p>
+      <span class="gptmock-tag">📱 Así se ve en ChatGPT</span>
+      <div class="gptmock">
+        <div class="gptmock-bar"><div class="dot"></div><span>ChatGPT</span></div>
+        <div class="gptmock-body">
+          <div class="gptmock-user"><p>Un cliente pregunta si tenemos garantía extendida para herramientas eléctricas. Respondé como para mandarle por WhatsApp, con el tono de mi negocio.</p></div>
+          <div class="gptmock-ai"><div class="ava" style="overflow:hidden"><img src="../assets/logo-openai.svg" alt="" style="width:16px;height:16px;display:block"></div>
+            <p>Según politica-garantias.docx, las herramientas eléctricas tienen garantía de fábrica de 12 meses, y ofrecemos garantía extendida opcional de 6 meses adicionales por $2.500. Te dejo un texto para WhatsApp: "¡Hola! Sí, las herramientas eléctricas vienen con garantía de fábrica de 12 meses, y podés sumar 6 meses más por $2.500. ¿Querés que te la agregue a tu compra?"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 6 — Organizá los archivos con criterio</h3>
+      <p>Nombrá con fecha los que cambian (como la lista de precios) y sacá del Project lo que quedó viejo — un archivo de precios de hace seis meses es peor que no tenerlo.</p>
+    </div>
+
+    <div class="card">
+      <h3>Paso 7 — Definí tu regla de "Project nuevo vs. seguir en este"</h3>
+      <p>La regla que mejor funciona: un Project por cliente grande o por tema que no se mezcla con el resto. Ejemplos: un cliente corporativo con contrato propio, una campaña de marketing con su propio brief, o dos líneas de negocio muy distintas (venta al público vs. mayorista). El Project general queda como tu base permanente; los demás se suman al lado.</p>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Pensar que el Project es una memoria perfecta e ilimitada. En la práctica, cuando un chat dentro de un Project se hace muy largo, puede perder continuidad — es una limitación documentada, no un error tuyo. Mitigalo: (1) repetí el dato o pedile que mire el archivo de nuevo si "se olvidó" de algo, (2) un Project por cliente/tema y un chat nuevo cuando cambiás de tema de verdad, (3) para datos críticos, verificá contra el archivo original antes de mandar una respuesta.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Antes:</strong> Marisa tiene una ferretería. Cada consulta de precio o garantía por WhatsApp implica parar, buscar en una planilla de Excel guardada en la compu del local. Si es fin de semana y ella no está, el equipo a veces responde con el precio viejo.</p>
+      <p><strong>Después:</strong> el Project "Ferretería Don Mario" tiene catálogo, precios de julio y garantías. Cualquiera del equipo pregunta y recibe la respuesta correcta, citando el archivo, en segundos. Cuando cambian los precios, Marisa sube la planilla nueva y listo.</p>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantillas — usalas dentro de un chat abierto adentro de tu Project</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · consulta directa</span><button class="copy">Copiar</button></div>
+<pre>Fijate en <strong class="field">[nombre del archivo]</strong> y decime <strong class="field">[dato puntual que necesitás]</strong>.
+Si el dato no está en el archivo, decímelo en vez de inventar una respuesta.</pre>
+      </div>
+      <div class="prompt">
+        <div class="top"><span>prompt · respuesta a cliente</span><button class="copy">Copiar</button></div>
+<pre>Un cliente pregunta: "<strong class="field">[pregunta textual o resumida]</strong>". Respondé usando los
+datos de <strong class="field">[nombre del archivo]</strong> y con el tono de mi negocio. Formato: para
+mandar por <strong class="field">[WhatsApp / email]</strong>.</pre>
+      </div>
+      <div class="prompt">
+        <div class="top"><span>prompt · cotización</span><button class="copy">Copiar</button></div>
+<pre>Armame una cotización para <strong class="field">[cliente/producto/servicio]</strong> usando los precios
+de <strong class="field">[nombre del archivo de precios]</strong>. Incluí: ítems, precio unitario, total, y
+las condiciones de garantía según <strong class="field">[nombre del archivo de garantías]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Subiste archivos reales de tu negocio, no un ejemplo de prueba.</li>
+        <li>Le hiciste al menos una pregunta que solo se responde mirando esos archivos y verificaste que la respuesta coincide.</li>
+        <li>Probaste al menos un caso real de tu día a día.</li>
+        <li>Guardaste el Project como tu base permanente, no un experimento.</li>
+        <li>Podés abrir un chat nuevo dentro del Project cuando quieras, sin reabrir esta guía.</li>
+      </ul>
+    </div>
+
+    <div class="tablewrap">
+      <table class="routinetable">
+        <thead><tr><th>Dónde</th><th>Qué tan cómodo</th><th>Cuándo conviene</th></tr></thead>
+        <tbody>
+          <tr><td>Escritorio (app o web)</td><td>El más cómodo — subir varios archivos a la vez, arrastrarlos, reorganizar con calma.</td><td>Carga inicial (paso 3) y reorganización grande (paso 6).</td></tr>
+          <tr><td>Web (chatgpt.com)</td><td>Funciona igual que la app de escritorio para crear, subir y chatear.</td><td>Si no tenés la app instalada, resuelve todo el módulo.</td></tr>
+          <tr><td>Celular (iOS/Android)</td><td>Consultar y chatear adentro sin problema. Subir archivos es más incómodo.</td><td>Consultas rápidas del día a día, no la carga inicial.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <span class="entregable">📦 Entregable · 03-project-base — Project con la memoria real del negocio cargada</span>
+
+    <label class="modcheck" data-mod="3">
+      <input type="checkbox" data-mod="3" aria-label="Completé el módulo 3">
+      <span>Completé el módulo 3 · Memoria del negocio</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco-go.app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@coco-go.app →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 4 ═══ -->
+  <section class="panel" id="p-m4">
+    <div class="sec-head"><span class="numchip">04</span><h2>Conectá tus herramientas: Apps/conectores</h2></div>
+    <p class="sec-sub">Hasta acá tu asistente vive de lo que le subís a mano — cada vez que tu catálogo cambia, tenés que volver a subir el archivo. Este módulo conecta ChatGPT directo a las herramientas donde ya vive la información de tu negocio para que trabaje sobre <strong>datos vivos</strong>, no sobre una foto vieja. Y como abrirle la puerta a tus herramientas es serio, la otra mitad del módulo es aprender a leer exactamente qué le estás autorizando.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Conectá <strong>un</strong> conector (Google Drive, si lo tenés a mano) y pedile a ChatGPT que abra un archivo real desde ahí y te diga qué encuentra. Nada más — el resto lo hacés después con calma.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> subís el mismo archivo a mano una y otra vez, y cuando te olvidás de resubirlo, ChatGPT te contesta con datos viejos sin avisarte.</p>
+      <p><strong>Te llevás:</strong> un conector activo entre ChatGPT y una herramienta real de tu negocio, más el criterio para leer y decidir qué permisos autorizarle.</p>
+      <p><strong>Lo usás cuando:</strong> tenés información que cambia seguido (catálogo, precios, stock) y no querés ser vos el que la sube cada vez.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Al menos una herramienta conectada de verdad —no simulada— usada para resolver una tarea real. Y saber leer el diálogo de permisos antes de tocar "permitir", en vez de hacerlo en piloto automático.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>El GPT del módulo 2 y el Project del módulo 3 son tan buenos como los datos que tienen adentro. Si esos datos quedan congelados, tu asistente empieza a dar respuestas basadas en algo que ya cambió. Conectar la herramienta resuelve eso de raíz — y aprender a leer permisos una vez, se sabe leer siempre.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 1 — Elegí qué conector te resuelve algo real</h3>
+      <p>No conectes por conectar: ¿qué archivo o carpeta subís a mano, seguido, porque cambia todo el tiempo? Apps confirmadas hoy: <strong>Google Drive</strong> (con Docs, Sheets y Slides), SharePoint, OneDrive, Dropbox, Box; para equipos más grandes también Slack, GitHub, HubSpot, Asana, Microsoft 365, Linear y Figma. Los conectores básicos están en todos los planes, incluido Free — lo que pide Plus en adelante es conectar herramientas <strong>internas del espacio de trabajo</strong> de tu negocio.</p>
+      <div class="faltanote"><span>⚠️</span><p>La ubicación exacta de la sección de Apps/conectores puede variar según tu cuenta y va cambiando — buscá "Apps" o "Conectores" en el menú de configuración.</p></div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 2 — Andá a la sección de Apps y elegí tu herramienta</h3>
+      <p>Vas a ver una grilla con el logo de cada app y un botón para conectarla.</p>
+      <div class="connectorsmock">
+        <div class="cn-grid">
+          <div class="cn-card"><div class="cn-logo" style="background:#4285F4">GD</div><span class="cn-name">Google Drive</span><span class="cn-btn">Conectar</span></div>
+          <div class="cn-card"><div class="cn-logo" style="background:#0061FF">DB</div><span class="cn-name">Dropbox</span><span class="cn-btn">Conectar</span></div>
+          <div class="cn-card"><div class="cn-logo" style="background:#03787C">SP</div><span class="cn-name">SharePoint</span><span class="cn-btn">Conectar</span></div>
+          <div class="cn-card"><div class="cn-logo" style="background:#0061D5">BX</div><span class="cn-name">Box</span><span class="cn-btn">Conectar</span></div>
+        </div>
+      </div>
+      <p style="font-size:.82rem;color:var(--faint);margin-top:8px">(la lista real de tu cuenta puede variar — más apps, otro orden, otros nombres)</p>
+    </div>
+
+    <div class="card">
+      <h3>Paso 3 — Autorizá el acceso: acá aparece el diálogo de permisos</h3>
+      <p>Al tocar conectar, ChatGPT te lleva a iniciar sesión en esa herramienta, y ahí aparece la parte más importante del módulo: un diálogo que dice puntualmente qué le estás dando permiso de ver o hacer. No es un trámite para apurar — es el momento de leer.</p>
+      <div class="permdialog">
+        <div class="permdialog-head">ChatGPT quiere acceder a tu Google Drive</div>
+        <div class="permdialog-body">
+          <div class="pd-group can"><span class="pd-label">Podrá</span><ul>
+            <li>Ver y buscar tus archivos y carpetas</li>
+            <li>Leer el contenido de documentos, hojas de cálculo y presentaciones</li>
+          </ul></div>
+          <div class="pd-group cannot"><span class="pd-label">No podrá (salvo que lo autorices en cada caso)</span><ul>
+            <li>Borrar ni modificar archivos sin preguntarte antes</li>
+            <li>Compartir tus archivos con otras personas</li>
+          </ul></div>
+        </div>
+        <div class="permdialog-actions"><span class="pd-cancel">Cancelar</span><span class="pd-allow">Permitir acceso</span></div>
+      </div>
+      <div class="faltanote"><span>⚠️</span><p>Los textos exactos de este diálogo varían según la herramienta y pueden cambiar con el tiempo — lo de arriba es el tipo de información que vas a encontrar, no una transcripción textual. Lo que importa es el hábito de leer antes de tocar "Permitir acceso".</p></div>
+      <p>Una vez autorizado, ChatGPT queda con acceso a esa herramienta desde cualquier chat, GPT o Project donde lo necesites.</p>
+    </div>
+
+    <div class="card">
+      <h3>Paso 4 — Probá el conector con una tarea real</h3>
+      <p>Pedile a ChatGPT que use el conector para algo puntual: buscar un archivo, leer una carpeta, comparar dos documentos.</p>
+      <span class="gptmock-tag">📱 Así se ve en ChatGPT</span>
+      <div class="gptmock">
+        <div class="gptmock-bar"><div class="dot"></div><span>ChatGPT</span></div>
+        <div class="gptmock-body">
+          <div class="gptmock-user"><p>Buscá en mi Google Drive la carpeta "Catálogo 2026" y decime qué productos no tienen precio cargado.</p></div>
+          <div class="gptmock-ai"><div class="ava" style="overflow:hidden"><img src="../assets/logo-openai.svg" alt="" style="width:16px;height:16px;display:block"></div>
+            <p>Encontré la carpeta. De 34 productos en el archivo "catalogo-2026.xlsx", 3 no tienen precio: Combo Verano, Repuesto tapa azul y Kit inicial. ¿Querés que te arme la lista para completarlos?</p>
+          </div>
+        </div>
+      </div>
+      <p>Fijate que ChatGPT no te pidió que le subas el archivo: fue directo a buscarlo donde vive. Si tu catálogo cambia mañana, la próxima consulta lee la versión nueva.</p>
+    </div>
+
+    <div class="card">
+      <h3>Paso 5 — Revisá qué se ejecutó y ajustá el nivel de permiso</h3>
+      <p>Por defecto ChatGPT lee automático, pero te pregunta antes de acciones con efecto fuera de ChatGPT o difíciles de deshacer (enviar un correo, borrar contenido, hacer una compra). Ese es, en general, el punto justo entre comodidad y cuidado.</p>
+      <div class="modelmock">
+        <div class="modelmock-bar">Google Drive — conectado</div>
+        <div class="modelmock-body">
+          <div class="mm-opt"><b>Siempre preguntar</b></div>
+          <div class="mm-opt sel"><b>Preguntar en acciones importantes <span class="check">✓</span></b><small>recomendado, es el que viene por defecto</small></div>
+          <div class="mm-opt"><b>Preguntar ante cualquier cambio</b></div>
+          <div class="mm-opt"><b>No preguntar nunca</b><small>mayor riesgo — no siempre disponible</small></div>
+        </div>
+      </div>
+      <p>Si tu negocio maneja información especialmente sensible (contratos, datos de clientes), vale la pena subir un escalón el nivel de permiso, aunque sea un poco menos cómodo.</p>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Autorizar de más porque el diálogo parece un trámite, o conectar algo y nunca más revisar qué nivel de acceso tiene. La corrección: leé el diálogo completo antes de aceptar cada vez que conectes algo nuevo, y una vez al mes repasá la lista de conectores activos — desconectar lo que no usás es tan válido como conectar lo que sí.</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Antes:</strong> un local de indumentaria maneja stock en Google Sheets. Cada vez que quieren que ChatGPT diga qué talles quedan, alguien exporta la planilla y la sube al chat — y repite todo al día siguiente si el stock cambió.</p>
+      <p><strong>Después:</strong> conectan Google Drive una sola vez, nivel de permiso por defecto. Cualquiera del equipo pregunta directo sobre el stock actual sin subir nada.</p>
+      <span class="gptmock-tag">📱 Así se ve en ChatGPT</span>
+      <div class="gptmock">
+        <div class="gptmock-bar"><div class="dot"></div><span>ChatGPT</span></div>
+        <div class="gptmock-body">
+          <div class="gptmock-user"><p>Según mi planilla de stock en Drive, ¿qué talles de la campera "Aero Negra" quedan?</p></div>
+          <div class="gptmock-ai"><div class="ava" style="overflow:hidden"><img src="../assets/logo-openai.svg" alt="" style="width:16px;height:16px;display:block"></div>
+            <p>En "stock-indumentaria.xlsx" (carpeta Inventario), de la Aero Negra quedan: talle S (2 unidades), talle M (0), talle L (5). El talle M está agotado.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantillas</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · buscar y resumir</span><button class="copy">Copiar</button></div>
+<pre>Buscá en mi Google Drive el archivo <strong class="field">[nombre del archivo]</strong> y decime
+<strong class="field">[qué necesitás saber: qué falta, qué cambió, qué total da]</strong>.</pre>
+      </div>
+      <div class="prompt">
+        <div class="top"><span>prompt · comparar</span><button class="copy">Copiar</button></div>
+<pre>Comparó estos dos archivos de mi Drive: <strong class="field">[archivo A]</strong> y <strong class="field">[archivo B]</strong>.
+Decime qué diferencias hay entre ellos.</pre>
+      </div>
+      <div class="prompt">
+        <div class="top"><span>prompt · monitorear carpeta</span><button class="copy">Copiar</button></div>
+<pre>Revisá la carpeta <strong class="field">[nombre de carpeta]</strong> de mi Drive y armame un resumen de
+<strong class="field">[qué necesitás: contratos que vencen este mes, archivos modificados esta semana]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Conectaste al menos una herramienta real (no de prueba) y ChatGPT pudo leerla.</li>
+        <li>Le hiciste una pregunta real sobre datos propios y la respuesta coincidió con lo que sabías cierto en ese momento.</li>
+        <li>Revisaste el diálogo de permisos completo antes de aceptar, y sabés decir qué le autorizaste.</li>
+        <li>Miraste el nivel de permiso configurado y decidiste a propósito si te sirve.</li>
+      </ul>
+    </div>
+
+    <div class="tablewrap">
+      <table class="routinetable">
+        <thead><tr><th></th><th>Escritorio (app Mac/Win)</th><th>Web (chatgpt.com)</th><th>Móvil (iOS/Android)</th></tr></thead>
+        <tbody>
+          <tr><td>Conectar un Apps/conector</td><td>Sí</td><td>Sí — es donde conviene hacerlo</td><td>Limitado; mejor arrancar en web o desktop</td></tr>
+          <tr><td>A qué accede</td><td>Archivos y apps locales de tu compu + conectores en la nube</td><td>Conectores en la nube (Drive, Dropbox) — sin acceso a archivos locales</td><td>Principalmente para seguir una conversación ya conectada</td></tr>
+          <tr><td>Conviene para</td><td>Trabajar con archivos guardados en tu compu</td><td>Configurar y usar conectores por primera vez</td><td>Consultar rápido algo ya conectado</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <span class="entregable">📦 Entregable · 04-herramienta-conectada — conector activo + permisos revisados</span>
+
+    <label class="modcheck" data-mod="4">
+      <input type="checkbox" data-mod="4" aria-label="Completé el módulo 4">
+      <span>Completé el módulo 4 · Conectá tus herramientas</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco-go.app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@coco-go.app →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 5 ═══ -->
+  <section class="panel" id="p-m5">
+    <div class="sec-head"><span class="numchip">05</span><h2>Que lea tus números: análisis de datos y archivos</h2></div>
+    <p class="sec-sub">Hasta ahora tu sistema "sabe" lo que le contaste con palabras. En este módulo le agregás los NÚMEROS reales de tu negocio: subile una planilla o un PDF y en minutos te devuelve lo que antes te tomaba horas armar — un resumen claro, una tabla ordenada y un gráfico que se entiende de un vistazo. No hace falta saber Excel.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Subí una planilla real de tu negocio —ventas, gastos, turnos— con la opción de adjuntar (clip o "+"). Pedile: "mirá esta planilla y contame en 3 líneas qué te dice". Si el resumen coincide con lo que ya sabés de esos datos, ya estás usando el patrón de este módulo.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> los números de tu negocio están desparramados en un Excel o un sistema de gestión, y nadie los mira en detalle hasta fin de mes —o nunca.</p>
+      <p><strong>Te llevás:</strong> el hábito de tratar tu planilla como <strong>la fuente de verdad</strong> — la subís tal cual y le pedís a ChatGPT que la lea, la resuma y te la muestre en tabla o gráfico, sin tocar una fórmula.</p>
+      <p><strong>Lo usás cuando:</strong> tenés un archivo con números y necesitás entender rápido qué dice, o compartirlo de forma clara con alguien.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>(1) una planilla o PDF REAL subido, (2) un resumen en palabras simples, (3) al menos una tabla y un gráfico, (4) un número o patrón concreto que encontraste, y (5) saber de antemano qué SÍ y qué NO podés pedirle a este análisis.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>El patrón real se resume en una frase: <strong>"el Excel es la fuente de verdad"</strong> — no le explicás tu negocio de memoria, dejás que la planilla hable por vos y ChatGPT la traduce a algo que se entiende de un vistazo.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 1 — Elegí una planilla o PDF real, no un ejemplo de prueba</h3>
+      <p>Cuanto más real sea el archivo —con sus errores, columnas desprolijas, datos incompletos— más útil te resulta este módulo. Si el archivo vive en Drive u otro conector del módulo 4, también podés pedirle que lo analice directo de ahí.</p>
+    </div>
+
+    <div class="card">
+      <h3>Paso 2 — Subí el archivo al chat</h3>
+      <p>Usá la opción de adjuntar (clip o "+"). Podés subir Excel, CSV, PDFs, y también JSON/XML/YAML/Markdown. Este análisis pleno pide al menos plan <strong>Go</strong> — en Free viene limitado.</p>
+      <span class="gptmock-tag">📱 Así se ve en ChatGPT</span>
+      <div class="gptmock">
+        <div class="gptmock-bar"><div class="dot"></div><span>ChatGPT</span></div>
+        <div class="gptmock-body">
+          <div class="gptmock-user"><p>[Archivo adjunto: ventas-julio-2026.xlsx]</p></div>
+          <div class="gptmock-ai"><div class="ava" style="overflow:hidden"><img src="../assets/logo-openai.svg" alt="" style="width:16px;height:16px;display:block"></div>
+            <p>Ya cargué tu planilla — tiene 4 columnas (fecha, producto, unidades, total) y 214 filas. ¿Qué querés que haga con esto: un resumen general, una tabla ordenada por producto, o un gráfico?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 3 — Pedile primero un resumen en palabras simples</h3>
+      <p>No arranques pidiendo el gráfico más lindo: pedile que te cuente en 3 o 4 líneas qué dice la planilla en general, para chequear que entendió bien las columnas.</p>
+      <span class="gptmock-tag">📱 Así se ve en ChatGPT</span>
+      <div class="gptmock">
+        <div class="gptmock-bar"><div class="dot"></div><span>ChatGPT</span></div>
+        <div class="gptmock-body">
+          <div class="gptmock-user"><p>Contame en pocas líneas qué muestra esta planilla de ventas de julio.</p></div>
+          <div class="gptmock-ai"><div class="ava" style="overflow:hidden"><img src="../assets/logo-openai.svg" alt="" style="width:16px;height:16px;display:block"></div>
+            <p>En julio vendiste un total de $2.340.000 en 214 operaciones. El producto con más unidades fue "Remera básica" (120 unidades), y la segunda quincena tuvo casi el doble de ventas que la primera. Hay 6 filas sin el campo "producto" completo — te las puedo mostrar si querés revisarlas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 4 — Pedile una tabla ordenada con el recorte que te sirve</h3>
+      <p>Algo puntual: "armame una tabla con el total vendido por producto, de mayor a menor". ChatGPT la arma calculada sobre tu archivo real.</p>
+      <div class="datamock">
+        <div class="datamock-bar">Tabla generada — Ventas por producto, julio 2026</div>
+        <div class="datamock-body">
+          <table class="dm-table">
+            <thead><tr><th>Producto</th><th>Unidades</th><th>Total</th></tr></thead>
+            <tbody>
+              <tr><td>Remera básica</td><td>120</td><td>$180.000</td></tr>
+              <tr><td>Pantalón cargo</td><td>64</td><td>$256.000</td></tr>
+              <tr><td>Campera liviana</td><td>41</td><td>$410.000</td></tr>
+              <tr><td>Buzo canguro</td><td>38</td><td>$190.000</td></tr>
+              <tr><td>Gorra</td><td>22</td><td>$33.000</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 5 — Pedile un gráfico para ver el patrón de un vistazo</h3>
+      <p>Barras, línea, torta y dispersión — los podés tocar y ajustar en el chat. Para una PyME, con barra o línea suele alcanzar.</p>
+      <div class="datamock">
+        <div class="datamock-bar">Gráfico generado — barras: Ventas por producto, julio 2026</div>
+        <div class="datamock-body">
+          <div class="dm-chart">
+            <div class="dm-bar"><div class="bfill" style="height:34%"></div><span class="blabel">Remera básica</span></div>
+            <div class="dm-bar"><div class="bfill" style="height:62%"></div><span class="blabel">Pantalón cargo</span></div>
+            <div class="dm-bar"><div class="bfill" style="height:100%"></div><span class="blabel">Campera liviana</span></div>
+            <div class="dm-bar"><div class="bfill" style="height:46%"></div><span class="blabel">Buzo canguro</span></div>
+            <div class="dm-bar"><div class="bfill" style="height:8%"></div><span class="blabel">Gorra</span></div>
+          </div>
+          <p class="dm-note">La barra de "Campera liviana" es la más alta pese a tener menos unidades — precio unitario más alto.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 6 — Cerrá con una pregunta puntual que te sirva para decidir algo</h3>
+      <p>No te quedes solo con la tabla y el gráfico: preguntale algo que te ayude a actuar. Si el dato que necesitás no está en tu archivo (ej. el precio del dólar de hoy), ChatGPT no lo va a poder salir a buscar solo — el entorno de análisis no se conecta a internet.</p>
+      <span class="gptmock-tag">📱 Así se ve en ChatGPT</span>
+      <div class="gptmock">
+        <div class="gptmock-bar"><div class="dot"></div><span>ChatGPT</span></div>
+        <div class="gptmock-body">
+          <div class="gptmock-user"><p>Según esta planilla, ¿qué producto conviene reforzar en stock el mes que viene?</p></div>
+          <div class="gptmock-ai"><div class="ava" style="overflow:hidden"><img src="../assets/logo-openai.svg" alt="" style="width:16px;height:16px;display:block"></div>
+            <p>"Campera liviana" es el que más facturación generó pese a vender menos unidades que "Remera básica" — indica buen margen o precio alto con demanda sostenida. Si tenés que priorizar stock con presupuesto limitado, reforzaría ese antes que los de mayor volumen pero menor total.</p>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:10px">Para ver la tabla o el resumen en pantalla aparte, podés probar <strong>Canvas</strong> — con una advertencia: Canvas todavía no funciona con los modelos nuevos (GPT-5.5 en adelante ni los "Pro"). Para usarlo hace falta un modelo legacy, o quedarte trabajando con los bloques dentro del chat normal.</p>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Tres se repiten: (1) pedir un análisis sin contexto de negocio ("decime algo interesante") en vez de una pregunta concreta; (2) confiar en el número sin chequear al menos uno contra la planilla original — ChatGPT puede leer mal una columna con formato raro y decirlo con la misma seguridad que si estuviera bien; (3) no tener en cuenta los límites reales del archivo (tamaño y cantidad varían según plan).</p>
+      <div class="faltanote"><span>⚠️</span><p>Tamaño máximo y cantidad de archivos por plan: no hay un número fijo publicado — si tu archivo es muy pesado o subís muchos seguidos, ChatGPT te avisa en el momento con el límite exacto de tu cuenta.</p></div>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Antes:</strong> una ferretería cierra caja en un Excel diario. A fin de mes, armar la cuenta de qué reponer primero a mano le lleva una tarde entera, así que el dueño repone "a ojo".</p>
+      <p><strong>Después:</strong> sube el mismo Excel y pide resumen, tabla y gráfico. En cinco minutos descubre que tornillos y bulones representan casi el 30% de la facturación por volumen, mientras las herramientas eléctricas venden poco pero dejan más margen. Decide reforzar tornillería, no por sensación sino por dato.</p>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantillas</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · primer resumen</span><button class="copy">Copiar</button></div>
+<pre>Subí esta planilla de <strong class="field">[ventas / gastos / stock / turnos]</strong> de mi negocio.
+Contame en pocas líneas qué muestra en general, y avisame si ves algún
+dato incompleto o raro antes de seguir.</pre>
+      </div>
+      <div class="prompt">
+        <div class="top"><span>prompt · tabla y gráfico</span><button class="copy">Copiar</button></div>
+<pre>Con los datos de esta planilla, armame una tabla de <strong class="field">[total por producto / gasto
+por categoría / turnos por día]</strong> ordenada de mayor a menor, y un gráfico de
+barras con lo mismo.</pre>
+      </div>
+      <div class="prompt">
+        <div class="top"><span>prompt · decidir algo</span><button class="copy">Copiar</button></div>
+<pre>Mirando esta planilla real de mi negocio, ¿qué <strong class="field">[producto / gasto / día]</strong> me
+conviene <strong class="field">[reforzar / reducir / revisar]</strong> el período que viene? Explicame en qué
+del archivo te basás para decir eso.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Subiste una planilla o PDF REAL de tu negocio, no un ejemplo.</li>
+        <li>Obtuviste al menos un resumen, una tabla y un gráfico a partir de esos datos.</li>
+        <li>Chequeaste al menos un número del análisis contra la planilla original, a mano, y coincidió.</li>
+        <li>Encontraste un patrón o número concreto que te sirve para decidir algo real.</li>
+      </ul>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Podés subir una foto de una planilla impresa o un PDF corto y pedir un resumen rápido. Para trabajar cómodo con la tabla y el gráfico, la pantalla chica se queda corta.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Más cómodo desde la compu: la tabla y el gráfico se ven completos, podés tener la planilla original abierta al lado, y más margen para revisar antes de decidir con esos números.</p>
+      </div>
+    </div>
+
+    <span class="entregable">📦 Entregable · 05-analisis-real — resumen + tabla + gráfico de datos reales</span>
+
+    <label class="modcheck" data-mod="5">
+      <input type="checkbox" data-mod="5" aria-label="Completé el módulo 5">
+      <span>Completé el módulo 5 · Que lea tus números</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco-go.app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@coco-go.app →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 6 ═══ -->
+  <section class="panel" id="p-m6">
+    <div class="sec-head"><span class="numchip">06</span><h2>Ponelo en piloto automático: Tareas programadas</h2></div>
+    <p class="sec-sub">Llegaste al último tramo: acá no aprendés una herramienta nueva, aprendés a que <strong>todo lo que ya armaste corra solo</strong>. Tenías un asistente muy bien entrenado, pero que solo trabajaba cuando vos le escribías. Las <strong>Tareas programadas</strong> cierran el círculo.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Creá <strong>una</strong> Tarea programada simple: que todos los lunes a la mañana te traiga un resumen corto de algo que te importa de tu rubro. No hace falta integrar todavía el GPT, el Project ni los conectores — eso lo sumás en los pasos siguientes.</p></div></div>
+
+    <div class="card">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> hasta ahora, cada resultado de ChatGPT dependía de que vos abrieras el chat y lo pidieras. Si te olvidás un lunes, no pasa.</p>
+      <p><strong>Te llevás:</strong> una o más tareas que corren solas, en la frecuencia que definiste, y el criterio para saber qué tareas sí conviene automatizar así (repetitivas, acotadas, bajo riesgo) y cuáles no.</p>
+      <p><strong>Lo usás cuando:</strong> tenés algo que hacés siempre igual, con la misma frecuencia, y ese trabajo no cambia tanto como para necesitar que lo reformules cada vez.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Al menos una Tarea programada activa, corriendo en tu cuenta real, que use lo que ya construiste: el GPT del módulo 2, la base del módulo 3, un conector del módulo 4, y el formato de análisis del módulo 5.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Automatizar mal es peor que no automatizar. La prensa especializada documenta casos de fallas de confiabilidad en esta función — por eso sirve para casos acotados, con el hábito de revisar el resultado, no para delegar algo crítico y olvidarte.</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 1 — Encontrá el panel de Tareas</h3>
+      <p>Buscá la sección <strong>Tareas</strong> ("Scheduled" en inglés, junto al historial de chats). Disponible en la web y el celular; verificá en tu cuenta si también aparece en la app de escritorio.</p>
+      <div class="schedulemock">
+        <div class="schedulemock-bar"><span>Tareas</span><span class="sm-new">+ Nueva tarea</span></div>
+        <div class="schedulemock-list">
+          <div class="sm-row"><span class="sm-status"></span><div class="sm-info"><span class="sm-name">Resumen semanal del rubro</span><span class="sm-freq">todos los lunes, 8:00 — última corrida hace 6 días, OK</span></div><span class="sm-badge">Activa</span></div>
+          <div class="sm-row"><span class="sm-status"></span><div class="sm-info"><span class="sm-name">Recordatorio de facturas</span><span class="sm-freq">día 1 de cada mes, 9:00 — última corrida hace 12 días, OK</span></div><span class="sm-badge">Activa</span></div>
+        </div>
+        <p style="padding:0 8px 12px;font-size:.72rem;color:#7A8194">2 de 3 tareas activas — plan Go</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 2 — Elegí qué se repite y cada cuánto</h3>
+      <p>Definí qué querés que haga y con qué frecuencia lo necesitás de verdad — no pongas "todos los días" por las dudas. Límite duro sin importar el plan: <strong>máximo una corrida por hora</strong>.</p>
+    </div>
+
+    <div class="card">
+      <h3>Paso 3 — Escribí la instrucción integrando lo que ya armaste</h3>
+      <p>Aclaración clave: una Tarea programada <strong>no corre "sobre" tu GPT</strong> y <strong>no abre sola los archivos de un Project</strong>, aunque la crees desde adentro de uno. Es un pedido de texto plano — el rol y los datos se los das pegados:</p>
+      <ul>
+        <li><strong>Del módulo 2:</strong> reusás el rol de tu GPT, resumido en pocas líneas, pegado en la instrucción.</li>
+        <li><strong>Del módulo 3:</strong> los datos que necesites (catálogo, precios) los pegás como texto.</li>
+        <li><strong>Si necesita datos actualizados:</strong> mencioná el conector del módulo 4 — esta es la integración que corre en vivo.</li>
+        <li><strong>Si el resultado es un análisis:</strong> pedí el mismo tipo de salida del módulo 5 (tabla corta, 2-3 conclusiones).</li>
+      </ul>
+      <div class="uimock">
+        <div class="bar">🗓️ Nueva tarea</div>
+        <div class="ubody">
+          <div class="fld"><label>Instrucción</label><div class="box">Todos los lunes a las 8:00, actuá como el analista de mi negocio: [pegás acá en dos líneas el rol que armaste en el módulo 2]. Revisá los datos actualizados de la planilla de ventas conectada (Drive) y compará contra este catálogo de precios: [pegás acá los precios clave, copiados de tu Project]. Devolveme un resumen de máximo 6 líneas: 2 alertas de precio y 1 dato de la semana anterior.</div></div>
+          <div class="fld"><label>Frecuencia</label><div class="box">semanal, lunes 8:00</div></div>
+          <span class="save">Guardar tarea</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 4 — Revisá el límite de tu plan y el modelo</h3>
+      <p><strong>Tareas activas por plan:</strong> Free no tiene · Go hasta 3 · Plus 5 · Pro 15. <strong>Modelo:</strong> los modelos "Pro" del selector no soportan Tareas programadas — cambiá a uno estándar antes de programarla.</p>
+    </div>
+
+    <div class="card">
+      <h3>Paso 5 — Guardá y dejala correr</h3>
+      <div class="schedulemock">
+        <div class="schedulemock-bar"><span>✓ Tarea creada</span></div>
+        <div class="schedulemock-list">
+          <div class="sm-row"><span class="sm-status"></span><div class="sm-info"><span class="sm-name">Resumen semanal del rubro</span><span class="sm-freq">próxima corrida: lunes 8:00</span></div><span class="sm-badge">Activa</span></div>
+        </div>
+        <p style="padding:0 8px 12px;font-size:.72rem;color:#7A8194">Vas a recibir el resultado en tu historial de chats (y como notificación, si las tenés activadas).</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 6 — Revisá el resultado y ajustá si hace falta</h3>
+      <p>La primera corrida es el momento de la verdad: ¿esto es útil tal cual, o suena genérico? Si sale genérico, volvé a la instrucción del paso 3 y agregale más contexto específico — una Tarea, igual que un prompt, mejora cuando la iterás con datos propios.</p>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Error común</h3>
+      <p>Esperar que las Tareas sean "un sistema robusto" que corre para siempre sin supervisión — la prensa especializada documenta fallas de confiabilidad reales. Sirve para casos acotados con el hábito de revisar. Otros errores: pasarte del límite de tu plan sin darte cuenta, programar más de una corrida por hora esperando que se cumpla igual, crear la tarea y no volver a mirarla nunca más, o pedirle algo que necesita tu criterio fino cada vez (eso sigue siendo un chat que abrís vos).</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Antes:</strong> Marina revisaba a mano, todos los lunes, precios de competidores y su planilla de ventas para armar un mensaje a su socia — 30-45 minutos, y algunos lunes no lo hacía.</p>
+      <p><strong>Después:</strong> arma una Tarea que corre los lunes a las 8:00, con el rol de "analista de rubro" de su GPT (módulo 2), el catálogo de precios de su Project (módulo 3, pegado como texto), conectada en vivo a su planilla de Drive (módulo 4), con el formato del módulo 5. Todos los lunes a las 8:05 tiene el resumen esperándola — lo lee en dos minutos y decide si algo necesita su atención.</p>
+    </div>
+
+    <div class="card">
+      <h3>📎 Plantillas</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · resumen semanal (integra 02-03-04-05)</span><button class="copy">Copiar</button></div>
+<pre>Todos los <strong class="field">[día]</strong> a las <strong class="field">[hora]</strong>, actuá con el rol de <strong class="field">[pegá acá el rol de
+tu GPT del módulo 2]</strong>. Estos son los datos que necesitás, copiados de mi
+Project del módulo 3: <strong class="field">[pegá acá catálogo, precios u otro dato clave]</strong>.
+Cruzalos con los datos actualizados de <strong class="field">[conector del módulo 4]</strong>. Devolveme
+un resumen de máximo <strong class="field">[N]</strong> líneas con: <strong class="field">[dato 1]</strong>, <strong class="field">[dato 2]</strong>, y una alerta
+si <strong class="field">[condición concreta de tu negocio]</strong>.</pre>
+      </div>
+      <div class="prompt">
+        <div class="top"><span>prompt · monitor de precios</span><button class="copy">Copiar</button></div>
+<pre>Todas las <strong class="field">[frecuencia]</strong> a las <strong class="field">[hora]</strong>, revisá <strong class="field">[fuente de datos]</strong> y comparó
+contra este catálogo (pegá acá los precios, copiados de tu Project):
+<strong class="field">[lista de precios clave]</strong>. Avisame solo si hay una diferencia mayor a
+<strong class="field">[umbral concreto]</strong> en alguno de estos productos: <strong class="field">[lista de productos]</strong>.</pre>
+      </div>
+      <div class="prompt">
+        <div class="top"><span>prompt · recordatorio de vencimientos</span><button class="copy">Copiar</button></div>
+<pre>El día <strong class="field">[N]</strong> de cada mes a las <strong class="field">[hora]</strong>, recordame estos vencimientos de
+facturas o pagos (pegalos acá, copiados de tu Project o tu planilla):
+<strong class="field">[lista de vencimientos]</strong>. Listame cada uno con fecha, monto y a quién
+corresponde pagarle, ordenados del más próximo al más lejano.</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Usaste datos reales de tu negocio en la instrucción (nombres, productos, montos propios).</li>
+        <li>Si la primera corrida salió genérica, la ajustaste con más contexto específico.</li>
+        <li>Dejaste la tarea correr al menos una vez de verdad (la viste ejecutarse y devolver un resultado).</li>
+        <li>Podés explicar, sin volver a abrir esta guía, qué hace tu tarea, cada cuánto corre y por qué esa frecuencia.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>📱 Móvil vs Desktop</h3>
+      <p>Las Tareas programadas viven en la <strong>web</strong> y el <strong>celular</strong>. Para <strong>crear y redactar</strong> la instrucción (el paso 3, el más importante) conviene la web: más espacio para escribir un prompt largo y ir y viniendo entre el Project, el GPT y la planilla conectada. Para <strong>recibir y revisar</strong> el resultado en el día a día, el celular es el lugar natural: te llega en tu historial de chats y como notificación, sin sentarte a la compu.</p>
+      <div class="faltanote"><span>⚠️</span><p>Confirmación oficial de si el panel de Tareas está disponible también en la app de escritorio unificada — pendiente.</p></div>
+    </div>
+
+    <span class="entregable">📦 Entregable · 06-tarea-sola — una Tarea programada que integra todo el curso</span>
+
+    <label class="modcheck" data-mod="6">
+      <input type="checkbox" data-mod="6" aria-label="Completé el módulo 6">
+      <span>Completé el módulo 6 · Piloto automático</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco-go.app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@coco-go.app →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ HORIZONTE ═══ -->
+  <section class="panel" id="p-horizonte">
+    <div class="sec-head"><span class="numchip" style="font-size:1.1rem">🔭</span><h2>Horizonte — Asomate a lo nuevo: Work y Sites</h2></div>
+    <p class="sec-sub">Con los módulos 1 a 6 armaste un sistema: un GPT con rol propio, memoria de tu negocio, herramientas conectadas, análisis de tus datos y tareas que corren solas. Estas dos piezas nuevas te muestran para dónde va ChatGPT — y si te conviene subirte ya o esperar. Son piezas en rollout o beta: lo serio es mostrarte para qué sirven, no fingir un tutorial pixel a pixel.</p>
+
+    <div class="card">
+      <h3>ChatGPT Work</h3>
+      <p>Work es el agente que toma un <strong>objetivo</strong> que le das (no una pregunta suelta) y te devuelve el <strong>trabajo terminado</strong>: una investigación, un documento, una planilla, una presentación.</p>
+      <p><strong>Cómo llega según dónde estés:</strong> en la <strong>app de escritorio</strong> (Mac/Windows), disponible en todos los planes incluido Free/Go, pero limitado. En <strong>web y celular</strong>, no está en Free/Go — llega desde Plus en adelante, en rollout escalonado desde el relanzamiento del 9 de julio de 2026.</p>
+      <div class="workmock">
+        <div class="wk-step"><span class="wk-ic">📝</span><span class="wk-label">Vos delegás</span><p>"Armame un informe comparando mis ventas de este trimestre contra el anterior, con un gráfico y las tres conclusiones principales."</p></div>
+        <span class="wk-arrow">→</span>
+        <div class="wk-step active"><span class="wk-ic">⚙️</span><span class="wk-label">Work trabaja</span><div class="wk-dots"><span></span><span></span><span></span></div><p>Reúne datos, arma el documento — puede tardar varios minutos, no es instantáneo como un chat.</p></div>
+        <span class="wk-arrow">→</span>
+        <div class="wk-step"><span class="wk-ic">✅</span><span class="wk-label">Entregable</span><p>Un documento con el informe, el gráfico y las conclusiones, listo para revisar y ajustar.</p></div>
+      </div>
+      <div class="faltanote"><span>⚠️</span><p>Los labels exactos de los botones (dónde tocás para delegar, cómo se llama el panel de seguimiento) pueden variar según tu cuenta y siguen cambiando — buscalos por "Work".</p></div>
+    </div>
+
+    <div class="card">
+      <h3>ChatGPT Sites</h3>
+      <p>Sites te deja armar una web o app liviana —una landing, un tracker chico, un portal simple— <strong>describiéndola en palabras</strong>, sin código.</p>
+      <p><strong>Encuadre honesto:</strong> está en <strong>beta</strong> y solo en planes pagos (no Free/Go). Todavía no llega a todos los países — excluye Unión Europea, Suiza y Reino Unido confirmado. Se entra desde la vista Sites en la app de escritorio, o desde chatgpt.com/sites en la web. Un Site <strong>no es</strong> un Project: un Project es memoria de negocio para tus chats; un Site es una pieza web publicable con su propia dirección.</p>
+      <div class="sitemock">
+        <div class="sitemock-bar">Sites — vista previa</div>
+        <div class="sitemock-body">
+          <p class="st-desc">"Quiero una página simple con mis horarios de atención, mi dirección y un botón de WhatsApp para consultas."</p>
+          <div class="st-preview">
+            <div class="st-topbar"><span class="st-dot"></span><span class="st-dot"></span><span class="st-dot"></span><span style="margin-left:6px">mi-negocio.site</span></div>
+            <div class="st-body">
+              <span class="st-title">Mi Negocio</span>
+              <span class="st-line"></span>
+              <span class="st-line" style="width:50%"></span>
+              <span class="st-btn">Consultar por WhatsApp</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>El flujo documentado, en líneas generales: describís qué querés armar, revisás lo que te propone, lo ajustás (función de edición), y recién ahí lo guardás/publicás con control de quién puede verlo.</p>
+      <div class="faltanote"><span>⚠️</span><p>Confirmación específica para Argentina: no está en la lista de exclusión conocida, pero no hay confirmación oficial cerrada.</p></div>
+    </div>
+
+    <div class="card">
+      <h3>Tu decisión</h3>
+      <p>Work y Sites no son para todos los negocios ni para hoy mismo, necesariamente. Antes de sumarlos, preguntate:</p>
+      <ul>
+        <li>¿Tengo un trabajo repetido que hoy me lleva horas armar a mano que Work podría entregarme terminado?</li>
+        <li>¿Necesito una web o app chica publicada rápido, sin depender de un desarrollador, que Sites podría resolver?</li>
+        <li>¿Mi plan actual ya me da acceso a esto, o el salto de plan se justifica por lo que ganaría?</li>
+      </ul>
+      <p>Si la respuesta empieza a ser "sí, esto me ahorraría tiempo real todas las semanas", ahí empieza a tener sentido mirar más de cerca <strong>Codex</strong> y el nivel avanzado — trabajar directo con ChatGPT sobre código y sistemas propios. Ese es el próximo escalón (bloque Siguiente Curso).</p>
+    </div>
+
+    <div class="card">
+      <h3>✓ Tu entregable de esta sección</h3>
+      <p>Anotá si probaste Work y/o Sites (o solo los mocks de acá), qué caso de tu negocio le encontrarías, y tu decisión — <strong>sí, ya me sirve</strong> / <strong>más adelante, cuando…</strong> / <strong>no por ahora</strong> — con el motivo real.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 07-decision-avanzado — tu decisión sobre Work y Sites</span>
+
+    <label class="modcheck" data-mod="7">
+      <input type="checkbox" data-mod="7" aria-label="Completé Horizonte">
+      <span>Completé Horizonte · Asomate a Work y Sites</span>
+    </label>
+
+    <div class="next" style="margin-top:20px">
+      <div class="kicker">Explorá otros cursos</div>
+      <h3>Claude · <span class="c">Gemini · Grok</span></h3>
+      <p>Cada IA tiene fortalezas distintas. Aprendelos con el mismo método COCO GO: prompts reales, entregables, sin jerga.</p>
+      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
+    </div>
+  </section>
+
+  <!-- ═══ APLICACIONES ═══ -->
+  <section class="panel" id="p-apps">
+    <div class="sec-head"><span class="numchip" style="font-size:1.1rem">◎</span><h2>Aplicaciones por área de negocio</h2></div>
+    <p class="sec-sub">Formas de uso reales del sistema que armás en este curso (GPT propio + Project con memoria + herramientas conectadas + análisis de datos + tareas programadas), por área de negocio.</p>
+
+    <div class="card" style="border-left:3px solid var(--theme-light)">
+      <p>Estos ejemplos son <strong>orientativos</strong>, no una lista cerrada: están para que veas el patrón —qué le das de rol, qué memoria le cargás, qué conectás, qué automatizás— y lo adaptes a tu rubro. Si tu área no aparece tal cual, agarrá el caso que más se le parezca.</p>
+    </div>
+
+    <div class="app-grid">
+      <div class="app">
+        <div class="ic">💼</div>
+        <h4>Ventas</h4>
+        <p>Propuestas y seguimiento, sin arrancar de cero cada vez.</p>
+        <ul>
+          <li>GPT armador de propuestas con el Project de catálogo y precios (módulos 2 y 3).</li>
+          <li>Tarea semanal que resume qué clientes no compraron hace tiempo, cruzando en vivo una app conectada de pagos o CRM (módulo 4).</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">💬</div>
+        <h4>Atención al cliente</h4>
+        <p>Respuestas con la voz y los datos del negocio.</p>
+        <ul>
+          <li>GPT con rol de atención al cliente + Project con precios, políticas y FAQ.</li>
+          <li>Análisis de datos sobre la planilla de reclamos del mes para detectar el motivo más repetido (módulo 5).</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">📦</div>
+        <h4>Operaciones</h4>
+        <p>Stock y proveedores, sin revisar todo a mano.</p>
+        <ul>
+          <li>Tarea diaria que revisa stock (a mano o vía app conectada) y arma un aviso de qué reponer.</li>
+          <li>Análisis de una planilla de compras para detectar qué proveedor conviene según precio e historial.</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">📣</div>
+        <h4>Marketing</h4>
+        <p>Mensajes con el tono de tu negocio, listos cada semana.</p>
+        <ul>
+          <li>GPT con el tono de marca cargado (rol + Project) para redactar el mensaje semanal de novedades.</li>
+          <li>Tarea que arma ese borrador todos los viernes con ese mismo tono pegado en la instrucción.</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">🗂️</div>
+        <h4>Administración</h4>
+        <p>Consultas internas y cierre de semana, sin interrumpirte.</p>
+        <ul>
+          <li>Project con manuales y políticas internas para que cualquiera del equipo consulte.</li>
+          <li>Tarea de cierre de semana que resume pendientes para el lunes, cruzando una app conectada de gestión de tareas.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <p>En los cinco casos la lógica es la misma que armaste módulo a módulo: le das un rol a un GPT (módulo 2), le cargás la memoria del negocio (módulo 3), lo conectás a datos vivos si hace falta (módulo 4), lo hacés leer tus números cuando corresponde (módulo 5) y lo ponés a correr solo con una tarea programada (módulo 6). Lo que cambia según tu rubro es QUÉ rol, QUÉ memoria y QUÉ conectás — no la mecánica.</p>
+    </div>
+
+    <div class="next" style="margin-top:20px">
+      <div class="kicker">Explorá otros cursos</div>
+      <h3>Claude · <span class="c">Gemini · Grok</span></h3>
+      <p>Cada IA tiene fortalezas distintas. Aprendelos con el mismo método COCO GO: prompts reales, entregables, sin jerga.</p>
+      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
+    </div>
+  </section>
+
+  <!-- ═══ BONUS ═══ -->
+  <section class="panel" id="p-bonus">
+    <div class="sec-head"><span class="numchip" style="font-size:1.15rem">★</span><h2>Bonus · checklist de mantenimiento</h2></div>
+    <p class="sec-sub">Usalo <strong>después</strong> de completar los módulos — con tu sistema real ya armado.</p>
+
+    <div class="card">
+      <h3>✅ Checklist de mantenimiento mensual de tu sistema</h3>
+      <p>Una vez por mes, repasá estos cinco puntos con tu sistema real delante (podés armarte una tarea programada <em>manual</em> que te lo recuerde, módulo 6):</p>
+      <div class="prompt">
+        <div class="top"><span>checklist · mantenimiento mensual</span><button class="copy">Copiar</button></div>
+<pre>1. Tus GPTs: ¿el rol y las instrucciones siguen reflejando cómo trabaja tu negocio hoy?
+   Un GPT armado hace tres meses puede necesitar un ajuste (módulo 2).
+
+2. Tu Project: ¿cambiaron precios, catálogo o políticas desde la última carga? Subí la
+   versión nueva antes de que las respuestas empiecen a ser confiadas pero incorrectas
+   (módulo 3).
+
+3. Apps conectadas: ¿cada conector activo sigue alimentando algo real, o quedó alguno
+   "conectado de adorno" que nadie usa? Revisá también los permisos que le diste (módulo 4).
+
+4. Panel de Tareas: ¿hay alguna tarea programada que no corrió como esperabas, o que ya
+   no sirve? Editá, pausá o borrá lo que corresponda (módulo 6).
+
+5. Plan y modelo: ¿el plan que tenés (Go/Plus/Pro) sigue siendo el que tu uso real pide,
+   o ya te quedó corto (o de sobra)?</pre>
+      </div>
+      <p style="margin-top:10px">No hace falta que el resultado sea perfecto todos los meses — la idea es que ninguna pieza del sistema quede corriendo sola, sin que nadie la mire, durante demasiado tiempo.</p>
+    </div>
+
+    <div class="next" style="margin-top:20px">
+      <div class="kicker">Explorá otros cursos</div>
+      <h3>Claude · <span class="c">Gemini · Grok</span></h3>
+      <p>Cada IA tiene fortalezas distintas. Aprendelos con el mismo método COCO GO: prompts reales, entregables, sin jerga.</p>
+      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
+    </div>
+  </section>
+
+  <!-- ═══ VERIFICACIÓN ═══ -->
+  <section class="panel" id="p-verif">
+    <div class="sec-head"><span class="numchip" style="font-size:1.15rem">✓</span><h2>Verificación final</h2></div>
+    <p class="sec-sub">Un check por entregable. Marcalo solo si es real, no si "algo se acerca".</p>
+
+    <div class="card">
+      <div class="check-list">
+        <div class="check"><span class="box">✓</span><p>01 · Primera automatización<small>Activaste un plan pago de verdad (Go como mínimo), entendés cuándo pasarías a Plus, y tenés una primera automatización útil corriendo desde el módulo 1.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>02 · Mi GPT<small>Armaste un GPT personalizado con un rol claro de tu negocio, instrucciones propias y (si aplica) archivos de referencia — y lo probaste con un caso real, no de ejemplo.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>03 · Project base<small>Tu Project tiene la base de conocimiento REAL de tu negocio cargada (no un archivo de prueba) y respondió con precisión a una consulta real.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>04 · Herramienta conectada<small>Tenés al menos una app/conector activo, revisaste los permisos que le diste, y lo sumaste a una automatización real (no solo lo conectaste y listo).</small></p></div>
+        <div class="check"><span class="box">✓</span><p>05 · Análisis real<small>Le hiciste analizar una planilla o archivo real de tu negocio y obtuviste una tabla o gráfico que usarías tal cual, no un ejemplo genérico.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>06 · Tarea sola<small>Tenés una tarea programada corriendo con la frecuencia correcta, con el rol del módulo 2 y los datos clave del módulo 3 pegados como texto en la instrucción, y al menos un conector en vivo del módulo 4.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>07 · Decisión avanzado<small>Te asomaste a Work y/o Sites (aunque solo hayan sido los mocks del curso o lo que ya te llegó), y completaste tu decisión: ¿te sirven hoy, más adelante, o preferís seguir con lo que armaste en los módulos 1 a 6?</small></p></div>
+      </div>
+    </div>
+
+    <div class="next">
+      <div class="kicker">Cuando termines esto…</div>
+      <h3>Seguí explorando <span class="c">otros cursos COCO GO</span></h3>
+      <p>Este curso te mostró en la sección Horizonte que existe un nivel más allá del que armaste acá — todavía no está disponible. Mientras tanto, sumá el mismo método a otras herramientas.</p>
+      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
+    </div>
+
+    <div class="card feedbackbox" style="margin-top:20px">
+      <h3>💬 Tu feedback real</h3>
+      <p style="margin-bottom:10px">¿Qué módulo te costó más? ¿Qué te hubiera gustado que explicáramos mejor? ¿Hay algo de tu sistema que este curso no contempló? Escribilo acá — no hay respuesta automática, pero lo leemos.</p>
+      <textarea id="feedback-text" placeholder="Ej: el módulo 4 me costó por el tema de los permisos, pero el módulo 6 me cambió la forma de trabajar…"></textarea>
+      <div class="fb-actions">
+        <button type="button" class="copy" id="feedback-copy">Copiar mi comentario</button>
+      </div>
+      <div class="fb-paths">
+        <span>Mandalo por Instagram — <a href="https://instagram.com/coco-go.app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@coco-go.app →</a></span>
+        <span>O por mail a <a href="mailto:cocogo.hola@gmail.com?subject=Feedback%20curso%20ChatGPT%20Intermedio">cocogo.hola@gmail.com</a> — pegá el comentario que copiaste arriba.</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="wrap" id="catalogo" style="padding:10px 20px 40px">
+  <div class="sec-head"><span class="numchip" style="font-size:1.05rem">＋</span><h2 style="font-size:clamp(1.3rem,3vw,1.7rem)">Siguiente curso <img src="../assets/logo-coco-go.svg" alt="COCO GO" style="height:1.1em;vertical-align:-0.15em"></h2></div>
+  <p class="sec-sub">Ya hiciste el básico de ChatGPT (es el requisito de este curso). Estos son los básicos de las otras herramientas de la serie, si tu negocio también las usa.</p>
+  <div class="app-grid">
+    <div class="app curso-cta">
+      <div class="ic"><img src="../assets/logo-claude.svg" alt="" aria-hidden="true" style="width:22px;height:22px;display:block"></div>
+      <h4>Claude para tu negocio</h4>
+      <p>La otra gran herramienta de IA conversacional, con su propio enfoque de asistentes y automatización. (Básico) — próximamente.</p>
+      <span style="display:inline-block;margin-top:14px;padding:6px 12px;border-radius:999px;font-weight:600;font-size:.8rem;color:var(--faint);border:1px dashed var(--border-strong);align-self:flex-end">Próximamente</span>
+    </div>
+    <div class="app curso-cta">
+      <div class="ic"><img src="../assets/logo-gemini.svg" alt="" aria-hidden="true" style="width:22px;height:22px;display:block"></div>
+      <h4>Gemini para tu negocio</h4>
+      <p>Para el negocio que ya vive dentro del mundo Google: Workspace, Drive, Gmail. (Básico) — próximamente.</p>
+      <span style="display:inline-block;margin-top:14px;padding:6px 12px;border-radius:999px;font-weight:600;font-size:.8rem;color:var(--faint);border:1px dashed var(--border-strong);align-self:flex-end">Próximamente</span>
+    </div>
+    <div class="app curso-cta">
+      <div class="ic"><img src="../assets/logo-grok.svg" alt="" aria-hidden="true" style="width:22px;height:22px;display:block"></div>
+      <h4>Grok para tu negocio</h4>
+      <p>Para sumar la mirada de X/Twitter y datos en tiempo real a tu caja de herramientas de IA. (Básico) — próximamente.</p>
+      <span style="display:inline-block;margin-top:14px;padding:6px 12px;border-radius:999px;font-weight:600;font-size:.8rem;color:var(--faint);border:1px dashed var(--border-strong);align-self:flex-end">Próximamente</span>
+    </div>
+    <div class="app curso-cta" style="opacity:.7">
+      <div class="ic"><img src="../assets/logo-openai.svg" alt="" aria-hidden="true" style="width:22px;height:22px;display:block"></div>
+      <h4>ChatGPT Avanzado</h4>
+      <p>Este curso te mostró en Horizonte que existe un nivel más allá del que armaste acá: ChatGPT trabajando directo con código y sistemas técnicos de tu negocio (el modo Codex de la app de escritorio, y el uso vía API para quien programa o tiene quien le programe). El curso avanzado de COCO GO que enseña a usarlo de verdad todavía no está disponible — se suma a este catálogo más adelante.</p>
+      <span style="display:inline-block;margin-top:14px;padding:6px 12px;border-radius:999px;font-weight:600;font-size:.8rem;color:var(--faint);border:1px dashed var(--border-strong);align-self:flex-end">Próximamente</span>
+    </div>
+  </div>
+  <p style="margin-top:14px;font-size:.9rem;color:var(--muted)">Seguinos en <a href="https://instagram.com/coco-go.app" target="_blank" rel="noopener" style="color:var(--theme-light);text-decoration:none;border-bottom:1px solid rgba(var(--theme-rgb),.3)">@coco-go.app</a> para enterarte de las novedades.</p>
+</section>
+
+<footer>
+  <img src="../assets/logo-coco-go.svg" class="foot-logo" alt="COCO GO">
+  <div class="socials">
+    <a class="soc" href="https://instagram.com/coco-go.app" target="_blank" rel="noopener" aria-label="Instagram @coco-go.app"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0-2.16C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.94 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg></a>
+    <a class="soc" href="https://x.com/cocogo" target="_blank" rel="noopener" aria-label="X @cocogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93ZM17.61 20.64h2.04L6.49 3.24H4.3Z"/></svg></a>
+  </div>
+  <p>Soporte: <a href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a> (respondemos en 48 h hábiles)</p>
+  <p>Más cursos: <a href="#catalogo">Claude · Gemini · Grok</a> — mismo método COCO GO.</p>
+  <p>© COCO GO 2026. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+/* puerta de acceso — código en el link de compra (?k=) o tipeado, recordado en localStorage */
+(function(){
+  var ACCESS_TOKEN='COCO-GPTINT-2026';
+  var ACCESS_STORAGE_KEY='coco-go-chatgpt-intermedio-access-ok';
+  var gate=document.getElementById('access-gate');
+  var input=document.getElementById('access-code-input');
+  var submit=document.getElementById('access-code-submit');
+  var error=document.getElementById('access-gate-error');
+  if(!gate||!input||!submit) return;
+
+  var params=new URLSearchParams(location.search);
+  var fromUrl=(params.get('k')||'').trim();
+  var stored=localStorage.getItem(ACCESS_STORAGE_KEY)==='1';
+
+  function unlock(){
+    try{localStorage.setItem(ACCESS_STORAGE_KEY,'1');}catch(e){}
+    document.body.classList.remove('access-locked');
+    gate.hidden=true;
+    if(fromUrl){
+      params.delete('k');
+      var qs=params.toString();
+      history.replaceState(null,'',location.pathname+(qs?'?'+qs:'')+location.hash);
+    }
+  }
+
+  function tryCode(raw){
+    var code=(raw||'').trim();
+    if(code.toUpperCase()===ACCESS_TOKEN.toUpperCase()){
+      if(error) error.textContent='';
+      unlock();
+      return true;
+    }
+    if(error) error.textContent='Código incorrecto. Revisá el email de compra.';
+    return false;
+  }
+
+  if(stored||(fromUrl&&tryCode(fromUrl))) return;
+
+  document.body.classList.add('access-locked');
+  gate.hidden=false;
+  submit.addEventListener('click',function(){tryCode(input.value);});
+  input.addEventListener('keydown',function(e){if(e.key==='Enter')tryCode(input.value);});
+})();
+
+/* fondo de red animado */
+(function(){
+  var c=document.getElementById('bg'); if(!c) return;
+  var ctx=c.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2);
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var RGB=(getComputedStyle(document.documentElement).getPropertyValue('--theme-rgb').trim())||'16,163,127';
+  var W,H,pts,raf;
+  function resize(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.min(90,Math.max(30,Math.floor(W*H/16000)));pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18});}
+  function frame(move){ctx.clearRect(0,0,W,H);var i,j,a,b,dx,dy,d,o;
+    if(move)for(i=0;i<pts.length;i++){a=pts[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;}
+    for(i=0;i<pts.length;i++)for(j=i+1;j<pts.length;j++){a=pts[i];b=pts[j];dx=a.x-b.x;dy=a.y-b.y;d=dx*dx+dy*dy;
+      if(d<19000){o=(1-d/19000)*.22;ctx.strokeStyle='rgba('+RGB+','+o.toFixed(3)+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+    for(i=0;i<pts.length;i++){a=pts[i];ctx.fillStyle='rgba('+RGB+',.55)';ctx.beginPath();ctx.arc(a.x,a.y,1.5,0,6.283);ctx.fill();}}
+  function loop(){frame(true);raf=requestAnimationFrame(loop);}
+  resize();window.addEventListener('resize',function(){cancelAnimationFrame(raf);resize();reduce?frame(false):loop();});
+  reduce?frame(false):loop();
+})();
+
+/* glosario acordeón: una abierta a la vez */
+(function(){
+  var terms=document.querySelectorAll('.gterm');
+  terms.forEach(function(b){
+    b.addEventListener('click',function(){
+      var open=b.classList.contains('open');
+      terms.forEach(function(o){o.classList.remove('open');o.nextElementSibling.style.maxHeight=null;});
+      if(!open){b.classList.add('open');var d=b.nextElementSibling;d.style.maxHeight=d.scrollHeight+'px';}
+    });
+  });
+  var q=document.getElementById('gloss-q');
+  if(q)q.addEventListener('input',function(){
+    var v=q.value.toLowerCase();
+    document.querySelectorAll('#gloss-list .gitem').forEach(function(it){
+      it.style.display=it.querySelector('.gterm').textContent.toLowerCase().indexOf(v)>-1?'':'none';
+    });
+  });
+})();
+
+/* scroll al tope al cambiar pestaña */
+document.querySelectorAll('input[name="coco-tab"]').forEach(function(r){
+  r.addEventListener('change',function(){window.scrollTo({top:0,behavior:'instant'});});
+});
+
+/* botones copiar con clipboard API */
+document.querySelectorAll('.copy:not(#feedback-copy)').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var pre=btn.closest('.prompt').querySelector('pre');
+    if(!pre) return;
+    var text=pre.textContent.trim();
+    function done(){btn.textContent='✓ Copiado';setTimeout(function(){btn.textContent='Copiar';},1500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text,done);});
+    } else { fallback(text,done); }
+  });
+});
+function fallback(text,cb){
+  var ta=document.createElement('textarea');
+  ta.value=text;ta.style.cssText='position:fixed;left:-9999px;top:0;opacity:0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');cb();}catch(e){}
+  document.body.removeChild(ta);
+}
+
+/* botón copiar del feedback de Verificación */
+(function(){
+  var btn=document.getElementById('feedback-copy');
+  var ta=document.getElementById('feedback-text');
+  if(!btn||!ta) return;
+  btn.addEventListener('click',function(){
+    var text=ta.value.trim();
+    if(!text) return;
+    function done(){btn.textContent='✓ Copiado';setTimeout(function(){btn.textContent='Copiar mi comentario';},1500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text,done);});
+    } else { fallback(text,done); }
+  });
+})();
+
+/* progreso de módulos (localStorage) — 6 módulos + Horizonte = 7 checks */
+(function(){
+  var KEY='cocogo_progreso_chatgpt_intermedio', TOTAL=6;
+  function load(){try{var v=JSON.parse(localStorage.getItem(KEY));return Array.isArray(v)?v.filter(function(n){return n>=1&&n<=7;}):[];}catch(e){return [];}}
+  function save(a){try{localStorage.setItem(KEY,JSON.stringify(a));}catch(e){}}
+  var done=load();
+  var inputs=document.querySelectorAll('.modcheck input[data-mod]');
+  if(!inputs.length) return;
+  var checks=document.querySelectorAll('#p-verif .check-list .check');
+  var fill=document.querySelector('.progfill');
+  var label=document.querySelector('.proglabel');
+  var pwrap=document.querySelector('.progwrap');
+  function render(){
+    inputs.forEach(function(inp){
+      var n=+inp.getAttribute('data-mod'), on=done.indexOf(n)>-1;
+      inp.checked=on;
+      inp.closest('.modcheck').classList.toggle('done',on);
+    });
+    checks.forEach(function(c,i){c.classList.toggle('done',done.indexOf(i+1)>-1);});
+    /* la barra de progreso cuenta solo los 6 módulos (Horizonte no es módulo) */
+    var mods=done.filter(function(n){return n>=1&&n<=TOTAL;});
+    var pct=Math.round(mods.length/TOTAL*100);
+    if(fill)fill.style.width=pct+'%';
+    if(label)label.textContent=mods.length+'/'+TOTAL;
+    if(pwrap){pwrap.classList.toggle('complete',mods.length>=TOTAL);pwrap.setAttribute('aria-valuenow',mods.length);}
+  }
+  inputs.forEach(function(inp){
+    inp.addEventListener('change',function(){
+      var n=+inp.getAttribute('data-mod'), i=done.indexOf(n);
+      if(inp.checked&&i<0)done.push(n);
+      else if(!inp.checked&&i>-1)done.splice(i,1);
+      save(done);render();
+    });
+  });
+  render();
+})();
+
+/* accesibilidad AA — foco visible en pestañas (radios .tab son invisibles) */
+document.querySelectorAll('input.tab').forEach(function(t){
+  var lbl=document.querySelector('.modnav label[for="'+t.id+'"]');
+  if(!lbl) return;
+  t.addEventListener('focus',function(){lbl.classList.add('kbfocus');});
+  t.addEventListener('blur',function(){lbl.classList.remove('kbfocus');});
+});
+</script>
+</body>
+</html>
