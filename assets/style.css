@@ -32,8 +32,9 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opa
 .modnav{position:fixed;top:58px;left:0;right:0;z-index:40;padding:12px 0;background:var(--ink);border-bottom:1px solid var(--border)}
 .modnav .scroll{display:flex;gap:9px;overflow-x:auto;scrollbar-width:none}
 .modnav .scroll::-webkit-scrollbar{display:none}
-.pill{flex-shrink:0;font-size:.86rem;font-weight:600;color:var(--muted);padding:11px 16px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.025);cursor:pointer;white-space:nowrap;transition:all .22s;user-select:none}
-.pill:hover{color:var(--text);border-color:var(--border-strong)}
+.pill{flex-shrink:0;font-size:.86rem;font-weight:600;color:var(--muted);padding:11px 16px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.025);cursor:pointer;white-space:nowrap;transition:color .22s,border-color .22s,background .22s,box-shadow .22s;user-select:none;display:inline-flex;align-items:center;overflow:hidden;-webkit-tap-highlight-color:transparent;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.pill:hover{color:var(--text);border-color:var(--border-strong);background:rgba(255,255,255,.07)}
+.pill:active{background:rgba(255,255,255,.05)}
 
 main.wrap{padding-top:158px}
 /* panel visibility (13 tabs) */
@@ -159,19 +160,21 @@ strong.field{background:rgba(var(--theme-rgb),.14);color:var(--theme-light);font
 .app ul{font-size:.9rem;color:var(--muted);padding-left:1.1rem;margin-top:8px}
 .app li{margin-bottom:.3rem}
 /* catálogo de cursos — CTA unificado + combo (compacto, aire del texto, a la derecha) */
-.app.curso-cta{display:flex;flex-direction:column;align-items:stretch}
+.app-grid{align-items:stretch}
+.app.curso-cta{display:flex;flex-direction:column;align-items:stretch;height:100%;min-height:100%}
 .app.curso-cta h4{margin-bottom:6px}
-.app.curso-cta > p{margin-bottom:0}
-/* botones: chicos, respiro del texto, alineados a la derecha */
+.app.curso-cta > p{margin-bottom:0;flex:1 1 auto}
+/* botones: misma altura de caja (mt:auto), alineados a la derecha — no dependen del largo del texto */
 .app.curso-cta .cta-curso,
 .app.curso-cta .cta-combo{
   display:inline-flex;align-items:center;justify-content:center;gap:5px;
-  margin-top:14px;padding:6px 12px;border-radius:999px;font-weight:600;font-size:.8rem;
+  margin-top:auto;padding:6px 12px;border-radius:999px;font-weight:600;font-size:.8rem;
   line-height:1.2;text-decoration:none;color:var(--muted);
   background:transparent;border:1px solid var(--border);
   transition:color .2s,border-color .2s,background .2s;
   align-self:flex-end;
 }
+.app.curso-cta .cta-foot{margin-top:auto}
 .app.curso-cta .cta-curso:hover{
   color:var(--coral);border-color:rgba(var(--coral-rgb),.45);background:rgba(var(--coral-rgb),.07);
 }
@@ -246,8 +249,9 @@ strong.field{background:rgba(var(--theme-rgb),.14);color:var(--theme-light);font
 .next h3{font-family:var(--display);font-weight:800;font-size:clamp(1.35rem,3.5vw,1.9rem);letter-spacing:-.025em;margin-bottom:8px}
 .next h3 .c{color:var(--coral)}
 .next p{color:var(--muted);max-width:46ch;margin-bottom:18px}
-.next .go{display:inline-flex;align-items:center;gap:9px;font-weight:700;color:var(--text);text-decoration:none;padding:13px 22px;border-radius:13px;background:rgba(255,255,255,.05);border:1px solid var(--border-strong);transition:all .25s}
-.next .go:hover{transform:translateX(3px);border-color:var(--coral);color:var(--coral)}
+.next{display:flex;flex-direction:column}
+.next .go,.next label.go{display:inline-flex;align-items:center;gap:9px;font-weight:700;color:var(--text);text-decoration:none;padding:13px 22px;border-radius:13px;background:rgba(255,255,255,.05);border:1px solid var(--border-strong);transition:all .25s;align-self:flex-end;margin-left:auto;cursor:pointer}
+.next .go:hover,.next label.go:hover{transform:translateX(3px);border-color:var(--coral);color:var(--coral)}
 
 footer{text-align:center;padding:40px 20px 54px;color:var(--faint);font-size:.86rem;border-top:1px solid var(--border);margin-top:30px}
 .foot-logo{width:240px;height:auto;margin-bottom:14px;opacity:.96}
@@ -266,7 +270,7 @@ footer a{color:var(--theme-light);text-decoration:none}
 .devcol li{margin:6px 0;font-size:.9rem;color:var(--faint);line-height:1.5}
 
 /* gptmock — mock fiel de la interfaz de ChatGPT */
-.gptmock-tag{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.02em;color:var(--theme-light);background:rgba(var(--theme-rgb),.1);border:1px solid rgba(var(--theme-rgb),.3);padding:7px 13px;border-radius:999px;margin:18px 0 10px}
+.gptmock-tag{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.02em;color:var(--theme-light);background:rgba(var(--theme-rgb),.1);border:1px solid rgba(var(--theme-rgb),.3);padding:7px 13px;border-radius:999px;margin:28px 0 14px}
 .gptmock-tag.bad{color:#FBBF24;background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.3)}
 .gptmock{max-width:640px;margin:0 auto 18px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
 .gptmock-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(20,25,40,.08);background:#F7F7F8}
@@ -295,7 +299,7 @@ footer a{color:var(--theme-light);text-decoration:none}
 .navpath .step{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:#1a1a2e;background:#fff;border:1px solid rgba(20,25,40,.14);border-radius:8px;padding:5px 10px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 .navpath .sep{color:var(--faint);font-weight:700}
 .navpath .step.on{background:linear-gradient(135deg,var(--theme-light),var(--theme));color:#04130E;border-color:transparent}
-.uimock{max-width:560px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px 0 6px}
+.uimock{max-width:560px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:16px 0 28px}
 .uimock .bar{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid #ECECF1;font-family:var(--display);font-weight:700;font-size:.92rem;color:#1a1a2e}
 .uimock .ubody{padding:15px}
 .uimock .fld{margin-bottom:13px}
@@ -304,7 +308,7 @@ footer a{color:var(--theme-light);text-decoration:none}
 .uimock .save{display:inline-block;background:var(--gpt-brand);color:#fff;font-weight:700;font-size:.85rem;padding:8px 18px;border-radius:8px}
 
 /* puerta de acceso (código en el link de compra, ?k=) */
-.access-gate{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;padding:max(1.5rem,env(safe-area-inset-top)) max(1.25rem,env(safe-area-inset-right)) max(1.5rem,env(safe-area-inset-bottom)) max(1.25rem,env(safe-area-inset-left));background:rgba(7,10,18,.6);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.access-gate{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;padding:max(1.5rem,env(safe-area-inset-top)) max(1.25rem,env(safe-area-inset-right)) max(1.5rem,env(safe-area-inset-bottom)) max(1.25rem,env(safe-area-inset-left));background:rgba(7,10,18,.12);backdrop-filter:none;-webkit-backdrop-filter:none}
 .access-gate[hidden]{display:none!important}
 .access-gate-card{width:min(100%,400px);background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--r);padding:1.75rem 1.5rem;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.45)}
 .access-gate-card h2{font-family:var(--display);font-size:1.25rem;font-weight:700;color:var(--text);margin-bottom:.5rem}
@@ -318,6 +322,100 @@ footer a{color:var(--theme-light);text-decoration:none}
 .access-gate-card button:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
 .access-gate-error{color:#FCA5A5;font-size:.82rem;margin-top:.65rem;min-height:1.2em}
 body.access-locked>*:not(.access-gate):not(#bg){display:none!important}
+
+/* landing de venta pública (compliance Creem) */
+.access-gate{overflow-y:auto;-webkit-overflow-scrolling:touch;align-items:flex-start;padding-top:max(1.5rem,env(safe-area-inset-top));padding-bottom:max(1.75rem,env(safe-area-inset-bottom));background:rgba(7,10,18,.12);backdrop-filter:none;-webkit-backdrop-filter:none}
+.access-gate-card.access-gate-sale{
+  width:min(100%,500px);margin:auto;text-align:left;
+  padding:1.7rem 1.55rem 1.5rem;
+  background:rgba(10,14,26,.78);border:1px solid var(--border-strong);
+  border-radius:var(--r);box-shadow:0 24px 60px rgba(0,0,0,.4);
+  backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)
+}
+/* fila superior: ← Todos los cursos (IZQ) · badge (DER) · logo COCO más abajo, grande */
+.access-gate-sale .ag-top{
+  display:flex;align-items:center;justify-content:space-between;gap:.75rem;
+  margin-bottom:.95rem;flex-wrap:wrap;
+}
+.access-gate-sale .ag-home{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-size:.9rem;font-weight:600;color:var(--muted);text-decoration:none;
+  margin-right:auto;
+}
+.access-gate-sale .ag-home:hover{color:var(--coral)}
+.access-gate-sale .ag-badge{
+  display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--coral);background:rgba(var(--coral-rgb),.1);
+  border:1px solid rgba(var(--coral-rgb),.32);padding:.38rem .85rem;border-radius:999px;
+  white-space:nowrap;margin-left:auto;
+}
+/* logo COCO GO reubicado: debajo del top, centrado, 100% más grande */
+.access-gate-sale .ag-coco-brand{
+  display:flex;justify-content:center;margin:0 0 1rem;
+}
+.access-gate-sale .ag-coco-brand img{
+  height:52px;width:auto;display:block;
+}
+/* título: logo empresa más grande + copy */
+.access-gate-sale .ag-title{margin-bottom:.75rem}
+.access-gate-sale h2{
+  font-family:var(--display);font-size:clamp(1.4rem,4.4vw,1.85rem);font-weight:800;
+  line-height:1.15;margin:0;color:var(--text);letter-spacing:-.025em;
+  display:flex;align-items:flex-start;gap:.4em;
+}
+.access-gate-sale h2 > span{min-width:0}
+.access-gate-sale h2 img.ag-brand-ico{
+  width:1.15em;height:1.15em;flex-shrink:0;display:block;margin-top:.06em;
+  object-fit:contain;
+}
+.access-gate-sale h2 .grad{color:var(--coral)}
+.access-gate-sale .ag-lead{font-size:.95rem;color:var(--muted);line-height:1.55;margin-bottom:.9rem}
+.access-gate-sale .ag-bullets{list-style:none;margin:0 0 1.15rem;padding:0}
+.access-gate-sale .ag-bullets li{position:relative;padding:.3rem 0 .3rem 1.15rem;font-size:.9rem;color:var(--text);line-height:1.4}
+.access-gate-sale .ag-bullets li::before{content:"";position:absolute;left:0;top:.58rem;width:7px;height:7px;border-radius:50%;background:var(--theme,var(--coral))}
+.access-gate-sale .ag-price{background:rgba(var(--theme-rgb,255,107,74),.08);border:1px solid var(--border-strong);border-radius:12px;padding:.95rem 1.05rem;margin-bottom:1.1rem}
+.access-gate-sale .ag-price-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:.55rem .75rem}
+.access-gate-sale .ag-list{font-size:1.05rem;color:var(--muted);text-decoration:line-through}
+.access-gate-sale .ag-list.ag-solo{text-decoration:none;color:var(--text);font-weight:800;font-size:1.4rem;font-family:var(--display)}
+.access-gate-sale .ag-now{font-family:var(--display);font-weight:800;font-size:1.5rem;color:var(--text)}
+.access-gate-sale .ag-note{display:block;font-size:.82rem;color:var(--muted);margin-top:.45rem;line-height:1.45}
+/* Comprar = coral fuerte (vende) + movimiento; Entrar = estilo .next .go */
+.access-gate-sale .ag-buy{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  width:100%;box-sizing:border-box;
+  font-weight:800;font-size:1rem;color:#fff!important;text-decoration:none;
+  padding:14px 22px;border-radius:13px;
+  background:linear-gradient(135deg,var(--coral),#D93D22);border:1px solid var(--coral);
+  box-shadow:0 8px 22px rgba(var(--coral-rgb),.28);
+  transition:all .25s;cursor:pointer;margin-bottom:.85rem;
+  font-family:var(--body);line-height:1.2;
+}
+.access-gate-sale .ag-buy:hover{
+  transform:translateX(3px);filter:brightness(1.06);
+  color:#fff!important;border-color:#FF8566;
+}
+.access-gate-sale #access-code-submit{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  width:100%;box-sizing:border-box;
+  font-weight:700;font-size:.98rem;color:var(--text);text-decoration:none;
+  padding:13px 22px;border-radius:13px;
+  background:rgba(255,255,255,.05);border:1px solid var(--border-strong);
+  transition:all .25s;cursor:pointer;margin-bottom:.85rem;
+  font-family:var(--body);line-height:1.2;
+}
+.access-gate-sale #access-code-submit:hover{
+  transform:translateX(3px);border-color:var(--coral);color:var(--coral);
+  background:rgba(255,255,255,.07);
+}
+.access-gate-sale .ag-actions{display:flex;flex-direction:column;align-items:stretch;gap:0}
+.access-gate-sale .ag-after{font-size:.84rem;color:var(--muted);margin-bottom:.75rem;line-height:1.45}
+.access-gate-sale .access-gate-field{margin-bottom:.65rem}
+.access-gate-sale .ag-divider{border:0;border-top:1px solid var(--border);margin:1rem 0 .85rem}
+.access-gate-sale .ag-legal{font-size:.8rem;color:var(--muted);line-height:1.55;margin:1rem 0 0;text-align:center}
+.access-gate-sale .ag-legal a{color:var(--theme-light,var(--coral));text-decoration:none}
+.access-gate-sale .ag-legal a:hover{text-decoration:underline}
+.access-gate-sale .access-gate-error{text-align:center}
+
 
 /* claudemock — mock fiel de la interfaz de Claude (componente compartido de fábrica).
    Misma estructura que .gptmock, pero avatar/acentos toman var(--theme) del curso donde
@@ -366,7 +464,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{o
    Misma estructura que .claudemock/.gptmock, pero avatar/acentos toman var(--theme) del curso
    donde aparezca — NUNCA hardcodear el azul acá. El chip muestra el modelo ("3.5 Flash") o,
    en M6, la herramienta ("NotebookLM") cuando el hablante es notebooklm: en vez de gemini:. */
-.geminimock{max-width:640px;margin:0 auto 18px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
+.geminimock{max-width:640px;margin:16px auto 28px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
 .geminimock-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(20,25,40,.08);background:#F7F7F8}
 .geminimock-bar .dot{width:9px;height:9px;border-radius:50%;background:#D8DAE0}
 .geminimock-bar span{font-family:var(--body);font-size:.82rem;font-weight:700;color:#1A1A1A;margin-left:2px}
@@ -645,3 +743,16 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{o
 .permdialog-actions{display:flex;justify-content:flex-end;gap:9px;padding:12px 18px 16px;border-top:1px solid #ECECF1}
 .permdialog .pd-cancel{font-weight:600;font-size:.82rem;padding:8px 15px;border-radius:9px;border:1px solid #D9D9E3;background:#fff;color:#40414F}
 .permdialog .pd-allow{font-weight:700;font-size:.82rem;padding:8px 16px;border-radius:9px;border:0;background:var(--theme);color:#fff}
+
+
+/* bonus cards — variedad de acento (no todas del mismo color plano) */
+.bonus-card{border-left:4px solid rgba(var(--theme-rgb),.45);margin-bottom:16px}
+.bonus-card.bc-coral{border-left-color:var(--coral)}
+.bonus-card.bc-theme{border-left-color:var(--theme-light)}
+.bonus-card.bc-gold{border-left-color:#E8C468}
+.bonus-card.bc-mint{border-left-color:#34D399}
+.tool-intro{border-left:4px solid var(--theme-light);background:rgba(var(--theme-rgb),.08);border-radius:14px;padding:16px 18px;margin:0 0 18px}
+.tool-intro h3{margin:0 0 8px;font-size:1.05rem}
+.tool-intro p{margin:0;color:var(--muted);font-size:.97rem}
+.tool-intro p+p{margin-top:8px}
+.mock-block{margin:8px 0 22px}
