@@ -4,109 +4,352 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>COCO GO — Cursos prácticos de IA para tu negocio</title>
-<meta name="description" content="COCO GO: cursos prácticos de ChatGPT, Claude, Gemini y Grok para emprendedores y PyMEs." />
+<meta name="description" content="Cursos de ChatGPT, Claude, Gemini y Grok para emprendedores y PyMEs. Precios en USD, acceso web, soporte por email." />
 <link rel="canonical" href="https://coco-go.github.io/">
-<meta name="theme-color" content="#0A0E1A">
+<meta name="theme-color" content="#F7F4EF">
 <link rel="icon" type="image/svg+xml" href="assets/logo-coco-go.svg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://coco-go.github.io/">
 <meta property="og:title" content="COCO GO — Cursos prácticos de IA para tu negocio">
-<meta property="og:description" content="Guías paso a paso: ChatGPT, Claude, Gemini y Grok para tu emprendimiento o PyME.">
+<meta property="og:description" content="Guías paso a paso: ChatGPT, Claude, Gemini y Grok. Desde US$ 2,99 con cupón fundadores en básicos.">
 <meta property="og:image" content="https://coco-go.github.io/chatgpt/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#070A12; --bg:#0A0E1A; --surface:#0F1525;
-  --text:#EAF0FB; --muted:#9AA8C2;
-  --coral:#FF6B4A; --coral-rgb:255,107,74;
-  --theme-rgb:16,163,127;
-  --border:rgba(150,170,210,.16);
-  --display:'Bricolage Grotesque',serif; --body:'Hanken Grotesk',system-ui,sans-serif;
+  --ink:#F7F4EF;
+  --bg:#F3EFE8;
+  --surface:#FFFFFF;
+  --text:#141820;
+  --muted:#5B6475;
+  --faint:#8A93A3;
+  --coral:#FF6B4A;
+  --coral-rgb:255,107,74;
+  /* red animada: navy suave (legible en claro, mismo motor que los cursos) */
+  --theme-rgb:255,107,74;
+  --theme-light:#3D5A8A;
+  --navy:#1B2A4A;
+  --border:rgba(20,25,40,.10);
+  --border-strong:rgba(20,25,40,.18);
+  --display:'Bricolage Grotesque',serif;
+  --body:'Hanken Grotesk',system-ui,sans-serif;
+  --r:18px;
+  --maxw:980px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
+/* stacking IDÉNTICO a cursos: gradientes detrás del canvas, canvas, ruido arriba */
 body{
   font-family:var(--body);background:var(--bg);color:var(--text);
-  min-height:100vh;display:flex;align-items:center;justify-content:center;
-  padding:2rem;text-align:center;position:relative;overflow-x:hidden;
+  line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;
+  min-height:100vh;position:relative;overflow-x:hidden;
 }
+#bg{position:fixed;inset:0;z-index:-2;width:100%;height:100%;display:block}
 body::before{
-  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  content:"";position:fixed;inset:0;z-index:-3;pointer-events:none;
   background:
-    radial-gradient(55% 45% at 15% 8%, rgba(var(--theme-rgb),.16), transparent 60%),
-    radial-gradient(45% 40% at 90% 96%, rgba(var(--coral-rgb),.12), transparent 60%),
-    linear-gradient(180deg, var(--ink), var(--bg) 45%, var(--ink));
+    radial-gradient(60% 50% at 15% 4%, rgba(var(--coral-rgb),.14), transparent 60%),
+    radial-gradient(45% 40% at 90% 96%, rgba(var(--theme-rgb),.08), transparent 60%),
+    linear-gradient(180deg, #FBF9F6, var(--bg) 45%, #EFEAE2);
 }
-.card{max-width:480px;width:100%}
-.logo{height:56px;width:auto;display:block;margin:0 auto 1.75rem}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a{color:var(--coral)}
+.top{
+  max-width:var(--maxw);margin:0 auto;padding:1.25rem 1.35rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.top .logo{height:48px;width:auto}
+.top-mail{
+  font-size:.9rem;font-weight:600;color:var(--muted);text-decoration:none;
+}
+.top-mail:hover{color:var(--coral)}
+.hero{max-width:var(--maxw);margin:0 auto;padding:.75rem 1.35rem 1.5rem}
+.badge{
+  display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--coral);background:rgba(var(--coral-rgb),.1);
+  border:1px solid rgba(var(--coral-rgb),.3);padding:.42rem .95rem;border-radius:999px;margin-bottom:1.1rem;
+}
 h1{
-  font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,5vw,2.1rem);
-  line-height:1.25;color:var(--text);margin-bottom:.85rem;
+  font-family:var(--display);font-weight:800;font-size:clamp(2rem,5vw,2.75rem);
+  line-height:1.12;margin-bottom:.85rem;color:var(--navy);max-width:14ch;letter-spacing:-.03em;
 }
 h1 .go{color:var(--coral)}
-.lead{color:var(--muted);font-size:1rem;line-height:1.6;margin-bottom:1.5rem}
-.badge{
-  display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.03em;
-  color:var(--coral);background:rgba(var(--coral-rgb),.1);
-  border:1px solid rgba(var(--coral-rgb),.3);padding:.4rem .9rem;border-radius:999px;
-  margin-bottom:1.75rem;
+.lead{color:var(--muted);font-size:1.12rem;line-height:1.55;max-width:40ch}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.35rem 3rem}
+h2.sec{
+  font-family:var(--display);font-weight:800;font-size:clamp(1.25rem,3vw,1.45rem);
+  margin:2.25rem 0 .4rem;color:var(--navy);
 }
-.lista{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.75rem}
-.curso{
-  display:block;text-align:left;background:var(--surface);
-  border:1px solid var(--border);border-left:3px solid var(--accent, rgb(var(--theme-rgb)));
-  border-radius:12px;padding:.9rem 1.1rem;text-decoration:none;color:inherit;
-  transition:border-color .15s, background .15s, transform .15s;
+.sec-sub{color:var(--muted);font-size:.98rem;margin-bottom:1.15rem;line-height:1.5}
+.grid{display:grid;grid-template-columns:1fr;gap:1.05rem}
+@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+.card{
+  background:rgba(255,255,255,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid var(--border);border-radius:var(--r);
+  padding:1.45rem 1.4rem 1.25rem;display:flex;flex-direction:column;gap:.5rem;
+  border-left:4px solid var(--accent,#10A37F);
+  box-shadow:0 12px 36px rgba(20,25,40,.07);
 }
-.curso:hover{background:#141b30;border-color:rgba(255,107,74,.35);transform:translateY(-1px)}
-.curso strong{display:block;font-family:var(--display);font-size:1.02rem;margin-bottom:.2rem;color:var(--text)}
-.curso span{color:var(--muted);font-size:.88rem;line-height:1.45}
-.curso .go{font-size:.78rem;color:var(--coral);font-weight:600;margin-top:.35rem}
-.ig{
-  display:inline-flex;align-items:center;gap:.5rem;color:var(--text);
-  text-decoration:none;font-weight:600;font-size:.95rem;
-  border:1px solid var(--border);border-radius:12px;padding:.7rem 1.2rem;
-  transition:border-color .2s, background .2s;
+.card-head{display:flex;align-items:center;gap:.75rem;margin-bottom:.15rem}
+.card-logo{
+  width:44px;height:44px;border-radius:12px;flex-shrink:0;
+  background:rgba(20,25,40,.04);border:1px solid var(--border);
+  display:grid;place-items:center;padding:8px;
 }
-.ig:hover{border-color:var(--coral);background:rgba(var(--coral-rgb),.08)}
-.ig svg{width:18px;height:18px;flex-shrink:0}
+.card-logo img{width:100%;height:100%;object-fit:contain;display:block}
+.card-logo.dark{background:#111;border-color:#222}
+.card .lvl{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);margin:0}
+.card h3{font-family:var(--display);font-size:1.22rem;font-weight:800;line-height:1.2;color:var(--navy);margin:0}
+.card > p.desc{color:var(--muted);font-size:.98rem;line-height:1.5;flex:1;margin:.15rem 0}
+.price-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:.45rem .7rem;margin:.2rem 0}
+.price-list{color:var(--faint);text-decoration:line-through;font-size:1.05rem}
+.price-now{font-family:var(--display);font-weight:800;font-size:1.55rem;color:var(--navy)}
+.price-note{font-size:.84rem;color:var(--muted);line-height:1.4}
+.actions{
+  display:flex;flex-wrap:wrap;gap:.65rem;margin-top:.85rem;
+  justify-content:flex-end;align-items:center;width:100%;
+}
+.btn-buy{transition:all .25s;
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.72rem 1.2rem;border-radius:999px;font-weight:700;font-size:.95rem;
+  text-decoration:none;color:#fff!important;
+  background:var(--coral);border:1px solid var(--coral);
+  transition:filter .2s;
+}
+.btn-buy{transition:all .25s}
+.btn-buy:hover{filter:brightness(1.06);transform:translateX(3px)}
+.btn-go{
+  display:inline-flex;align-items:center;gap:9px;
+  font-weight:700;font-size:.95rem;color:var(--navy);text-decoration:none;
+  padding:.72rem 1.2rem;border-radius:13px;
+  background:rgba(20,25,40,.04);border:1px solid var(--border-strong);
+  transition:all .25s;
+}
+.btn-go:hover{transform:translateX(3px);border-color:var(--coral);color:var(--coral)}
+.note-box{
+  margin-top:2rem;padding:1.2rem 1.3rem;border-radius:16px;border:1px solid var(--border);
+  background:rgba(255,255,255,.86);backdrop-filter:blur(8px);
+  font-size:.95rem;color:var(--muted);line-height:1.55;
+  box-shadow:0 8px 24px rgba(20,25,40,.05);
+}
+.note-box strong{color:var(--navy)}
+footer.site{
+  max-width:var(--maxw);margin:0 auto;padding:2rem 1.35rem 3rem;
+  border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:.9rem;
+}
+footer.site .foot-logo{height:40px;width:auto;margin-bottom:.7rem}
+footer.site .socials{display:flex;justify-content:center;gap:.7rem;margin:.6rem 0 1.1rem}
+footer.site .soc{
+  width:46px;height:46px;border-radius:13px;border:1px solid var(--border-strong);
+  display:grid;place-items:center;color:var(--navy);background:rgba(255,255,255,.85);
+  transition:border-color .2s,color .2s,background .2s;
+}
+footer.site .soc:hover{border-color:var(--coral);color:var(--coral);background:rgba(var(--coral-rgb),.08)}
+footer.site .soc svg{width:19px;height:19px;fill:currentColor}
+footer.site .links{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.25rem;margin:.7rem 0}
+footer.site .links a{color:var(--navy);text-decoration:none;font-weight:600}
+footer.site .links a:hover{color:var(--coral)}
+footer.site p{margin:.4rem 0;line-height:1.5}
+footer.site p a{color:var(--coral);font-weight:600;text-decoration:none}
 </style>
 </head>
 <body>
-<div class="card">
+<canvas id="bg" aria-hidden="true"></canvas>
+<header class="top">
   <img src="assets/logo-coco-go.svg" class="logo" alt="COCO GO">
-  <span class="badge">4 cursos listos · acceso web</span>
+  <a class="top-mail" href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a>
+</header>
+
+<section class="hero">
+  <span class="badge">Cursos de IA · guías prácticas · acceso web</span>
   <h1>Cursos prácticos de <span class="go">IA</span> para tu negocio</h1>
-  <p class="lead">Guías paso a paso para emprendedores y PyMEs. Elegí un modelo y entrá.</p>
-  <div class="lista">
-    <a class="curso" style="--accent:#10A37F" href="chatgpt/">
-      <strong>ChatGPT para tu negocio</strong>
-      <span>Sistema IA: perfil, contenido, ventas y rutina semanal.</span>
-      <div class="go">Abrir curso →</div>
-    </a>
-    <a class="curso" style="--accent:#D97757" href="claude/">
-      <strong>Claude para tu negocio</strong>
-      <span>Documentos largos, Projects, escritura y Artifacts.</span>
-      <div class="go">Abrir curso →</div>
-    </a>
-    <a class="curso" style="--accent:#4285F4" href="gemini/">
-      <strong>Gemini para tu negocio</strong>
-      <span>Gems, imágenes, Deep Research y NotebookLM.</span>
-      <div class="go">Abrir curso →</div>
-    </a>
-    <a class="curso" style="--accent:#E8E8E8" href="grok/">
-      <strong>Grok para tu negocio</strong>
-      <span>Voz, tiempo real con X, archivos e Imagine.</span>
-      <div class="go">Abrir curso →</div>
-    </a>
+  <p class="lead">Guías paso a paso para emprendedores y PyMEs. Elegís el modelo, pagás, y el código de acceso te llega en minutos por email.</p>
+</section>
+
+<main class="wrap">
+  <h2 class="sec" id="basicos">Básicos — US$ 11,99</h2>
+  <p class="sec-sub">Cupón fundadores <strong style="color:var(--navy)">SOY100</strong> → <strong style="color:var(--navy)">US$ 2,99</strong> (cupo 100 en los 4 básicos). Ingresá el cupón en el checkout de Creem.</p>
+  <div class="grid">
+    <article class="card" style="--accent:#10A37F">
+      <div class="card-head">
+        <div class="card-logo"><img src="assets/logo-openai.svg" alt="OpenAI / ChatGPT"></div>
+        <div>
+          <p class="lvl">Básico</p>
+          <h3>ChatGPT para tu negocio</h3>
+        </div>
+      </div>
+      <p class="desc">Sistema IA: perfil, contenido, ventas y rutina semanal. 8 módulos con prompts y entregables reales.</p>
+      <div class="price-row"><span class="price-list">US$ 11,99</span><span class="price-now">US$ 2,99</span></div>
+      <p class="price-note">Con cupón SOY100 en checkout</p>
+      <div class="actions">
+        <a class="btn-go" href="chatgpt/">Ver curso →</a>
+        <a class="btn-buy" href="https://www.creem.io/coco-go" target="_blank" rel="noopener">Comprar →</a>
+      </div>
+    </article>
+    <article class="card" style="--accent:#D97757">
+      <div class="card-head">
+        <div class="card-logo"><img src="assets/logo-claude.svg" alt="Claude"></div>
+        <div>
+          <p class="lvl">Básico</p>
+          <h3>Claude para tu negocio</h3>
+        </div>
+      </div>
+      <p class="desc">Documentos largos, Projects, escritura y Artifacts. 7 módulos para propuestas e informes.</p>
+      <div class="price-row"><span class="price-list">US$ 11,99</span><span class="price-now">US$ 2,99</span></div>
+      <p class="price-note">Con cupón SOY100 en checkout</p>
+      <div class="actions">
+        <a class="btn-go" href="claude/">Ver curso →</a>
+        <a class="btn-buy" href="https://www.creem.io/coco-go" target="_blank" rel="noopener">Comprar →</a>
+      </div>
+    </article>
+    <article class="card" style="--accent:#4285F4">
+      <div class="card-head">
+        <div class="card-logo"><img src="assets/logo-gemini.svg" alt="Gemini"></div>
+        <div>
+          <p class="lvl">Básico</p>
+          <h3>Gemini para tu negocio</h3>
+        </div>
+      </div>
+      <p class="desc">Gems, imágenes, Deep Research y NotebookLM. 8 módulos si vivís en el ecosistema Google.</p>
+      <div class="price-row"><span class="price-list">US$ 11,99</span><span class="price-now">US$ 2,99</span></div>
+      <p class="price-note">Con cupón SOY100 en checkout</p>
+      <div class="actions">
+        <a class="btn-go" href="gemini/">Ver curso →</a>
+        <a class="btn-buy" href="https://www.creem.io/coco-go" target="_blank" rel="noopener">Comprar →</a>
+      </div>
+    </article>
+    <article class="card" style="--accent:#111111">
+      <div class="card-head">
+        <div class="card-logo dark"><img src="assets/logo-grok.svg" alt="Grok"></div>
+        <div>
+          <p class="lvl">Básico</p>
+          <h3>Grok para tu negocio</h3>
+        </div>
+      </div>
+      <p class="desc">Voz, tiempo real con X, archivos e Imagine. 7 módulos para pulso de marca y tendencia.</p>
+      <div class="price-row"><span class="price-list">US$ 11,99</span><span class="price-now">US$ 2,99</span></div>
+      <p class="price-note">Con cupón SOY100 en checkout</p>
+      <div class="actions">
+        <a class="btn-go" href="grok/">Ver curso →</a>
+        <a class="btn-buy" href="https://www.creem.io/coco-go" target="_blank" rel="noopener">Comprar →</a>
+      </div>
+    </article>
   </div>
-  <a class="ig" href="https://instagram.com/cocogo" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
-    @cocogo
-  </a>
-</div>
+
+  <h2 class="sec" id="intermedios">Intermedios — US$ 17,99</h2>
+  <p class="sec-sub">Precio regular (sin cupón fundadores). Automatización y sistemas sin código, un nivel arriba del básico.</p>
+  <div class="grid">
+    <article class="card" style="--accent:#D97757">
+      <div class="card-head">
+        <div class="card-logo"><img src="assets/logo-claude.svg" alt="Claude"></div>
+        <div>
+          <p class="lvl">Intermedio</p>
+          <h3>Claude · Intermedio</h3>
+        </div>
+      </div>
+      <p class="desc">Tu empleado por US$20: Cowork, tareas, conectores y base de conocimiento. Automatización sin código.</p>
+      <div class="price-row"><span class="price-now">US$ 17,99</span></div>
+      <div class="actions">
+        <a class="btn-go" href="claude-intermedio/">Ver curso →</a>
+        <a class="btn-buy" href="https://www.creem.io/coco-go" target="_blank" rel="noopener">Comprar →</a>
+      </div>
+    </article>
+    <article class="card" style="--accent:#4285F4">
+      <div class="card-head">
+        <div class="card-logo"><img src="assets/logo-gemini.svg" alt="Gemini"></div>
+        <div>
+          <p class="lvl">Intermedio</p>
+          <h3>Gemini · Intermedio</h3>
+        </div>
+      </div>
+      <p class="desc">Gems con Knowledge, paneles, NotebookLM y Google Business Profile. Sistema operativo para el negocio.</p>
+      <div class="price-row"><span class="price-now">US$ 17,99</span></div>
+      <div class="actions">
+        <a class="btn-go" href="gemini-intermedio/">Ver curso →</a>
+        <a class="btn-buy" href="https://www.creem.io/coco-go" target="_blank" rel="noopener">Comprar →</a>
+      </div>
+    </article>
+    <article class="card" style="--accent:#10A37F">
+      <div class="card-head">
+        <div class="card-logo"><img src="assets/logo-openai.svg" alt="ChatGPT"></div>
+        <div>
+          <p class="lvl">Intermedio</p>
+          <h3>ChatGPT · Intermedio</h3>
+        </div>
+      </div>
+      <p class="desc">Projects, Apps/conectores, GPTs y Tareas. Núcleo estable para operar el día a día con método.</p>
+      <div class="price-row"><span class="price-now">US$ 17,99</span></div>
+      <div class="actions">
+        <a class="btn-go" href="chatgpt-intermedio/">Ver curso →</a>
+        <a class="btn-buy" href="https://www.creem.io/coco-go" target="_blank" rel="noopener">Comprar →</a>
+      </div>
+    </article>
+  </div>
+
+  <div class="note-box">
+    <strong>Cómo funciona la compra.</strong> Pagás en Creem (Merchant of Record). El código de acceso te llega por email <strong>en minutos</strong>. En la página del curso lo ingresás y el contenido queda desbloqueado. Pack multi-curso: pausado por ahora.
+  </div>
+</main>
+
+<footer class="site">
+  <img src="assets/logo-coco-go.svg" class="foot-logo" alt="COCO GO">
+  <div class="socials">
+    <a class="soc" href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener" aria-label="Instagram @coco_go.lat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0-2.16C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.94 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg></a>
+    <a class="soc" href="https://x.com/cocogo" target="_blank" rel="noopener" aria-label="X @cocogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93ZM17.61 20.64h2.04L6.49 3.24H4.3Z"/></svg></a>
+  </div>
+  <div class="links">
+    <a href="privacidad.html">Política de privacidad</a>
+    <a href="terminos.html">Términos de servicio</a>
+    <a href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a>
+  </div>
+  <p>Soporte: <a href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a></p>
+  <p>© COCO GO 2026. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+/* mismo motor de red que los cursos (opacidades de curso, visible sobre claro) */
+(function(){
+  var c=document.getElementById('bg'); if(!c) return;
+  var ctx=c.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2);
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var RGB=(getComputedStyle(document.documentElement).getPropertyValue('--theme-rgb').trim())||'255,107,74';
+  var W,H,pts,raf;
+  function resize(){
+    W=c.clientWidth;H=c.clientHeight;
+    if(W<2||H<2){W=window.innerWidth;H=window.innerHeight;}
+    c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.min(100,Math.max(40,Math.floor(W*H/14000)));
+    pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2});
+  }
+  function frame(move){
+    ctx.clearRect(0,0,W,H);
+    var i,j,a,b,dx,dy,d,o;
+    if(move)for(i=0;i<pts.length;i++){a=pts[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;}
+    for(i=0;i<pts.length;i++)for(j=i+1;j<pts.length;j++){
+      a=pts[i];b=pts[j];dx=a.x-b.x;dy=a.y-b.y;d=dx*dx+dy*dy;
+      if(d<22000){
+        o=(1-d/22000)*.42;
+        ctx.strokeStyle='rgba('+RGB+','+o.toFixed(3)+')';
+        ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+      }
+    }
+    for(i=0;i<pts.length;i++){
+      a=pts[i];
+      ctx.fillStyle='rgba('+RGB+',.62)';
+      ctx.beginPath();ctx.arc(a.x,a.y,1.7,0,6.283);ctx.fill();
+    }
+  }
+  function loop(){frame(true);raf=requestAnimationFrame(loop);}
+  function start(){cancelAnimationFrame(raf);resize();reduce?frame(false):loop();}
+  start();
+  window.addEventListener('resize',start);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){start();});
+})();
+</script>
 </body>
 </html>
