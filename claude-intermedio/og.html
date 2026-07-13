@@ -1,0 +1,34 @@
+<!doctype html>
+<!-- PLANTILLA OG COCO GO (1200x630). Reutilizable por curso: cambiar --theme, título, chip y bajada.
+     Render: Chrome headless --screenshot=og.png --window-size=1200,630 file://.../og.html -->
+<html lang="es"><head><meta charset="utf-8">
+<style>
+  :root{--theme:#D97757;--theme-light:#E8A288;--theme-rgb:217,119,87;--ink:#EAF0F7;--bg:#0B0F1A;}
+  *{margin:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{background:
+      radial-gradient(1100px 600px at 78% -10%, rgba(var(--theme-rgb),.28), transparent 60%),
+      radial-gradient(800px 500px at 0% 120%, rgba(var(--theme-rgb),.10), transparent 55%),
+      #0B0F1A;
+    color:var(--ink);font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+    padding:74px 84px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+  .top{display:flex;align-items:center;gap:16px}
+  .top img{height:46px}
+  .chip{display:inline-block;background:rgba(var(--theme-rgb),.16);color:var(--theme-light);
+    border:1.5px solid rgba(var(--theme-rgb),.45);border-radius:999px;padding:7px 20px;
+    font-size:22px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+  h1{font-size:88px;line-height:1.02;font-weight:800;letter-spacing:-.02em;max-width:1000px}
+  h1 .grad{color:var(--theme-light)}
+  h1 .cl{height:.82em;width:.82em;vertical-align:-.06em;margin-right:.12em}
+  .sub{font-size:30px;color:#AeB8C9;margin-top:22px;font-weight:500}
+  .foot{display:flex;align-items:center;justify-content:space-between;font-size:24px;color:#8A96B0}
+  .foot b{color:var(--ink)}
+</style></head>
+<body>
+  <div class="top"><img src="../assets/logo-coco-go.svg" alt="COCO GO"><span class="chip">Nivel Intermedio</span></div>
+  <div>
+    <h1><img class="cl" src="../assets/logo-claude.svg" alt="">Claude para tu negocio,<br><span class="grad">tu empleado por US$20.</span></h1>
+    <div class="sub">Automatizá tu negocio con Claude — sin código. Cowork, tareas que corren solas, conectores y memoria grande.</div>
+  </div>
+  <div class="foot"><span>Curso interactivo · 7 módulos</span><span><b>coco-go.github.io</b></span></div>
+</body></html>

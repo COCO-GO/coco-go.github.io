@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Claude para tu negocio · Intermedio — COCO GO</title>
+<meta name="description" content="Curso intermedio de Claude para emprendedores y PyMEs: Cowork, tareas agendadas, conectores y Projects con memoria grande. 7 módulos, en español, sin tecnicismos." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Claude para tu negocio · Intermedio — COCO GO" />
+<meta property="og:description" content="El empleado que ya trabaja solo: delegá trabajos completos, ponelos en piloto automático, conectá tus herramientas y cargale la memoria de tu negocio. 7 módulos con entregables reales." />
+<meta property="og:site_name" content="COCO GO" />
+<meta property="og:url" content="https://coco-go.github.io/claude-intermedio/" />
+<meta property="og:image" content="https://coco-go.github.io/claude-intermedio/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="es_AR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Claude para tu negocio · Intermedio — COCO GO" />
+<meta name="twitter:description" content="Cowork, tareas agendadas, conectores y memoria grande. 7 módulos con prompts, plantillas y entregables reales." />
+<meta name="twitter:image" content="https://coco-go.github.io/claude-intermedio/og.png" />
+<meta name="theme-color" content="#D97757" />
+<link rel="canonical" href="https://coco-go.github.io/claude-intermedio/" />
+<link rel="icon" type="image/svg+xml" href="../assets/logo-coco-go.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+:root{--theme:#D97757; --theme-light:#E8A288; --theme-rgb:217,119,87; --theme-dark:#C15F3C;}
+/* botones-link dentro de card alineados a la derecha (regla de marca — solo este curso, no toca assets/style.css) */
+.next{display:flex;flex-direction:column}
+.cn-card{transition:transform .18s ease}
+@media(hover:hover){.cn-card:hover{transform:scale(1.02)}}
+.lvl-chip{display:inline-block;margin:0 0 12px;background:rgba(var(--theme-rgb),.14);color:var(--theme-light);border:1px solid rgba(var(--theme-rgb),.38);border-radius:999px;padding:3px 13px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.next .go{align-self:flex-end}
+</style>
+</head>
+<body>
+
+<div class="access-gate" id="access-gate" hidden>
+  <div class="access-gate-card access-gate-sale">
+    <div class="ag-top">
+      <a class="ag-home" href="../">← Todos los cursos</a>
+      <div class="ag-badge">Intermedio · Acceso web</div>
+    </div>
+    <div class="ag-coco-brand"><img src="../assets/logo-coco-go.svg" alt="COCO GO"></div>
+<div class="ag-title">
+      <h2><img class="ag-brand-ico" src="../assets/logo-claude.svg" alt="" aria-hidden="true"><span>Claude · Intermedio,<br><span class="grad">paso a paso.</span></span></h2>
+    </div>
+<p class="ag-lead">Automatización sin código con Claude: Cowork, tareas agendadas, conectores y base de conocimiento. El salto después del básico — tu empleado por el plan de pago de Claude.</p>
+    <ul class="ag-bullets">
+      <li>7 módulos de automatización sin código</li>
+      <li>Projects, memoria y flujos del día a día</li>
+      <li>Diseñado como delta real sobre el básico</li>
+    </ul>
+    <div class="ag-price">
+      <div class="ag-price-row">
+        <span class="ag-list ag-solo">US$ 17,99</span>
+      </div>
+      <span class="ag-note">Precio regular del nivel intermedio. Pago único · acceso con código por email.</span>
+    </div>
+    <a class="ag-buy" href="https://www.creem.io/coco-go" target="_blank" rel="noopener">Comprar ahora →</a>
+    <p class="ag-after">El pago se procesa en Creem. El código de acceso te llega por email <strong>en minutos</strong>. Si ya lo tenés, ingresalo acá:</p>
+    <hr class="ag-divider" />
+    <label class="access-gate-field" for="access-code-input">
+      <span class="access-gate-label">Código de acceso (si ya compraste)</span>
+      <input type="text" id="access-code-input" name="access-code" placeholder="Código de acceso…" autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text" />
+    </label>
+    <button type="button" id="access-code-submit">Entrar al curso →</button>
+    <p class="access-gate-error" id="access-gate-error" aria-live="polite"></p>
+    <p class="ag-legal">
+      Soporte: <a href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a>
+      · <a href="../privacidad.html">Privacidad</a>
+      · <a href="../terminos.html">Términos</a>
+      · <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat</a>
+    </p>
+  </div>
+</div>
+
+<canvas id="bg"></canvas>
+
+<!-- 12 pestañas -->
+<input class="tab" type="radio" name="coco-tab" id="t-inicio" checked>
+<input class="tab" type="radio" name="coco-tab" id="t-gloss">
+<input class="tab" type="radio" name="coco-tab" id="t-m1">
+<input class="tab" type="radio" name="coco-tab" id="t-m2">
+<input class="tab" type="radio" name="coco-tab" id="t-m3">
+<input class="tab" type="radio" name="coco-tab" id="t-m4">
+<input class="tab" type="radio" name="coco-tab" id="t-m5">
+<input class="tab" type="radio" name="coco-tab" id="t-m6">
+<input class="tab" type="radio" name="coco-tab" id="t-m7">
+<input class="tab" type="radio" name="coco-tab" id="t-apps">
+<input class="tab" type="radio" name="coco-tab" id="t-bonus">
+<input class="tab" type="radio" name="coco-tab" id="t-verif">
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="brandbar">
+  <div class="wrap">
+    <div class="brand">
+      <img src="../assets/logo-coco-go.svg" class="brand-logo" alt="COCO GO">
+    </div>
+    <span class="theme-chip"><span class="dot"></span>Curso · Claude Intermedio</span>
+  </div>
+</header>
+
+<nav class="modnav">
+  <div class="wrap">
+    <div class="progwrap" role="progressbar" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" aria-label="Progreso del curso">
+      <div class="progtrack"><div class="progfill"></div></div>
+      <span class="proglabel">0/7</span>
+    </div>
+    <div class="scroll">
+    <label class="pill p-inicio" for="t-inicio">Inicio</label>
+    <label class="pill p-apps" for="t-apps">Aplicaciones</label>
+    <label class="pill p-gloss" for="t-gloss">Glosario</label>
+    <label class="pill p-m1" for="t-m1">1 · El salto</label>
+    <label class="pill p-m2" for="t-m2">2 · Delegá trabajos</label>
+    <label class="pill p-m3" for="t-m3">3 · Piloto automático</label>
+    <label class="pill p-m4" for="t-m4">4 · Conectá herramientas</label>
+    <label class="pill p-m5" for="t-m5">5 · Memoria grande</label>
+    <label class="pill p-m6" for="t-m6">6 · Sistema que trabaja solo</label>
+    <label class="pill p-m7" for="t-m7">7 · Claude Code</label>
+    <label class="pill p-verif" for="t-verif">Verificación</label>
+    <label class="pill p-bonus" for="t-bonus">Bonus</label>
+  </div></div>
+</nav>
+
+<main class="wrap" id="contenido" tabindex="-1">
+
+  <!-- ═══ INICIO ═══ -->
+  <section class="panel" id="p-inicio">
+    <span class="eyebrow"><span class="pulse"></span>· Intermedio · el empleado que ya trabaja solo</span>
+    <span class="lvl-chip">Nivel Intermedio</span>
+    <h1><img src="../assets/logo-claude.svg" alt="" style="width:.85em;height:.85em;vertical-align:-.08em;margin-right:.15em" aria-hidden="true">Claude para tu negocio,<br><span class="grad">tu empleado por US$20.</span></h1>
+    <p class="lead">En el básico, Claude era un empleado nuevo: muy capaz, pero necesitaba que le explicaras todo cada vez. Acá ese empleado ya conoce el trabajo — y puede hacerlo <strong>solo</strong>. Le delegás trabajos completos, lo ponés en piloto automático, lo conectás a tus herramientas y le cargás la memoria grande de tu negocio.</p>
+    <div class="cta-row">
+      <label class="btn btn-primary" for="t-m1">Empezar el módulo 1 →</label>
+      <label class="btn btn-ghost" for="t-gloss">Ver el glosario</label>
+    </div>
+    <div class="trust">
+      <div class="t"><b>7</b><span>módulos concatenados</span></div>
+      <div class="t"><b>US$20</b><span>Pro — el plan con el que se hace este curso</span></div>
+      <div class="t"><b>5</b><span>automatizaciones reales al terminar</span></div>
+      <div class="t"><b>100%</b><span>celular y computadora</span></div>
+    </div>
+
+    <div class="card card-step" style="margin-top:26px">
+      <h3>🔗 ¿Venís del básico?</h3>
+      <p>Este curso asume que ya sabés usar el chat de Claude (crear cuenta, escribirle bien, subir un archivo). Si todavía no hiciste el básico, es la base natural antes de arrancar acá: <a href="../claude/">Claude para tu negocio · básico →</a></p>
+    </div>
+
+    <div class="card card-map">
+      <h3>🗺️ El mapa de este curso</h3>
+      <p><strong>El salto (Mód. 1):</strong> activás Pro y programás tu primera tarea automática.<br>
+      <strong>Automatización (Mód. 2–3):</strong> Cowork para trabajos completos → tareas agendadas para que se repitan solas.<br>
+      <strong>Alcance (Mód. 4–5):</strong> conectás tus herramientas de negocio → le cargás la memoria grande con Project y RAG.<br>
+      <strong>Sistema (Mód. 6–7):</strong> armás la rutina que conecta todo → te asomás a Claude Code, el nivel avanzado.</p>
+      <p style="margin-top:8px;font-size:.9rem;color:var(--faint)">Hacelos en orden la primera vez — cada módulo asume lo que dejó el anterior (lo vas a ver marcado como "módulo 2, <em>Delegá trabajos completos</em>", nunca como una sigla pelada).</p>
+    </div>
+  </section>
+
+  <!-- ═══ GLOSARIO ═══ -->
+  <section class="panel" id="p-gloss">
+    <div class="sec-head"><span class="numchip" style="font-size:1.25rem">Aa</span><h2>Glosario · 52 conceptos clave</h2></div>
+    <p class="sec-sub">Este glosario asume que ya hiciste el básico (ahí quedaron definidos Chat, Prompt, Artifact, Project simple, Ventana de contexto, Tokens). Acá entra lo NUEVO de este nivel: automatización, conectores, memoria grande y el mapa hacia lo técnico.</p>
+
+    <p style="font-weight:700;color:var(--theme-light);font-size:1.02rem;margin:4px 0 10px">👉 ¿Una palabra te traba en algún módulo? Buscala acá.</p>
+    <div class="gloss-search"><span>🔎</span><input id="gloss-q" placeholder="Buscar un término…" autocomplete="off"></div>
+
+    <div class="card card-kit">
+      <h3>📦 Tu kit al terminar — soluciones en archivos</h3>
+      <p>No es material de estudio. Es lo que abrís cuando tenés que tocar tu sistema de automatización:</p>
+      <div class="foldertree">
+        <div class="root"><span>📁</span> Sistema IA/Automatización/</div>
+        <div class="kids">
+          <div class="ft-row"><span class="ft-file"><span>📄</span>01-primera-automatizacion</span><span class="ft-arrow">→</span><span class="ft-desc">Pro activado + primera tarea agendada</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>02-trabajo-delegado</span><span class="ft-arrow">→</span><span class="ft-desc">un trabajo multi-paso resuelto con Cowork</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>03-tarea-agendada</span><span class="ft-arrow">→</span><span class="ft-desc">ese trabajo, corriendo solo con su frecuencia</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>04-herramienta-conectada</span><span class="ft-arrow">→</span><span class="ft-desc">un conector activo, sumado a una automatización</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>05-project-base</span><span class="ft-arrow">→</span><span class="ft-desc">base de conocimiento real, con RAG si corresponde</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>06-sistema-operativo</span><span class="ft-arrow">→</span><span class="ft-desc">rutina semanal + modelo por tarea + créditos</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>07-mapa-avanzado</span><span class="ft-arrow">→</span><span class="ft-desc">tu decisión razonada sobre Claude Code</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-map" style="margin-bottom:14px">
+      <h3>📩 Carta al alumno</h3>
+      <p>El básico te enseñó a pedirle bien las cosas a Claude. Acá el salto no es "pedir mejor" — es <strong>dejar de ser vos el que se acuerda de pedirlo cada vez</strong>. Eso vale Pro (US$20/mes), y solo rinde si de verdad delegás, agendás y conectás — no si activás el plan y seguís copiando y pegando como en el básico.</p>
+      <p>Si terminás los 7 módulos con al menos una pieza de cada uno funcionando de verdad en tu negocio, vas a tener un sistema que trabaja mientras vos atendés — no siete demos sueltas.</p>
+    </div>
+
+    <div class="card card-step" style="margin-bottom:14px">
+      <h3>⚙️ Antes de empezar</h3>
+      <ul>
+        <li>Haber hecho (o poder hacer) el básico de Claude — no es cero absoluto.</li>
+        <li>El plan <strong>Pro (US$20/mes)</strong> activo — sin él, casi nada de este curso se puede hacer (lo activás en el módulo 1).</li>
+        <li>La carpeta <code>Sistema IA/Automatización/</code> lista para guardar los 7 entregables.</li>
+        <li>Datos reales de tu negocio: qué se repite siempre igual, qué herramientas usás además de Google, qué documentos tenés desparramados.</li>
+      </ul>
+    </div>
+
+    <div class="gloss-list" id="gloss-list">
+
+      <p class="gloss-group">Planes, modelo y cuenta</p>
+
+      <div class="gitem"><button class="gterm">Plan Free<span class="chev">+</span></button><div class="gdef"><p>El plan gratuito. Alcanza para todo el básico, pero NO incluye ninguna de las herramientas de este curso (Cowork, tareas agendadas, Projects ilimitados, Claude Code).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Plan Pro (US$20/mes)<span class="chev">+</span></button><div class="gdef"><p>US$20/mes, o US$17/mes pagando anual. El plan con el que se hace este curso entero. Desbloquea sobre Free: Cowork, tareas agendadas, Projects ilimitados con base de conocimiento (RAG), acceso a más modelos y Claude Code.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Plan Max<span class="chev">+</span></button><div class="gdef"><p>Desde US$100/mes. La misma caja de herramientas que Pro, con 5 a 20 veces más uso, salidas más largas y acceso prioritario a modelos nuevos. Conviene cuando Cowork y tus tareas agendadas ya son rutina diaria y chocás seguido con el límite de uso a mitad de semana.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Selector de modelo<span class="chev">+</span></button><div class="gdef"><p>El nombre del modelo, al lado del botón de enviar del chat. Tocándolo elegís con qué modelo trabaja Claude en esa conversación o tarea — se puede cambiar cuando quieras, no queda fijo.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Sonnet 5<span class="chev">+</span></button><div class="gdef"><p>El modelo por defecto en Free y Pro. Rinde de sobra para la enorme mayoría de tareas de este curso: mensajes, resúmenes, la mayoría de los trabajos delegados.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Fable 5<span class="chev">+</span></button><div class="gdef"><p>El modelo tope de línea, más capaz. Se reserva para lo realmente exigente — cruces de información grandes, informes largos y complejos, trabajos de Cowork con muchas partes que dependen unas de otras. Usarlo "por las dudas" en todo consume más créditos de los necesarios.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Opus 4.8<span class="chev">+</span></button><div class="gdef"><p>El modelo al que Claude re-corre tu tarea automáticamente si Fable 5 aparece bloqueado (por ejemplo, por un pico de demanda). No tenés que hacer nada para que pase.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Créditos de uso<span class="chev">+</span></button><div class="gdef"><p>Cada plan trae un uso incluido (chat, Cowork, tareas agendadas, Projects). Cuando se agota, lo que sigue se cobra a tarifa API; el uso incluido se repone cada ~5 horas.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Tarifa API<span class="chev">+</span></button><div class="gdef"><p>El precio estándar por uso que se cobra cuando superás el uso incluido de tu plan — la misma tarifa que pagan quienes desarrollan con Claude.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Settings &gt; Usage<span class="chev">+</span></button><div class="gdef"><p>El panel donde ves cuánto uso llevás consumido, habilitás el uso pago cuando se agota el incluido, cargás fondos, activás auto-reload y ponés (o no) un tope mensual.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Auto-reload<span class="chev">+</span></button><div class="gdef"><p>La recarga automática de fondos en Settings &gt; Usage, para que una tarea no se corte a mitad de camino por falta de crédito.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Límites de uso (dinámicos)<span class="chev">+</span></button><div class="gdef"><p>No hay un número fijo publicado de mensajes o uso por plan — es un presupuesto que se gasta con chats largos, archivos y herramientas, y se repone con el tiempo (ventana de ~5 horas más un límite semanal). Cifras como "25 por día" que circulan por internet son de terceros, no oficiales: guiate por lo que ves vos en Settings &gt; Usage.</p></div></div>
+
+      <p class="gloss-group">Automatización: Cowork y tareas agendadas</p>
+
+      <div class="gitem"><button class="gterm">Cowork<span class="chev">+</span></button><div class="gdef"><p>La herramienta para delegar un trabajo COMPLETO de varios pasos (no un texto suelto). Le describís el resultado que necesitás, Claude te propone un plan, vos lo aprobás (o ajustás) y recién ahí ejecuta. Solo en planes pagos.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Plan propuesto (de Cowork)<span class="chev">+</span></button><div class="gdef"><p>La lista de pasos que Claude te muestra ANTES de tocar un archivo, para que la revises y apruebes o corrijas. Es la pausa que evita rehacer un trabajo mal entendido.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Trabajo delegado<span class="chev">+</span></button><div class="gdef"><p>Un trabajo de varios pasos (leer, comparar, ordenar, armar un resultado) que le confiaste de punta a punta a Cowork, en vez de hacerlo vos a mano.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Comando<span class="chev">+</span></button><div class="gdef"><p>Una instrucción de texto exacta que le escribís a Claude para que haga algo puntual, como <code>/schedule</code>. A diferencia de un pedido en lenguaje natural, un comando tiene una forma fija: se escribe tal cual, no se parafrasea.</p></div></div>
+
+      <div class="gitem"><button class="gterm">/schedule<span class="chev">+</span></button><div class="gdef"><p>El comando que escribís tal cual en el chat (con la barra adelante) para que Claude arme una tarea que se repita sola. Te pregunta qué querés que haga, con qué frecuencia y a qué hora.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Tarea agendada / programada<span class="chev">+</span></button><div class="gdef"><p>Un trabajo (chico como un mensaje, o completo como uno de Cowork) que corre solo, con la frecuencia que definiste, sin que vuelvas a pedirlo cada vez.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Frecuencia (hourly/daily/weekly/weekdays/manual)<span class="chev">+</span></button><div class="gdef"><p>Cada cuánto corre una tarea agendada. <em>Hourly</em> = cada hora (poco común en una PyME chica). <em>Daily</em> = todos los días (stock, caja, novedades urgentes). <em>Weekly</em> = una vez por semana (reportes, resúmenes que se acumulan). <em>Weekdays</em> = como daily pero solo de lunes a viernes. <em>Manual</em> = la tarea queda armada pero no se dispara sola: la lanzás vos cuando querés controlar el momento exacto.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Panel lateral<span class="chev">+</span></button><div class="gdef"><p>La franja fija a un costado de la pantalla de Claude, con accesos como "Scheduled" o el botón "+" de un Project. Es distinto del cuadro de chat central: ahí administrás, no conversás.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Panel "Scheduled"<span class="chev">+</span></button><div class="gdef"><p>La sección del panel lateral donde ves todas tus tareas agendadas, con nombre, frecuencia y estado — tu tablero de control, no tu memoria.</p></div></div>
+
+      <div class="gitem"><button class="gterm">"New task"<span class="chev">+</span></button><div class="gdef"><p>El botón dentro de "Scheduled" para crear una tarea agendada a mano, sin pasar por el comando <code>/schedule</code>. Completás nombre, descripción y frecuencia.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Editar / Pausar / Borrar una tarea agendada<span class="chev">+</span></button><div class="gdef"><p>El ciclo de mantenimiento de una tarea. Editar cuando cambian las condiciones del negocio; pausar cuando no aplica por un tiempo sin perder la configuración; borrar cuando ya cumplió su ciclo y sigue gastando uso de arriba.</p></div></div>
+
+      <p class="gloss-group">Conectores y MCP</p>
+
+      <div class="gitem"><button class="gterm">Conector<span class="chev">+</span></button><div class="gdef"><p>El puente ya construido entre Claude y otra herramienta de tu negocio (Notion, Canva, Stripe, Linear, entre otros). Alguien más hizo el trabajo técnico; vos solo elegís, autorizás y usás.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Connectors<span class="chev">+</span></button><div class="gdef"><p>La sección de tu cuenta de Claude (se llega por Customize → Connectors) donde agregás, ves y administrás tus conectores.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Directorio de conectores<span class="chev">+</span></button><div class="gdef"><p>El catálogo completo de conectores disponibles, en claude.ai/directory. Va cambiando — no hace falta memorizar un número total.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Conector custom<span class="chev">+</span></button><div class="gdef"><p>Un conector que agregás pegando una URL que te dio un proveedor directamente (en vez de elegirlo de la lista del directorio), vía "+" → "Add custom connector".</p></div></div>
+
+      <div class="gitem"><button class="gterm">B2B (business to business)<span class="chev">+</span></button><div class="gdef"><p>Una empresa que le vende a otras empresas, no directo al consumidor final. Se usa acá porque algunos proveedores B2B te dan directamente la URL de un conector custom, en vez de aparecer en el directorio general.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Autenticar / Autenticarse<span class="chev">+</span></button><div class="gdef"><p>Confirmar que sos vos el dueño de una cuenta, iniciando sesión con tu usuario y contraseña habituales de esa herramienta (Notion, Stripe, etc.). Es el mismo paso de siempre que hacés para entrar a cualquier app — acá lo hacés una vez para que Claude quede autorizado a leerla.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Permisos (de un conector)<span class="chev">+</span></button><div class="gdef"><p>El alcance exacto que le das a un conector cuando lo autenticás: qué puede ver y qué puede hacer en esa herramienta. Algunos conectores son de solo lectura (Claude solo mira tus datos); otros también permiten escribir o crear contenido. Conviene leer esa pantalla antes de aceptar, no aceptarla de taco.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Verificación en dos pasos<span class="chev">+</span></button><div class="gdef"><p>Un paso extra de seguridad al iniciar sesión: además de tu contraseña, te piden un código que llega por mensaje de texto, mail o una app aparte. Si tu herramienta la tiene activada, te la va a pedir también al conectarla con Claude.</p></div></div>
+
+      <div class="gitem"><button class="gterm">MCP (Model Context Protocol)<span class="chev">+</span></button><div class="gdef"><p>El protocolo técnico que hace posible un conector. Usar un conector ya construido con MCP es 100% no-técnico (elegís, autenticás). Construir un servidor MCP propio —para un sistema interno que no tiene conector todavía— es programación (Python): eso ya es terreno de Claude Code, el módulo 7.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Conector remoto<span class="chev">+</span></button><div class="gdef"><p>Un conector que se conecta por internet a un servidor externo (la mayoría de los del directorio). Disponible solo en planes pagos.</p></div></div>
+
+      <p class="gloss-group">Memoria grande: Project y RAG</p>
+
+      <div class="gitem"><button class="gterm">Project<span class="chev">+</span></button><div class="gdef"><p>Tu espacio propio en Claude con historial, instrucciones y documentos cargados una vez, para que cualquier chat de ese Project ya "sepa" de tu negocio.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Base de conocimiento<span class="chev">+</span></button><div class="gdef"><p>Los documentos que subís a un Project con el botón "+" (catálogo, manual, precios, históricos) para que Claude los use como contexto. Hasta 30MB por archivo, sin tope de cantidad.</p></div></div>
+
+      <div class="gitem"><button class="gterm">RAG (Retrieval-Augmented Generation)<span class="chev">+</span></button><div class="gdef"><p>La técnica de búsqueda que Claude activa SOLO cuando la base de conocimiento de un Project se acerca al límite de lo que entra en una lectura normal, sin que vos configures nada. En vez de intentar leer todo de una vez, busca las partes específicas que responden cada pregunta, y expande la capacidad del Project hasta ~10 veces.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Ventana de contexto<span class="chev">+</span></button><div class="gdef"><p>Cuánto puede "tener en la cabeza" Claude de una sola pasada, en un chat normal. Es el límite que, al acercarse, dispara el RAG automático de un Project grande.</p></div></div>
+
+      <p class="gloss-group">Agente, Claude Code y extras</p>
+
+      <div class="gitem"><button class="gterm">Agente / agéntico<span class="chev">+</span></button><div class="gdef"><p>Una forma de trabajar donde Claude no solo contesta, sino que actúa por su cuenta —sigue un plan, corre pasos, coordina tareas— para llegar a un resultado, en vez de esperar una instrucción por vez. Cowork y Claude Code son ejemplos de esto.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Claude Code<span class="chev">+</span></button><div class="gdef"><p>La herramienta agéntica de Anthropic para desarrollo: lee el código de un proyecto, edita archivos, corre comandos y se integra con herramientas de desarrollo. Vive en terminal, IDE, Desktop app y web (claude.ai/code). Requiere plan pago (Pro o API), no Free. Es el nivel avanzado — este curso lo presenta, no lo enseña (módulo 7).</p></div></div>
+
+      <div class="gitem"><button class="gterm">Terminal<span class="chev">+</span></button><div class="gdef"><p>La pantalla de texto donde se le dan instrucciones a la computadora escribiendo comandos, en vez de hacer clic con el mouse. Es uno de los cuatro lugares donde vive Claude Code — terreno de desarrollador, no hace falta para nada de los módulos 1 a 6.</p></div></div>
+
+      <div class="gitem"><button class="gterm">IDE<span class="chev">+</span></button><div class="gdef"><p>Sigla de "entorno de desarrollo integrado" (Integrated Development Environment): el programa que usan los desarrolladores para escribir y editar código (por ejemplo VS Code o JetBrains). Es otro de los lugares donde vive Claude Code.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Desktop app<span class="chev">+</span></button><div class="gdef"><p>La versión de Claude instalada en tu computadora (además de la web y la app de celular). Necesaria cuando Cowork tiene que tocar archivos guardados en tu compu o navegar la web por vos.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Add-in<span class="chev">+</span></button><div class="gdef"><p>Un complemento que se instala DENTRO de otro programa (en este caso, Excel) para sumarle una función nueva sin salir de esa herramienta. Claude for Excel es un add-in: no es una app aparte, vive adentro de tu Excel de siempre.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Claude for Excel<span class="chev">+</span></button><div class="gdef"><p>Add-in de pago que trabaja con fórmulas reales dentro de Excel (a nivel celda), preservando la lógica del archivo. No Free.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Extensión (de navegador)<span class="chev">+</span></button><div class="gdef"><p>Un programa chico que se instala dentro de tu navegador (Chrome, por ejemplo) para sumarle una función extra. Claude in Chrome es una extensión: aparece como un ícono más en tu navegador y actúa usando las páginas que ya tenés abiertas.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Claude in Chrome<span class="chev">+</span></button><div class="gdef"><p>Extensión de pago que lee, hace clic y navega sitios web junto con vos, usando tus sesiones ya iniciadas ("como vos"). No Free.</p></div></div>
+      <div class="gitem"><button class="gterm">Navegador de Claude Code (Desktop)<span class="chev">+</span></button><div class="gdef"><p>Distinto de la extensión de Chrome. Es un navegador integrado dentro de Claude Code en la app de escritorio (se abre con <code>Cmd+Shift+B</code>), con un perfil limpio para probar y desarrollar — no usa tus sesiones logueadas. Terreno técnico, plan pago; lo presenta el módulo 7. Novedad de julio 2026.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Perfil limpio<span class="chev">+</span></button><div class="gdef"><p>Una sesión de navegador que arranca sin tus datos guardados (usuarios, contraseñas, historial). El navegador integrado de Claude Code usa un perfil limpio a propósito, para probar y desarrollar sin mezclarse con tus cuentas reales — es distinto de Claude in Chrome, que sí usa tus sesiones ya iniciadas.</p></div></div>
+
+      <p class="gloss-group">Método del curso</p>
+
+      <div class="gitem"><button class="gterm">Sistema IA/Automatización/<span class="chev">+</span></button><div class="gdef"><p>La carpeta única donde vas guardando, entregable por entregable, la prueba de que cada pieza de este curso quedó andando de verdad en tu negocio.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Entregable<span class="chev">+</span></button><div class="gdef"><p>Lo que guardás al final de cada módulo (<code>01-primera-automatizacion</code> … <code>07-mapa-avanzado</code>) — no un resumen para archivar, la prueba de que algo real quedó funcionando.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Rutina semanal / sistema operativo<span class="chev">+</span></button><div class="gdef"><p>El mapa que armás en el módulo 6, que conecta las piezas de los módulos 2 a 5 (qué corre, cuándo, con qué herramienta y con qué modelo) en vez de operarlas una por una.</p></div></div>
+
+      <div class="gitem"><button class="gterm">Respuesta genérica<span class="chev">+</span></button><div class="gdef"><p>Una respuesta correcta pero que le serviría a cualquier negocio, porque no usó tus datos reales. En una tarea agendada o un trabajo de Cowork, una respuesta genérica que nadie corrige se repite sola, semana tras semana — por eso conviene revisar los primeros resultados, no confiar a ciegas desde el día uno.</p></div></div>
+
+    </div>
+
+    <div class="card card-plantilla" style="margin-top:14px">
+      <h3>🔁 El prompt universal de refinamiento</h3>
+      <p>Cuando Cowork, una tarea agendada o cualquier chat te devuelve algo genérico o tibio, no lo tirés ni lo dejés correr así — usá este prompt para que lo mejore con tus datos reales. Sirve tanto para un resultado suelto como para editar la descripción de una tarea que ya tenés programada:</p>
+      <div class="prompt">
+        <div class="top"><span>prompt · refinamiento universal</span><button class="copy">Copiar</button></div>
+        <pre>Revisá tu [respuesta / el resultado de esta tarea agendada / el plan que propusiste].
+Está genérico/no me sirve porque [explicá qué falla: muy largo, no usa mis datos,
+no cruzó lo que le pedí, etc.].
+
+Ajustalo usando estos datos reales de mi negocio: [pegá acá precios, horarios, tono,
+el archivo o herramienta conectada que corresponda]. Si esto va a repetirse solo
+(tarea agendada o Cowork), actualizá también la descripción para que la próxima vez
+ya salga así.</pre>
+      </div>
+      <p style="margin-top:10px">Funciona en cualquier chat, dentro o fuera de Cowork, y en cualquier módulo de este curso — es tu herramienta para cuando "salió, pero no es lo que necesitaba mi negocio".</p>
+    </div>
+
+    <p class="gloss-note">Tocá un término para ver la definición. El buscador filtra en tiempo real.</p>
+  </section>
+
+  <!-- ═══ MÓDULO 1 ═══ -->
+  <section class="panel" id="p-m1">
+    <div class="sec-head"><span class="numchip">01</span><h2>El salto: que Claude trabaje por vos</h2></div>
+    <p class="sec-sub">En el básico, Claude era como un empleado nuevo: muy capaz, pero sin contexto, y todo pasaba por vos. Acá ese mismo empleado ya conoce el trabajo y puede hacerlo solo. Este módulo es la bisagra: activás el plan que lo permite y salís con UNA automatización real, corriendo sola, antes de terminar de leer esta página.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Si tenés Pro activo (o lo activás ahora — dos minutos) y 10 minutos libres: abrí el chat de Claude, escribí <code>/schedule</code>, contestá las tres preguntas cortas (qué querés que haga, con qué frecuencia, a qué hora) y confirmá con "Schedule". Elegí algo chico y real: "todos los lunes a las 8, armame un mensaje corto de novedades o promo para mandar por WhatsApp". Listo — eso ya es una tarea que se ejecuta sola.</p></div></div>
+
+    <div class="card card-sol">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> en el básico aprendiste a pedirle bien las cosas a Claude, pero el que se tiene que acordar de abrir el chat, escribir el pedido y usar la respuesta seguís siendo vos. Si te olvidás un día, esa tarea no se hace.</p>
+      <p><strong>Te llevás:</strong> el plan Pro activado (la llave que abre Cowork, tareas agendadas, Projects ilimitados, más modelos y Claude Code) y una primera tarea real corriendo en piloto automático.</p>
+      <p><strong>Lo usás cuando:</strong> ya hiciste el básico, ya sabés escribirle bien a Claude, y sentís que el límite ya no es "qué pedirle" sino "quién se acuerda de pedirlo cada vez".</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Terminar con tres cosas resueltas: (1) el plan Pro activo en tu cuenta, (2) criterio propio para saber cuándo Pro alcanza y cuándo conviene Max, y (3) una automatización real —aunque sea chica— corriendo sola, guardada como tu primer entregable.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>El básico se hace entero con Free. Pero Cowork, las tareas agendadas, los Projects sin tope, más modelos y Claude Code son beneficios que Free directamente no tiene: sin Pro, no podés hacer ninguna de las cosas que este curso enseña a partir de acá. El error típico es activar Pro y seguir copiando y pegando a mano, igual que en el básico — eso es pagar de más por lo mismo. Este módulo existe para que eso no te pase.</p></div></div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 1 — Mirá los tres planes con la pregunta que importa: ¿cuál me deja automatizar?</h3>
+      <p>No es una comparación de features en abstracto — es la puerta de entrada a todo el curso. Free te deja usar Claude, pero no te deja delegarle nada que corra sin vos. Pro sí.</p>
+      <div class="planes">
+        <div class="plan-card">
+          <h4>Free</h4><span class="price">$0</span>
+          <ul>
+            <li>Chat, análisis, Artifacts, Projects hasta 5</li>
+            <li>NO incluye Cowork</li>
+            <li>NO incluye tareas agendadas</li>
+            <li>NO incluye Claude Code</li>
+          </ul>
+        </div>
+        <div class="plan-card">
+          <h4>Pro</h4><span class="price">US$20/mes (US$17 anual)</span>
+          <ul>
+            <li>Cowork — módulo 2</li>
+            <li>Tareas agendadas — módulo 3</li>
+            <li>Projects ilimitados con RAG — módulo 5</li>
+            <li>Más modelos y Claude Code — módulo 7</li>
+          </ul>
+        </div>
+        <div class="plan-card">
+          <h4>Max</h4><span class="price">Desde US$100/mes</span>
+          <ul>
+            <li>Misma caja de herramientas que Pro</li>
+            <li>5 a 20× más uso</li>
+            <li>Salidas más largas</li>
+            <li>Acceso prioritario a modelos nuevos</li>
+          </ul>
+        </div>
+        <div class="plan-advice"><p><b>Consejo concreto:</b> arrancá con <strong>Pro</strong> — es el mínimo necesario para que este módulo y los seis que siguen tengan sentido. Pensá en <strong>Max</strong> más adelante, cuando Cowork y tus tareas agendadas ya sean rutina diaria (módulo 6) y choques seguido con los límites de uso a mitad de semana. Si estás recién arrancando, con Pro te sobra. Los límites de uso son dinámicos en cualquier plan — no hay número fijo publicado; el detalle completo va en el módulo 6, <em>Tu sistema que trabaja solo</em>.</p></div>
+      </div>
+      <div class="modelmock">
+        <div class="modelmock-bar">claude.ai/upgrade — elegí tu plan</div>
+        <div class="modelmock-body">
+          <div class="mm-opt"><b>Free</b><small>$0</small></div>
+          <div class="mm-opt sel"><b>Pro <span class="check">✓</span></b><small>US$20/mes — incluye Cowork, tareas agendadas, Projects ilimitados, más modelos y Claude Code</small></div>
+          <div class="mm-opt"><b>Max</b><small>desde US$100/mes</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 2 — Activá Pro</h3>
+      <p>Andá a <code>claude.ai/upgrade</code> (con tu sesión iniciada) y elegí Pro — mensual o anual. Vas a cargar un medio de pago vos directamente en la pantalla de Anthropic, con tus propios datos. La confirmación es inmediata: en cuanto el pago se procesa, Cowork, tareas agendadas y Projects ilimitados aparecen disponibles, sin reinstalar nada ni volver a loguearte.</p>
+      <div class="modelmock">
+        <div class="modelmock-bar">claude.ai/upgrade</div>
+        <div class="modelmock-body">
+          <div class="mm-opt">Free $0</div>
+          <div class="mm-opt sel"><b>Pro — US$20/mes <span class="check">✓ elegido</span></b></div>
+          <div class="mm-opt">Max — desde US$100/mes</div>
+          <p style="font-size:.78rem;color:#7A8194;margin:4px 0 0">→ cargás tu medio de pago → confirmás → activación inmediata (Cowork, tareas agendadas y Projects ilimitados ya disponibles)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 3 — Elegí qué vas a automatizar primero</h3>
+      <p>No hace falta —ni conviene— arrancar con algo complicado. Pensá en una tarea que: (a) se repite siempre igual, (b) no depende de un dato que cambia todos los días, y (c) hoy la hacés vos a mano, casi por rutina. Algunos ejemplos reales:</p>
+      <ul>
+        <li>Un mensaje corto de novedades/promo para WhatsApp o Instagram, todos los lunes.</li>
+        <li>Una lista de 3 prioridades para arrancar el día, todos los días hábiles.</li>
+        <li>Un resumen de cierre de semana con pendientes para el lunes, todos los viernes a la tarde.</li>
+      </ul>
+      <p>Guardate mentalmente cuál elegiste — la vas a usar en el paso siguiente.</p>
+    </div>
+
+    <div class="card">
+      <h3>Paso 4 — Abrí el chat y escribí <code>/schedule</code></h3>
+      <p>Es un comando que escribís tal cual, con la barra adelante, en el mismo cuadro donde normalmente le escribís a Claude. Al tipearlo, Claude entiende que no querés charlar: querés programar una tarea que se repita.</p>
+      <span class="gptmock-tag">📱 Así se ve en Claude</span>
+      <div class="claudemock">
+        <div class="claudemock-bar"><div class="dot"></div><span>Claude</span></div>
+        <div class="claudemock-body">
+          <div class="claudemock-user"><p>/schedule</p></div>
+          <div class="claudemock-ai"><div class="ava"><img src="../assets/logo-claude.svg" alt=""></div>
+            <p>Dale, armemos una tarea que se repita. Cuatro cosas rápidas: ¿qué querés que haga cada vez? ¿con qué frecuencia (hourly / daily / weekly / weekdays)? ¿qué día y hora? ¿cómo querés recibir el resultado?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 5 — Contestá las preguntas de Claude, con datos reales de tu negocio</h3>
+      <p>Claude te va a guiar con preguntas de opción múltiple — no tenés que adivinar el formato, solo responder. Usá la tarea que elegiste en el paso 3 y sumale el detalle que la hace específica de tu negocio. Las frecuencias disponibles son <strong>hourly, daily, weekly, weekdays o manual</strong> — elegí la que corresponda (para un mensaje de novedades, sería <em>weekly</em>, lunes 8:00).</p>
+      <span class="gptmock-tag">📱 Así se ve en Claude</span>
+      <div class="claudemock">
+        <div class="claudemock-bar"><div class="dot"></div><span>Claude</span></div>
+        <div class="claudemock-body">
+          <div class="claudemock-user"><p>Todos los lunes a las 8 de la mañana, armame un mensaje corto (máximo 4 líneas) con una promo o novedad de mi peluquería, tono cercano, español rioplatense, listo para copiar a WhatsApp.</p></div>
+          <div class="claudemock-ai"><div class="ava"><img src="../assets/logo-claude.svg" alt=""></div>
+            <p>Listo. Programé: "Mensaje semanal de novedades" — frecuencia weekly, lunes 08:00. Cada vez que corra, vas a tener el mensaje armado esperándote en esta tarea. ¿Confirmás con "Schedule"?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 6 — Confirmá y revisá que quedó activa</h3>
+      <p>Al confirmar, la tarea aparece guardada con su nombre, su frecuencia y su estado. Podés volver a verla y editarla desde la sección <strong>"Scheduled"</strong> del panel lateral (ahí también podés crear tareas nuevas a mano con "New task" — lo profundizamos en el módulo 3, <em>Ponelo en piloto automático</em>).</p>
+      <div class="schedulemock">
+        <div class="schedulemock-bar"><span>Scheduled</span></div>
+        <div class="schedulemock-list">
+          <div class="sm-row"><span class="sm-status"></span><div class="sm-info"><span class="sm-name">Mensaje semanal de novedades</span><span class="sm-freq">weekly — lunes 08:00</span></div><span class="sm-badge">Activa</span></div>
+        </div>
+      </div>
+      <div class="faltanote"><span>⚠️</span><p>El número máximo de tareas agendadas por cuenta no está confirmado en fuente oficial — no es un dato que necesites hoy (con una alcanza), pero si más adelante armás varias, probá cuántas te deja crear.</p></div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 7 — Guardá el entregable</h3>
+      <p>Creá (si todavía no la tenés) la carpeta <code>Sistema IA</code> y, adentro, una subcarpeta <code>Automatización</code>. Ahí anotá o capturá: qué tarea programaste, con qué frecuencia y el primer resultado que te haya entregado, con el nombre <code>01-primera-automatizacion</code>. No es un resumen para archivar — es la prueba de que tenés algo andando de verdad, y el punto de partida del módulo 2.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Podés activar Pro y programar la tarea con <code>/schedule</code> enteramente desde el celular, en la app de Claude — no hace falta nada más para este módulo. Ideal si querés resolver esto en un rato libre entre atender el negocio.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Desde la compu es más cómodo revisar "Scheduled" con calma y armar la carpeta <code>Sistema IA/Automatización</code> en tu Finder o Explorador. Para el pago al activar Pro, muchos se sienten más seguros cargando la tarjeta desde la compu — usá lo que te resulte más cómodo.</p>
+      </div>
+    </div>
+
+    <div class="card card-warn">
+      <h3>⚠️ Error común</h3>
+      <p>Activar Pro y no cambiar nada de cómo trabajás: seguir abriendo el chat a mano cada vez, sin programar ni una sola tarea. Ahí estás pagando US$20/mes por lo mismo que tenías gratis. El otro error, más sutil, es programar una tarea con un pedido vago ("armame algo para el negocio") y dejarla correr así semana tras semana: un pedido genérico da el mismo resultado tibio, una y otra vez, sin que nadie lo note hasta que pasaron varias semanas. Por eso el paso 5 insiste en sumar datos reales — y conviene revisar el resultado las primeras veces que corre.</p>
+    </div>
+
+    <div class="card card-example">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Antes:</strong> la dueña de una peluquería quiere mandar un mensaje de novedades por WhatsApp todos los lunes, pero entre abrir la persiana, atender clientas y hacer caja, se le pasa la mitad de las semanas.</p>
+      <p><strong>Después:</strong> programa con <code>/schedule</code> una tarea semanal, lunes 8:00, con el pedido concreto más dos datos fijos de su negocio. Ahora, todos los lunes a las 8, el mensaje ya está armado esperándola — ella solo lo lee, ajusta el dato de la semana y lo pega en WhatsApp. Dejó de depender de acordarse: la automatización se acuerda por ella.</p>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla A — Mensaje semanal de novedades (weekly)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · mensaje semanal</span><button class="copy">Copiar</button></div>
+<pre>/schedule
+Todos los lunes a las 8 de la mañana, armame un mensaje corto (máximo 4 líneas)
+con una promo o novedad de esta semana de mi <strong class="field">[tu rubro]</strong>.
+Tono cercano, español rioplatense, listo para copiar y pegar en WhatsApp/Instagram.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla B — Prioridades del día (weekdays)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · prioridades del día</span><button class="copy">Copiar</button></div>
+<pre>/schedule
+Todos los días hábiles a las 9 de la mañana, armame una lista corta de 3
+prioridades para hoy en mi <strong class="field">[tu rubro]</strong>, en viñetas, español rioplatense.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla C — Cierre de semana (weekly)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · cierre de semana</span><button class="copy">Copiar</button></div>
+<pre>/schedule
+Todos los viernes a las 18, armame un resumen de cierre de semana: qué quedó
+pendiente para retomar el lunes en mi <strong class="field">[tu rubro]</strong>. En viñetas, español rioplatense.</pre>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Tenés el plan Pro activo en tu cuenta (no en modo prueba mental: activado de verdad).</li>
+        <li>Programaste una tarea con <code>/schedule</code> usando un pedido con datos REALES de tu negocio.</li>
+        <li>Revisaste el primer resultado y, si salió genérico, la reprogramaste con más contexto.</li>
+        <li>Guardaste el entregable <code>01-primera-automatizacion</code> en <code>Sistema IA/Automatización/</code>.</li>
+        <li>Podés repetir este proceso vos solo/a, sin volver a leer este módulo.</li>
+      </ul>
+    </div>
+
+    <span class="entregable">📦 Entregable · 01-primera-automatizacion — Pro activado + primera tarea agendada</span>
+
+    <label class="modcheck" data-mod="1">
+      <input type="checkbox" data-mod="1" aria-label="Completé el módulo 1">
+      <span>Completé el módulo 1 · El salto</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@coco_go.lat →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 2 ═══ -->
+  <section class="panel" id="p-m2">
+    <div class="sec-head"><span class="numchip">02</span><h2>Delegá trabajos completos</h2></div>
+    <p class="sec-sub">En el módulo 1 programaste una tarea chica que se repite sola. Este módulo es distinto: le delegás un trabajo COMPLETO, de varios pasos, con la herramienta <strong>Cowork</strong>. Le describís el resultado, Claude arma un plan, vos lo aprobás y recién ahí trabaja. Supervisás el plan, no cada click.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Si tenés Pro y la Desktop app instalada: en el cuadro de mensaje, buscá la opción <strong>Cowork</strong> (la ubicación exacta puede variar según tu versión). Describile un trabajo real con VARIOS pasos — "revisá los archivos de la carpeta X y armame un resumen con totales" — y esperá el plan. Leelo, aprobalo, y dejalo trabajar. Eso ya es tu primer trabajo delegado completo.</p></div></div>
+
+    <div class="card card-sol">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> programar una tarea que se repite (módulo 1) resuelve lo simple. Pero tu negocio tiene trabajos más pesados: revisar una carpeta entera, cruzar datos de varias fuentes, armar un informe con información dispersa. Eso seguías haciéndolo vos a mano.</p>
+      <p><strong>Te llevás:</strong> el criterio y la práctica para delegar un trabajo de verdad — describir el resultado en vez de dar micro-instrucciones, revisar el plan antes de que toque nada, y dejarlo ejecutar con confianza.</p>
+      <p><strong>Lo usás cuando:</strong> tenés un trabajo que te lleva bastante tiempo, con MÁS de un paso, y hoy nadie más te lo puede sacar de encima.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Terminar con: (1) entender la diferencia entre pedirle un texto a Claude y delegarle un trabajo completo con Cowork, (2) haber revisado y aprobado al menos un plan propuesto por Claude, y (3) un trabajo multi-paso resuelto de punta a punta, guardado como entregable.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>El error más caro con Cowork es de hábito: seguir dándole instrucciones de a una, como si fuera un chat común. Ahí el ahorro de tiempo desaparece — terminás supervisando cada click. Y el plan que Cowork propone ANTES de ejecutar es tuyo para revisar, no un trámite: un plan mal armado se corrige antes, gratis; aprobado a ciegas, se corrige después, con el trabajo ya hecho mal.</p></div></div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 1 — Entendé qué hace Cowork distinto de lo que ya usaste en el módulo 1</h3>
+      <p>En el módulo 1 programaste una tarea con <code>/schedule</code>: le dijiste QUÉ generar y CUÁNDO. Eso funciona para trabajos de un solo paso (redactar un texto) que se repiten solos.</p>
+      <p>Cowork es la herramienta de fondo para trabajos de VARIOS pasos reales: leer, comparar, ordenar, cruzar información y armar un resultado con todo eso. Acá la diferencia no es la frecuencia, es la COMPLEJIDAD del trabajo.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 2 — Si el trabajo toca archivos de tu computadora o necesita navegar, abrí la Desktop app</h3>
+      <p>Para trabajos que solo usan lo que le escribís o adjuntás en el chat, no hace falta nada extra. Pero si querés que Cowork revise archivos guardados en tu compu, o que navegue páginas web, necesitás la Desktop app de Claude abierta. Si no la tenés, buscá "Claude Desktop" e instalala; la ubicación exacta de la descarga puede variar, verificalo en el sitio oficial.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 3 — Elegí Cowork en el cuadro de mensaje</h3>
+      <p>En el mismo lugar donde le escribís a Claude, buscá la opción para elegir <strong>Cowork</strong> (puede aparecer como selector o ícono junto al cuadro — la ubicación puede variar según tu versión). Al elegirlo, le estás diciendo que lo que sigue no es una pregunta suelta: es un trabajo que tiene que sostener de punta a punta.</p>
+      <div class="coworkmock">
+        <div class="coworkmock-bar"><span class="dot"></span><span class="mode">Claude</span><span class="modechip">Cowork seleccionado</span></div>
+        <div class="coworkmock-body">
+          <p class="cw-hint">Describí el resultado que necesitás. Voy a proponerte un plan antes de empezar.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 4 — Describí el RESULTADO que necesitás, no los pasos para llegar ahí</h3>
+      <p>Este es el cambio de hábito más importante del módulo. No le digas "abrí la carpeta, después fijate el primer archivo, después anotá el monto" — eso es el trabajo que le querés delegar. Describí qué querés tener AL FINAL: qué información, en qué formato, con qué criterio.</p>
+      <p>Un ejemplo de lo que <strong>NO</strong> conviene escribir: <em>"Fijate en la carpeta Proveedores-Julio, abrí cada factura, anotá el proveedor."</em> Eso es dar los pasos vos.</p>
+      <p>Un ejemplo de lo que <strong>SÍ</strong> conviene escribir: <em>"Revisá todas las facturas de la carpeta Proveedores-Julio y armame una planilla con proveedor, monto y fecha de vencimiento. Sumá el total por proveedor y marcá las que vencen en los próximos 7 días."</em></p>
+      <span class="gptmock-tag">📱 Así se ve en Claude</span>
+      <div class="claudemock">
+        <div class="claudemock-bar"><div class="dot"></div><span>Claude · Cowork</span></div>
+        <div class="claudemock-body">
+          <div class="claudemock-user"><p>Revisá todas las facturas de la carpeta Proveedores-Julio y armame una planilla con proveedor, monto y fecha de vencimiento. Sumá el total por proveedor y marcá las que vencen en los próximos 7 días.</p></div>
+          <div class="claudemock-ai"><div class="ava"><img src="../assets/logo-claude.svg" alt=""></div>
+            <p>Entendido. Antes de empezar, te muestro cómo pienso hacerlo — fijate si te sirve así.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 5 — Leé el plan que te propone Claude ANTES de aprobar</h3>
+      <p>Acá está la parte que más se salta por apuro, y la que más importa. Claude te va a mostrar una lista de pasos concretos. Leelo con la misma atención con la que le pedirías a un empleado nuevo que te repita el encargo antes de mandarlo a hacerlo. Si algo no es lo que querías, este es el momento de decírselo — ANTES de que toque un solo archivo.</p>
+      <div class="coworkmock">
+        <div class="coworkmock-bar"><span class="dot"></span><span class="mode">Claude</span><span class="modechip">Cowork</span></div>
+        <div class="coworkmock-body">
+          <span class="cw-plan-label">Plan propuesto por Claude</span>
+          <ol>
+            <li>Abrir la carpeta "Proveedores-Julio" en tu Desktop app</li>
+            <li>Leer cada archivo de factura y extraer proveedor, monto y fecha de vencimiento</li>
+            <li>Armar una planilla con esas tres columnas</li>
+            <li>Calcular el total por proveedor</li>
+            <li>Marcar en la planilla las facturas que vencen en los próximos 7 días</li>
+          </ol>
+          <div class="cw-actions"><button class="cw-approve" type="button" tabindex="-1" aria-hidden="true">Aprobar</button><button class="cw-adjust" type="button" tabindex="-1" aria-hidden="true">Ajustar pedido</button></div>
+        </div>
+      </div>
+      <p>Si el plan te convence, seguí al paso siguiente. Si algo falta, no apruebes: escribile el ajuste ("sumale también el IVA de cada factura") y esperá el plan corregido.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 6 — Aprobá y dejalo ejecutar</h3>
+      <p>Con el plan aprobado, Claude se pone a trabajar solo, siguiendo exactamente los pasos que viste. Dependiendo de cuánto trabajo haya, puede tardar un rato — es buen momento para seguir con otra cosa y volver cuando esté.</p>
+      <div class="coworkmock">
+        <div class="coworkmock-bar"><span class="dot"></span><span class="mode">Claude</span><span class="modechip">Cowork</span></div>
+        <div class="coworkmock-body">
+          <div class="cw-exec"><span class="lit"></span><span>Ejecutando — paso 3 de 5</span></div>
+          <div class="cw-execbar"><div class="cw-execfill" style="width:55%"></div></div>
+          <p class="cw-execnote">Armando la planilla con proveedor, monto y vencimiento…</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 7 — Revisá el resultado — y si salió a medias, iterá en vez de resignarte</h3>
+      <p>Cuando termina, Claude te entrega el resultado del trabajo. Revisalo con los mismos datos reales de tu negocio en la cabeza: ¿los montos cierran? ¿marcó bien lo que vencía esta semana? Si algo salió incompleto, no lo descartes ni lo corrijas vos a mano desde cero — decile específicamente qué ajustar y dejá que Cowork lo corrija.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 8 — Guardá el entregable</h3>
+      <p>En <code>Sistema IA/Automatización/</code>, guardá el resultado de este trabajo con el nombre <code>02-trabajo-delegado</code>. Sumale una línea corta con qué le pediste y qué plan aprobó Claude — te va a servir de referencia la próxima vez.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Podés abrir Cowork desde el celular y describirle un trabajo que solo necesite lo que le escribís o adjuntás en el chat. Para trabajos que necesitan tocar archivos de tu compu o navegar sitios web, esa parte requiere la Desktop app — desde el celular no vas a poder completar el paso 2.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Es el lugar natural para este módulo: con la Desktop app abierta tenés acceso completo a tus carpetas y podés dejar que Cowork navegue si el trabajo lo requiere. Más cómodo para seguir el estado del paso 6 mientras hacés otra cosa, y armar la carpeta <code>Sistema IA/Automatización</code>.</p>
+      </div>
+    </div>
+
+    <div class="card card-warn">
+      <h3>⚠️ Error común</h3>
+      <p>Dar micro-instrucciones en vez de describir el resultado: pedirle paso a paso como si fuera un chat común, en lugar de plantear el trabajo completo de una vez. Ahí perdés exactamente el beneficio de Cowork. El segundo error, más silencioso, es el opuesto: aprobar el plan sin leerlo, por apuro. Un plan que no leíste puede tener un supuesto mal hecho, y ese error aparece recién en el resultado final, cuando ya se ejecutó todo.</p>
+    </div>
+
+    <div class="card card-example">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Antes:</strong> el dueño de un local de indumentaria revisa facturas de proveedores a mano una vez por mes, con calculadora. Le lleva casi una tarde entera, y más de una vez se le pasó un vencimiento.</p>
+      <p><strong>Después:</strong> abre la Desktop app, elige Cowork, describe el resultado que necesita. Claude le muestra el plan, él lo revisa, aprueba, y en el tiempo que tarda en armar una infusión, la planilla está lista. Su trabajo pasó de "una tarde entera con la calculadora" a "diez minutos revisando que los números cierren".</p>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla A — Organizar y totalizar archivos de una carpeta</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · cowork organizar carpeta</span><button class="copy">Copiar</button></div>
+<pre>[Cowork]
+Revisá todos los archivos de la carpeta <strong class="field">[nombre de tu carpeta]</strong> y armame una
+planilla con <strong class="field">[las columnas de datos que necesitás, ej: proveedor, monto, fecha]</strong>.
+Sumá el total por <strong class="field">[criterio, ej: proveedor]</strong> y marcá los que <strong class="field">[condición que
+te importa, ej: vencen en los próximos 7 días]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla B — Armar un informe cruzando varias fuentes</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · cowork informe cruzado</span><button class="copy">Copiar</button></div>
+<pre>[Cowork]
+Con los archivos que te adjunto (o los que están en <strong class="field">[carpeta]</strong>), armame un
+informe de <strong class="field">[tema, ej: ventas del mes]</strong> que compare <strong class="field">[qué querés comparar]</strong> y
+señale <strong class="field">[qué conclusión o alerta te interesa ver primero]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla C — Revisar y clasificar un conjunto de documentos</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · cowork clasificar documentos</span><button class="copy">Copiar</button></div>
+<pre>[Cowork]
+Revisá los <strong class="field">[documentos/contratos/pedidos]</strong> de la carpeta <strong class="field">[nombre]</strong> y
+clasificalos en <strong class="field">[tus categorías, ej: urgente / esta semana / sin apuro]</strong>
+según <strong class="field">[el criterio que uses vos para priorizar]</strong>. Armame una lista con
+el resultado.</pre>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Elegiste Cowork para un trabajo real de tu negocio, no una prueba de juguete.</li>
+        <li>Describiste el RESULTADO que necesitabas, sin darle los pasos vos mismo.</li>
+        <li>Leíste el plan que propuso Claude antes de aprobarlo (y, si hizo falta, lo ajustaste).</li>
+        <li>Revisaste el resultado final con datos propios y, si salió a medias, iteraste con Cowork.</li>
+        <li>Guardaste el entregable <code>02-trabajo-delegado</code> en <code>Sistema IA/Automatización/</code>.</li>
+        <li>Podés repetir este proceso vos solo/a con otro trabajo multi-paso, sin volver a leer este módulo.</li>
+      </ul>
+    </div>
+
+    <span class="entregable">📦 Entregable · 02-trabajo-delegado — un trabajo multi-paso resuelto con Cowork</span>
+
+    <label class="modcheck" data-mod="2">
+      <input type="checkbox" data-mod="2" aria-label="Completé el módulo 2">
+      <span>Completé el módulo 2 · Delegá trabajos completos</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@coco_go.lat →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 3 ═══ -->
+  <section class="panel" id="p-m3">
+    <div class="sec-head"><span class="numchip">03</span><h2>Ponelo en piloto automático</h2></div>
+    <p class="sec-sub">Juntás las dos piezas anteriores: ese trabajo completo de Cowork del módulo 2 lo vas a poner a correr solo, con la frecuencia que corresponda, y vas a aprender a manejarlo en el tiempo — editar, pausar, borrar. Esto es lo que separa "programé una tarea" de "tengo un sistema de tareas que administro".</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Si ya tenés Pro y ya hiciste un trabajo con Cowork: abrí el chat, escribí <code>/schedule</code>, y describí ese mismo trabajo con la frecuencia con la que se tiene que repetir. Confirmá con "Schedule". Ese trabajo completo — no un mensaje de una línea — ya queda corriendo solo, en piloto automático.</p></div></div>
+
+    <div class="card card-sol">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> ya sabés agendar algo chico (módulo 1) y delegarle un trabajo completo a Cowork (módulo 2) — pero lo lanzaste a mano, una sola vez. Las tareas que ya agendaste se van acumulando sin que nadie las revise, edite o dé de baja.</p>
+      <p><strong>Te llevás:</strong> el trabajo completo de Cowork del módulo 2 corriendo solo con la frecuencia correcta, más el manejo del ciclo completo: crear, editar, pausar y borrar.</p>
+      <p><strong>Lo usás cuando:</strong> tenés un trabajo de varios pasos que se repite siempre con la misma lógica, y hoy seguís relanzándolo a mano cada vez.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Terminar con: (1) el trabajo de Cowork del módulo 2 agendado y corriendo con la frecuencia correcta, (2) criterio para elegir entre hourly, daily, weekly, weekdays o manual según el caso, y (3) la capacidad de editar, pausar y borrar cualquier tarea sin dudar.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Acá el salto es de fondo: lo que agendás es un trabajo de Cowork completo, con un resultado que tu negocio realmente usa para operar. Agendar algo así con la frecuencia equivocada es peor que no agendarlo: un reporte de ventas con datos de hace una semana porque lo pusiste en weekly cuando necesitabas daily te da una falsa sensación de estar al día. Y una vez que tenés varias tareas corriendo, alguien tiene que mantenerlas — piloto automático no es "prender y olvidarse", es prender y saber cuándo tocar el timón.</p></div></div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 1 — Elegí qué trabajo vas a agendar y pensá la frecuencia ANTES de escribir nada</h3>
+      <p>No arranques por el comando — arrancá por la pregunta de negocio: ¿este trabajo cambia cada hora, cada día o alcanza con una vez por semana?</p>
+      <ul>
+        <li><strong>Reporte semanal de ventas</strong> (si fue el trabajo del módulo 2): se arma con datos acumulados de la semana → <strong>weekly</strong>, un día fijo.</li>
+        <li><strong>Revisión diaria de stock</strong>: si se mueve todos los días, revisarlo una vez por semana te deja ciego seis días de cada siete → <strong>daily</strong>.</li>
+        <li><strong>Resumen de novedades del rubro</strong>: con una vez por semana alcanza → <strong>weekly</strong>.</li>
+      </ul>
+      <p>Frecuencias disponibles: <strong>hourly</strong> (cambia todo el tiempo — poco común en una PyME chica), <strong>daily</strong> (stock, caja, novedades urgentes), <strong>weekly</strong> (reportes, resúmenes), <strong>weekdays</strong> (como daily pero lunes a viernes) y <strong>manual</strong> (queda armada pero la lanzás vos cuando querés controlar el momento exacto).</p>
+      <div class="schedulemock">
+        <div class="schedulemock-bar"><span>Elegir frecuencia</span></div>
+        <div class="sm-menu" style="padding-top:10px">
+          <span>hourly</span><span>daily</span><span style="background:var(--theme);color:#fff">weekly ✓</span><span>weekdays</span><span>manual</span>
+        </div>
+        <p class="sm-editnote">"weekly: se ejecuta una vez por semana, el día y la hora que elijas."</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Paso 2 — Camino A: agendalo por chat con <code>/schedule</code>, describiendo el trabajo completo</h3>
+      <p>La diferencia con el módulo 1 es lo que le pedís: ahí describías un mensaje de cuatro líneas; acá describís el MISMO trabajo de varios pasos que Cowork ya hizo una vez en el módulo 2 — con el archivo, la lógica y el formato de salida que ya validaste.</p>
+      <span class="gptmock-tag">📱 Así se ve en Claude</span>
+      <div class="claudemock">
+        <div class="claudemock-bar"><div class="dot"></div><span>Claude</span></div>
+        <div class="claudemock-body">
+          <div class="claudemock-user"><p>/schedule<br>Todos los viernes a las 18, agarrá el archivo de ventas de la semana (el mismo que usamos la vez pasada), sacá el total facturado, el producto más vendido y compará contra la semana anterior. Armame el resumen en la misma tabla que usaste esa vez.</p></div>
+          <div class="claudemock-ai"><div class="ava"><img src="../assets/logo-claude.svg" alt=""></div>
+            <p>Listo, programé "Reporte semanal de ventas" — frecuencia weekly, viernes 18:00. Va a repetir el mismo proceso que corrimos con Cowork, con el archivo actualizado cada semana. ¿Confirmás con "Schedule"?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 3 — Camino B: agendalo desde el panel, sin pasar por el chat</h3>
+      <p>Andá a la sección <strong>"Scheduled"</strong> del panel lateral y elegí <strong>"New task"</strong>. Completás tres campos: nombre, descripción (el mismo nivel de detalle que por chat) y frecuencia. Más cómodo cuando ya tenés varias tareas y querés ver de entrada el panel completo.</p>
+      <div class="schedulemock">
+        <div class="schedulemock-bar"><span>Scheduled</span><button class="sm-new" type="button" tabindex="-1" aria-hidden="true">+ New task</button></div>
+        <div class="projectmock-body" style="padding:12px 15px">
+          <div class="pm-file" style="font-family:var(--body);flex-direction:column;align-items:flex-start;gap:4px">
+            <strong style="color:#1A1A1A">Revisión diaria de stock</strong>
+            <span style="color:#5B5B6E">Revisar el archivo de inventario, listar productos con menos de 5 unidades y armar un aviso corto para reponer.</span>
+            <span style="font-family:var(--mono);font-size:.72rem;color:#7A8194">daily — 08:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 4 — Guardá y mirá tu panel completo de tareas agendadas</h3>
+      <p>Después de confirmar (por cualquiera de los dos caminos), la tarea nueva se suma a las que ya tenías del módulo 1. El panel "Scheduled" es tu tablero de control: de un vistazo ves nombre, frecuencia y estado de cada una.</p>
+      <div class="schedulemock">
+        <div class="schedulemock-bar"><span>Scheduled · 3 tareas</span></div>
+        <div class="schedulemock-list">
+          <div class="sm-row"><span class="sm-status"></span><div class="sm-info"><span class="sm-name">Mensaje semanal de novedades</span><span class="sm-freq">weekly — lunes 08:00</span></div><span class="sm-badge">Activa</span></div>
+          <div class="sm-row"><span class="sm-status"></span><div class="sm-info"><span class="sm-name">Reporte semanal de ventas</span><span class="sm-freq">weekly — viernes 18:00</span></div><span class="sm-badge">Activa</span></div>
+          <div class="sm-row"><span class="sm-status"></span><div class="sm-info"><span class="sm-name">Revisión diaria de stock</span><span class="sm-freq">daily — 08:00</span></div><span class="sm-badge">Activa</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 5 — Editá una tarea cuando cambian las condiciones del negocio</h3>
+      <p>Ninguna tarea agendada es para siempre tal cual la armaste el primer día. Entrá a la tarea desde "Scheduled" y buscá la opción de editar en su tarjeta —la ubicación exacta del botón puede variar, pero siempre está asociada a la tarea individual. Ahí podés cambiar la descripción o la frecuencia.</p>
+      <div class="schedulemock">
+        <div class="schedulemock-bar"><span>Revisión diaria de stock</span></div>
+        <div class="sm-menu" style="padding-top:10px">
+          <span>Editar</span><span>Pausar</span><span>Borrar</span>
+        </div>
+        <p class="sm-editnote">Editando frecuencia: daily → weekdays (el local no abre fines de semana)</p>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 6 — Pausá una tarea que no aplica por un tiempo, sin borrarla</h3>
+      <p>Hay situaciones donde no querés perder la configuración pero tampoco que corra: te vas de vacaciones, cambiás de proveedor y el archivo de stock no está actualizado, o estás probando un cambio. Pausar deja la tarea guardada, lista para reactivar con la misma configuración.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 7 — Borrá una tarea que ya cumplió su ciclo</h3>
+      <p>No toda tarea agendada es para siempre: si el reporte era para un cierre de temporada que ya pasó, o cambiaste de forma de trabajar, borrala. Una tarea vieja que nadie mira sigue gastando parte de tu uso y ensucia tu panel — revisarlo de vez en cuando es parte del mantenimiento, no un extra.</p>
+      <div class="faltanote"><span>⚠️</span><p>El número máximo de tareas agendadas por cuenta no está confirmado en fuente oficial. Con 3-4 tareas activas no es un problema práctico, pero si tu panel crece mucho, es un motivo más para pausar o borrar lo que no uses.</p></div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 8 — Guardá el entregable</h3>
+      <p>En <code>Sistema IA/Automatización/</code>, guardá con el nombre <code>03-tarea-agendada</code>: qué trabajo de Cowork agendaste, con qué frecuencia, y un registro de al menos una edición o pausa que hayas hecho (aunque sea de prueba) — la prueba de que sabés administrar el ciclo completo.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Podés agendar con <code>/schedule</code> y revisar "Scheduled" desde el celular sin problema — el camino más rápido si se te ocurre la idea en el momento. Editar texto largo de una descripción es más cómodo con teclado.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Para el camino B y para administrar varias tareas a la vez, la compu te da la vista completa del panel "Scheduled" sin scrollear. Si ya tenés tres o más tareas activas, hacé el mantenimiento periódico desde ahí.</p>
+      </div>
+    </div>
+
+    <div class="card card-warn">
+      <h3>⚠️ Error común</h3>
+      <p>Elegir la frecuencia por comodidad en vez de por necesidad real: poner <em>weekly</em> a algo que en realidad cambia todos los días, y terminar tomando decisiones con datos de hace seis días sin darte cuenta. El otro error, más silencioso, es dejar todas las tareas prendidas para siempre sin volver a mirarlas — el panel se llena de tareas que ya no sirven y "tener piloto automático" se convierte en ruido de fondo en vez de información que se usa.</p>
+    </div>
+
+    <div class="card card-example">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Antes:</strong> el dueño de un almacén revisa el stock a mano cada mañana antes de abrir; los sábados, con más movimiento, se le pasa por alto.</p>
+      <p><strong>Después:</strong> agenda una tarea diaria a las 8 que revisa el inventario y arma un aviso de qué reponer. Al notar que el local no abre los domingos, la edita a <em>weekdays</em> más sábado. Un mes después, cuando cambia de proveedor y el archivo deja de actualizarse por dos semanas, pausa la tarea en vez de dejarla corriendo con datos rotos, y la reactiva apenas el archivo vuelve a estar al día.</p>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla A — Reporte semanal de ventas (weekly, sobre un trabajo ya hecho con Cowork)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · reporte semanal agendado</span><button class="copy">Copiar</button></div>
+<pre>/schedule
+Todos los <strong class="field">[día]</strong> a las <strong class="field">[hora]</strong>, agarrá el archivo de ventas de la semana y armame
+el mismo resumen que armamos con Cowork: total facturado, producto más vendido
+y comparación contra la semana anterior. Mismo formato de tabla.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla B — Revisión diaria de stock (daily o weekdays)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · revisión de stock agendada</span><button class="copy">Copiar</button></div>
+<pre>/schedule
+Todos los días <strong class="field">[hábiles]</strong> a las <strong class="field">[hora]</strong>, revisá el archivo de inventario de mi
+<strong class="field">[tu rubro]</strong>, listame los productos con menos de <strong class="field">[X]</strong> unidades y armame un aviso
+corto de qué reponer, en español rioplatense.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla C — Resumen de novedades del rubro (weekly)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · resumen de novedades agendado</span><button class="copy">Copiar</button></div>
+<pre>/schedule
+Todos los <strong class="field">[día de la semana]</strong> a las <strong class="field">[hora]</strong>, buscá y resumime en 4-5 puntos las
+novedades más relevantes de esta semana para mi <strong class="field">[tu rubro]</strong>: precios, tendencias
+o movimientos de la competencia que me convenga saber.</pre>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Tenés agendado un trabajo de Cowork COMPLETO corriendo con la frecuencia correcta.</li>
+        <li>Podés explicar por qué elegiste esa frecuencia y no otra.</li>
+        <li>Editaste, pausaste o borraste al menos una tarea agendada y sabés en qué situación usarías cada acción.</li>
+        <li>Revisaste tu panel "Scheduled" completo y no tenés tareas corriendo que ya no sirvan.</li>
+        <li>Guardaste el entregable <code>03-tarea-agendada</code> en <code>Sistema IA/Automatización/</code>.</li>
+        <li>Podés repetir todo el proceso vos solo/a, sin volver a leer este módulo.</li>
+      </ul>
+    </div>
+
+    <span class="entregable">📦 Entregable · 03-tarea-agendada — el trabajo de Cowork, corriendo solo</span>
+
+    <label class="modcheck" data-mod="3">
+      <input type="checkbox" data-mod="3" aria-label="Completé el módulo 3">
+      <span>Completé el módulo 3 · Ponelo en piloto automático</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@coco_go.lat →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 4 ═══ -->
+  <section class="panel" id="p-m4">
+    <div class="sec-head"><span class="numchip">04</span><h2>Conectá Claude a tus herramientas</h2></div>
+    <p class="sec-sub">Gmail, Calendar y Drive vienen conectados en cualquier plan. Pero tu negocio no vive solo ahí: capaz llevás proyectos en Notion, cobrás con Stripe, diseñás en Canva o seguís tareas en Linear. Este módulo cierra esa costura: conectás una herramienta más para que deje de ser copy-paste manual y pase a ser parte de las automatizaciones de los módulos 2 y 3.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Si tenés Pro y una cuenta en Notion, Canva, Stripe o Linear: abrí Claude, buscá <strong>Connectors</strong> (Customize → Connectors), tocá "+", elegí la herramienta, apretá "Connect" y autenticate. Probá preguntándole algo que solo puede saber leyendo esa herramienta. Si te contesta con datos reales tuyos, el conector ya está funcionando.</p></div></div>
+
+    <div class="card card-sol">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> delegás trabajos completos y los ponés en piloto automático, pero si necesitan un dato que vive en Notion, Stripe, Canva o Linear, seguís siendo vos el que lo copia y pega a mano. La automatización se corta justo donde más rinde.</p>
+      <p><strong>Te llevás:</strong> una herramienta de negocio no-Google conectada a Claude, y una automatización de las que ya armaste usándola de verdad.</p>
+      <p><strong>Lo usás cuando:</strong> ya tenés una tarea delegada o agendada corriendo, y notás que se frena porque le falta un dato que vive en otra herramienta.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Terminar con: (1) una herramienta de negocio no-Google conectada, (2) confirmación de que Claude puede leerla de verdad, y (3) esa conexión sumada a una automatización que ya usás.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Un conector es un puente ya construido: alguien más hizo el trabajo técnico. Vos elegís de una lista, apretás conectar y autenticás, igual que "iniciar sesión con Google" en cualquier otra app. Lo que cambia el juego no es tener el conector prendido — es lo que dejás de hacer vos. Por eso este módulo no termina en "conectar": termina en usar el conector DENTRO de una automatización real. Si tu negocio tiene un sistema propio sin conector todavía, construir uno (MCP) ya es programación — terreno de Claude Code, módulo 7.</p></div></div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 1 — Elegí qué herramienta de tu negocio conectar</h3>
+      <p>Pensá en una herramienta no-Google que ya usás a diario: una base de proyectos o notas (<strong>Notion</strong>), diseños (<strong>Canva</strong>), cobros o pagos (<strong>Stripe</strong>), o seguimiento de tareas de equipo (<strong>Linear</strong>). Son los ejemplos que Anthropic nombra puntualmente, pero hay más en el catálogo completo (<strong>claude.ai/directory</strong>). Elegí UNA sola para este módulo — la que más se cruce con la tarea del módulo 2 o 3.</p>
+      <div class="connectorsmock">
+        <div class="cn-grid">
+          <div class="cn-card"><span class="cn-logo" style="background:#111">N</span><span class="cn-name">Notion</span><span class="cn-btn">Connect</span></div>
+          <div class="cn-card"><span class="cn-logo" style="background:#00D9C0;color:#04130E">C</span><span class="cn-name">Canva</span><span class="cn-btn">Connect</span></div>
+          <div class="cn-card"><span class="cn-logo" style="background:#635BFF">S</span><span class="cn-name">Stripe</span><span class="cn-btn">Connect</span></div>
+          <div class="cn-card"><span class="cn-logo" style="background:#5E6AD2">L</span><span class="cn-name">Linear</span><span class="cn-btn">Connect</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 2 — Conectala</h3>
+      <p>Andá a <strong>Connectors</strong> (Customize → Connectors), tocá "+" y elegí la herramienta. Vas a ver un botón "Connect" o "Install" según el conector — apretalo.</p>
+      <p>Si la herramienta que necesitás no aparece pero el proveedor te dio directamente una URL de conector, existe un camino alternativo: "+" → "Add custom connector" → pegás la URL → autenticás. Seguís sin programar nada.</p>
+      <div class="connectorsmock">
+        <div class="cn-grid">
+          <div class="cn-card featured"><span class="cn-logo" style="background:#111">N</span><span class="cn-name">Notion</span><span class="cn-status"><span class="dt"></span>Conectando…</span></div>
+        </div>
+      </div>
+      <div class="faltanote"><span>⚠️</span><p>En el plan Free podés tener conectado como máximo <strong>1</strong> conector de este tipo (no-Google) a la vez; en Pro y planes superiores no hay tope. Los conectores remotos (la mayoría de los del directorio) están disponibles solo en planes pagos.</p></div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 3 — Autenticá con tu cuenta de esa herramienta</h3>
+      <p>Claude te va a llevar al login normal de la herramienta elegida y te va a pedir que autorices el acceso. Fijate qué permisos te muestra antes de confirmar — cada conector define su propio alcance (algunos son de solo lectura, otros permiten también escribir), así que conviene leer esa pantalla una vez, no aceptarla de taco. Al confirmar, volvés a Claude y la herramienta queda marcada como conectada.</p>
+      <div class="connectorsmock">
+        <div class="cn-grid">
+          <div class="cn-card featured"><span class="cn-logo" style="background:#111">N</span><span class="cn-name">Notion</span><span class="cn-status"><span class="dt"></span>Conectado</span><span class="cn-mail">tuusuario@tuempresa.com</span></div>
+        </div>
+      </div>
+      <div class="faltanote"><span>⚠️</span><p>No está confirmado si el permiso de un conector vence con el tiempo y pide volver a autenticar — no es algo que necesites resolver hoy; si un día Claude deja de leer la herramienta, repetí este paso.</p></div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 4 — Probá que Claude la lee de verdad, con una pregunta simple</h3>
+      <p>Antes de meterlo en una automatización, confirmá con un chat suelto que el conector funciona. Hacele una pregunta que Claude solo puede responder bien si está leyendo tu cuenta real.</p>
+      <span class="gptmock-tag">📱 Así se ve en Claude</span>
+      <div class="claudemock">
+        <div class="claudemock-bar"><div class="dot"></div><span>Claude</span></div>
+        <div class="claudemock-body">
+          <div class="claudemock-user"><p>Fijate en mi Notion de proyectos: ¿qué tareas tengo marcadas como "en curso" esta semana?</p></div>
+          <div class="claudemock-ai"><div class="ava"><img src="../assets/logo-claude.svg" alt=""></div>
+            <p>En tu base "Proyectos" veo 3 tareas en curso: "Presupuesto cliente Rossi" (vence viernes), "Rediseño de flyer" y "Seguimiento pedido #128". ¿Querés que arme un resumen para mandar al equipo?</p>
+          </div>
+        </div>
+      </div>
+      <p>Si la respuesta trae datos que reconocés como tuyos, el conector está andando. Si Claude dice que no tiene acceso o inventa algo genérico, volvé al paso 2 y revisá la conexión.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 5 — Sumala a una automatización que ya tenías corriendo</h3>
+      <p>Agarrá el trabajo que delegaste en el módulo 2 o la tarea que dejaste agendada en el módulo 3, y agregale el dato de la herramienta recién conectada. No hace falta rehacer la automatización de cero — solo editá el pedido para que use el conector.</p>
+      <span class="gptmock-tag">📱 Así se ve en Claude</span>
+      <div class="claudemock">
+        <div class="claudemock-bar"><div class="dot"></div><span>Claude</span></div>
+        <div class="claudemock-body">
+          <div class="claudemock-user"><p>/schedule<br>Todos los viernes a las 17, mirá mi Notion de proyectos y armame un resumen de qué tareas quedaron en curso o atrasadas para retomar el lunes. En viñetas, español rioplatense.</p></div>
+          <div class="claudemock-ai"><div class="ava"><img src="../assets/logo-claude.svg" alt=""></div>
+            <p>Listo. Programé: "Cierre semanal con datos de Notion" — frecuencia weekly, viernes 17:00. Cada vez que corra, va a leer tu base de proyectos actualizada al momento y armar el resumen con los datos reales de esa semana. ¿Confirmás con "Schedule"?</p>
+          </div>
+        </div>
+      </div>
+      <p>Ahora el resumen de cierre de semana no depende de que alguien copie y pegue el estado de las tareas — Claude va directo a la fuente.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 6 — Guardá el entregable</h3>
+      <p>En <code>Sistema IA/Automatización/</code>, anotá o capturá: qué herramienta conectaste, qué automatización la usa (de qué módulo) y un resultado real que haya generado usando el dato del conector. Nombrala <code>04-herramienta-conectada</code>. Esto cierra el combo: conector + automatización funcionando juntas.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Conectar una herramienta desde el celular funciona igual: tocás "+", elegís la herramienta y el login se abre en el navegador (o su propia app) — confirmás ahí y volvés a Claude. Cómodo para conectar algo rápido entre atender el negocio.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Más práctico si la herramienta pide un login más largo (con verificación en dos pasos) o si vas a conectar más de una seguida — tenés más pantalla para ir y volver entre pestañas. El resultado final es el mismo.</p>
+      </div>
+    </div>
+
+    <div class="card card-warn">
+      <h3>⚠️ Error común</h3>
+      <p>Conectar la herramienta y quedarse ahí — como "ya está conectada" se siente como un logro, muchos no dan el paso 5 y nunca la suman a ninguna automatización real. Un conector sin uso es como el Pro del módulo 1 sin ninguna tarea agendada. El otro error típico es conectar de más sin necesidad: sumar las cuatro herramientas el mismo día "porque están". Mejor conectar una sola por vez y confirmar que una automatización real la está usando antes de sumar la próxima.</p>
+    </div>
+
+    <div class="card card-example">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Antes:</strong> un estudio de diseño lleva el estado de cada proyecto en Notion. Todos los viernes, alguien abre Notion, revisa a mano el estado de cada tarjeta y escribe un resumen para WhatsApp. Si esa persona está de vacaciones, el viernes se pasa sin resumen.</p>
+      <p><strong>Después:</strong> conectan Notion una sola vez, y editan la tarea agendada del módulo 3 para que, todos los viernes a las 17, Claude entre directo a la base de proyectos y arme el resumen. Ya no depende de que una persona puntual se acuerde: la automatización va a buscar el dato sola.</p>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla A — Probar que el conector funciona (chat suelto)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · probar conector</span><button class="copy">Copiar</button></div>
+<pre>Fijate en mi <strong class="field">[Notion/Stripe/Linear/Canva]</strong> de <strong class="field">[nombre de tu base o proyecto]</strong>:
+¿qué <strong class="field">[tareas/pagos/diseños]</strong> tengo <strong class="field">[en curso/pendientes]</strong> esta semana?</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla B — Sumar el conector a una tarea agendada (edita la del módulo 3)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · conector en tarea agendada</span><button class="copy">Copiar</button></div>
+<pre>/schedule
+Todos los <strong class="field">[día]</strong> a las <strong class="field">[hora]</strong>, mirá mi <strong class="field">[herramienta conectada]</strong> y armame
+<strong class="field">[el resultado que ya definiste en el módulo 3]</strong>, usando los datos reales de ahí.
+En viñetas, español rioplatense.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla C — Sumar el conector a un trabajo delegado con Cowork (edita el del módulo 2)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · conector en trabajo de cowork</span><button class="copy">Copiar</button></div>
+<pre>Necesito que hagas <strong class="field">[la tarea del módulo 2]</strong>, pero esta vez usá los datos actuales
+de mi <strong class="field">[herramienta conectada]</strong> en vez de que te los pase yo a mano.
+Antes de arrancar, mostrame el plan.</pre>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Tenés conectada al menos una herramienta de negocio no-Google.</li>
+        <li>Le hiciste una pregunta suelta y Claude te contestó con un dato real de esa herramienta.</li>
+        <li>Sumaste ese conector a una automatización del módulo 2 o 3, y la corriste al menos una vez con el conector activo.</li>
+        <li>Guardaste el entregable <code>04-herramienta-conectada</code> en <code>Sistema IA/Automatización/</code>.</li>
+        <li>Podés repetir el proceso vos solo/a con otra herramienta, sin volver a leer este módulo.</li>
+      </ul>
+    </div>
+
+    <span class="entregable">📦 Entregable · 04-herramienta-conectada — un conector activo, usado en una automatización real</span>
+
+    <label class="modcheck" data-mod="4">
+      <input type="checkbox" data-mod="4" aria-label="Completé el módulo 4">
+      <span>Completé el módulo 4 · Conectá Claude a tus herramientas</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@coco_go.lat →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 5 ═══ -->
+  <section class="panel" id="p-m5">
+    <div class="sec-head"><span class="numchip">05</span><h2>La memoria grande del negocio</h2></div>
+    <p class="sec-sub">Ya conectaste tus herramientas y tenés tareas corriendo solas. Pero hay un límite que todavía no tocaste: cuánto puede "saber" Claude de tu negocio de una sola vez. Este módulo rompe ese techo: cargás la base de conocimiento REAL de tu negocio en un único Project, y dejás que Claude la use como memoria permanente.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Si ya tenés un Project armado y algún documento largo a mano: abrí ese Project, tocá "+" para agregar contenido, subí el archivo y probá pedirle algo que solo se puede responder mirándolo. Si te contesta con precisión y cita el dato correcto, ya estás usando la base de conocimiento del Project. Diez minutos.</p></div></div>
+
+    <div class="card card-sol">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> tu negocio tiene información que no entra en un mensaje de chat ni en unos pocos archivos sueltos: catálogos completos, manuales, históricos. Si se lo mandás de a poco, Claude solo "ve" el pedacito de ese momento.</p>
+      <p><strong>Te llevás:</strong> un Project con TODA la base de conocimiento relevante cargada de una vez, y la certeza de que cuando esa base es grande, Claude activa automáticamente un modo que le permite manejarla igual de bien.</p>
+      <p><strong>Lo usás cuando:</strong> tenés más de un puñado de documentos que querés que Claude tenga siempre presentes — la biblioteca entera de tu negocio.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Terminar con: (1) un Project dedicado a la base de conocimiento grande de tu negocio, (2) al menos los documentos clave de tu operación cargados ahí, y (3) haber comprobado con una pregunta real que Claude responde usando esos documentos, no información inventada.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>El obstáculo típico es pensar que hay un tope práctico: "si subo demasiado, Claude se va a perder". Es al revés. Cuando la base de conocimiento de un Project se acerca al límite de una lectura normal, Claude activa <strong>RAG</strong> de forma automática, sin que vos actives nada, y con eso la capacidad se expande hasta <strong>~10 veces</strong>. Este módulo te saca el miedo a "cargar de más" y te empuja a hacer lo contrario — meter TODO lo que tu negocio tiene.</p></div></div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 1 — Elegí (o creá) el Project que va a ser la memoria grande de tu negocio</h3>
+      <p>Si ya tenés un Project de módulos anteriores que tiene sentido como "cerebro" del negocio, usá ese. Si no, creá uno nuevo específico —por ejemplo, "Base [nombre de tu negocio]"— para no mezclar la base de conocimiento con Projects que uses para otra cosa puntual.</p>
+      <div class="projectmock">
+        <div class="projectmock-bar">Project · Base Peluquería Estilo</div>
+        <div class="projectmock-body">
+          <p class="pm-empty">Sin archivos cargados todavía — panel lateral con botón "+" para agregar contenido.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 2 — Juntá los documentos que hoy tenés desparramados</h3>
+      <p>Antes de subir nada, hacé una lista rápida de qué tiene tu negocio que hoy vive en carpetas sueltas, WhatsApp, mails o la cabeza de alguien: catálogo de productos o servicios con precios, manual de procedimientos, histórico de ventas o consultas frecuentes, políticas (devoluciones, garantías, horarios). No hace falta que sea perfecto ni esté prolijo: Claude extrae el texto igual de un PDF, un Word, un Excel o hasta una nota escaneada.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 3 — Subí los documentos al Project con "+"</h3>
+      <p>Dentro del Project, tocá "+" para agregar contenido y subí los archivos que juntaste. Podés subirlos de a uno o varios juntos. Cada archivo puede pesar hasta <strong>30MB</strong>, y no hay límite en la cantidad de archivos — así que si tu catálogo son 40 páginas o tu histórico son varios años, no hay problema en cargarlo entero.</p>
+      <div class="projectmock">
+        <div class="projectmock-bar">Project · Base Peluquería Estilo</div>
+        <div class="projectmock-body">
+          <div class="pm-files">
+            <div class="pm-file">📄 catalogo-servicios-2026.pdf</div>
+            <div class="pm-file">📄 manual-atencion.docx</div>
+            <div class="pm-file">📄 precios-lista.xlsx</div>
+            <div class="pm-file">📄 politicas-turnos.pdf</div>
+          </div>
+          <p style="font-size:.78rem;color:#7A8194;margin:0">"Claude está usando estos documentos como contexto en este Project."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 4 — Dejá que Claude active RAG solo cuando corresponda — vos no tocás nada acá</h3>
+      <p>A medida que sumás documentos, en algún momento la base se acerca al límite de lo que Claude puede leer de una sola pasada. Ahí, sin que hagas nada extra, Claude activa un modo de búsqueda (RAG) que le permite manejar hasta <strong>~10 veces</strong> más contenido: en vez de intentar tener todo en la cabeza a la vez, busca las partes específicas que responden cada pregunta. Es automático — no hay un botón "activar RAG" que tengas que buscar.</p>
+      <div class="projectmock">
+        <div class="projectmock-bar">Project · Base Peluquería Estilo</div>
+        <div class="projectmock-body">
+          <p style="font-size:.82rem;color:#2A2B32;margin:0 0 10px">Archivos: 12 documentos cargados</p>
+          <div class="pm-rag">🔎 Este project usa modo de búsqueda ampliado (RAG) — capacidad expandida automáticamente.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 5 — Probá que Claude realmente usa tu base, no la memoria general del modelo</h3>
+      <p>Hacele una pregunta que SOLO se pueda responder mirando tus documentos —algo bien específico de tu negocio, no una pregunta genérica que cualquier IA contestaría igual. Un precio exacto de tu lista, un paso puntual de tu manual, o un dato de tu política de turnos. Si la respuesta cita el dato correcto, tenés la confirmación.</p>
+      <span class="gptmock-tag">📱 Así se ve en Claude</span>
+      <div class="claudemock">
+        <div class="claudemock-bar"><div class="dot"></div><span>Claude · Project</span></div>
+        <div class="claudemock-body">
+          <div class="claudemock-user"><p>Según el manual de atención, ¿qué hacemos si un cliente llega 15 minutos tarde a su turno?</p></div>
+          <div class="claudemock-ai"><div class="ava"><img src="../assets/logo-claude.svg" alt=""></div>
+            <p>Según tu manual de atención (sección "Turnos"), si el cliente llega más de 10 minutos tarde se le ofrece reprogramar sin cargo, salvo que haya lugar en la agenda para atenderlo igual. ¿Querés que arme un mensaje corto para avisarle esto a un cliente puntual?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 6 — Sumá lo que falte y mantené la base viva</h3>
+      <p>Una base de conocimiento no es "cargar una vez y listo": cuando cambie tu catálogo, tus precios o tus políticas, volvé al Project y subí la versión nueva (o agregala junto a la vieja, aclarando la fecha, si querés conservar el histórico). Cuanto más al día esté la base, más confiables van a ser las respuestas de cualquier automatización que uses sobre este Project.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Podés subir documentos al Project desde el celular tocando "+" — anda bien para sumar una foto de una lista de precios o un PDF que te llega por mail. Para catálogos grandes o varios archivos juntos, puede ser más lento que desde la compu.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Para cargar una base grande de una sola vez —arrastrar varios archivos, ordenar carpetas antes de subir— es más cómodo desde la compu, sobre todo si tenés todo ya organizado en carpetas del negocio.</p>
+      </div>
+    </div>
+
+    <div class="card card-warn">
+      <h3>⚠️ Error común</h3>
+      <p>Subir documentos sueltos y desordenados a un Project genérico que también usás para charlas de todo tipo, en vez de dedicar un Project específico. Cuando mezclás memoria de negocio con conversaciones de otra cosa, Claude tiene que separar qué es relevante y las respuestas pierden precisión. El otro error es cargar la base UNA vez y no volver nunca más: un catálogo desactualizado hace que Claude te dé respuestas seguras pero incorrectas — confiadas y mal, que es peor que no saber.</p>
+    </div>
+
+    <div class="card card-example">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Antes:</strong> un local de indumentaria tiene el catálogo en un Excel de 200 productos, la política de cambios en un Word, y el histórico de talles en la cabeza de la dueña. Cada empleado nuevo tiene que preguntarle a ella o buscar en tres lugares distintos.</p>
+      <p><strong>Después:</strong> la dueña crea un Project "Base [nombre del local]" y sube el Excel, el Word y un resumen del histórico. Ahora cualquier empleado le puede preguntar a Claude directamente y recibe la respuesta correcta, sacada de los documentos reales, sin interrumpir a nadie.</p>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla A — Consulta puntual sobre un documento cargado</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · consulta puntual</span><button class="copy">Copiar</button></div>
+<pre>Según <strong class="field">[nombre del documento que subiste: catálogo / manual / lista de precios]</strong>,
+¿<strong class="field">[tu pregunta específica sobre un producto, procedimiento o dato]</strong>?</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla B — Pedido que cruza varios documentos de la base</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · cruce de documentos</span><button class="copy">Copiar</button></div>
+<pre>Mirando el catálogo y la lista de precios que subí, armame <strong class="field">[lo que necesites:
+una lista, un resumen, una comparación]</strong> de <strong class="field">[categoría o criterio específico
+de tu negocio]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla C — Chequeo de que la base está al día</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · chequeo de base</span><button class="copy">Copiar</button></div>
+<pre>Repasá los documentos que tenés cargados en este Project y decime si ves
+algo desactualizado o contradictorio entre ellos (por ejemplo, precios
+que no coinciden entre el catálogo y la lista de precios).</pre>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Tenés un Project dedicado a la base de conocimiento de tu negocio (no mezclado con otras charlas).</li>
+        <li>Cargaste los documentos REALES de tu negocio, no un ejemplo de prueba.</li>
+        <li>Hiciste al menos una pregunta bien específica y confirmaste que Claude responde con el dato correcto.</li>
+        <li>Si la base ya es grande, notaste el indicador de que Claude expandió su capacidad solo.</li>
+        <li>Guardaste el entregable <code>05-project-base</code> en <code>Sistema IA/Automatización/</code> y podés repetir el proceso vos solo/a.</li>
+      </ul>
+    </div>
+
+    <span class="entregable">📦 Entregable · 05-project-base — base de conocimiento real, con RAG si corresponde</span>
+
+    <label class="modcheck" data-mod="5">
+      <input type="checkbox" data-mod="5" aria-label="Completé el módulo 5">
+      <span>Completé el módulo 5 · La memoria grande del negocio</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@coco_go.lat →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 6 ═══ -->
+  <section class="panel" id="p-m6">
+    <div class="sec-head"><span class="numchip">06</span><h2>Tu sistema que trabaja solo</h2></div>
+    <p class="sec-sub">Activaste Pro, delegaste un trabajo a Cowork, programaste una tarea, conectaste una herramienta y cargaste una base de conocimiento grande. Son cuatro piezas potentes, pero hasta ahora las probaste una por una. Este módulo es donde dejan de ser experimentos sueltos y pasan a ser <strong>un sistema</strong> — y cerrás modelo y créditos, lo único que quedó pendiente desde el módulo 1.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Si ya tenés al menos una tarea agendada y un trabajo delegado funcionando: abrí <strong>Settings &gt; Usage</strong> ahora mismo y mirá cuánto uso llevás consumido esta semana — es gratis mirarlo. Después, la próxima vez que le pidas algo exigente a Claude, tocá el nombre del modelo al lado del botón de enviar y probá cambiarlo a <strong>Fable 5</strong> para esa tarea puntual.</p></div></div>
+
+    <div class="card card-sol">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> tenés cuatro herramientas activadas (delegar, agendar, conectar, memoria) pero las seguís mirando una por una. No hay una rutina que las una, no sabés si usás el modelo correcto para cada tarea, y no tenés idea de cómo funciona el gasto de uso.</p>
+      <p><strong>Te llevás:</strong> una rutina semanal escrita, con día y herramienta para cada tarea de tu sistema; criterio para elegir el modelo según la exigencia real; y el mecanismo de créditos y límites entendido.</p>
+      <p><strong>Lo usás cuando:</strong> ya tenés funcionando al menos un trabajo delegado, una tarea agendada, un conector o una base de conocimiento — no hace falta tener las cuatro para empezar.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Terminar con: (1) una rutina semanal por escrito que conecta explícitamente lo armado en los módulos 2 a 5, (2) criterio propio para elegir Sonnet 5 o Fable 5 según la tarea, y (3) entender cómo se gastan y gestionan los créditos de uso.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>El salto de este módulo es armar la rutina que hace funcionar las piezas JUNTAS, sin que vos seas el pegamento. Y hay una razón práctica para prestarle atención al modelo y a los créditos justo acá: un sistema que corre todos los días consume uso real. Si no entendés el mecanismo, te podés encontrar a mitad de semana con el uso incluido agotado y sin saber qué pasó.</p></div></div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 1 — Hacé el inventario de tu sistema: qué piezas tenés funcionando hoy</h3>
+      <p>Antes de armar la rutina, mirá con qué contás realmente. Abrí <code>Sistema IA/Automatización/</code> y revisá los entregables que fuiste guardando: <code>02-trabajo-delegado</code>, <code>03-tarea-agendada</code>, <code>04-herramienta-conectada</code> y <code>05-project-base</code>. No hace falta tener las cuatro completas para seguir —con dos o tres ya alcanza para armar un sistema real—, pero sí necesitás saber con precisión qué tenés.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 2 — Armá la rutina semanal: qué día corre cada pieza, y cómo se apoyan entre sí</h3>
+      <p>Acá es donde el sistema deja de ser cuatro piezas sueltas. Tomá una hoja y completá, día por día, qué tarea corre, con qué herramienta de las que ya activaste, y si usa alguna de las otras piezas como apoyo. Ejemplo de cómo queda armada para un negocio real:</p>
+      <div class="tablewrap">
+        <table class="routinetable">
+          <thead><tr><th>Día</th><th>Qué corre solo</th><th>Con qué (módulo)</th></tr></thead>
+          <tbody>
+            <tr><td>Lunes 8:00</td><td>Mensaje de novedades para WhatsApp, con el tono y los datos del catálogo</td><td>Tarea agendada (mód. 3) + Project (mód. 5)</td></tr>
+            <tr><td>Miércoles</td><td>Informe de qué reponer, cruzando el conector con el historial de ventas</td><td>Cowork (mód. 2) + conector (mód. 4)</td></tr>
+            <tr><td>Viernes 18:00</td><td>Resumen de cierre de semana con pendientes</td><td>Tarea agendada (mód. 3)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>La idea no es copiar esta tabla: es armar la tuya, con TUS piezas reales del inventario del paso 1. Si hoy solo tenés una tarea agendada y un conector, la rutina va a tener dos filas — está bien, es un sistema chico pero real, y crece a medida que sumés piezas.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 3 — Elegí qué modelo usa cada tarea de tu rutina</h3>
+      <p>El modelo se elige en un selector al lado del botón de enviar: tocás el nombre actual y elegís con cuál querés que Claude trabaje — se puede cambiar cuando quieras. Hoy el modelo por defecto en Free y Pro es <strong>Sonnet 5</strong>: alcanza de sobra para la enorme mayoría de tareas. El tope de línea es <strong>Fable 5</strong>: pensado para lo más exigente —cruces de información grandes, informes largos y complejos, Cowork con muchas partes que dependen unas de otras. Si Fable 5 aparece bloqueado, Claude re-corre esa tarea automáticamente con <strong>Opus 4.8</strong>.</p>
+      <p>Revisá tu tabla del paso 2 y para cada tarea anotá qué modelo le corresponde: la gran mayoría van a quedar en Sonnet 5, y reservás Fable 5 para lo puntual que de verdad lo necesita.</p>
+      <div class="modelmock">
+        <div class="modelmock-bar">Selector de modelo</div>
+        <div class="modelmock-body">
+          <div class="mm-opt sel"><b>Sonnet 5 <span class="check">✓</span></b><small>modelo por defecto (Free y Pro)</small></div>
+          <div class="mm-opt"><b>Fable 5</b><small>el más capaz, para tareas exigentes</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 4 — Entendé cómo funcionan los créditos de uso, antes de que tu sistema los necesite</h3>
+      <p>Cada plan trae un uso incluido. Cuando una conversación, una tarea agendada, un trabajo de Cowork o una consulta a tu Project lo agotan, lo que sigue se cobra a la tarifa estándar de la API, y ese uso incluido se repone cada 5 horas. Todo se gestiona desde <strong>Settings &gt; Usage</strong>: ahí ves cuánto llevás consumido, habilitás el uso pago, cargás fondos, activás auto-reload y ponés (o no) un tope mensual.</p>
+      <div class="modelmock">
+        <div class="modelmock-bar">Settings &gt; Usage</div>
+        <div class="modelmock-body">
+          <div class="usagebar">
+            <div class="ub-row"><span>Uso incluido esta semana</span><span>consumido / disponible</span></div>
+            <div class="ub-track"><div class="ub-fill" style="width:62%"></div></div>
+          </div>
+          <div class="usage-toggles"><span>Uso pago: deshabilitado</span><span>Auto-reload: off</span><span>Tope mensual: sin definir</span></div>
+        </div>
+      </div>
+      <div class="faltanote"><span>⚠️</span><p>Anthropic no publica un número fijo de mensajes o de uso incluido por plan con Sonnet 5 — el mecanismo es dinámico (ventana de ~5 horas más un límite semanal) y varía según el plan. Cifras tipo "25 por día" que circulan por internet son de terceros, no oficiales: guiate por lo que ves vos en Settings &gt; Usage.</p></div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 5 — Guardá el entregable: tu sistema completo, por escrito</h3>
+      <p>En <code>Sistema IA/Automatización/</code>, guardá tres cosas juntas: la tabla de tu rutina semanal del paso 2, qué modelo usa cada tarea del paso 3, y el estado de tus créditos/tope del paso 4. Nombralo <code>06-sistema-operativo</code>. Es el mapa operativo de tu negocio funcionando con Claude — lo que vas a mirar de acá en adelante en vez de acordarte de cada pieza por separado.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Podés revisar tu rutina, chequear el selector de modelo y mirar Settings &gt; Usage desde el celular en cualquier momento libre. Lo único que conviene hacer con calma (no necesariamente en la compu) es armar la tabla de la rutina la primera vez, porque pide comparar varias piezas a la vez.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Para armar la tabla del paso 2 por primera vez es más cómodo desde la compu: podés tener a la vista, en simultáneo, los cuatro entregables anteriores (02 a 05) y la carpeta <code>Sistema IA/Automatización</code>. Settings &gt; Usage también se lee más claro en pantalla grande.</p>
+      </div>
+    </div>
+
+    <div class="card card-warn">
+      <h3>⚠️ Error común</h3>
+      <p>El más frecuente es armar las cuatro piezas de los módulos 2 a 5 por separado y nunca dar el paso de este módulo: seguís abriendo Cowork cuando te acordás, revisando la tarea de vez en cuando. Tenés las herramientas pero no el sistema. El segundo error, más nuevo, es usar <strong>Fable 5 para todo</strong> por costumbre o porque "es el mejor": para la enorme mayoría de tareas de una rutina de negocio, Sonnet 5 rinde igual de bien y consume menos uso incluido.</p>
+    </div>
+
+    <div class="card card-example">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Antes:</strong> la dueña de la peluquería del módulo 1 ya tiene, por separado, un trabajo delegado, una tarea agendada, un conector a Notion y un Project con base de conocimiento. Cuatro piezas reales — pero cada semana abre cada una por separado, sin un orden fijo, y a veces se olvida de revisar alguna.</p>
+      <p><strong>Después:</strong> arma su rutina semanal escrita. Lunes 8:00 el mensaje de novedades toma tono y datos del Project. Miércoles le delega a Cowork el informe de reposición (cruza Notion con el historial de ventas) — como tiene varios cruces, elige Fable 5 para esa conversación puntual. Viernes 18:00, otra tarea le arma el resumen de cierre, con Sonnet 5. Entró una vez a Settings &gt; Usage, activó auto-reload con un tope mensual chico, y guardó todo en <code>06-sistema-operativo</code>.</p>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla A — Diagnóstico de tu rutina (con tus datos reales)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · diagnóstico de rutina</span><button class="copy">Copiar</button></div>
+<pre>Tengo estas piezas activas en Claude: <strong class="field">[tarea agendada X, con qué frecuencia]</strong>, <strong class="field">[conector a Y]</strong>,
+<strong class="field">[Project con la base de Z]</strong>, y suelo delegarle a Cowork <strong class="field">[tarea]</strong>. Ayudame a pensar una rutina
+semanal, día por día, que las conecte entre sí sin que se pisen, para mi negocio de <strong class="field">[tu rubro]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla B — Auditoría mensual del sistema (trabajo delegado a Cowork)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · auditoría mensual cowork</span><button class="copy">Copiar</button></div>
+<pre>Cowork: revisá el estado de mis automatizaciones activas —la tarea agendada de <strong class="field">[nombre]</strong>,
+el conector a <strong class="field">[herramienta]</strong> y la base de conocimiento del Project <strong class="field">[nombre]</strong>— y armame un
+resumen corto de qué está funcionando bien, qué no se usó en las últimas semanas, y qué
+me convendría ajustar. Español rioplatense.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla C — Tabla en blanco de tu rutina</h3>
+      <div class="prompt">
+        <div class="top"><span>plantilla · tabla de rutina</span><button class="copy">Copiar</button></div>
+<pre>Día        | Qué corre solo               | Con qué (módulo)        | Modelo
+-----------|-------------------------------|--------------------------|----------
+<strong class="field">[día/hora]</strong> | <strong class="field">[tarea]</strong>                       | <strong class="field">[módulo 2/3/4/5]</strong>         | <strong class="field">[Sonnet 5 / Fable 5]</strong>
+<strong class="field">[día/hora]</strong> | <strong class="field">[tarea]</strong>                       | <strong class="field">[módulo 2/3/4/5]</strong>         | <strong class="field">[Sonnet 5 / Fable 5]</strong></pre>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Hiciste el inventario real de qué tenés funcionando de los módulos 2 a 5.</li>
+        <li>Tenés la rutina semanal escrita, con al menos dos piezas conectadas entre sí.</li>
+        <li>Decidiste, tarea por tarea, si le corresponde Sonnet 5 o Fable 5 — no lo dejaste en automático.</li>
+        <li>Entraste a Settings &gt; Usage al menos una vez y decidiste conscientemente tope, auto-reload, o sin tope.</li>
+        <li>Guardaste el entregable <code>06-sistema-operativo</code> en <code>Sistema IA/Automatización/</code>.</li>
+        <li>Podés repetir este proceso vos solo/a, sin volver a leer este módulo.</li>
+      </ul>
+    </div>
+
+    <span class="entregable">📦 Entregable · 06-sistema-operativo — rutina + modelo por tarea + créditos</span>
+
+    <label class="modcheck" data-mod="6">
+      <input type="checkbox" data-mod="6" aria-label="Completé el módulo 6">
+      <span>Completé el módulo 6 · Tu sistema que trabaja solo</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@coco_go.lat →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ MÓDULO 7 ═══ -->
+  <section class="panel" id="p-m7">
+    <div class="sec-head"><span class="numchip">07</span><h2>Asomate a Claude Code</h2></div>
+    <p class="sec-sub">Hasta acá el "empleado" trabajó siempre del mismo lado del mostrador: vos describías un resultado y él lo resolvía adentro del chat. Este módulo te muestra que del otro lado hay una versión de Claude que trabaja directamente sobre código: lee archivos de un proyecto entero, los edita, corre comandos y coordina agentes. No la vas a instalar ni a usar — la vas a conocer lo suficiente como para decidir si te conviene dar ese salto.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Si tenés 5 minutos: abrí en el navegador <strong>claude.ai/code</strong> (o <code>code.claude.com/docs/en/overview</code>) y mirá cómo se presenta Claude Code. No hace falta instalar nada ni cambiar de plan — es solo la vidriera. Con eso alcanza para arrancar a formarte una opinión.</p></div></div>
+
+    <div class="card card-sol">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> ya tenés un negocio que delega, agenda y conecta herramientas solo (módulo 6). Pero en algún momento te vas a topar con algo que ninguna de esas piezas resuelve: un conector que no existe todavía y que alguien tendría que construir a medida, una tarea que exige tocar archivos reales de un proyecto técnico.</p>
+      <p><strong>Te llevás:</strong> claridad de qué es Claude Code, dónde vive, qué plan pide, y una decisión propia y razonada sobre si das el salto ahora, más adelante, o nunca.</p>
+      <p><strong>Lo usás cuando:</strong> terminaste el módulo 6 con tu sistema andando y te preguntás "¿esto es todo lo que Claude puede hacer por mi negocio, o hay un escalón más?".</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Salir con: (1) entender en una frase qué es Claude Code y en qué se distingue de todo lo que usaste hasta acá, (2) saber dónde vive y qué plan exige, y (3) haber tomado una decisión concreta —sí, más adelante, o no— sostenida en al menos dos criterios propios, guardada como entregable.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Todo lo que hiciste en los módulos 2 a 6 es no-técnico: describiste en lenguaje natural qué querías. Claude Code es la otra cara de Claude: la misma inteligencia, pero trabajando sobre el código y los archivos reales de un proyecto. No es casualidad que quede afuera del resto del programa — Anthropic mismo clasifica su contenido como material de desarrollador. Importa que lo veas, aunque nunca lo uses: te da el mapa completo.</p></div></div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 1 — Una sola idea: qué es Claude Code</h3>
+      <p>Es una herramienta agéntica — Anthropic la define así (cita textual): "lee tu código, edita archivos, corre comandos, y se integra con tus herramientas de desarrollo". Donde Cowork te resuelve un trabajo describiéndolo en lenguaje natural, Claude Code trabaja directamente adentro de un proyecto técnico: ve todos los archivos, los modifica, y ejecuta lo necesario para probar que el cambio funciona.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 2 — Dónde vive</h3>
+      <p>Cuatro lugares, todos oficiales: la terminal (línea de comandos), un IDE (VS Code, JetBrains), una Desktop app, y la web en <code>claude.ai/code</code>. La Desktop app y la versión web bajan la fricción de instalación, pero el uso en sí sigue siendo trabajo de desarrollador: hay que saber leer código, entender qué es un comando, moverse en un proyecto técnico.</p>
+      <div class="mi-row"><span class="mi-ic">🆕</span><div><span class="mi-label">Novedad (julio 2026)</span><p>La Desktop app de Claude Code ya trae un <strong>navegador propio integrado</strong>: un panel con pestañas que se abre con <code>Cmd+Shift+B</code> (o <code>Ctrl+Shift+B</code>, o desde el menú Views). Ahí Claude abre documentación o un sitio y puede leerlo, hacer clic y completar formularios como parte de una tarea de código —por ejemplo, probar la web que está construyendo—. Usa un perfil limpio, pensado para desarrollar y probar. No lo confundas con la extensión <em>Claude in Chrome</em> (ver Glosario): esa navega con tus sesiones ya iniciadas, "como vos"; este es un entorno de trabajo técnico, de plan pago.</p></div></div>
+      <div class="codemock">
+        <div class="codemock-bar"><span class="dt r"></span><span class="dt y"></span><span class="dt g"></span><span class="title">claude code — mi-sitio-web</span></div>
+        <div class="codemock-layout">
+          <div class="codemock-files">
+            <div class="cf">📁 src/</div>
+            <div class="cf active">📄 formulario-contacto.js</div>
+            <div class="cf">📄 estilos.css</div>
+            <div class="cf">📄 index.html</div>
+            <div class="cf">📁 tests/</div>
+          </div>
+          <div class="codemock-chat">
+            <div class="cc-user">corregí el error del formulario de contacto</div>
+            <div class="cc-step"><span class="ck">✓</span>Leyendo formulario-contacto.js…</div>
+            <div class="cc-step"><span class="ck">✓</span>Encontré el bug en la validación de email, línea 42</div>
+            <div class="cc-step"><span class="ck">✓</span>Corrigiendo la expresión regular…</div>
+            <div class="cc-step"><span class="ck">✓</span>Corriendo tests… pasaron 12/12</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 3 — Qué plan te pide</h3>
+      <p><strong>Pro (US$20/mes) como mínimo, o API — Free no lo incluye.</strong> Si veniste haciendo este curso, ya tenés Pro activo desde el módulo 1 — el acceso ya lo pagás, lo que falta (si quisieras usarlo) es la parte técnica.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 4 — Marcá la frontera con lo que ya sabés usar</h3>
+      <p>Todo lo de los módulos 2 a 6 —Cowork, tareas agendadas, conectores, Projects con base de conocimiento, elegir modelo— se maneja en español, sin tocar código. Claude Code arranca donde eso termina. Ojo, no lo confundas con dos extras que sí son parte del terreno no-técnico: <strong>Claude for Excel</strong> (fórmulas reales dentro de Excel) y <strong>Claude in Chrome</strong> (navega y completa sitios por vos) — ambos de pago, ambos sin código de por medio. Claude Code es el único de los tres que te mete en terreno de desarrollador.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 5 — Aplicá los criterios a tu caso</h3>
+      <p>Preguntate esto, con tu negocio real en la cabeza:</p>
+      <ul>
+        <li>¿Alguien en tu equipo (vos, un socio, un empleado, un freelance) ya toca código o trabaja en una terminal hoy? Si sí, ahí Claude Code tiene sentido evaluarlo — con esa persona, no solo.</li>
+        <li>¿Te chocaste con un límite real de este curso —un conector que no existe, una integración a medida que necesitás? Repasá el módulo 4 si no te acordás de ese límite.</li>
+        <li>¿Tu sistema del módulo 6 ya te resuelve el día a día sin fricción? Si la respuesta es sí y ninguna de las dos anteriores te tocó, hoy no te hace falta dar el salto.</li>
+      </ul>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 6 — Tomá la decisión y guardala</h3>
+      <p>No hace falta que sea "sí" para que valga como entregable. Un "no, por ahora" con sus criterios es tan válido como un "sí, y ya sé con quién lo voy a evaluar".</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil</b></div>
+        <p>Podés mirar la presentación de Claude Code en <code>claude.ai/code</code> desde el celular sin problema — para ESTE módulo (que es de decisión, no de uso) el celular alcanza de sobra.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop</b></div>
+        <p>Si terminás decidiendo explorar Claude Code más en serio, eso sí va a pedir compu: terminal, IDE o la Desktop app son entornos de escritorio, no de celular. Para hoy, alcanza con mirar la propuesta desde donde estés.</p>
+      </div>
+    </div>
+
+    <div class="card card-warn">
+      <h3>⚠️ Error común</h3>
+      <p>Dos errores opuestos. El primero: sentir que "para aprovechar todo el curso" hay que terminar usando Claude Code — no es así, el sistema del módulo 6 es completo y autosuficiente sin tocar código nunca. El segundo, menos obvio: descartarlo de plano sin entender qué resuelve, y quedarte años pagando de más a un desarrollador por tareas repetitivas de código que Claude Code resolvería más rápido si esa persona lo evaluara.</p>
+    </div>
+
+    <div class="card card-example">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Antes:</strong> un dueño de e-commerce tiene su sistema del módulo 6 andando perfecto y un freelance que le mantiene el código de la tienda online. Cada vez que hay que corregir un detalle chico de la web, el freelance cobra por hora y tarda días en responder.</p>
+      <p><strong>Después:</strong> el dueño no toca código — no es su terreno. Pero aplica el criterio del paso 5: su freelance sí trabaja con código y terminal todos los días. Le comenta la existencia de Claude Code y le pasa el link de la documentación oficial. La decisión de evaluarlo queda en manos de quien realmente va a usarlo — el dueño se llevó lo que le tocaba: saber que la opción existe y a quién ofrecérsela.</p>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla A — Pedile a Claude que te ayude a pensar la decisión</h3>
+      <p style="font-size:.86rem;color:var(--faint);margin-top:-4px">Esto SÍ es un prompt normal, en el chat de siempre — no en Claude Code.</p>
+      <div class="prompt">
+        <div class="top"><span>prompt · pensar la decisión</span><button class="copy">Copiar</button></div>
+<pre>Tengo mi negocio funcionando con Cowork, tareas agendadas y conectores en Claude.
+Contame en criollo, sin tecnicismos, qué es Claude Code y ayudame a pensar si mi
+caso (contá acá tu rubro y si alguien en tu equipo toca código hoy) amerita
+evaluarlo, o si con lo que ya tengo me alcanza por ahora.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla B — Checklist de decisión (para completar vos, sin Claude)</h3>
+      <div class="prompt">
+        <div class="top"><span>plantilla · checklist de decisión</span><button class="copy">Copiar</button></div>
+<pre>1. ¿Alguien en mi equipo toca código o terminal hoy? Sí / No — ¿quién?
+2. ¿Me choqué con un límite real (conector inexistente, integración a medida)? Sí / No — ¿cuál?
+3. ¿Mi sistema del módulo 6 me alcanza hoy sin fricción? Sí / No
+Decisión: doy el salto ahora / lo evalúo más adelante / no por ahora, porque...</pre>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Podés explicar en una frase propia qué es Claude Code y en qué se distingue de Cowork.</li>
+        <li>Sabés dónde vive (terminal, IDE, Desktop app, <code>claude.ai/code</code>) y qué plan pide (Pro o API, no Free).</li>
+        <li>Completaste el checklist de decisión con tu caso real, no en abstracto.</li>
+        <li>Tenés una decisión escrita —sí, más adelante, o no— con al menos dos criterios propios detrás.</li>
+        <li>Guardaste esa decisión como entregable, en la misma carpeta donde vive todo tu sistema.</li>
+      </ul>
+    </div>
+
+    <span class="entregable">📦 Entregable · 07-mapa-avanzado — tu decisión razonada sobre Claude Code</span>
+
+    <label class="modcheck" data-mod="7">
+      <input type="checkbox" data-mod="7" aria-label="Completé el módulo 7">
+      <span>Completé el módulo 7 · Asomate a Claude Code</span>
+    </label>
+
+    <div class="card" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@coco_go.lat →</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ APLICACIONES ═══ -->
+  <section class="panel" id="p-apps">
+    <div class="sec-head"><span class="numchip" style="font-size:1.1rem">↗</span><h2>Aplicaciones por área de negocio</h2></div>
+    <p class="sec-sub">Formas de uso reales del sistema de automatización (Cowork + tareas agendadas + conectores + Project con base de conocimiento), por área de negocio. En los cinco casos la lógica es la misma que armaste módulo a módulo: elegís qué trabajo delegar o agendar (módulos 2 y 3), lo alimentás con un conector si el dato vive en otra herramienta (módulo 4) y con la base de conocimiento de tu Project si necesita memoria del negocio (módulo 5). Lo que cambia según tu rubro es QUÉ conectás y QUÉ le pedís, no la mecánica.</p>
+
+    <div class="card">
+      <p style="margin:0">Estos ejemplos son <strong>ORIENTATIVOS</strong>, no una lista cerrada: están para que veas el patrón —qué se delega, qué se agenda, qué conector lo alimenta— y lo adaptes a tu rubro. Si tu área o tu negocio no aparece tal cual, agarrá el caso que más se le parezca.</p>
+    </div>
+
+    <div class="app-grid">
+      <div class="app">
+        <div class="ic">💰</div>
+        <h4>Ventas</h4>
+        <p>Cruzar herramientas de cobro con el historial del negocio.</p>
+        <ul>
+          <li>Tarea agendada semanal que cruza el conector de pagos/CRM (Stripe, Notion) con el Project y arma un resumen de qué clientes no compraron hace tiempo.</li>
+          <li>Trabajo delegado a Cowork para un informe mensual de ventas por producto o categoría, comparando contra el mes anterior.</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">🎧</div>
+        <h4>Atención al cliente</h4>
+        <p>Respuestas con la base de conocimiento siempre presente.</p>
+        <ul>
+          <li>Project con precios, políticas y FAQ conectado a una tarea agendada que arma borradores de respuesta a las consultas más frecuentes de la semana.</li>
+          <li>Trabajo delegado a Cowork para revisar y clasificar un lote de consultas o reclamos acumulados por urgencia.</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">⚙️</div>
+        <h4>Operaciones</h4>
+        <p>Stock, facturas y vencimientos, sin revisar todo a mano.</p>
+        <ul>
+          <li>Tarea agendada diaria o weekdays que revisa stock/inventario (a mano o vía conector) y arma un aviso de qué reponer.</li>
+          <li>Trabajo delegado a Cowork para cruzar facturas de una carpeta entera y armar una planilla con totales y vencimientos, como en el módulo 2.</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">📣</div>
+        <h4>Marketing</h4>
+        <p>Mensajes con el tono de tu negocio, listos cada semana.</p>
+        <ul>
+          <li>Tarea agendada semanal que redacta el mensaje de novedades o promo para WhatsApp/Instagram, tomando tono y datos fijos desde el Project.</li>
+          <li>Trabajo delegado a Cowork para armar un resumen de novedades del rubro o de la competencia, si conectaste una fuente de datos para eso.</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">🗂️</div>
+        <h4>Administración</h4>
+        <p>Cierre de semana y auditoría del sistema, sin que nada quede abandonado.</p>
+        <ul>
+          <li>Tarea agendada de cierre de semana (viernes) que resume pendientes para el lunes, cruzando el conector de tu herramienta de gestión de tareas (Linear, Notion).</li>
+          <li>Auditoría periódica del sistema completo con Cowork (ver Bonus) para no perder de vista qué automatización sigue viva y cuál quedó abandonada.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="next" style="margin-top:20px">
+      <div class="kicker">Explorá otros cursos</div>
+      <h3>ChatGPT · <span class="c">Gemini · Grok</span></h3>
+      <p>Cada IA tiene fortalezas distintas. Aprendelos con el mismo método COCO GO: prompts reales, entregables, sin jerga.</p>
+      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
+    </div>
+  </section>
+
+  <!-- ═══ BONUS ═══ -->
+  <section class="panel" id="p-bonus">
+    <div class="sec-head"><span class="numchip" style="font-size:1.15rem">★</span><h2>Bonus · checklist de mantenimiento</h2></div>
+    <p class="sec-sub">Usalo <strong>después</strong> de completar los módulos — con tu sistema real ya armado.</p>
+
+    <div class="card card-sol">
+      <h3>✅ Checklist de mantenimiento mensual de tu sistema de automatizaciones</h3>
+      <p>Una vez por mes (podés agendarte un recordatorio vos mismo, o incluirlo como tarea <em>manual</em> en tu panel "Scheduled"), repasá estos cinco puntos con tu sistema real delante:</p>
+      <div class="prompt">
+        <div class="top"><span>checklist · mantenimiento mensual</span><button class="copy">Copiar</button></div>
+<pre>1. Panel "Scheduled": ¿hay alguna tarea que no corrió como esperabas, o que ya no
+   sirve? Editá, pausá o borrá lo que corresponda (módulo 3).
+
+2. Connectors: ¿los conectores activos siguen alimentando una automatización real,
+   o quedó alguno "conectado de adorno" sin que nadie lo use? (módulo 4).
+
+3. Project / base de conocimiento: ¿cambiaron precios, políticas o catálogo desde
+   la última carga? Subí la versión nueva antes de que las respuestas empiecen a
+   ser confiadas pero incorrectas (módulo 5).
+
+4. Modelo: revisá una tarea que hayas puesto en Fable 5 — ¿de verdad lo necesita,
+   o Sonnet 5 rendía igual gastando menos uso? (módulo 6).
+
+5. Settings > Usage: ¿el tope o el auto-reload que configuraste sigue siendo el
+   que necesitás, ahora que tu sistema lleva un mes corriendo? (módulo 6).</pre>
+      </div>
+      <p style="margin-top:10px">No hace falta que el resultado sea perfecto todos los meses — la idea es que ninguna pieza del sistema quede corriendo sola, sin que nadie la mire, durante demasiado tiempo. Si preferís que Claude te lo resuma en vez de repasarlo vos a mano, la <strong>Plantilla B del módulo 6</strong> (<em>Tu sistema que trabaja solo</em>) le delega este mismo chequeo a Cowork.</p>
+    </div>
+
+    <div class="next" style="margin-top:20px">
+      <div class="kicker">Explorá otros cursos</div>
+      <h3>ChatGPT · <span class="c">Gemini · Grok</span></h3>
+      <p>Cada IA tiene fortalezas distintas. Aprendelos con el mismo método COCO GO: prompts reales, entregables, sin jerga.</p>
+      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
+    </div>
+  </section>
+
+  <!-- ═══ VERIFICACIÓN ═══ -->
+  <section class="panel" id="p-verif">
+    <div class="sec-head"><span class="numchip" style="font-size:1.15rem">✓</span><h2>Verificación final</h2></div>
+    <p class="sec-sub">Un check por entregable. Marcalo solo si es real, no si "algo se acerca".</p>
+
+    <div class="card">
+      <div class="check-list">
+        <div class="check"><span class="box">✓</span><p>01 · Primera automatización<small>Pro activado de verdad (no en modo prueba mental), una tarea programada con /schedule usando datos reales de tu negocio, y el primer resultado revisado.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>02 · Trabajo delegado<small>Le delegaste a Cowork un trabajo de varios pasos real, describiendo el RESULTADO, revisaste el plan antes de aprobarlo y el resultado final con tus propios datos.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>03 · Tarea agendada<small>Ese mismo trabajo de Cowork (u otro equivalente) quedó agendado con la frecuencia correcta, y editaste, pausaste o borraste al menos una tarea de prueba.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>04 · Herramienta conectada<small>Tenés al menos un conector no-Google activo, confirmaste con una pregunta suelta que Claude lee datos reales tuyos, y lo sumaste a una automatización que ya corrió con el conector activo.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>05 · Project base<small>Tu Project tiene la base de conocimiento REAL de tu negocio cargada y respondió con precisión a una pregunta específica sobre esos documentos.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>06 · Sistema operativo<small>Tenés la rutina semanal escrita conectando al menos dos piezas de los módulos 2 a 5, decidiste modelo por tarea con criterio, y entraste a Settings &gt; Usage a definir tope o auto-reload conscientemente.</small></p></div>
+        <div class="check"><span class="box">✓</span><p>07 · Mapa avanzado<small>Podés explicar en una frase qué es Claude Code, sabés dónde vive y qué plan pide, y completaste el checklist de decisión con tu caso real.</small></p></div>
+      </div>
+    </div>
+
+    <div class="next">
+      <div class="kicker">Cuando termines esto…</div>
+      <h3>Seguí explorando <span class="c">otros cursos COCO GO</span></h3>
+      <p>Este curso te mostró en el módulo 7 que existe un nivel más allá del que armaste acá — todavía no está disponible. Mientras tanto, sumá el mismo método a otras herramientas.</p>
+      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
+    </div>
+
+    <div class="card feedbackbox" style="margin-top:20px">
+      <h3>💬 Tu feedback real</h3>
+      <p style="margin-bottom:10px">¿Qué módulo te costó más? ¿Qué te hubiera gustado que explicáramos mejor? ¿Hay algo de tu sistema de automatización que este curso no contempló? Escribilo acá — no hay respuesta automática, pero lo leemos.</p>
+      <textarea id="feedback-text" placeholder="Ej: el módulo 4 me costó por el tema de los conectores, pero el módulo 6 me cambió la forma de trabajar…"></textarea>
+      <div class="fb-actions">
+        <button type="button" class="copy" id="feedback-copy">Copiar mi comentario</button>
+      </div>
+      <div class="fb-paths">
+        <span>Mandalo por Instagram — <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:3px"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>@coco_go.lat →</a></span>
+        <span>O por mail a <a href="mailto:cocogo.hola@gmail.com?subject=Feedback%20curso%20Claude%20Intermedio">cocogo.hola@gmail.com</a> — pegá el comentario que copiaste arriba.</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="wrap" id="catalogo" style="padding:10px 20px 40px">
+  <div class="sec-head"><span class="numchip" style="font-size:1.05rem">＋</span><h2 style="font-size:clamp(1.3rem,3vw,1.7rem)">Otros cursos <img src="../assets/logo-coco-go.svg" alt="COCO GO" style="height:1.1em;vertical-align:-0.15em"></h2></div>
+  <p class="sec-sub">Mismo método — prompts reales, entregables, sin jerga — aplicado a otras herramientas. Si todavía no hiciste alguno de estos básicos, es la base natural antes de un intermedio en esa herramienta.</p>
+  <div class="app-grid">
+    <div class="app curso-cta">
+      <div class="ic"><img src="../assets/logo-openai.svg" alt="" aria-hidden="true" style="width:22px;height:22px;display:block"></div>
+      <h4>ChatGPT para tu negocio</h4>
+      <p>El mismo método aplicado a la herramienta de OpenAI, si tu negocio también usa ChatGPT del lado del equipo. (Básico)</p>
+      <a class="cta-curso" href="../chatgpt/">Ver curso →</a>
+    </div>
+    <div class="app curso-cta">
+      <div class="ic"><img src="../assets/logo-gemini.svg" alt="" aria-hidden="true" style="width:22px;height:22px;display:block"></div>
+      <h4>Gemini para tu negocio</h4>
+      <p>Para el negocio que ya vive dentro del mundo Google: Workspace, Drive, Gmail. (Básico)</p>
+      <a class="cta-curso" href="../gemini/">Ver curso →</a>
+    </div>
+    <div class="app curso-cta">
+      <div class="ic"><img src="../assets/logo-grok.svg" alt="" aria-hidden="true" style="width:22px;height:22px;display:block"></div>
+      <h4>Grok para tu negocio</h4>
+      <p>Para quien quiere sumar la mirada de X/Twitter y datos en tiempo real a su caja de herramientas. (Básico)</p>
+      <a class="cta-curso" href="../grok/">Ver curso →</a>
+    </div>
+    <div class="app curso-cta" style="opacity:.7">
+      <div class="ic"><img src="../assets/logo-claude.svg" alt="" aria-hidden="true" style="width:22px;height:22px;display:block"></div>
+      <h4>Claude Avanzado</h4>
+      <p>El módulo 7 de este curso te mostró que existe un nivel más allá: Claude trabajando directo sobre código y archivos de un proyecto técnico (Claude Code). El curso avanzado de COCO GO que enseña a usarlo de verdad todavía no está disponible — se suma a este catálogo más adelante.</p>
+      <span style="display:inline-block;margin-top:14px;padding:6px 12px;border-radius:999px;font-weight:600;font-size:.8rem;color:var(--faint);border:1px dashed var(--border-strong);align-self:flex-end">Próximamente</span>
+    </div>
+  </div>
+  <p style="margin-top:14px;font-size:.9rem;color:var(--muted)">Seguinos en <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener" style="color:var(--theme-light);text-decoration:none;border-bottom:1px solid rgba(var(--theme-rgb),.3)">@coco_go.lat</a> para enterarte de las novedades.</p>
+</section>
+
+<footer>
+  <img src="../assets/logo-coco-go.svg" class="foot-logo" alt="COCO GO">
+  <div class="socials">
+    <a class="soc" href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener" aria-label="Instagram @coco_go.lat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0-2.16C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.94 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg></a>
+    <a class="soc" href="https://x.com/cocogo" target="_blank" rel="noopener" aria-label="X @cocogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93ZM17.61 20.64h2.04L6.49 3.24H4.3Z"/></svg></a>
+  </div>
+  <p>Soporte: <a href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a> (respondemos en 48 h hábiles)</p>
+  <p>Más cursos: <a href="#catalogo">ChatGPT · Gemini · Grok</a> — mismo método COCO GO.</p>
+    <p class="legal-links"><a href="../privacidad.html">Privacidad</a> · <a href="../terminos.html">Términos</a> · <a href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a></p>
+<p>© COCO GO 2026. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+/* puerta de acceso — código en el link de compra (?k=) o tipeado, recordado en localStorage */
+(function(){
+  var ACCESS_TOKEN='COCO-CLDINT-2026';
+  var ACCESS_STORAGE_KEY='coco-go-claude-intermedio-access-ok';
+  var gate=document.getElementById('access-gate');
+  var input=document.getElementById('access-code-input');
+  var submit=document.getElementById('access-code-submit');
+  var error=document.getElementById('access-gate-error');
+  if(!gate||!input||!submit) return;
+
+  var params=new URLSearchParams(location.search);
+  var fromUrl=(params.get('k')||'').trim();
+  var stored=localStorage.getItem(ACCESS_STORAGE_KEY)==='1';
+
+  function unlock(){
+    try{localStorage.setItem(ACCESS_STORAGE_KEY,'1');}catch(e){}
+    document.body.classList.remove('access-locked');
+    gate.hidden=true;
+    if(fromUrl){
+      params.delete('k');
+      var qs=params.toString();
+      history.replaceState(null,'',location.pathname+(qs?'?'+qs:'')+location.hash);
+    }
+  }
+
+  function tryCode(raw){
+    var code=(raw||'').trim();
+    if(code.toUpperCase()===ACCESS_TOKEN.toUpperCase()){
+      if(error) error.textContent='';
+      unlock();
+      return true;
+    }
+    if(error) error.textContent='Código incorrecto. Revisá el email de compra.';
+    return false;
+  }
+
+  if(stored||(fromUrl&&tryCode(fromUrl))) return;
+
+  document.body.classList.add('access-locked');
+  gate.hidden=false;
+  submit.addEventListener('click',function(){tryCode(input.value);});
+  input.addEventListener('keydown',function(e){if(e.key==='Enter')tryCode(input.value);});
+})();
+
+/* fondo de red animado */
+(function(){
+  var c=document.getElementById('bg'); if(!c) return;
+  var ctx=c.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2);
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var RGB=(getComputedStyle(document.documentElement).getPropertyValue('--theme-rgb').trim())||'217,119,87';
+  var W,H,pts,raf;
+  function resize(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.min(90,Math.max(30,Math.floor(W*H/16000)));pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18});}
+  function frame(move){ctx.clearRect(0,0,W,H);var i,j,a,b,dx,dy,d,o;
+    if(move)for(i=0;i<pts.length;i++){a=pts[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;}
+    for(i=0;i<pts.length;i++)for(j=i+1;j<pts.length;j++){a=pts[i];b=pts[j];dx=a.x-b.x;dy=a.y-b.y;d=dx*dx+dy*dy;
+      if(d<19000){var boost=document.body.classList.contains('access-locked')?1.65:1;o=(1-d/19000)*.22*boost;ctx.strokeStyle='rgba('+RGB+','+Math.min(o,.55).toFixed(3)+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+    for(i=0;i<pts.length;i++){a=pts[i];var boost2=document.body.classList.contains('access-locked')?1.4:1;ctx.fillStyle='rgba('+RGB+','+(0.55*boost2).toFixed(3)+')';ctx.beginPath();ctx.arc(a.x,a.y,1.5,0,6.283);ctx.fill();}/*access-locked-boost*/}
+  function loop(){frame(true);raf=requestAnimationFrame(loop);}
+  resize();window.addEventListener('resize',function(){cancelAnimationFrame(raf);resize();reduce?frame(false):loop();});
+  reduce?frame(false):loop();
+})();
+
+/* glosario acordeón: una abierta a la vez */
+(function(){
+  var terms=document.querySelectorAll('.gterm');
+  terms.forEach(function(b){
+    b.addEventListener('click',function(){
+      var open=b.classList.contains('open');
+      terms.forEach(function(o){o.classList.remove('open');o.nextElementSibling.style.maxHeight=null;});
+      if(!open){b.classList.add('open');var d=b.nextElementSibling;d.style.maxHeight=d.scrollHeight+'px';}
+    });
+  });
+  var q=document.getElementById('gloss-q');
+  if(q)q.addEventListener('input',function(){
+    var v=q.value.toLowerCase();
+    document.querySelectorAll('#gloss-list .gitem').forEach(function(it){
+      it.style.display=it.querySelector('.gterm').textContent.toLowerCase().indexOf(v)>-1?'':'none';
+    });
+  });
+})();
+
+/* scroll al tope al cambiar pestaña */
+document.querySelectorAll('input[name="coco-tab"]').forEach(function(r){
+  r.addEventListener('change',function(){window.scrollTo({top:0,behavior:'instant'});});
+});
+
+/* botones copiar con clipboard API */
+document.querySelectorAll('.copy:not(#feedback-copy)').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var pre=btn.closest('.prompt').querySelector('pre');
+    if(!pre) return;
+    var text=pre.textContent.trim();
+    function done(){btn.textContent='✓ Copiado';setTimeout(function(){btn.textContent='Copiar';},1500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text,done);});
+    } else { fallback(text,done); }
+  });
+});
+function fallback(text,cb){
+  var ta=document.createElement('textarea');
+  ta.value=text;ta.style.cssText='position:fixed;left:-9999px;top:0;opacity:0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');cb();}catch(e){}
+  document.body.removeChild(ta);
+}
+
+/* botón copiar del feedback de Verificación */
+(function(){
+  var btn=document.getElementById('feedback-copy');
+  var ta=document.getElementById('feedback-text');
+  if(!btn||!ta) return;
+  btn.addEventListener('click',function(){
+    var text=ta.value.trim();
+    if(!text) return;
+    function done(){btn.textContent='✓ Copiado';setTimeout(function(){btn.textContent='Copiar mi comentario';},1500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text,done);});
+    } else { fallback(text,done); }
+  });
+})();
+
+/* B6 — progreso de módulos (localStorage) */
+(function(){
+  var KEY='cocogo_progreso_claude_intermedio', TOTAL=7;
+  function load(){try{var v=JSON.parse(localStorage.getItem(KEY));return Array.isArray(v)?v.filter(function(n){return n>=1&&n<=TOTAL;}):[];}catch(e){return [];}}
+  function save(a){try{localStorage.setItem(KEY,JSON.stringify(a));}catch(e){}}
+  var done=load();
+  var inputs=document.querySelectorAll('.modcheck input[data-mod]');
+  if(!inputs.length) return;
+  var checks=document.querySelectorAll('#p-verif .check-list .check');
+  var fill=document.querySelector('.progfill');
+  var label=document.querySelector('.proglabel');
+  var pwrap=document.querySelector('.progwrap');
+  function render(){
+    inputs.forEach(function(inp){
+      var n=+inp.getAttribute('data-mod'), on=done.indexOf(n)>-1;
+      inp.checked=on;
+      inp.closest('.modcheck').classList.toggle('done',on);
+    });
+    checks.forEach(function(c,i){c.classList.toggle('done',done.indexOf(i+1)>-1);});
+    var pct=Math.round(done.length/TOTAL*100);
+    if(fill)fill.style.width=pct+'%';
+    if(label)label.textContent=done.length+'/'+TOTAL;
+    if(pwrap){pwrap.classList.toggle('complete',done.length>=TOTAL);pwrap.setAttribute('aria-valuenow',done.length);}
+  }
+  inputs.forEach(function(inp){
+    inp.addEventListener('change',function(){
+      var n=+inp.getAttribute('data-mod'), i=done.indexOf(n);
+      if(inp.checked&&i<0)done.push(n);
+      else if(!inp.checked&&i>-1)done.splice(i,1);
+      save(done);render();
+    });
+  });
+  render();
+})();
+
+/* accesibilidad AA — foco visible en pestañas (radios .tab son invisibles) */
+document.querySelectorAll('input.tab').forEach(function(t){
+  var lbl=document.querySelector('.modnav label[for="'+t.id+'"]');
+  if(!lbl) return;
+  t.addEventListener('focus',function(){lbl.classList.add('kbfocus');});
+  t.addEventListener('blur',function(){lbl.classList.remove('kbfocus');});
+});
+</script>
+</body>
+</html>

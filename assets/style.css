@@ -32,9 +32,31 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opa
 .modnav{position:fixed;top:58px;left:0;right:0;z-index:40;padding:12px 0;background:var(--ink);border-bottom:1px solid var(--border)}
 .modnav .scroll{display:flex;gap:9px;overflow-x:auto;scrollbar-width:none}
 .modnav .scroll::-webkit-scrollbar{display:none}
-.pill{flex-shrink:0;font-size:.86rem;font-weight:600;color:var(--muted);padding:11px 16px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.025);cursor:pointer;white-space:nowrap;transition:color .22s,border-color .22s,background .22s,box-shadow .22s;user-select:none;display:inline-flex;align-items:center;overflow:hidden;-webkit-tap-highlight-color:transparent;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.pill:hover{color:var(--text);border-color:var(--border-strong);background:rgba(255,255,255,.07)}
-.pill:active{background:rgba(255,255,255,.05)}
+.pill{
+  flex-shrink:0;font-size:.86rem;font-weight:600;color:var(--muted);
+  padding:11px 16px;border-radius:9999px;border:1px solid var(--border);
+  background:transparent; /* sólido/transparente puro — sin rgba (Safari pinta rectángulo) */
+  cursor:pointer;white-space:nowrap;user-select:none;
+  display:inline-flex;align-items:center;justify-content:center;
+  position:relative;isolation:isolate;
+  -webkit-appearance:none;appearance:none;outline:none;
+  -webkit-tap-highlight-color:transparent;
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;
+  overflow:hidden;
+  clip-path:inset(0 round 9999px);
+  -webkit-mask-image:radial-gradient(#fff,#000);mask-image:radial-gradient(#fff,#000);
+  transition:color .2s,border-color .2s,background .2s,box-shadow .2s;
+}
+.pill:hover{
+  color:var(--text);border-color:var(--border-strong);
+  background:#161B28; /* sólido, no rgba */
+  box-shadow:none;
+}
+.pill:active{background:#121722}
+.pill:focus,.pill:focus-visible{outline:none;box-shadow:none}
+.modnav .pill.kbfocus{
+  outline:2px solid var(--theme-light);outline-offset:2px;border-radius:9999px;
+}
 
 main.wrap{padding-top:158px}
 /* panel visibility (13 tabs) */
@@ -66,7 +88,30 @@ main.wrap{padding-top:158px}
 #t-m8:checked~.modnav .p-m8,
 #t-apps:checked~.modnav .p-apps,
 #t-bonus:checked~.modnav .p-bonus,
-#t-verif:checked~.modnav .p-verif{color:#04130E;background:linear-gradient(135deg,var(--theme-light),var(--theme));border-color:transparent;box-shadow:0 6px 20px rgba(var(--theme-rgb),.4)}
+#t-verif:checked~.modnav .p-verif,
+#t-inicio:checked~.modnav .p-inicio:hover,
+#t-gloss:checked~.modnav .p-gloss:hover,
+#t-m1:checked~.modnav .p-m1:hover,
+#t-m2:checked~.modnav .p-m2:hover,
+#t-m3:checked~.modnav .p-m3:hover,
+#t-m4:checked~.modnav .p-m4:hover,
+#t-m5:checked~.modnav .p-m5:hover,
+#t-m6:checked~.modnav .p-m6:hover,
+#t-m7:checked~.modnav .p-m7:hover,
+#t-m8:checked~.modnav .p-m8:hover,
+#t-apps:checked~.modnav .p-apps:hover,
+#t-bonus:checked~.modnav .p-bonus:hover,
+#t-verif:checked~.modnav .p-verif:hover{
+  color:#04130E;
+  border-color:transparent;
+  border-radius:9999px;
+  overflow:hidden;
+  background:linear-gradient(135deg,var(--theme-light),var(--theme));
+  background-color:var(--theme);
+  box-shadow:0 4px 14px rgba(var(--theme-rgb),.32);
+  clip-path:inset(0 round 9999px);
+  -webkit-mask-image:radial-gradient(#fff,#000);mask-image:radial-gradient(#fff,#000);
+}
 
 /* headings */
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--theme-light);margin-bottom:16px}
@@ -104,9 +149,10 @@ h1 .grad{background:linear-gradient(105deg,var(--theme-light),var(--theme) 55%,v
 .card ol,.card ul{padding-left:1.2rem;color:var(--muted);font-size:.97rem;margin-bottom:8px}
 .card li{margin-bottom:.45rem}
 .card li strong{color:var(--text)}
-.card code{font-family:var(--mono);font-size:.84rem;color:var(--theme-light);background:rgba(var(--theme-rgb),.1);padding:2px 6px;border-radius:4px}
-.card a{color:var(--theme-light);text-decoration:none;border-bottom:1px solid rgba(var(--theme-rgb),.3)}
-.card a:hover{border-bottom-color:var(--theme-light)}
+.card code{font-family:var(--mono);font-size:.84rem;color:var(--theme-light);background:rgba(255,255,255,.06);padding:2px 6px;border-radius:6px}
+.card a,.card label[for]{color:var(--theme-light);text-decoration:underline;text-decoration-color:rgba(255,255,255,.28);text-underline-offset:3px;border-bottom:0;background:transparent;box-shadow:none;padding:0;border-radius:0;-webkit-tap-highlight-color:transparent}
+.card a:hover,.card label[for]:hover{text-decoration:underline;text-decoration-color:var(--theme-light);background:transparent!important;box-shadow:none}
+.card a:focus,.card a:focus-visible,.card label[for]:focus{outline:none;background:transparent;box-shadow:none}
 
 /* objetivo / por qué importa — bloque compacto, no card gigante */
 .modintro{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
@@ -270,9 +316,9 @@ footer a{color:var(--theme-light);text-decoration:none}
 .devcol li{margin:6px 0;font-size:.9rem;color:var(--faint);line-height:1.5}
 
 /* gptmock — mock fiel de la interfaz de ChatGPT */
-.gptmock-tag{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.02em;color:var(--theme-light);background:rgba(var(--theme-rgb),.1);border:1px solid rgba(var(--theme-rgb),.3);padding:7px 13px;border-radius:999px;margin:28px 0 14px}
+.gptmock-tag{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.02em;color:var(--theme-light);background:rgba(255,255,255,.06);border:1px solid var(--border-strong);padding:7px 13px;border-radius:999px;margin:28px 0 12px}
 .gptmock-tag.bad{color:#FBBF24;background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.3)}
-.gptmock{max-width:640px;margin:0 auto 18px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
+.gptmock{max-width:640px;margin:18px auto 36px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
 .gptmock-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(20,25,40,.08);background:#F7F7F8}
 .gptmock-bar .dot{width:9px;height:9px;border-radius:50%;background:#D8DAE0}
 .gptmock-bar span{font-family:var(--body);font-size:.82rem;font-weight:700;color:#1A1A1A;margin-left:2px}
@@ -299,7 +345,7 @@ footer a{color:var(--theme-light);text-decoration:none}
 .navpath .step{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:#1a1a2e;background:#fff;border:1px solid rgba(20,25,40,.14);border-radius:8px;padding:5px 10px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 .navpath .sep{color:var(--faint);font-weight:700}
 .navpath .step.on{background:linear-gradient(135deg,var(--theme-light),var(--theme));color:#04130E;border-color:transparent}
-.uimock{max-width:560px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:16px 0 28px}
+.uimock{max-width:560px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:18px 0 36px}
 .uimock .bar{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid #ECECF1;font-family:var(--display);font-weight:700;font-size:.92rem;color:#1a1a2e}
 .uimock .ubody{padding:15px}
 .uimock .fld{margin-bottom:13px}
@@ -420,7 +466,7 @@ body.access-locked>*:not(.access-gate):not(#bg){display:none!important}
 /* claudemock — mock fiel de la interfaz de Claude (componente compartido de fábrica).
    Misma estructura que .gptmock, pero avatar/acentos toman var(--theme) del curso donde
    aparezca — NUNCA hardcodear el rust acá, así el mock sirve para cualquier tema. */
-.claudemock{max-width:640px;margin:0 auto 18px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
+.claudemock{max-width:640px;margin:18px auto 36px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
 .claudemock-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(20,25,40,.08);background:#F7F7F8}
 .claudemock-bar .dot{width:9px;height:9px;border-radius:50%;background:#D8DAE0}
 .claudemock-bar span{font-family:var(--body);font-size:.82rem;font-weight:700;color:#1A1A1A;margin-left:2px}
@@ -464,7 +510,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{o
    Misma estructura que .claudemock/.gptmock, pero avatar/acentos toman var(--theme) del curso
    donde aparezca — NUNCA hardcodear el azul acá. El chip muestra el modelo ("3.5 Flash") o,
    en M6, la herramienta ("NotebookLM") cuando el hablante es notebooklm: en vez de gemini:. */
-.geminimock{max-width:640px;margin:16px auto 28px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
+.geminimock{max-width:640px;margin:18px auto 36px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
 .geminimock-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(20,25,40,.08);background:#F7F7F8}
 .geminimock-bar .dot{width:9px;height:9px;border-radius:50%;background:#D8DAE0}
 .geminimock-bar span{font-family:var(--body);font-size:.82rem;font-weight:700;color:#1A1A1A;margin-left:2px}
@@ -500,7 +546,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{o
 
 /* notebooklm mock — producto DISTINTO de Gemini (M6): panel de fuentes a la izquierda + chat
    a la derecha, para que se note que es otra interfaz. Aditivo, tematizable por var(--theme). */
-.notebooklmmock{max-width:640px;margin:0 auto 18px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
+.notebooklmmock{max-width:640px;margin:18px auto 36px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
 .notebooklmmock-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(20,25,40,.08);background:#F7F7F8}
 .notebooklmmock-bar .dot{width:9px;height:9px;border-radius:50%;background:#D8DAE0}
 .notebooklmmock-bar span{font-family:var(--body);font-size:.82rem;font-weight:700;color:#1A1A1A;margin-left:2px}
@@ -555,7 +601,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{o
 .freqchip.sel{color:#04130E;background:linear-gradient(135deg,var(--theme-light),var(--theme));border-color:transparent;font-weight:700}
 
 /* coworkmock — flujo Cowork: describir → plan propuesto → aprobar → ejecutando (M2, M6) */
-.coworkmock{max-width:640px;margin:0 auto 18px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
+.coworkmock{max-width:640px;margin:18px auto 36px;background:#FFFFFF;border:1px solid rgba(20,25,40,.12);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden}
 .coworkmock-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(20,25,40,.08);background:#F7F7F8}
 .coworkmock-bar .dot{width:9px;height:9px;border-radius:50%;background:#D8DAE0}
 .coworkmock-bar .mode{font-family:var(--body);font-size:.82rem;font-weight:700;color:#1A1A1A;margin-left:2px}
@@ -576,7 +622,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{o
 .cw-execnote{color:#5B5B6E;font-size:.82rem;margin:0}
 
 /* schedulemock — panel "Scheduled" / tarjeta de tarea con frecuencia y estado (M1, M3) */
-.schedulemock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px 0 6px}
+.schedulemock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:18px 0 36px}
 .schedulemock-bar{display:flex;align-items:center;justify-content:space-between;padding:11px 15px;border-bottom:1px solid #ECECF1;font-family:var(--display);font-weight:700;font-size:.9rem;color:#1a1a2e}
 .schedulemock-bar .sm-new{font-family:var(--body);font-size:.72rem;font-weight:700;color:#fff;background:var(--theme);border:0;padding:6px 11px;border-radius:7px}
 .schedulemock-list{padding:6px 8px}
@@ -594,7 +640,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{o
 .sm-editnote{padding:0 8px 10px;font-size:.72rem;color:#7A8194;font-style:italic}
 
 /* connectorsmock — grilla de conectores + estado conectado (M4) */
-.connectorsmock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px 0 6px;padding:15px}
+.connectorsmock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:18px 0 36px;padding:15px}
 .cn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:10px}
 .cn-card{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;background:#F7F7F8;border:1px solid #ECECF1;border-radius:11px;padding:14px 10px}
 .cn-card.featured{background:rgba(var(--theme-rgb),.08);border-color:rgba(var(--theme-rgb),.3)}
@@ -606,7 +652,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{o
 .cn-mail{font-size:.66rem;color:#7A8194}
 
 /* projectmock — base de conocimiento con archivos + indicador RAG (M5) */
-.projectmock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px 0 6px}
+.projectmock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:18px 0 36px}
 .projectmock-bar{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid #ECECF1;font-family:var(--display);font-weight:700;font-size:.88rem;color:#1a1a2e}
 .projectmock-body{padding:14px 15px}
 .pm-files{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
@@ -615,7 +661,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{o
 .pm-rag{display:flex;align-items:center;gap:7px;font-size:.79rem;font-weight:600;color:var(--theme-dark);background:rgba(var(--theme-rgb),.1);border:1px solid rgba(var(--theme-rgb),.28);border-radius:9px;padding:9px 11px}
 
 /* modelmock — selector de modelo + Settings>Usage / claude.ai/upgrade (M1, M6) */
-.modelmock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px 0 6px}
+.modelmock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:18px 0 36px}
 .modelmock-bar{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid #ECECF1;font-family:var(--display);font-weight:700;font-size:.88rem;color:#1a1a2e}
 .modelmock-body{padding:13px 15px;display:flex;flex-direction:column;gap:8px}
 .mm-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:9px;border:1px solid #ECECF1;background:#F7F7F8}
@@ -632,7 +678,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{o
 
 /* codemock — vista panorámica de Claude Code (M7): dark/terminal a propósito, para que se
    sienta "otro terreno" frente al resto del curso (que es claro, no-técnico) */
-.codemock{max-width:660px;background:#0D1117;border:1px solid rgba(255,255,255,.08);border-radius:14px;box-shadow:0 10px 34px rgba(0,0,0,.5);overflow:hidden;margin:14px 0 6px;font-family:var(--mono)}
+.codemock{max-width:660px;background:#0D1117;border:1px solid rgba(255,255,255,.08);border-radius:14px;box-shadow:0 10px 34px rgba(0,0,0,.5);overflow:hidden;margin:18px 0 36px;font-family:var(--mono)}
 .codemock-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:#161B22;border-bottom:1px solid rgba(255,255,255,.06)}
 .codemock-bar .dt{width:10px;height:10px;border-radius:50%}
 .codemock-bar .dt.r{background:#FF5F57}
@@ -667,10 +713,18 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{o
 
 /* tab extra "Horizonte" — aditivo a las reglas de visibilidad/pill activa ya existentes */
 #t-horizonte:checked~main #p-horizonte{display:block;animation:rise .55s cubic-bezier(.2,.7,.3,1)}
-#t-horizonte:checked~.modnav .p-horizonte{color:#04130E;background:linear-gradient(135deg,var(--theme-light),var(--theme));border-color:transparent;box-shadow:0 6px 20px rgba(var(--theme-rgb),.4)}
+#t-horizonte:checked~.modnav .p-horizonte,
+#t-horizonte:checked~.modnav .p-horizonte:hover{
+  color:#04130E;border-color:transparent;border-radius:9999px;overflow:hidden;
+  background:linear-gradient(135deg,var(--theme-light),var(--theme));
+  background-color:var(--theme);
+  box-shadow:0 4px 14px rgba(var(--theme-rgb),.32);
+  clip-path:inset(0 round 9999px);
+  -webkit-mask-image:radial-gradient(#fff,#000);mask-image:radial-gradient(#fff,#000);
+}
 
 /* buildermock — GPT Builder: tabs Create/Configure + campos + vista previa (M2) */
-.buildermock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px 0 6px}
+.buildermock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:18px 0 36px}
 .buildermock-tabs{display:flex;border-bottom:1px solid #ECECF1;background:#F7F7F8}
 .buildermock-tabs .bt{flex:1;text-align:center;padding:10px 12px;font-size:.82rem;font-weight:700;color:#7A8194;border-bottom:2px solid transparent}
 .buildermock-tabs .bt.on{color:#1A1A1A;border-bottom-color:var(--theme);background:#fff}
@@ -690,7 +744,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{o
 @media(max-width:560px){.buildermock-layout{flex-direction:column}.buildermock-config{border-right:0;border-bottom:1px solid #ECECF1}}
 
 /* datamock — análisis de datos: tabla + gráfico simple en CSS, sin librerías (M5) */
-.datamock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px 0 6px}
+.datamock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:18px 0 36px}
 .datamock-bar{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid #ECECF1;font-family:var(--display);font-weight:700;font-size:.88rem;color:#1a1a2e}
 .datamock-body{padding:14px 15px}
 .dm-table{width:100%;border-collapse:collapse;font-size:.8rem}
@@ -718,7 +772,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{o
 @media(prefers-reduced-motion:reduce){.wk-dots span{animation:none}}
 
 /* sitemock — armado de un Site: descripción → vista previa de la página generada (Horizonte) */
-.sitemock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:12px 0 6px}
+.sitemock{max-width:640px;background:#fff;border:1px solid rgba(20,25,40,.12);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);overflow:hidden;margin:18px 0 36px}
 .sitemock-bar{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid #ECECF1;font-family:var(--display);font-weight:700;font-size:.88rem;color:#1a1a2e}
 .sitemock-body{padding:14px 15px;display:flex;flex-direction:column;gap:12px}
 .sitemock .st-desc{font-size:.82rem;color:#5B5B6E;background:#F7F7F8;border:1px solid #ECECF1;border-radius:9px;padding:10px 12px;font-style:italic;margin:0}
@@ -756,3 +810,80 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .copy:focus-visible{o
 .tool-intro p{margin:0;color:var(--muted);font-size:.97rem}
 .tool-intro p+p{margin-top:8px}
 .mock-block{margin:8px 0 22px}
+
+
+/* ═══ Ritmo de color por bloque (anti-plano) — Gemini/Claude ═══ */
+.card{margin-bottom:18px}
+.card.card-sol{
+  border-left:4px solid #34D399;
+  background:linear-gradient(165deg,rgba(52,211,153,.07),var(--surface-2));
+}
+.card.card-warn{
+  border-left:4px solid #E8C468;
+  background:linear-gradient(165deg,rgba(232,196,104,.08),var(--surface-2));
+}
+.card.card-step{
+  border-left:3px solid rgba(var(--theme-rgb),.45);
+  background:linear-gradient(165deg,var(--surface),rgba(var(--theme-rgb),.04));
+}
+.card.card-example{
+  border-left:4px solid var(--coral);
+  background:linear-gradient(165deg,rgba(var(--coral-rgb),.1),var(--surface-2));
+}
+.card.card-plantilla{
+  border-left:3px solid rgba(255,255,255,.18);
+  background:linear-gradient(165deg,var(--surface),rgba(255,255,255,.03));
+}
+.card.card-map{
+  border-left:4px solid var(--theme-light);
+  background:linear-gradient(165deg,rgba(var(--theme-rgb),.1),var(--surface-2));
+}
+.card.card-kit{
+  border-left:4px solid var(--coral);
+  background:linear-gradient(165deg,rgba(var(--coral-rgb),.07),var(--surface-2));
+}
+.modintro{margin-bottom:20px}
+.modintro .mi-row{
+  background:rgba(var(--theme-rgb),.09);
+  border:1px solid rgba(var(--theme-rgb),.28);
+}
+.modintro .mi-row:nth-child(2){
+  background:rgba(var(--coral-rgb),.07);
+  border-color:rgba(var(--coral-rgb),.28);
+}
+.modintro .mi-row:nth-child(2) .mi-label{color:var(--coral)}
+.fastlane{
+  margin-bottom:22px;
+  background:linear-gradient(165deg,rgba(var(--theme-rgb),.12),var(--surface));
+  border:1px solid rgba(var(--theme-rgb),.35);
+}
+.tool-intro{
+  margin-bottom:22px;
+  background:linear-gradient(165deg,rgba(var(--theme-rgb),.12),var(--surface));
+  border:1px solid rgba(var(--theme-rgb),.32);
+  border-left:4px solid var(--theme-light);
+}
+.devsplit{gap:16px;margin:22px 0 28px}
+.devsplit-card{
+  border:1px solid rgba(var(--theme-rgb),.22);
+  background:linear-gradient(165deg,var(--surface),rgba(var(--theme-rgb),.06));
+}
+.devsplit-card:nth-child(2){
+  border-color:rgba(var(--coral-rgb),.28);
+  background:linear-gradient(165deg,var(--surface),rgba(var(--coral-rgb),.06));
+}
+.mock-block{margin:16px 0 36px}
+.mock-block + .mock-block{margin-top:8px}
+/* tags de mock: sin tinte theme (evita rect celeste) */
+.gptmock-tag.bad{color:#FBBF24;background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.3)}
+/* enlaces globales: sin caja de transparencia al hover/focus/tap */
+a,a:hover,a:active,a:focus{background:transparent!important;box-shadow:none}
+a{-webkit-tap-highlight-color:transparent}
+a:focus{outline:none}
+a:focus-visible{outline:2px solid var(--theme-light);outline-offset:3px;border-radius:4px}
+.card a:hover,.card a:focus,.card a:active{background:transparent!important}
+label[for]{-webkit-tap-highlight-color:transparent}
+label[for]:hover{cursor:pointer;background:transparent}
+/* prompt/code chips: fondo neutro, no theme rgba (celeste en Gemini) */
+.prompt code, pre code, .fastlane code{background:rgba(255,255,255,.06);color:var(--theme-light);border-radius:6px;padding:1px 5px}
+
