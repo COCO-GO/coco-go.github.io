@@ -1,0 +1,2753 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Grok para tu negocio · Intermedio — COCO GO</title>
+<meta name="description" content="Curso intermedio de Grok (xAI) para emprendedores y PyMEs: SuperGrok, radar Expert, Projects, habilidades, piloto, imagen y video con corrección. 8 módulos, en español." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Grok para tu negocio · Intermedio — COCO GO" />
+<meta property="og:description" content="SuperGrok con radar, papeles e Imagine: imagen y video que se corrigen. Sistema que se repite — sin código. 8 módulos con entregables reales." />
+<meta property="og:site_name" content="COCO GO" />
+<meta property="og:url" content="https://coco-go.github.io/grok-intermedio/" />
+<meta property="og:image" content="https://coco-go.github.io/grok-intermedio/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="es_AR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Grok para tu negocio · Intermedio — COCO GO" />
+<meta name="twitter:description" content="SuperGrok: radar, papeles e Imagine (imagen + video que se corrigen). 8 módulos." />
+<meta name="twitter:image" content="https://coco-go.github.io/grok-intermedio/og.png" />
+<meta name="theme-color" content="#111111" />
+<link rel="canonical" href="https://coco-go.github.io/grok-intermedio/" />
+<link rel="icon" type="image/svg+xml" href="../assets/logo-coco-go.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+:root{--theme:#111111; --theme-dark:#000000; --theme-light:#E8E9EC; --theme-rgb:120,124,130;}
+.lvl-chip{display:inline-block;margin:0 0 12px;background:rgba(var(--theme-rgb),.14);color:var(--theme-light);border:1px solid rgba(var(--theme-rgb),.38);border-radius:999px;padding:3px 13px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+label.go{cursor:pointer}
+</style>
+</head>
+<body>
+
+<div class="access-gate" id="access-gate" hidden>
+  <div class="access-gate-card access-gate-sale">
+    <div class="ag-top">
+      <a class="ag-home" href="../">← Todos los cursos</a>
+      <div class="ag-badge">Intermedio · Acceso web</div>
+    </div>
+    <div class="ag-coco-brand"><img src="../assets/logo-coco-go.svg" alt="COCO GO"></div>
+<div class="ag-title">
+      <h2><img class="ag-brand-ico" src="../assets/logo-grok.svg" alt="" aria-hidden="true"><span>Grok · Intermedio,<br><span class="grad">paso a paso.</span></span></h2>
+    </div>
+<p class="ag-lead">SuperGrok con radar, papeles e Imagine: imagen y video que se corrigen. Nivel intermedio para armar un sistema que se repite — sin código.</p>
+    <ul class="ag-bullets">
+      <li>8 módulos concatenados (sistema, no tips sueltos)</li>
+      <li>Radar Expert, Projects, habilidades, piloto e Imagine</li>
+      <li>Precio lista del nivel intermedio</li>
+    </ul>
+    <div class="ag-price">
+      <div class="ag-price-row">
+        <span class="ag-list ag-solo">US$ 17,99</span>
+      </div>
+      <span class="ag-note">Precio regular del nivel intermedio. Pago único · acceso con código por email.</span>
+    </div>
+    <a class="ag-buy" href="https://www.creem.io/coco-go" target="_blank" rel="noopener">Comprar ahora →</a>
+    <p class="ag-after">El pago se procesa en Creem. El código de acceso te llega por email <strong>en minutos</strong>. Si ya lo tenés, ingresalo acá:</p>
+    <hr class="ag-divider" />
+    <label class="access-gate-field" for="access-code-input">
+      <span class="access-gate-label">Código de acceso (si ya compraste)</span>
+      <input type="text" id="access-code-input" name="access-code" placeholder="Código de acceso…" autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text" />
+    </label>
+    <button type="button" id="access-code-submit">Entrar al curso →</button>
+    <p class="access-gate-error" id="access-gate-error" aria-live="polite"></p>
+    <p class="ag-legal">
+      Soporte: <a href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a>
+      · <a href="../privacidad.html">Privacidad</a>
+      · <a href="../terminos.html">Términos</a>
+      · <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat</a>
+    </p>
+  </div>
+</div>
+
+<canvas id="bg"></canvas>
+
+<input class="tab" type="radio" name="coco-tab" id="t-inicio" checked>
+<input class="tab" type="radio" name="coco-tab" id="t-gloss">
+<input class="tab" type="radio" name="coco-tab" id="t-m1">
+<input class="tab" type="radio" name="coco-tab" id="t-m2">
+<input class="tab" type="radio" name="coco-tab" id="t-m3">
+<input class="tab" type="radio" name="coco-tab" id="t-m4">
+<input class="tab" type="radio" name="coco-tab" id="t-m5">
+<input class="tab" type="radio" name="coco-tab" id="t-m6">
+<input class="tab" type="radio" name="coco-tab" id="t-m7">
+<input class="tab" type="radio" name="coco-tab" id="t-m8">
+<input class="tab" type="radio" name="coco-tab" id="t-apps">
+<input class="tab" type="radio" name="coco-tab" id="t-bonus">
+<input class="tab" type="radio" name="coco-tab" id="t-verif">
+
+<header class="brandbar">
+  <div class="wrap">
+    <div class="brand">
+      <img src="../assets/logo-coco-go.svg" class="brand-logo" alt="COCO GO">
+    </div>
+    <span class="theme-chip"><span class="dot"></span>Curso · Grok Intermedio</span>
+  </div>
+</header>
+
+<nav class="modnav">
+  <div class="wrap">
+    <div class="progwrap" role="progressbar" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0" aria-label="Progreso del curso">
+      <div class="progtrack"><div class="progfill"></div></div>
+      <span class="proglabel">0/8</span>
+    </div>
+    <div class="scroll">
+    <label class="pill p-inicio" for="t-inicio">Inicio</label>
+    <label class="pill p-apps" for="t-apps">Aplicaciones</label>
+    <label class="pill p-gloss" for="t-gloss">Glosario</label>
+    <label class="pill p-m1" for="t-m1">1 · SuperGrok</label>
+    <label class="pill p-m2" for="t-m2">2 · Radar</label>
+    <label class="pill p-m3" for="t-m3">3 · Proyectos</label>
+    <label class="pill p-m4" for="t-m4">4 · Habilidades</label>
+    <label class="pill p-m5" for="t-m5">5 · Piloto</label>
+    <label class="pill p-m6" for="t-m6">6 · Imagen</label>
+    <label class="pill p-m7" for="t-m7">7 · Video</label>
+    <label class="pill p-m8" for="t-m8">8 · Sistema</label>
+    <label class="pill p-verif" for="t-verif">Verificación</label>
+    <label class="pill p-bonus" for="t-bonus">Bonus</label>
+  </div></div>
+</nav>
+
+<main class="wrap" id="contenido" tabindex="-1">
+
+  <section class="panel" id="p-inicio">
+    <span class="eyebrow"><span class="pulse"></span>· Intermedio · SuperGrok con sistema visual</span>
+    <span class="lvl-chip">Nivel Intermedio</span>
+    <h1><img src="../assets/logo-grok.svg" alt="" style="width:.85em;height:.85em;vertical-align:-.08em;margin-right:.15em" aria-hidden="true">SuperGrok con radar, papeles e Imagine:<br><span class="grad">imagen y video que se corrigen.</span></h1>
+    <p class="lead">Armá un sistema que se repite — sin código — y cerrá con un estudio visual de verdad.</p>
+    <div class="cta-row">
+      <label class="btn btn-primary" for="t-m1">Empezar el módulo 1 →</label>
+      <label class="btn btn-ghost" for="t-gloss">Ver el glosario</label>
+    </div>
+    <div class="trust">
+      <div class="t"><b>8</b><span>módulos concatenados</span></div>
+      <div class="t"><b>~US$30</b><span>SuperGrok · plan xAI (Facturación)</span></div>
+      <div class="t"><b>8</b><span>entregables reales</span></div>
+      <div class="t"><b>Sin código</b><span>solo Grok y tu negocio</span></div>
+    </div>
+    <div class="card card-step" style="margin-top:26px">
+      <h3>🔗 ¿Venís del básico?</h3>
+      <p>Asumimos chat conversacional, X en vivo e Imagine de entrada. Si no: <a href="../grok/">Grok · básico →</a>. El <label for="t-gloss" style="cursor:pointer;color:var(--theme-light);text-decoration:underline">glosario</label> define SuperGrok, modos, Projects e Imagine; el kit de archivos está ahí también.</p>
+    </div>
+    <div class="card card-map">
+      <h3>🗺️ El mapa de este curso</h3>
+      <p><strong>Cimiento (1):</strong> salto a SuperGrok · plan y modos.<br>
+      <strong>Piezas (2–5):</strong> Radar Expert → Projects/memoria → Habilidades → Piloto/conectores.<br>
+      <strong>Estudio visual (6–7):</strong> imagen y video que se corrigen (Imagine).<br>
+      <strong>Sistema (8):</strong> rutina semanal + CTA a Grok Avanzado (próximamente).</p>
+      <p style="margin-top:8px;font-size:.9rem;color:var(--faint)">Referencias: «módulo 2, <em>Radar Expert</em>», nunca «M2» pelado.</p>
+    </div>
+    <div class="card card-kit" style="margin-top:14px">
+      <h3>🛠️ Qué vas a armar (8 módulos)</h3>
+      <ol style="margin:8px 0 0;padding-left:1.2em;color:var(--muted);font-size:.95rem;line-height:1.55">
+        <li><strong>El salto a SuperGrok</strong> — plan y modos</li>
+        <li><strong>Radar Expert</strong> — research + decisión</li>
+        <li><strong>Tu base: Proyectos y memoria</strong> — Project + ancla</li>
+        <li><strong>Habilidades que entregan papeles</strong> — papeles reutilizables</li>
+        <li><strong>Conectado y en piloto</strong> — conectores y automatizaciones</li>
+        <li><strong>Imágenes que venden (y se corrigen)</strong> — gen + corrección</li>
+        <li><strong>Video corto que se corrige</strong> — clip ~6 s + corrección</li>
+        <li><strong>Tu sistema Grok intermedio</strong> — rutina semanal</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="panel" id="p-gloss">
+    <div class="sec-head"><span class="numchip" style="font-size:1.25rem">Aa</span><h2>Glosario · conceptos del intermedio</h2></div>
+    <p class="sec-sub">Asume el básico de Grok. Acá entra lo del intermedio: SuperGrok, Expert, Projects, habilidades, conectores, Imagine pro…</p>
+    <p style="font-weight:700;color:var(--theme-light);font-size:1.02rem;margin:4px 0 10px">👉 ¿Una palabra te traba? Buscala acá.</p>
+    <div class="gloss-search"><span>🔎</span><input id="gloss-q" placeholder="Buscar un término…" autocomplete="off"></div>
+
+    <div class="card card-kit">
+      <h3>📦 Tu kit al terminar — soluciones en archivos</h3>
+      <p>No es material de estudio. Es lo que abrís cuando tenés que tocar tu sistema:</p>
+      <div class="foldertree">
+        <div class="root"><span>📁</span> Sistema IA/Grok-Intermedio/</div>
+        <div class="kids">
+          <div class="ft-row"><span class="ft-file"><span>📄</span>01-plan-y-modos</span><span class="ft-arrow">→</span><span class="ft-desc">módulo 1, El salto a SuperGrok</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>02-radar-expert</span><span class="ft-arrow">→</span><span class="ft-desc">módulo 2, Radar Expert</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>03-base-proyecto</span><span class="ft-arrow">→</span><span class="ft-desc">módulo 3, Proyectos y memoria</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>04-habilidades/</span><span class="ft-arrow">→</span><span class="ft-desc">módulo 4, Habilidades que entregan papeles</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>05-conectado-piloto</span><span class="ft-arrow">→</span><span class="ft-desc">módulo 5, Conectado y en piloto</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>06-imagenes-pro/</span><span class="ft-arrow">→</span><span class="ft-desc">módulo 6, Imágenes que venden</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>07-video-pro/</span><span class="ft-arrow">→</span><span class="ft-desc">módulo 7, Video corto que se corrige</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>08-sistema-intermedio</span><span class="ft-arrow">→</span><span class="ft-desc">módulo 8, Tu sistema Grok intermedio</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-map" style="margin-bottom:14px">
+      <h3>📩 Carta al alumno</h3>
+      <p>El básico te enseñó a hablarle a Grok, a hacer radar con techo Free y a sacar piezas de Imagine por la puerta de entrada. Acá el salto no es “pedir mejor”: es armar un <strong>sistema SuperGrok</strong> que se repite — plan y modos, radar <strong>Expert</strong>, Projects, habilidades/papeles, piloto, e imagen y video que se corrigen — sin código.</p>
+      <p>Este intermedio se para en <strong>SuperGrok</strong> (el plan de trabajo de xAI). Confirmá el plan en <strong>Facturación</strong>: vale lo de tu pantalla, no Free puro. Son <strong>8 módulos</strong> con piezas reales de tu negocio; cada uno deja un archivo en <code>Sistema IA/Grok-Intermedio/</code>.</p>
+      <p>Si salís con al menos una pieza de cada módulo funcionando de verdad, vas a tener un sistema que labura con vos la semana — no ocho demos sueltas.</p>
+    </div>
+
+    <div class="card card-step" style="margin-bottom:14px">
+      <h3>⚙️ Antes de empezar</h3>
+      <ul>
+        <li>Haber hecho (o poder hacer) el <a href="../grok/">básico de Grok</a> — chat, X en vivo e Imagine de entrada.</li>
+        <li>Plan de trabajo: este curso se para en <strong>SuperGrok</strong> (Facturación). Precio público ~US$30/mes; vale lo de tu cuenta.</li>
+        <li>Carpeta <code>Sistema IA/Grok-Intermedio/</code> lista para los 8 entregables.</li>
+        <li><strong>Web / desktop (grok.com):</strong> Facturación, Uso, OAuth, automatizaciones, grilla Imagine, descargas. <strong>Móvil:</strong> modos, radar corto, validar “¿lo subo?” y publicar. Misma cuenta en ambos.</li>
+      </ul>
+    </div>
+
+    <div id="gloss-list">
+      <p class="gloss-group">Producto y planes</p>
+      <div class="gitem"><button class="gterm" type="button">xAI<span class="chev">+</span></button><div class="gdef"><p>Empresa que hace Grok (separada de X/Twitter, aunque están vinculadas).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Grok<span class="chev">+</span></button><div class="gdef"><p>El asistente de IA (chat, voz, archivos, Imagine…).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">SuperGrok<span class="chev">+</span></button><div class="gdef"><p><strong>Plan de pago</strong> de xAI para usar Grok con más techo y funciones de trabajo. <strong>No es otro bot</strong>: es el <strong>plan</strong>.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Free<span class="chev">+</span></button><div class="gdef"><p>Plan $0; búsqueda web+X en modo <strong>Limited</strong>.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">SuperGrok Lite<span class="chev">+</span></button><div class="gdef"><p>Escalón de pago intermedio (nombre en pricing xAI); detalle de features puede variar — mirá tu Facturación.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">SuperGrok Heavy<span class="chev">+</span></button><div class="gdef"><p>Plan de techo máximo; asociado a multi-agente / “Team of Experts”. <strong>No es lo mismo</strong> que el modo <strong>Heavy</strong> del chat (aunque se relacionan).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">X Premium<span class="chev">+</span></button><div class="gdef"><p>Suscripción de <strong>X</strong> (no de xAI). En el básico podía abrir puerta a imágenes; este intermedio se para en SuperGrok.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Oferta activa<span class="chev">+</span></button><div class="gdef"><p>Descuento o promo visible en Facturación (ej. % por N meses).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Facturación<span class="chev">+</span></button><div class="gdef"><p>Pantalla de plan actual, renovación, facturas y método de pago (Configuración).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Uso<span class="chev">+</span></button><div class="gdef"><p>Pantalla que muestra cuánto consumiste del <strong>pool</strong> (Configuración → Uso).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Pool de uso<span class="chev">+</span></button><div class="gdef"><p>Tope <strong>semanal</strong> compartido entre Chat, Imagine, Voz, Build, etc. en planes pagos. Un video gasta más que un chat corto.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Créditos de uso extra<span class="chev">+</span></button><div class="gdef"><p>Compra adicional si se te acaba el pool (suele ser por <strong>web</strong>).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Auto Top Up<span class="chev">+</span></button><div class="gdef"><p>Si aparece: recarga automática de créditos cuando el saldo baja.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">grok.com<span class="chev">+</span></button><div class="gdef"><p>Dirección web recomendada del producto. Ahí suelen estar <strong>Projects</strong> completos (mejor que hosts raros tipo grok.x.ai).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">PWA<span class="chev">+</span></button><div class="gdef"><p>“App” hecha instalando grok.com desde el navegador (no es un instalador .dmg aparte).</p></div></div>
+      <p class="gloss-group">Modos del chat</p>
+      <div class="gitem"><button class="gterm" type="button">Selector de modo<span class="chev">+</span></button><div class="gdef"><p>Menú a la derecha del input del chat (a menudo dice <strong>Auto</strong>).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Auto<span class="chev">+</span></button><div class="gdef"><p>Grok elige entre Fast y Expert según la pregunta.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Fast<span class="chev">+</span></button><div class="gdef"><p>Respuestas rápidas; para tareas livianas.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Expert<span class="chev">+</span></button><div class="gdef"><p>“Thinks hard” / piensa más; <strong>research</strong> y decisiones de negocio (módulo 2, <em>Radar Expert</em>).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Heavy (modo)<span class="chev">+</span></button><div class="gdef"><p>“Team of Experts” en el selector del chat. Para preguntas muy difíciles. Puede no estar o pedir otro plan.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Instrucciones personalizadas<span class="chev">+</span></button><div class="gdef"><p>Estilos de respuesta (ej. Formal) en el mismo menú del selector. <strong>No reemplazan</strong> el contexto de tu negocio.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Limited<span class="chev">+</span></button><div class="gdef"><p>Nivel de búsqueda en vivo del plan Free (más chico que Expert).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">DeepSearch<span class="chev">+</span></button><div class="gdef"><p>Nombre <strong>viejo</strong>; no lo busques como botón. Hoy la investigación profunda es el modo <strong>Expert</strong>.</p></div></div>
+      <p class="gloss-group">Navegación y pantalla</p>
+      <div class="gitem"><button class="gterm" type="button">Sidebar / barra lateral<span class="chev">+</span></button><div class="gdef"><p>Columna izquierda: Nuevo chat, Imagine, Construir, Habilidades y Conectores, Proyectos, Historial.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Nuevo chat<span class="chev">+</span></button><div class="gdef"><p>Conversación nueva (fuera o dentro de un Project).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Historial<span class="chev">+</span></button><div class="gdef"><p>Lista de chats anteriores.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Privado / chat privado<span class="chev">+</span></button><div class="gdef"><p>Modo (ícono tipo fantasma) donde el chat no queda en el historial normal; se borra de sistemas en un plazo (FAQ xAI: ~30 días). No lo uses como archivo del sistema.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Compartir<span class="chev">+</span></button><div class="gdef"><p>Genera un link público del hilo (si lo activás).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Menú +<span class="chev">+</span></button><div class="gdef"><p>Botón al lado del input: subir archivo, recientes, proyectos, habilidades, conectores, carpeta de trabajo.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Configuración<span class="chev">+</span></button><div class="gdef"><p>Ajustes de cuenta (avatar / menú inferior).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Avatar<span class="chev">+</span></button><div class="gdef"><p>Tu foto/ícono de perfil para abrir menú y ajustes.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Hilo<span class="chev">+</span></button><div class="gdef"><p>Una conversación de ida y vuelta con Grok.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Input<span class="chev">+</span></button><div class="gdef"><p>Caja donde escribís el mensaje.</p></div></div>
+      <p class="gloss-group">Proyectos, memoria y privacidad</p>
+      <div class="gitem"><button class="gterm" type="button">Proyecto / Project<span class="chev">+</span></button><div class="gdef"><p>Carpeta de trabajo dentro de Grok: agrupa chats de un tema (ej. tu negocio).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Ancla<span class="chev">+</span></button><div class="gdef"><p>Texto fijo al inicio del Project con quién sos, qué vendés y reglas (“no inventes precios”).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Memoria<span class="chev">+</span></button><div class="gdef"><p>Lo que Grok <strong>recuerda entre chats</strong> (preferencias, datos que fue guardando).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Resumen de memoria<span class="chev">+</span></button><div class="gdef"><p>Pantalla para ver / editar / limpiar esa memoria (Controles de datos).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Controles de datos<span class="chev">+</span></button><div class="gdef"><p>Ajustes de privacidad: entrenamiento, X, memoria, compartir links.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Mejora el modelo<span class="chev">+</span></button><div class="gdef"><p>Interruptor: si está on, tus datos pueden usarse para mejorar Grok (según la política de xAI).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Personalizar con X<span class="chev">+</span></button><div class="gdef"><p>Usa datos de tu cuenta X para personalizar (si está linkeada).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Personalizar con historial<span class="chev">+</span></button><div class="gdef"><p>Opción (a veces beta) para que recuerde detalles de conversaciones anteriores.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Importar memoria<span class="chev">+</span></button><div class="gdef"><p>Traer contexto desde otra IA (si la opción aparece); no es obligatorio.</p></div></div>
+      <p class="gloss-group">Habilidades, conectores y piloto</p>
+      <div class="gitem"><button class="gterm" type="button">Habilidad (Skill)<span class="chev">+</span></button><div class="gdef"><p>Instrucción o flujo que le enseñás a Grok <strong>una vez</strong> y reutiliza (formato de presupuesto, tono, pasos).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Habilidades y Conectores<span class="chev">+</span></button><div class="gdef"><p>Entrada de la sidebar que junta skills y apps conectadas.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Habilidad de fábrica<span class="chev">+</span></button><div class="gdef"><p>Viene con la cuenta (docs, presentaciones, planillas, PDF, creador… — los nombres en pantalla pueden variar).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Habilidad propia<span class="chev">+</span></button><div class="gdef"><p>La que creás vos con las reglas de tu negocio.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Skill Creator<span class="chev">+</span></button><div class="gdef"><p>Camino para armar habilidades nuevas por conversación (anuncio xAI).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Conector<span class="chev">+</span></button><div class="gdef"><p>Puente a Gmail, Drive, Calendar, Outlook, etc. para que Grok lea/actúe con <strong>tus</strong> datos.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">OAuth<span class="chev">+</span></button><div class="gdef"><p>“Iniciá sesión en Google/Microsoft…” para conectar <strong>sin</strong> pegar la contraseña en el chat.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Carpeta de trabajo<span class="chev">+</span></button><div class="gdef"><p>Dónde Grok puede leer/guardar archivos de trabajo (nube Grok, Drive, Box…).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Automatización<span class="chev">+</span></button><div class="gdef"><p>Tarea que se <strong>programa</strong> (menú Automatizaciones) para repetirse sin que la dispares a mano cada vez.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Nueva automatización<span class="chev">+</span></button><div class="gdef"><p>Botón/flujo para crear una.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Trigger<span class="chev">+</span></button><div class="gdef"><p>“Cuándo” se dispara la automatización (día, hora, evento — según lo que permita la UI).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">MCP / conector custom<span class="chev">+</span></button><div class="gdef"><p>Conexión avanzada a sistemas propios; <strong>Grok Avanzado</strong>, no este curso.</p></div></div>
+      <p class="gloss-group">Imagine</p>
+      <div class="gitem"><button class="gterm" type="button">Imagine<span class="chev">+</span></button><div class="gdef"><p>App dentro de Grok para generar y editar <strong>imagen</strong> y <strong>video</strong>.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Chip Imagen<span class="chev">+</span></button><div class="gdef"><p>Modo foto en la barra inferior de Imagine.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Chip Video<span class="chev">+</span></button><div class="gdef"><p>Modo clip en esa barra.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Chip Agente<span class="chev">+</span></button><div class="gdef"><p>Función avanzada de campañas/agente creativo; en este curso solo <strong>CTA al Grok Avanzado</strong> (no se enseña el flujo).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Grilla<span class="chev">+</span></button><div class="gdef"><p>Varias variantes generadas a la vez (varias tarjetas de resultado).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Filmstrip<span class="chev">+</span></button><div class="gdef"><p>Tira de miniaturas/variantes de un video o toma.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Follow-up / corrección<span class="chev">+</span></button><div class="gdef"><p>Nuevo prompt en el mismo hilo que <strong>edita</strong> la pieza anterior (“mismo fondo, sin texto”).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Editar<span class="chev">+</span></button><div class="gdef"><p>Panel/acción en el detalle de una imagen para describir cambios.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">@ / referenciar imagen<span class="chev">+</span></button><div class="gdef"><p>Mencionar o adjuntar otra imagen como referencia en la edición.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Recortar<span class="chev">+</span></button><div class="gdef"><p>Ajustar el encuadre de la imagen.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Relación de aspecto / ratio<span class="chev">+</span></button><div class="gdef"><p>Forma del cuadro (ej. <strong>2:3</strong> vertical para IG).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Regenerar<span class="chev">+</span></button><div class="gdef"><p>Volver a generar esa pieza.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Animar<span class="chev">+</span></button><div class="gdef"><p>Pasar una imagen a movimiento / video.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Crear video<span class="chev">+</span></button><div class="gdef"><p>Acción para producir clip desde imagen o flujo video.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Extender<span class="chev">+</span></button><div class="gdef"><p>Alargar un poco el video (si el botón aparece).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Aumentar resolución<span class="chev">+</span></button><div class="gdef"><p>Pedir más nitidez/tamaño (si el botón aparece).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Descargar<span class="chev">+</span></button><div class="gdef"><p>Guardar el archivo en tu dispositivo.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Velocidad / Calidad / Automático<span class="chev">+</span></button><div class="gdef"><p>Controles de la barra de Imagine (cuánto tarda vs qué tan prolijo).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Razonamiento más profundo<span class="chev">+</span></button><div class="gdef"><p>Chip/opción que puede aparecer al generar (más pensamiento, más tiempo).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Marca de agua grok<span class="chev">+</span></button><div class="gdef"><p>Sello en media generada; <strong>no se quita</strong> (oficial xAI).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Clip ~6 s<span class="chev">+</span></button><div class="gdef"><p>Duración típica vista en producto (reproductor 0:00/0:06); no pidas un largometraje.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Plantillas destacadas / Descubrir<span class="chev">+</span></button><div class="gdef"><p>Galería de ejemplos en Imagine (inspiración; no son tu marca).</p></div></div>
+      <p class="gloss-group">Research y calidad</p>
+      <div class="gitem"><button class="gterm" type="button">Radar<span class="chev">+</span></button><div class="gdef"><p>Investigación de mercado/competencia/demanda con Grok.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Fuentes<span class="chev">+</span></button><div class="gdef"><p>Links o citas del research en vivo; <strong>siempre</strong> abrí y verificá las importantes.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Tiempo real<span class="chev">+</span></button><div class="gdef"><p>Búsqueda en web y en X de lo que pasa <strong>ahora</strong>, no solo del entrenamiento.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Prompt<span class="chev">+</span></button><div class="gdef"><p>El texto que le mandás a Grok.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Plantilla<span class="chev">+</span></button><div class="gdef"><p>Prompt modelo del curso para copiar y completar con <strong>tus</strong> datos.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Alucinación<span class="chev">+</span></button><div class="gdef"><p>Cuando la IA inventa un dato con cara de verdad.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Genérico<span class="chev">+</span></button><div class="gdef"><p>Respuesta o imagen que podría ser de cualquier negocio (hay que corregir).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Iterar<span class="chev">+</span></button><div class="gdef"><p>Pedir una segunda (o tercera) versión mejorando la anterior.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Entregable<span class="chev">+</span></button><div class="gdef"><p>Archivo o nota numerada que guardás en <code>Sistema IA/Grok-Intermedio/</code>.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Sistema concatenado<span class="chev">+</span></button><div class="gdef"><p>Cada módulo usa lo del anterior; no son tips sueltos.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">CTA<span class="chev">+</span></button><div class="gdef"><p>“Call to action”: botón o invitación al siguiente paso (curso, módulo, publicar).</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Grok Avanzado<span class="chev">+</span></button><div class="gdef"><p>Nivel siguiente (código, Construir, Agente, Build) — <em>próximamente</em>; no se enseña acá.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Construir<span class="chev">+</span></button><div class="gdef"><p>Entrada de sidebar al mundo Build (código); asomate, no lab de este curso.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Grok Build<span class="chev">+</span></button><div class="gdef"><p>CLI/agente de programación en terminal; <strong>Avanzado</strong>.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Grok 4.5<span class="chev">+</span></button><div class="gdef"><p>Modelo que xAI asocia a coding/Build; mención, no tutorial.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">curl / install.sh<span class="chev">+</span></button><div class="gdef"><p>Comando técnico del banner Build; <strong>no lo corras</strong> en este curso.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Deck<span class="chev">+</span></button><div class="gdef"><p>Presentación tipo diapositivas.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Planilla<span class="chev">+</span></button><div class="gdef"><p>Tabla tipo Excel/Sheets.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">.docx / .xlsx / .pdf<span class="chev">+</span></button><div class="gdef"><p>Formatos de Word, Excel y PDF que pueden generar las habilidades de oficina.</p></div></div>
+      <div class="gitem"><button class="gterm" type="button">Rioplatense (vos)<span class="chev">+</span></button><div class="gdef"><p>Tono de este curso (Argentina/Uruguay).</p></div></div>
+    </div>
+
+    <div class="card card-plantilla" style="margin-top:22px">
+      <h3>Prompt universal de refinamiento</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · refinamiento</span><button class="copy" type="button">Copiar</button></div>
+<pre>Esto salió genérico o flojo:
+---
+[pegá el output]
+---
+Mejoralo para mi negocio [nombre + rubro + ciudad].
+Datos reales que debés respetar: [precios, productos, tono].
+Sacá relleno. Si falta un dato, escribí [COMPLETAR] — no inventes.</pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="p-m1">
+    <div class="sec-head"><span class="numchip">01</span><h2>El salto a SuperGrok</h2></div>
+    <p class="sec-sub">En el básico aprendiste a hablarle a Grok y a hacer radar con techo Free. Acá entendés <strong>qué es SuperGrok</strong>, mirás plan y consumo, y elegís <strong>cómo piensa</strong> Grok en cada chat (Auto, Fast, Expert, Heavy).</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Abrí <a href="https://grok.com" target="_blank" rel="noopener">grok.com</a> (o la app) → menú de tu perfil → <strong>Configuración → Facturación</strong>. Confirmá si tu plan actual es <strong>SuperGrok</strong>. Anotá en una nota: <em>plan + fecha de renovación</em>. Listo el micro-win del módulo.</p></div></div>
+
+    <div class="card card-sol">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> Usás Grok “como viene” y no sabés si estás en Free, en oferta, o quemando el techo semanal sin darte cuenta.</p>
+      <p><strong>Te llevás:</strong> Plan identificado, idea clara de SuperGrok, modos del chat elegidos a propósito, y la carpeta del sistema intermedio arrancada.</p>
+      <p><strong>Lo usás cuando:</strong> Vas a investigar, generar mucho Imagine, o armar el sistema de los módulos 2 a 8.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Al terminar este módulo sabés <strong>qué plan tenés</strong>, <strong>qué te da SuperGrok para este curso</strong>, <strong>dónde se mira el uso</strong>, y <strong>qué modo del chat usar</strong> según la tarea — con un entregable guardado.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>El intermedio no es “más tips de prompt”. Es un <strong>salto de techo y de control</strong>: en Free la búsqueda en vivo es <strong>Limited</strong>; el radar serio del módulo 2, <em>Radar Expert</em>, pide el terreno de <strong>Expert</strong>. Imagine, voz, chat y Build comparten un <strong>pool de uso semanal</strong> en planes pagos. Los modos del input cambian la calidad del pensamiento. Sin este módulo, el resto del sistema no tiene piso.</p></div></div>
+    </div>
+
+    <div class="tool-intro">
+      <h3>🧠 Qué es SuperGrok (en una frase útil)</h3>
+      <p><strong>SuperGrok no es “otra inteligencia” distinta de Grok.</strong> Es el <strong>plan de pago de xAI</strong> para usar Grok con más capacidad de trabajo: techos más altos, búsqueda en modo <strong>Expert</strong>, y el terreno donde este curso se para (radar, Imagine en serio, sistema).</p>
+      <p><strong>Grok</strong> = el asistente. <strong>SuperGrok</strong> = el <strong>plan</strong> con el que lo usás a full. En pantalla a menudo ves el logo/nombre SuperGrok en el home cuando ya estás en ese plan. Si este intermedio es tu herramienta de laburo, SuperGrok es el plan natural. (Más detalle en la pestaña <label for="t-apps" style="cursor:pointer;color:var(--theme-light);text-decoration:underline">Aplicaciones</label>.)</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 0 — Dónde laburamos</h3>
+      <ol>
+        <li>Entrá a <strong>grok.com</strong> con la misma cuenta que usás en el celular.</li>
+        <li>Si usás Mac “como app”, confirmá que sea grok.com instalado (PWA), no un host raro.</li>
+        <li>En la barra lateral deberías ver, entre otras: <strong>Nuevo chat</strong>, <strong>Imagine</strong>, <strong>Construir</strong>, <strong>Habilidades y Conectores</strong>, <strong>Proyectos</strong>.</li>
+      </ol>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">🏠 Home SuperGrok (orientativo)</span>
+      <div class="uimock" role="img" aria-label="Home grok.com con sidebar e input">
+        <div class="bar">grok.com</div>
+        <div class="ubody">
+          <div class="sidebaritem on">Nuevo chat</div>
+          <div class="sidebaritem">Imagine</div>
+          <div class="sidebaritem">Construir</div>
+          <div class="sidebaritem">Habilidades y Conectores</div>
+          <div class="sidebaritem">Proyectos</div>
+          <div class="fld" style="margin-top:12px"><span class="box">Escribí un mensaje… · modo: Auto ▾</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 1 — Free vs SuperGrok vs Heavy (plan)</h3>
+      <p>Recordá: <strong>SuperGrok = plan</strong>, no “otro bot”. El modo <strong>Heavy</strong> del chat no es lo mismo que el plan SuperGrok Heavy.</p>
+    </div>
+
+    <div class="mock-block">
+      <div class="modelmock">
+        <div class="modelmock-bar">Planes xAI — criterio de este curso</div>
+        <div class="modelmock-body">
+          <div class="mm-opt"><b>Free</b><small>Búsqueda Limited · techo bajo</small></div>
+          <div class="mm-opt sel"><b>SuperGrok <span class="check">✓</span></b><small>Plan de trabajo · Expert · techo de laburo</small></div>
+          <div class="mm-opt"><b>Heavy (plan)</b><small>Techo / multi-agente máximo — no es el modo del chat</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 2 — Confirmá tu plan en Facturación</h3>
+      <ol>
+        <li>Tocá tu avatar / menú inferior → <strong>Configuración</strong>.</li>
+        <li>Entrá a <strong>Facturación</strong>.</li>
+        <li>Leé <strong>Plan actual</strong>. Si dice <strong>SuperGrok</strong> (a veces con “Oferta activa”), anotalo.</li>
+        <li>Mirá <strong>renovación</strong>, <strong>créditos de uso extra</strong> (si aparecen) y la última factura. El monto que manda es el de <strong>tu pantalla</strong> (puede ser lista u oferta/local).</li>
+      </ol>
+      <p><strong>Si todavía estás en Free:</strong> este módulo te sirve igual: decidís <em>cuándo</em> subir. Podés seguir leyendo el curso, pero los módulos 2, <em>Radar Expert</em>; 6, <em>Imágenes que venden (y se corrigen)</em>; y 7, <em>Video corto que se corrige</em> se sienten cojos sin SuperGrok (o sin la puerta de pago que uses para Expert/Imagine). No mientas el plan: anotá “Free — subo cuando…”.</p>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">💳 Configuración → Facturación</span>
+      <div class="uimock" role="img" aria-label="Facturación SuperGrok">
+        <div class="bar">Configuración · Facturación</div>
+        <div class="ubody">
+          <div class="fld"><label>Plan actual</label><span class="box">SuperGrok · Oferta activa (si aplica)</span></div>
+          <div class="fld"><label>Renovación</label><span class="box">Próxima fecha · método de pago</span></div>
+          <div class="fld"><label>Créditos de uso extra</label><span class="box">Disponibles / no — según tu cuenta</span></div>
+          <div class="fld"><label>Última factura</label><span class="box">Monto de tu pantalla (lista u oferta)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 3 — Mirada al Uso (pool semanal)</h3>
+      <ol>
+        <li>En Configuración abrí <strong>Uso</strong> (misma columna que Facturación).</li>
+        <li>Buscá la barra o el resumen de consumo. En planes pagos xAI describe un <strong>pool semanal compartido</strong> entre productos (Chat, Imagine, Voz, Build, etc.): un chat gasta poco; un video o una tarea pesada gasta más.</li>
+        <li>Anotá en tu nota: <em>fecha de reset si la ves</em> + <em>qué producto te conviene cuidar esta semana</em> (si generás mucho video, el pool se nota).</li>
+      </ol>
+      <p><strong>Créditos extra:</strong> si se te acaba el pool, la web permite comprar <strong>créditos de uso extra</strong> (desde montos chicos; ⚠️ solo web según FAQ xAI). No es obligatorio para el curso; es red de contención. Si la UI no muestra desglose fino: abrí Uso y leé <strong>lo que te muestre</strong> — no inventes números.</p>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">📊 Configuración → Uso</span>
+      <div class="uimock" role="img" aria-label="Pantalla Uso pool semanal">
+        <div class="bar">Configuración · Uso</div>
+        <div class="ubody">
+          <div class="fld"><label>Pool semanal (orientativo)</label><span class="box">████████░░ · chat · Imagine · voz · Build</span></div>
+          <p style="font-size:.78rem;color:#7A8194;margin:6px 0 0">Mock orientativo — leé la barra o el % real de tu cuenta.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 4 — Los cuatro modos del chat (mandos del intermedio)</h3>
+      <p>En un <strong>Nuevo chat</strong>, a la derecha del input, abrí el selector (suele decir <strong>Auto</strong> por defecto).</p>
+      <div class="tablewrap">
+        <table class="routinetable">
+          <thead>
+            <tr><th>Modo</th><th>Qué dice la UI (aprox.)</th><th>Cuándo usarlo en tu negocio</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Auto</strong></td><td>Elige Fast o Expert</td><td>Día a día cuando no querés pensar el modo</td></tr>
+            <tr><td><strong>Fast</strong></td><td>Respuestas rápidas</td><td>Mensajes cortos, ideas, reescritas simples</td></tr>
+            <tr><td><strong>Expert</strong></td><td>“Thinks hard” / piensa más</td><td>Radar, competencia, números, decisiones (módulo 2, <em>Radar Expert</em>)</td></tr>
+            <tr><td><strong>Heavy</strong> (modo del chat)</td><td>“Team of Experts”</td><td>Preguntas muy difíciles. <strong>No es lo mismo</strong> que el plan SuperGrok Heavy; si el modo no te deja o pide upgrade, no fuerces</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Debajo puede aparecer <strong>Instrucciones personalizadas</strong> (tonos tipo Formal). Eso <strong>no reemplaza</strong> el contexto de negocio del módulo 3, <em>Tu base: Proyectos y memoria</em>; es solo estilo.</p>
+      <p><strong>Ejercicio (2 minutos):</strong></p>
+      <ol>
+        <li>Dejá <strong>Auto</strong> y pedí algo liviano de tu rubro (ej. “dame 5 asuntos de mail para recordar un turno”).</li>
+        <li>Cambiá a <strong>Expert</strong> y pedí lo mismo pero pidiendo <em>fuentes o datos actuales</em>.</li>
+        <li>Notá la diferencia de ritmo y de profundidad. No hace falta un informe perfecto: solo <strong>sentir el mando</strong>.</li>
+      </ol>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">🎛 Selector de modos (orientativo)</span>
+      <div class="uimock" role="img" aria-label="Menú de modos del chat">
+        <div class="bar">Nuevo chat · selector</div>
+        <div class="ubody">
+          <div class="sidebaritem on">Auto ✓</div>
+          <div class="sidebaritem">Fast</div>
+          <div class="sidebaritem">Expert</div>
+          <div class="sidebaritem">Heavy</div>
+          <div class="fld" style="margin-top:10px"><span class="box">Instrucciones personalizadas (tono) — no reemplaza el Project</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 5 — Privacidad día 1 del sistema (repaso útil)</h3>
+      <p>En <strong>Configuración → Controles de datos</strong> (nombres pueden variar un poco):</p>
+      <ul>
+        <li><strong>Mejora el modelo</strong> — si no querés que tus chats entrenen, revisá el interruptor.</li>
+        <li><strong>Personalizar con X</strong> — si tenés X linkeado.</li>
+        <li><strong>Memoria de tus conversaciones</strong> — más adelante (módulo 3, <em>Tu base: Proyectos y memoria</em>) la gobernamos; hoy solo sabé que <strong>existe el resumen</strong>.</li>
+        <li><strong>Chat privado</strong> (ícono tipo fantasma en el home, si lo ves) — para temas que no querés en el historial.</li>
+      </ul>
+      <p><strong>Regla de oro (igual que el básico):</strong> no pegues contraseñas, tarjetas ni datos de clientes que no deban vivir en un chat.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 6 — Banner Construir / Grok Build (solo reconocer)</h3>
+      <p>Si ves un cartel <strong>Grok Build</strong> / “Grok 4.5” / <code>curl … install</code>, <strong>no lo instales para este curso</strong>. Es la puerta al <strong>Grok Avanzado</strong> (código y terminal). En el módulo 8, <em>Tu sistema Grok intermedio</em>, lo nombramos como siguiente nivel. Acá: lo reconocés y lo cerrás si estorba.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 7 — Carpeta del sistema</h3>
+      <p>En tu compu o Drive creá (o reutilizá):</p>
+      <p><code>Sistema IA/Grok-Intermedio/</code></p>
+      <p>Adentro, un archivo o nota <code>01-plan-y-modos</code> con el template del final. Los módulos 2–8 van a ir sumando <code>02-</code> … <code>08-</code> en la misma carpeta.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><b>📱 Móvil — app iOS/Android</b></div>
+        <p><strong>Facturación y Uso</strong> a veces van enterrados en menú avatar → Configuración; la barra de Uso puede verse menos clara. El selector <strong>Auto/Fast/Expert/Heavy</strong> está a la derecha del input (mismo concepto). El banner Construir puede tapar: cerralo. Guardar <code>01-plan-y-modos</code>: nota en el celu o foto de pantalla.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><b>💻 Desktop — grok.com o PWA</b></div>
+        <p><strong>Mejor acá</strong> para Facturación, facturas, créditos extra y Uso con más espacio. Mismos modos del chat, más cómodo leer el menú abierto. Banner Build más visible: solo reconocer, no instalar. Archivo en carpeta <code>Sistema IA/</code> más fácil.</p>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✅ Conviene en esta tarea</h3>
+      <p>Chequear <strong>plan y Uso en desktop/web</strong> al menos una vez; en móvil podés practicar los <strong>modos</strong> del chat el mismo día. Si en el celu no encontrás Uso, no inventes números: abrí web y buscá Configuración → <strong>Uso</strong>.</p>
+    </div>
+
+    <div class="card card-warn">
+      <h3>⚠️ Error común</h3>
+      <p><strong>Tratar SuperGrok como si fuera un “modo mágico” y no un plan.</strong> Si no abrís Facturación, no sabés si estás en oferta, en Free, o en SuperGrok de verdad — y después culpás a “Grok” cuando en realidad estás Limited.</p>
+      <p>Segundo error: dejar <strong>siempre Auto</strong> y quejarte de que “no investiga bien”. Para radar de negocio, el módulo 2, <em>Radar Expert</em> te va a pedir <strong>Expert</strong> a propósito.</p>
+    </div>
+
+    <div class="card card-example">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Negocio:</strong> estudio de uñas en Córdoba.</p>
+      <p><strong>Antes:</strong> chat Free, un poco de radar genérico, imágenes sueltas cuando el cupo dejaba.</p>
+      <p><strong>Después de este módulo:</strong> Facturación = SuperGrok (oferta 3 meses), Uso mirado el domingo, nota <code>01-plan-y-modos</code> con “default del día = Auto; research = Expert; Heavy solo si la decisión es grande”. La dueña sabe <em>por qué</em> paga y <em>qué botón</em> tocar antes del módulo 2, <em>Radar Expert</em>.</p>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla A — Chequeo de plan (para vos, no para Grok)</h3>
+      <div class="prompt">
+        <div class="top"><span>nota · plan y modos</span><button class="copy" type="button">Copiar</button></div>
+<pre>Plan actual: <strong class="field">[________]</strong>
+Renovación: <strong class="field">[________]</strong>
+Créditos extra: sí / no
+Modo default que voy a usar: Auto / Fast
+Modo para research: Expert
+Heavy: lo pruebo solo si <strong class="field">[________]</strong></pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla B — Primera prueba Expert (pegá datos reales)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · Expert</span><button class="copy" type="button">Copiar</button></div>
+<pre>Estoy en modo Expert. Soy <strong class="field">[rubro]</strong> en <strong class="field">[ciudad/país]</strong>.
+Necesito un panorama ACTUAL (no genérico) de: <strong class="field">[pregunta de negocio]</strong>.
+Pedime fuentes y separá hechos de opiniones.
+Si algo no está confirmado, decilo.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla C — Primera prueba Fast</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · Fast</span><button class="copy" type="button">Copiar</button></div>
+<pre>En una lista corta, 7 ideas de <strong class="field">[contenido / oferta / post]</strong> para <strong class="field">[mi negocio concreto: nombre + qué vendés]</strong>.
+Tono: <strong class="field">[cómo hablás vos]</strong>. Sin relleno.</pre>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Abriste <strong>Facturación</strong> y anotaste el plan real (SuperGrok u otro) con <strong>datos tuyos</strong>.</li>
+        <li>Entendés en una frase: <strong>SuperGrok = plan de pago de trabajo</strong>, no “otro bot”.</li>
+        <li>Abriste <strong>Uso</strong> y anotáste al menos qué ves (barra, %, o “no hay detalle”).</li>
+        <li><strong>Probaste en operación:</strong> misma pregunta corta en <strong>Fast</strong> y en <strong>Expert</strong> (iteración del mando).</li>
+        <li>Anotaste qué modo usarás de default y cuál para research.</li>
+        <li>Creaste <code>Sistema IA/Grok-Intermedio/01-plan-y-modos</code> guardado (no solo leído).</li>
+        <li>Podés repetir el chequeo de plan el mes que viene sin reabrir esta guía.</li>
+      </ul>
+    </div>
+
+    <div class="card card-kit">
+      <h3>📦 Entregable · 01-plan-y-modos</h3>
+      <p>En <code>Sistema IA/Grok-Intermedio/</code>. Incluí como mínimo:</p>
+      <ol>
+        <li>Plan + renovación (o “Free — subo cuando…”).</li>
+        <li>Frase SuperGrok en tus palabras.</li>
+        <li>Modo default + modo research.</li>
+        <li>Una captura mental o real: dónde está el selector de modos en tu pantalla.</li>
+        <li>Fecha del chequeo.</li>
+      </ol>
+    </div>
+
+    <span class="entregable">📦 Entregable · 01-plan-y-modos</span>
+
+    <label class="modcheck" data-mod="1">
+      <input type="checkbox" data-mod="1" aria-label="Completé el módulo 1">
+      <span>Completé el módulo 1 · El salto a SuperGrok</span>
+    </label>
+
+    <div class="card card-map" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat →</a></p>
+    </div>
+
+    <div class="next">
+      <div class="kicker">Siguiente módulo</div>
+      <h3>Módulo 2 · <span class="c">Radar Expert</span></h3>
+      <p>Tu primer research de negocio con el modo Expert que elegiste acá.</p>
+      <label class="go" for="t-m2">Ir al módulo 2 →</label>
+    </div>
+  </section>
+
+  <section class="panel" id="p-m2">
+    <div class="sec-head"><span class="numchip">02</span><h2>Radar Expert</h2></div>
+    <p class="sec-sub">En el básico el radar era “Limited”. Acá usás el mando <strong>Expert</strong> a propósito para una investigación de negocio real — con fuentes y una decisión tuya al final.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Nuevo chat → selector del input en <strong>Expert</strong> → mandá el prompt de abajo. Guardá la respuesta (o el link de compartir) en <code>Sistema IA/Grok-Intermedio/</code>. Micro-win listo.</p></div></div>
+
+    <div class="card card-plantilla" style="margin-top:0">
+      <h3>⚡ Prompt del carril rápido</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · micro-win Expert</span><button class="copy" type="button">Copiar</button></div>
+<pre>Modo Expert. Soy <strong class="field">[tu rubro]</strong> en <strong class="field">[ciudad/país]</strong>.
+¿Qué están diciendo AHORA clientes y competencia sobre <strong class="field">[tu oferta o problema]</strong>?
+Dame 5 hallazgos accionables con fuentes. Separa hecho de opinión.</pre>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> Investigás a mano (Google + redes) o con chat genérico y terminás con opiniones sin ancla.</p>
+      <p><strong>Te llevás:</strong> 1 research Expert de <strong>tu</strong> rubro, con fuentes, 1 decisión y archivo <code>02-radar-expert</code>.</p>
+      <p><strong>Lo usás cuando:</strong> Precios, lanzamientos, copy, ofertas, o “qué está pasando en mi mercado”.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Correr <strong>una</strong> investigación en <strong>Expert</strong>, verificar lo crítico, y dejar un entregable que el módulo 4, <em>Habilidades que entregan papeles</em> y el módulo 8, <em>Tu sistema Grok intermedio</em> puedan reutilizar (sin rehacer el radar desde cero).</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Grok se diferencia por <strong>tiempo real (web + X)</strong>. En Free eso viene <strong>Limited</strong>. En SuperGrok la fila de producto es <strong>Expert</strong>: más profundidad para cruzar fuentes. Si saltás este módulo, el resto del sistema (papeles, posts, video) se alimenta de <strong>suposiciones</strong>. <strong>Heavy:</strong> “Team of Experts”. Usalo solo si la pregunta es muy gruesa y tu plan lo permite. Si pide upgrade o no abre, <strong>no es bloqueo</strong> del curso: Expert alcanza.</p></div></div>
+    </div>
+
+    <div class="tool-intro">
+      <h3>📡 Expert = research con propósito</h3>
+      <p>No es “preguntarle cualquier cosa a Grok”. Es armar el <strong>informe que usás esta semana</strong>: un objetivo, fuentes abiertas por vos, y una decisión humana al final.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 1 — Modo y contexto</h3>
+      <ol>
+        <li><strong>Nuevo chat</strong> (o un chat dentro de tu Project del módulo 3, <em>Tu base: Proyectos y memoria</em> si ya lo tenés; si no, chat suelto y después lo movés).</li>
+        <li>Selector → <strong>Expert</strong> (no Auto).</li>
+        <li>Pegá 3–5 líneas de tu negocio: qué vendés, a quién, ciudad, precio de referencia. (Si ya cargaste tono en el básico, resumilo en 2 líneas.)</li>
+      </ol>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">🎛 Input con Expert seleccionado</span>
+      <div class="uimock" role="img" aria-label="Chat con modo Expert">
+        <div class="bar">Nuevo chat · Expert</div>
+        <div class="ubody">
+          <div class="fld"><span class="box">Modo: Expert ▾ · primer mensaje con 3–5 líneas de tu negocio…</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 2 — Brief de research (una pregunta, no diez)</h3>
+      <p>Elegí <strong>un</strong> objetivo de la semana, por ejemplo:</p>
+      <ul>
+        <li>3 competidores locales y cómo se diferencian</li>
+        <li>qué se queja la gente de <strong class="field">[tu servicio]</strong> en redes</li>
+        <li>tendencias de precio o formato de contenido en tu rubro</li>
+      </ul>
+      <p>Escribí el objetivo en una frase. Todo el módulo gira alrededor de esa frase.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 3 — Primera pasada Expert</h3>
+      <p>Usá la <strong>Plantilla A</strong>. Cuando responda:</p>
+      <ol>
+        <li>Marcá (o copiá) los <strong>hallazgos con fuente</strong>.</li>
+        <li>Lo que suene genérico (“la gente quiere calidad”) → desconfiá.</li>
+        <li>Si aparecen citas o “Fuentes” / links, abrí <strong>al menos 2</strong> y confirmá que existen.</li>
+      </ol>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">📋 Respuesta con hallazgos + fuentes</span>
+      <div class="uimock" role="img" aria-label="Respuesta Expert con fuentes">
+        <div class="bar">Expert · research</div>
+        <div class="ubody">
+          <div class="fld"><span class="box">1–5 hallazgos accionables…</span></div>
+          <div class="fld"><label>Fuentes</label><span class="box">link · link · link (abrí al menos 2)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 4 — Segunda pasada (anti-genérico)</h3>
+      <p>Seguí en el <strong>mismo hilo</strong>:</p>
+      <div class="prompt">
+        <div class="top"><span>prompt · segunda pasada</span><button class="copy" type="button">Copiar</button></div>
+<pre>Filtrá lo genérico. Quédate solo con lo verificable para <strong class="field">[mi ciudad/rubro]</strong>.
+Agregá: 1 amenaza, 1 oportunidad, 1 idea de oferta o contenido para ESTA semana.
+Si no hay dato, decí "no encontré" — no inventes.</pre>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 5 — Decisión humana (obligatoria)</h3>
+      <p>En tu nota escribí:</p>
+      <ul>
+        <li><strong>Decido hacer:</strong> …</li>
+        <li><strong>No hago (aunque Grok lo sugiera):</strong> …</li>
+        <li><strong>Lo verifico con:</strong> (llamada, visita, Excel propio, etc.)</li>
+      </ul>
+      <p>Sin esta línea el entregable no cuenta: el radar es insumo, <strong>vos</strong> cerrás.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 6 — Heavy (opcional, 1 intento)</h3>
+      <p>Si la decisión es grande (abrir local, subir precio fuerte, cambiar de nicho):</p>
+      <ol>
+        <li>Probá <strong>Heavy</strong> con la misma pregunta en 3 líneas.</li>
+        <li>Si no está disponible o pide otro plan: anotá “Heavy no disponible — sigo con Expert” y listo.</li>
+        <li>No instales nada ni pases a Construir.</li>
+      </ol>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 7 — Guardar</h3>
+      <p>Guardá en <code>02-radar-expert</code>:</p>
+      <ul>
+        <li>fecha + modo usado</li>
+        <li>pregunta</li>
+        <li>5 hallazgos (con fuente o “sin confirmar”)</li>
+        <li>tu decisión</li>
+        <li>link del chat si lo compartiste (botón Compartir del hilo, si aplica)</li>
+      </ul>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><b>📱 Móvil — research en el celu</b></div>
+        <p>Poner <strong>Expert</strong> en el selector del input (mismo concepto). Leer respuesta larga sirve para arrancar; se hace pesado con tablas. Abrir <strong>Fuentes</strong> se va a otra app — fácil perder el hilo. Guardar: copiar a Notas / Drive. Podés empezar el hilo en el Project si ya existe.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><b>💻 Desktop — cerrar el entregable</b></div>
+        <p>Menú de modos más legible. <strong>Mejor acá</strong> para leer de arriba a abajo y abrir 2–3 fuentes en pestañas. Pegar en archivo <code>02-radar-expert</code> con más calma. Ideal: research <strong>dentro</strong> del Project del negocio.</p>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✅ Conviene en esta tarea</h3>
+      <p><strong>Mandá y leé el borrador en el dispositivo que tengas</strong>, pero <strong>cerrá el entregable en desktop/web</strong>: verificar fuentes y escribir “decido / no hago” con teclado. Si solo tenés móvil: abrí al menos <strong>2 fuentes</strong> y escribí la decisión en una nota el mismo día.</p>
+    </div>
+
+    <div class="card card-warn">
+      <h3>⚠️ Error común</h3>
+      <p><strong>Pedir “todo el mercado” en un solo prompt.</strong> Sale un ensayo genérico. Arreglo: una pregunta de la semana + segunda pasada anti-genérico + verificación de 2 fuentes.</p>
+      <p>Segundo error: copiar un dato de Grok a un cliente <strong>sin chequear</strong>. xAI advierte que puede equivocarse — en research es crítico.</p>
+    </div>
+
+    <div class="card card-example">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Negocio:</strong> ferretería de barrio.</p>
+      <p><strong>Pregunta:</strong> “Qué están pidiendo en X/web compradores DIY en Argentina esta semana y cómo lo usan ferreterías chicas en Instagram”.</p>
+      <p><strong>Expert</strong> devolvió 4 hilos + 2 notas de precio. La dueña abrió los links, descartó 1 inventado, y decidió: <em>post de “kit lluvia” el viernes + 3 combos en vidriera</em>. Archivo <code>02-radar-expert</code> listo para armar el copy en el módulo 4, <em>Habilidades que entregan papeles</em> y la imagen en el módulo 6, <em>Imágenes que venden (y se corrigen)</em>.</p>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla A — Research de competencia</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · competencia</span><button class="copy" type="button">Copiar</button></div>
+<pre>Modo Expert. Negocio: <strong class="field">[nombre]</strong>, <strong class="field">[rubro]</strong>, <strong class="field">[ciudad]</strong>.
+Compará 3 competidores reales (web o redes).
+Tabla: precio visible / promesa / hueco que yo puedo llenar.
+Fuentes al final. Sin relleno motivacional.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla B — Research de demanda / quejas</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · demanda</span><button class="copy" type="button">Copiar</button></div>
+<pre>Modo Expert. Buscá quejas y pedidos de clientes sobre <strong class="field">[problema]</strong> en <strong class="field">[país/ciudad]</strong>.
+Listá 7 frases en lenguaje de cliente (no jerga de marketing).
+Marcá cuáles se repiten. Fuentes.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla C — Research de contenido</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · contenido</span><button class="copy" type="button">Copiar</button></div>
+<pre>Modo Expert. Para <strong class="field">[rubro]</strong> en <strong class="field">[plataforma: IG/TikTok/X]</strong>,
+¿qué formatos y ganchos están funcionando AHORA?
+5 ideas adaptadas a <strong class="field">[mi negocio concreto]</strong>, no genéricas.</pre>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Corriste al menos 1 hilo en <strong>Expert</strong> con datos de <strong>tu</strong> negocio.</li>
+        <li>Hay 5 hallazgos y <strong>2 fuentes</strong> abiertas por vos.</li>
+        <li>Escribiste <strong>decido / no hago</strong>.</li>
+        <li>Archivo <code>02-radar-expert</code> en la carpeta del sistema.</li>
+        <li>Podés repetir el ritual la semana que viene sin releer todo el módulo.</li>
+      </ul>
+    </div>
+
+    <div class="card card-kit">
+      <h3>📦 Entregable · 02-radar-expert</h3>
+      <p>En <code>Sistema IA/Grok-Intermedio/</code>: fecha + modo, pregunta, 5 hallazgos con fuente o “sin confirmar”, tu decisión, y link del chat si lo compartiste.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 02-radar-expert</span>
+
+    <label class="modcheck" data-mod="2">
+      <input type="checkbox" data-mod="2" aria-label="Completé el módulo 2">
+      <span>Completé el módulo 2 · Radar Expert</span>
+    </label>
+
+    <div class="card card-map" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat →</a></p>
+    </div>
+
+    <div class="next">
+      <div class="kicker">Siguiente módulo</div>
+      <h3>Módulo 3 · <span class="c">Tu base: Proyectos y memoria</span></h3>
+      <p>Con el radar guardado, el módulo 3 te arma la casa donde van a vivir este research y los siguientes.</p>
+      <label class="go" for="t-m3">Ir al módulo 3 →</label>
+    </div>
+  </section>
+
+  <section class="panel" id="p-m3">
+    <div class="sec-head"><span class="numchip">03</span><h2>Tu base: Proyectos y memoria</h2></div>
+    <p class="sec-sub">Hasta ahora el laburo puede estar en chats sueltos. El intermedio necesita una <strong>base</strong>: un <strong>Proyecto</strong> del negocio y una <strong>memoria</strong> que no te juegue en contra (datos viejos, tono equivocado, basura de otros temas).</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Sidebar → <strong>Proyectos</strong> → <strong>+ Nuevo proyecto</strong> (o abrí uno que ya uses solo para el negocio). Nombre: el de tu marca o “Mi negocio – Grok”. Listo el micro-win: ya no es solo el historial genérico.</p></div></div>
+
+    <div class="card card-sol">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> Cada chat parte de cero o la memoria mezcla familia, hobbies y clientes.</p>
+      <p><strong>Te llevás:</strong> 1 Project del negocio + memoria revisada + nota <code>03-base-proyecto</code>.</p>
+      <p><strong>Lo usás cuando:</strong> Empieza cualquier tarea seria del sistema (radar, papeles, Imagine).</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Dejar un <strong>contenedor</strong> (Proyecto) y una <strong>política de memoria</strong> simple, para que Grok no “se olvide” del negocio ni invente un negocio viejo.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Sin base, el módulo 4, <em>Habilidades que entregan papeles</em> genera presupuestos con datos inventados y el módulo 6, <em>Imágenes que venden (y se corrigen)</em> saca fotos de un rubro que no es el tuyo. Projects agrupan trabajo; la memoria (Controles de datos) guarda preferencias entre chats. El intermedio las <strong>gobierna</strong>, no las deja en piloto automático ciego.</p></div></div>
+    </div>
+
+    <div class="tool-intro">
+      <h3>🏠 Project + memoria = la casa del sistema</h3>
+      <p>Los módulos 4 a 7 (<em>Habilidades…</em>, <em>Conectado…</em>, <em>Imágenes…</em>, <em>Video…</em>) van a <strong>vivir</strong> acá (o a referenciarla). Host: <strong>grok.com</strong> con la misma cuenta en celular y compu.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 1 — Proyecto del negocio</h3>
+      <ol>
+        <li>En la sidebar, sección <strong>Proyectos</strong>.</li>
+        <li><strong>Crear proyecto</strong> / <strong>+ Nuevo proyecto</strong>.</li>
+        <li>Nombre claro (ej. “COCO GO”, “Ferretería Centro”).</li>
+        <li>Abrí el proyecto y hacé un chat adentro: “Este proyecto es solo para [negocio].”</li>
+      </ol>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">📁 Sidebar · Proyectos</span>
+      <div class="uimock" role="img" aria-label="Pantalla Proyectos con tarjeta del proyecto">
+        <div class="bar">grok.com · Proyectos</div>
+        <div class="ubody">
+          <div class="sidebaritem on">Proyectos</div>
+          <div class="sidebaritem">+ Nuevo proyecto</div>
+          <div class="fld" style="margin-top:10px"><label>Tu proyecto</label><span class="box"><strong class="field">[nombre de tu negocio]</strong> · solo negocio</span></div>
+          <div class="fld"><span class="box">Chat adentro: “Este proyecto es solo para…”</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 2 — Anclar el contexto (texto, no magia)</h3>
+      <p>Dentro del Project, un primer mensaje fijo (<strong>Plantilla A</strong>). Si más adelante las Habilidades guardan formato, <strong>igual</strong> este ancla en texto ayuda: no asumas que todo se conecta solo.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 3 — Traer el radar (si tenés el módulo 2, <em>Radar Expert</em>)</h3>
+      <p>Pegá un resumen de <code>02-radar-expert</code> (no todo el ensalado):</p>
+      <p><em>“Hallazgos de esta semana: … · Decisión: …”</em></p>
+      <p>Así el Project hereda el intermedio, no el básico genérico.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 4 — Memoria: mirar y limpiar</h3>
+      <ol>
+        <li>Avatar → <strong>Configuración → Controles de datos</strong>.</li>
+        <li>Opciones que suelen estar (nombres literales de capturas):
+          <ul>
+            <li><strong>Mejora el modelo</strong></li>
+            <li><strong>Personalizar a Grok usando X</strong></li>
+            <li><strong>Personalizar a Grok con el historial de conversaciones</strong> (puede figurar beta)</li>
+            <li><strong>Memoria de tus conversaciones</strong> → “Ver el resumen…”</li>
+            <li>Importar memoria desde otros proveedores (solo si te sirve; no es obligatorio)</li>
+          </ul>
+        </li>
+        <li>Abrí el <strong>resumen de memoria</strong>. Borrá o editá lo que no sea de negocio o esté mal.</li>
+        <li>Anotá tu regla: <em>“En memoria del negocio solo: rubro, ciudad, tono, productos. Nunca: datos de tarjetas / contraseñas.”</em></li>
+      </ol>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">🧠 Controles de datos · Memoria</span>
+      <div class="uimock" role="img" aria-label="Controles de datos y Memoria de conversaciones">
+        <div class="bar">Configuración · Controles de datos</div>
+        <div class="ubody">
+          <div class="sidebaritem">Mejora el modelo</div>
+          <div class="sidebaritem">Personalizar a Grok usando X</div>
+          <div class="sidebaritem">Personalizar con historial</div>
+          <div class="sidebaritem on">Memoria de tus conversaciones → Ver el resumen…</div>
+          <div class="fld" style="margin-top:10px"><span class="box">Resumen: borrá lo que no sea del negocio</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 5 — Chat privado vs Project</h3>
+      <ul>
+        <li><strong>Project</strong> = trabajo que querés retomar.</li>
+        <li><strong>Privado</strong> (ícono fantasma en el home, si lo ves) = no historial largo; no lo uses como archivo del sistema.</li>
+      </ul>
+      <p>El entregable del curso va en Project + carpeta <code>Sistema IA/</code>, no solo en privado.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 6 — Probar la base en operación (obligatorio)</h3>
+      <p>Todavía dentro del <strong>mismo Project</strong>, mandá un chat real de 1 minuto:</p>
+      <div class="prompt">
+        <div class="top"><span>prompt · prueba del ancla</span><button class="copy" type="button">Copiar</button></div>
+<pre>Usá solo el ancla de este Project.
+En 5 viñetas: cómo le explicarías mi negocio a un cliente nuevo.
+Si falta un dato, decí [COMPLETAR] — no inventes.</pre>
+      </div>
+      <p>Si inventa un servicio o ciudad que no pusiste: <strong>corregí el ancla</strong> (Plantilla A otra vez) y repetí el pedido. Eso es iterar la base.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 7 — Carpeta espejo</h3>
+      <p>En <code>Sistema IA/Grok-Intermedio/03-base-proyecto</code> copiá:</p>
+      <ul>
+        <li>nombre del Project</li>
+        <li>cómo lo abrís (sidebar → Proyectos → …)</li>
+        <li>ancla final (después de la prueba)</li>
+        <li>qué limpiaste de memoria</li>
+        <li>fecha</li>
+      </ul>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><b>📱 Móvil — app iOS/Android</b></div>
+        <p><strong>Crear / abrir Proyecto:</strong> sidebar o lista de Proyectos; nombres largos se cortan. <strong>Controles de datos / memoria:</strong> avatar → Configuración → Controles de datos (puede requerir más toques). Editar ancla: teclado chico; sirve para pegar texto corto. Chat de prueba del ancla: <strong>perfecto en móvil</strong> (mensaje corto).</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><b>💻 Desktop — grok.com o PWA</b></div>
+        <p><strong>Mejor acá</strong> para crear, renombrar y ver la lista de Proyectos. Misma lógica de Controles de datos, más aire para leer el resumen de memoria. Ideal para pegar ancla + resumen del radar. Chat de prueba: igual de bien.</p>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✅ Conviene en esta tarea</h3>
+      <p><strong>Creá el Project y limpiá memoria en web</strong>; el chat de prueba del ancla lo podés hacer en móvil. Usá <strong>la misma cuenta</strong> en ambos: si el Project no aparece en el celu, confirmá que estás en <strong>grok.com</strong> / app con el mismo login (no otro host).</p>
+    </div>
+
+    <div class="card card-warn">
+      <h3>⚠️ Error común</h3>
+      <p><strong>Un solo Project para todo</strong> (familia + trading + negocio). La memoria y los hilos se contaminan.</p>
+      <p><strong>Arreglo:</strong> un Project <strong>solo negocio</strong> para este curso.</p>
+    </div>
+
+    <div class="card card-example">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Negocio:</strong> consultorio de nutrición.</p>
+      <p>Project “Nutri – pacientes y contenido”. Memoria limpiada de un hobby de cocina personal que Grok metía en los mails. Ancla: ciudad, ticket promedio, tono empático no clínico. El radar del módulo 2, <em>Radar Expert</em>, quedó pegado en el primer hilo del Project.</p>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla A — Ancla del Project</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · ancla Project</span><button class="copy" type="button">Copiar</button></div>
+<pre>Este Project es SOLO para <strong class="field">[nombre del negocio]</strong>.
+Rubro: <strong class="field">[…]</strong> | Ciudad: <strong class="field">[…]</strong> | Cliente ideal: <strong class="field">[…]</strong>
+Qué vendo: <strong class="field">[…]</strong>
+Tono: <strong class="field">[…]</strong>
+No inventes sucursales, precios ni servicios que no liste acá.
+Precios actuales: <strong class="field">[…]</strong></pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla B — Limpieza de memoria (instrucción)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · limpieza memoria</span><button class="copy" type="button">Copiar</button></div>
+<pre>Del resumen de memoria, lo que aplica a mi negocio es: <strong class="field">[…]</strong>
+Lo que NO debe usarse más: <strong class="field">[…]</strong>
+A partir de ahora priorizá solo lo del negocio.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla C — Resumen semanal al Project</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · resumen semanal</span><button class="copy" type="button">Copiar</button></div>
+<pre>Actualización semanal <strong class="field">[fecha]</strong>:
+- Radar (módulo 2, Radar Expert): <strong class="field">[…]</strong>
+- Decisiones: <strong class="field">[…]</strong>
+- Pendientes de papeles/visual: <strong class="field">[…]</strong></pre>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Existe un Project con nombre de <strong>tu</strong> negocio.</li>
+        <li>Ancla en texto (Plantilla A) con datos reales.</li>
+        <li><strong>Probaste</strong> el ancla en un chat del Project (paso 6) e iteraste si inventó algo.</li>
+        <li>Revisaste el resumen de memoria al menos una vez (borraste o dejaste anotado “ok”).</li>
+        <li><code>03-base-proyecto</code> guardado en la carpeta del sistema.</li>
+        <li>Sabés abrir el Project sin reabrir esta guía.</li>
+      </ul>
+    </div>
+
+    <div class="card card-kit">
+      <h3>📦 Entregable · 03-base-proyecto</h3>
+      <p>En <code>Sistema IA/Grok-Intermedio/03-base-proyecto</code>: nombre del Project, cómo lo abrís, ancla final, qué limpiaste de memoria, fecha.</p>
+    </div>
+
+    <span class="entregable">📦 Entregable · 03-base-proyecto</span>
+
+    <label class="modcheck" data-mod="3">
+      <input type="checkbox" data-mod="3" aria-label="Completé el módulo 3">
+      <span>Completé el módulo 3 · Tu base: Proyectos y memoria</span>
+    </label>
+
+    <div class="card card-map" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat →</a></p>
+    </div>
+
+    <div class="next">
+      <div class="kicker">Siguiente módulo</div>
+      <h3>Módulo 4 · <span class="c">Habilidades que entregan papeles</span></h3>
+      <p>Con la casa lista, el módulo 4 hace que Grok <strong>genere documentos</strong> con el formato de tu negocio, no un Word genérico.</p>
+      <label class="go" for="t-m4">Ir al módulo 4 →</label>
+    </div>
+  </section>
+
+  <section class="panel" id="p-m4">
+    <div class="sec-head"><span class="numchip">04</span><h2>Habilidades que entregan papeles</h2></div>
+    <p class="sec-sub">En el básico una Skill era “tu tono”. Acá las <strong>Habilidades</strong> sirven para <strong>entregar papeles de negocio</strong>: presupuestos, propuestas, decks, planillas — y para <strong>guardar tu forma</strong> una vez y reutilizarla. El resultado no es un chat lindo: es un <strong>archivo o un texto listo para mandar a un cliente</strong>.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>1. Abrí tu <strong>Project</strong> del negocio (módulo 3, <em>Tu base: Proyectos y memoria</em>). 2. Menú <strong>+</strong> (al lado del input) → <strong>Habilidades</strong> — o sidebar <strong>Habilidades y Conectores</strong>. 3. Pedí un presupuesto o lista de precios de <strong>un servicio real tuyo</strong>. 4. Si hay descarga o tabla limpia → guardá 10 segundos. Micro-win.</p></div></div>
+
+    <div class="card card-sol">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> Cada presupuesto o propuesta se escribe de cero y sale con otro formato.</p>
+      <p><strong>Te llevás:</strong> 1 documento de oficina usable + 1 Habilidad propia + <code>04-habilidades</code>.</p>
+      <p><strong>Lo usás cuando:</strong> Cotizás, presentás, reportás o armás material comercial.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Recorrer la pantalla de Habilidades (o el pedido por chat), generar un <strong>papel con datos reales</strong>, <strong>iterarlo</strong>, descargarlo, y dejar una <strong>Habilidad reutilizable</strong> probada dos veces.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>xAI documenta Skills de oficina (Word, presentaciones, planillas, PDF) y creación de skills propias: enseñás una vez, se reutiliza. Eso es puente <strong>sin código</strong>. No es Construir / Grok Build. Sin este módulo, el módulo 8, <em>Tu sistema Grok intermedio</em> no tiene “papeles del sistema”: solo charlas.</p></div></div>
+    </div>
+
+    <div class="tool-intro">
+      <h3>📎 Habilidades = papeles reutilizables</h3>
+      <p>UI: <strong>Habilidades y Conectores</strong> · menú <strong>+</strong> → <strong>Habilidades</strong>. No es magia de Drive: los datos reales los pegás vos (o esperás al módulo 5, <em>Conectado y en piloto</em>).</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 1 — Dónde están las Habilidades (mapa de pantalla)</h3>
+      <p>Hacé el recorrido completo una vez (aunque ya sepas el atajo):</p>
+      <div class="tablewrap">
+        <table class="routinetable">
+          <thead><tr><th>Camino</th><th>Qué tocás</th></tr></thead>
+          <tbody>
+            <tr><td><strong>A</strong></td><td>Sidebar izquierda → <strong>Habilidades y Conectores</strong></td></tr>
+            <tr><td><strong>B</strong></td><td>En el chat del Project → botón <strong>+</strong> → <strong>Habilidades</strong></td></tr>
+            <tr><td><strong>C</strong></td><td>Si no ves catálogo: seguí en el chat y pedí el documento en castellano (paso 3)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Anotá en tu entrega: <em>entré por camino A / B / C</em>.</p>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">＋ Menú · Habilidades</span>
+      <div class="uimock" role="img" aria-label="Sidebar Habilidades y Conectores y menú + con Habilidades">
+        <div class="bar">Project · chat</div>
+        <div class="ubody">
+          <div class="sidebaritem">Habilidades y Conectores</div>
+          <div class="sidebaritem on">+ → Habilidades</div>
+          <div class="fld" style="margin-top:10px"><span class="box">Catálogo o pedido en lenguaje natural…</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 2 — Inventario de 60 segundos</h3>
+      <p>En la pantalla de Habilidades (si hay lista):</p>
+      <ol>
+        <li>Anotá <strong>2–5 nombres</strong> que veas (aunque no los uses todos).</li>
+        <li>Marcá cuál parece de <strong>documentos / planillas / presentaciones</strong>.</li>
+      </ol>
+      <p>⚠️ Si no hay nombres de fábrica visibles: escribí en el entregable “sin catálogo visible — usé pedido en lenguaje natural” y seguí. No inventes botones.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 3 — Armar el brief del papel (antes de generar)</h3>
+      <p>En un bloc o en el mismo chat, completá <strong>antes</strong> de pedir el archivo:</p>
+      <div class="prompt">
+        <div class="top"><span>nota · brief del papel</span><button class="copy" type="button">Copiar</button></div>
+<pre>Cliente o uso: <strong class="field">[________]</strong>
+Tipo de papel: presupuesto / propuesta / lista de precios / mini deck
+Ítems (solo reales):
+- <strong class="field">[…]</strong> $ <strong class="field">[…]</strong>
+- <strong class="field">[…]</strong> $ <strong class="field">[…]</strong>
+Qué NO debe inventar: <strong class="field">[…]</strong>
+Tono: <strong class="field">[…]</strong></pre>
+      </div>
+      <p>Pegá también 2 líneas del <strong>ancla</strong> del Project (módulo 3, <em>Tu base: Proyectos y memoria</em>) y, si tenés, 1 hallazgo del <strong>radar</strong> (módulo 2, <em>Radar Expert</em>) que cambie la oferta.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 4 — Generar dentro de la pantalla</h3>
+      <ol>
+        <li>Estás en el <strong>Project</strong> del negocio (no un chat random del historial).</li>
+        <li>Si elegiste una habilidad del catálogo, activala como indique la UI (tocar / usar / mencionar).</li>
+        <li>Si no, mandá la <strong>Plantilla A</strong> entera en el input.</li>
+        <li>Esperá el resultado: a veces es archivo descargable, a veces tabla o texto largo en el chat.</li>
+      </ol>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">📄 Pedido de presupuesto · respuesta</span>
+      <div class="uimock" role="img" aria-label="Chat con pedido de presupuesto y respuesta con tabla">
+        <div class="bar">Project · Habilidades</div>
+        <div class="ubody">
+          <div class="fld"><span class="box">Generá presupuesto con SOLO estos ítems y precios…</span></div>
+          <div class="fld"><label>Respuesta</label><span class="box">Tabla / adjunto · listo para revisar</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 5 — Primera lectura con ojos de cliente</h3>
+      <p>Antes de “está bien”:</p>
+      <ul>
+        <li>¿Los <strong>precios</strong> son los tuyos?</li>
+        <li>¿Inventó un servicio?</li>
+        <li>¿Se lo mandarías a un cliente <strong>hoy</strong> por WhatsApp/mail?</li>
+      </ul>
+      <p>Si algo falla → no guardes todavía; andá al paso 6.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 6 — Iterar en el mismo hilo (obligatorio)</h3>
+      <p>Seguí en el <strong>mismo</strong> chat:</p>
+      <div class="prompt">
+        <div class="top"><span>prompt · iteración papel</span><button class="copy" type="button">Copiar</button></div>
+<pre>Reescribí SOLO con estos datos (no agregues ítems):
+<strong class="field">[pegá otra vez la lista de precios real]</strong>
+Sacá frases de relleno y promesas vagas.
+Dejalo listo para enviar: títulos claros + total si aplica + próximo paso para el cliente.
+Si falta un dato mío, poné [COMPLETAR].</pre>
+      </div>
+      <p>Compará versión 1 vs 2. Te quedás con la 2 (o una 3 si hace falta).</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 7 — Bajar el archivo al sistema</h3>
+      <ol>
+        <li><strong>Descargar</strong> si hay botón.</li>
+        <li>Si solo hay texto: copiá a Docs/Word/Pages o guardá <code>.md</code> / <code>.txt</code>.</li>
+        <li>Carpeta: <code>Sistema IA/Grok-Intermedio/04-habilidades/</code><br>Nombre: <code>presupuesto-2026-…</code> o <code>propuesta-…</code> + fecha.</li>
+      </ol>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 8 — Crear Habilidad propia (tu forma)</h3>
+      <p>Todavía en contexto de negocio, Plantilla B. Ejemplos de nombre:</p>
+      <ul>
+        <li><code>Presupuesto [tu marca] – v1</code></li>
+        <li><code>Propuesta corta [rubro]</code></li>
+        <li><code>Mail de seguimiento post-reunion</code></li>
+      </ul>
+      <p>Pedí que la guarde como Habilidad reutilizable. Si la UI tiene “Skill Creator” / “crear habilidad” / conversación del estilo “guardá esto como habilidad”, usalo; si no, el pedido en chat alcanza y anotá ⚠️ <em>ubicación exacta de guardado puede variar</em>.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 9 — Probar la Habilidad dos veces (criterio de cierre)</h3>
+      <ol>
+        <li><strong>Corrida 1:</strong> el papel de esta semana (ya hecho).</li>
+        <li><strong>Corrida 2:</strong> otro cliente o <strong>otro servicio</strong> tuyo, pidiendo “usá la habilidad [nombre]”.</li>
+      </ol>
+      <p>Si la segunda corrida ignora el formato: reforzá las reglas (Plantilla B otra vez) e iterá.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 10 — Límite honesto</h3>
+      <ul>
+        <li>Las Habilidades <strong>no leen solas</strong> tu Gmail ni tu Drive: eso es el módulo 5, <em>Conectado y en piloto</em>.</li>
+        <li>Si necesitás un mail real como insumo, <strong>pegá el texto</strong> o esperá al conector.</li>
+        <li>No uses Construir / Build para “hacer el Word”.</li>
+      </ul>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><b>📱 Móvil — app iOS/Android</b></div>
+        <p>Menú <strong>+</strong> → Habilidades: accesible; el catálogo puede verse apretado. Generar presupuesto: podés dictar o tipear el brief. <strong>Descargar</strong> .docx / planilla: a veces no hay descarga o se va a “Archivos” del celu y se pierde. Segunda corrida: rápida en móvil si el formato ya está.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><b>💻 Desktop — grok.com o PWA</b></div>
+        <p>Sidebar <strong>Habilidades y Conectores</strong> más clara. <strong>Mejor</strong> para pegar tablas de precios largas. <strong>Hacé la descarga acá</strong> y guardá en <code>04-habilidades/</code>. Ideal para comparar dos clientes lado a lado en la segunda corrida.</p>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✅ Conviene en esta tarea</h3>
+      <p><strong>Redactar e iterar donde estés</strong>; <strong>cerrar el archivo en desktop/web el mismo día</strong>. Regla: si en el celular no podés bajar el archivo, no marques el módulo listo hasta pasarlo a la carpeta del sistema en la compu.</p>
+    </div>
+
+    <div class="card card-warn">
+      <h3>⚠️ Error común</h3>
+      <p><strong>Pedir “un presupuesto profesional” sin precios ni ítems.</strong> Grok inventa números y vos los reenvías. Arreglo: tabla tuya pegada <strong>dos veces</strong> (pasos 3 y 6) o <code>[COMPLETAR]</code> donde falte.</p>
+      <p>Segundo error: crear la Habilidad y no hacer la <strong>segunda corrida</strong> → la semana que viene no sabés si sirve.</p>
+    </div>
+
+    <div class="card card-example">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Negocio:</strong> estudio contable chico.</p>
+      <p>Camino B: <strong>+</strong> → Habilidades, sin catálogo claro → pedido en lenguaje natural. v1: inventó “asesoría startup”. v2: solo 4 planes reales de honorarios. Habilidad: “Propuesta contable – tono formal rioplatense, plazo y forma de pago siempre”. Segunda corrida: otro cliente, mismo esqueleto, 4 minutos. Archivo en <code>04-habilidades/</code>.</p>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla A — Documento de oficina (primera generación)</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · documento oficina</span><button class="copy" type="button">Copiar</button></div>
+<pre>Estoy en el Project de mi negocio.
+Negocio: <strong class="field">[nombre]</strong>, <strong class="field">[rubro]</strong>, <strong class="field">[ciudad]</strong>.
+Generá <strong class="field">[presupuesto / propuesta / planilla / mini deck de 5 slides]</strong> para: <strong class="field">[cliente o servicio]</strong>.
+Ítems y precios (SOLO estos; no inventes):
+- <strong class="field">[…]</strong>
+Formato claro, listo para enviar.
+Si algo no está en la lista, escribí [COMPLETAR].</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla B — Crear habilidad propia</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · crear habilidad</span><button class="copy" type="button">Copiar</button></div>
+<pre>Convertí estas reglas en una Habilidad reutilizable llamada "<strong class="field">[nombre]</strong>":
+1. Estructura del documento: <strong class="field">[…]</strong>
+2. Tono: <strong class="field">[…]</strong>
+3. Siempre incluir: <strong class="field">[…]</strong>
+4. Nunca inventar: precios, servicios, plazos que yo no pase
+Cuando la use, pedime solo los datos variables (cliente, ítems, fechas).
+Confirmame el nombre con el que quedó guardada.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla C — Segunda corrida / otro caso</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · segunda corrida</span><button class="copy" type="button">Copiar</button></div>
+<pre>Usá la Habilidad "<strong class="field">[nombre]</strong>".
+Nuevo caso: cliente <strong class="field">[…]</strong>, servicio <strong class="field">[…]</strong>, precios <strong class="field">[…]</strong>.
+Mismo formato que la corrida anterior. Sin relleno.</pre>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Entraste por un camino de pantalla (A/B/C) y lo anotaste.</li>
+        <li>Generaste 1 papel con <strong>precios/servicios reales</strong>.</li>
+        <li><strong>Iteraste al menos una vez</strong> en el mismo hilo.</li>
+        <li>El archivo está en <code>04-habilidades/</code> (no solo en el chat).</li>
+        <li>Creaste 1 Habilidad propia y la <strong>probaste 2 veces</strong> (dos casos).</li>
+        <li>Podés repetir el flujo la semana que viene sin reabrir toda la guía.</li>
+      </ul>
+    </div>
+
+    <div class="card card-kit">
+      <h3>📦 Entregable · 04-habilidades</h3>
+      <p>En <code>Sistema IA/Grok-Intermedio/</code>:</p>
+      <ol>
+        <li>Archivo del papel (v final).</li>
+        <li>Nota: camino UI + nombre de la Habilidad + fecha de las 2 corridas.</li>
+        <li>(Opcional) captura del menú + o de la descarga.</li>
+      </ol>
+    </div>
+
+    <span class="entregable">📦 Entregable · 04-habilidades</span>
+
+    <label class="modcheck" data-mod="4">
+      <input type="checkbox" data-mod="4" aria-label="Completé el módulo 4">
+      <span>Completé el módulo 4 · Habilidades que entregan papeles</span>
+    </label>
+
+    <div class="card card-map" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat →</a></p>
+    </div>
+
+    <div class="next">
+      <div class="kicker">Siguiente módulo</div>
+      <h3>Módulo 5 · <span class="c">Conectado y en piloto</span></h3>
+      <p>Con papeles en serie, el módulo 5 enchufa <strong>datos en vivo</strong> (mail, drive) y una <strong>automatización</strong> para no depender solo de la voluntad.</p>
+      <label class="go" for="t-m5">Ir al módulo 5 →</label>
+    </div>
+  </section>
+  <section class="panel" id="p-m5">
+    <div class="sec-head"><span class="numchip">05</span><h2>Conectado y en piloto</h2></div>
+    <p class="sec-sub">Hasta acá el sistema se alimenta de lo que <strong>pegás</strong> en el chat. Ahora Grok puede <strong>leer herramientas tuyas</strong> (mail, drive, calendario…) y, con <strong>Automatizaciones</strong>, repetir tareas sin que estés encima cada vez. Este módulo es el <strong>piloto</strong>: datos + una automatización real (o el máximo no-técnico que tu cuenta permita).</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p><strong>+</strong> → <strong>Conectores</strong> (o Habilidades y Conectores) → conectá <strong>un</strong> servicio que ya uses (Gmail o Google Drive suelen ser el primer win). Hacé una pregunta: <em>“Resumí mis 5 mails no leídos más importantes de hoy”</em> o <em>“listá los últimos archivos de [carpeta]”</em>. Si responde con datos tuyos, el conector vive.</p></div></div>
+
+    <div class="card card-sol">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> Copiar-pegar eterno entre Gmail, Drive y el chat; nada corre sin vos.</p>
+      <p><strong>Te llevás:</strong> ≥1 conector útil + (ideal) 1 automatización + <code>05-conectado-piloto</code>.</p>
+      <p><strong>Lo usás cuando:</strong> Seguimiento de clientes, orden de archivos, rutinas semanales.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Dejar Grok <strong>enchufado</strong> a tu operación y <strong>una</strong> pieza en piloto (automatización o checklist de automatización si la UI no deja crear aún).</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Connectors son para todos los usuarios Grok (docs xAI): OAuth a Gmail/Calendar, Drive, Outlook, etc. Automatizaciones (menú en tu cuenta SuperGrok) son el puente “se repite solo” sin código. MCP custom / servidores propios → <strong>Grok Avanzado</strong>, no acá.</p></div></div>
+    </div>
+
+    <div class="tool-intro">
+      <h3>🔌 Conectores + Automatizaciones</h3>
+      <p>UI: <strong>Habilidades y Conectores</strong> · <strong>+</strong> → Conectores / Carpeta de trabajo · menú <strong>Automatizaciones</strong>. Asume el Project del módulo 3, <em>Tu base: Proyectos y memoria</em>. No es lo mismo que pegar un mail a mano: el conector lee con permiso OAuth.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 1 — Mapa de lo que ya usás</h3>
+      <p>Anotá en 1 minuto:</p>
+      <ul>
+        <li>¿Mail? Gmail / Outlook</li>
+        <li>¿Archivos? Drive / OneDrive</li>
+        <li>¿Agenda? Calendar</li>
+      </ul>
+      <p>Elegí <strong>dos</strong> como máximo para este módulo (mejor 1 bien que 5 a medias).</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 2 — Conectar</h3>
+      <ol>
+        <li><strong>Habilidades y Conectores</strong> o <strong>+</strong> → <strong>Conectores</strong>.</li>
+        <li><strong>Nuevo</strong> / servicio → flujo OAuth (iniciá sesión del proveedor).</li>
+        <li>Volvé a Grok y pedí algo que <strong>solo</strong> se responde con datos del conector.</li>
+      </ol>
+      <p>⚠️ No pegues contraseñas en el chat: el OAuth es el camino.</p>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">🔌 Conectores · New Connector (orientativo)</span>
+      <div class="uimock" role="img" aria-label="Lista o flujo New Connector">
+        <div class="bar">Habilidades y Conectores</div>
+        <div class="ubody">
+          <div class="sidebaritem on">Conectores</div>
+          <div class="sidebaritem">+ Nuevo conector</div>
+          <div class="fld" style="margin-top:10px"><label>Servicios</label><span class="box">Gmail · Google Drive · Calendar · Outlook…</span></div>
+          <div class="fld"><span class="box">OAuth → iniciá sesión del proveedor (nunca la clave en el chat)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 3 — Carpeta de trabajo</h3>
+      <p>En <strong>+</strong> → <strong>Carpeta de trabajo</strong> podés ver almacenamiento en la nube de Grok, Box, Google Drive, etc. Elegí dónde querés que “viva” el material de trabajo si la opción aparece. No es lo mismo que el Project, pero ayuda a no perder archivos.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 4 — Rutina en vivo (sin automatizar aún)</h3>
+      <p>Ejemplos:</p>
+      <ul>
+        <li>“¿Qué mails de esta semana parecen presupuestos abiertos?”</li>
+        <li>“De Drive, encontrá el archivo de precios y resumí cambios si los hay”</li>
+      </ul>
+      <p>Guardá 1 salida útil en la carpeta del sistema.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 5 — Automatizaciones</h3>
+      <ol>
+        <li>Menú avatar → <strong>Automatizaciones</strong> (o la entrada que veas).</li>
+        <li><strong>Nueva automatización</strong>.</li>
+        <li>Definí en lenguaje claro: <strong>qué</strong> · <strong>cuándo</strong> · <strong>con qué datos</strong> (Plantilla B).</li>
+      </ol>
+      <p><strong>Si no podés crear aún</strong> (beta, región, o la UI no cierra):</p>
+      <ul>
+        <li>Completá igual la Plantilla B en papel</li>
+        <li>Dejá el entregable como <strong>diseño de automatización</strong> + 1 corrida manual de la misma tarea</li>
+        <li>Marcá <code>⚠️ pendiente de activar en producto</code></li>
+      </ul>
+      <p><strong>Integración honesta:</strong> no digas que la automatización “usa sola” tu Habilidad del módulo 4, <em>Habilidades que entregan papeles</em>, o tu Project si no lo viste en la UI. Si hace falta contexto, la automatización debe llevar el texto de ancla pegado o un prompt completo.</p>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">⏱ Automatizaciones · Nueva (orientativo)</span>
+      <div class="uimock" role="img" aria-label="Pantalla Automatizaciones y Nueva automatización">
+        <div class="bar">Avatar → Automatizaciones</div>
+        <div class="ubody">
+          <div class="sidebaritem on">+ Nueva automatización</div>
+          <div class="fld" style="margin-top:10px"><label>Qué · cuándo · con qué datos</label><span class="box">Resumen semanal de mails de un remitente…</span></div>
+          <div class="fld"><span class="box">Guardar · primera corrida (prueba de humo)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 6 — Prueba de humo (primera corrida)</h3>
+      <ol>
+        <li>Dispará o esperá una corrida de la automatización (o la corrida manual equivalente).</li>
+        <li>¿El resultado es usable para tu negocio <strong>hoy</strong>?</li>
+        <li>Anotá frecuencia y “quién revisa” (siempre un humano al principio).</li>
+      </ol>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 7 — Iterar el piloto (obligatorio)</h3>
+      <p>La primera corrida casi nunca queda perfecta. Mejorá <strong>una</strong> cosa:</p>
+      <div class="prompt">
+        <div class="top"><span>prompt · iterar piloto</span><button class="copy" type="button">Copiar</button></div>
+<pre>Misma automatización / misma tarea manual.
+Cambio: <strong class="field">[más corta / solo mails de X / tabla en vez de párrafo / incluir próximo paso]</strong>.
+No inventes mails ni archivos que no existan.</pre>
+      </div>
+      <ul>
+        <li>Si es automatización: editá el prompt o la frecuencia en la UI (preferí <strong>web</strong>) y corré de nuevo.</li>
+        <li>Si es manual: repetí la pregunta con el conector con el ajuste.</li>
+      </ul>
+      <p>Guardá en el entregable: <em>v1 → qué falló → v2</em>.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><b>📱 Móvil — app iOS/Android</b></div>
+        <p><strong>OAuth Gmail/Drive:</strong> puede abrir el navegador del sistema y volver mal al app. <strong>Probar conector</strong> (“resumí mis mails…”): bien para una pregunta corta. <strong>Automatizaciones / Nueva:</strong> el menú puede estar solo en avatar → Automatizaciones; a veces incompleto. <strong>Revisar una corrida:</strong> notificación / abrir app. <strong>Carpeta de trabajo:</strong> menú + puede mostrar menos opciones.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><b>💻 Desktop — grok.com o PWA</b></div>
+        <p><strong>Preferí web</strong> para OAuth completo y confirmación a la vista. Listados largos del conector se leen mejor. <strong>Creá y editá la automatización en web</strong>. Historial y texto largo de corridas más cómodos. Más opciones de Drive/Box visibles en Carpeta de trabajo.</p>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✅ Conviene en esta tarea</h3>
+      <p><strong>Conectar y crear la automatización en desktop/web</strong>; en móvil solo <strong>consultá</strong> resultados o dispará una pregunta con el conector ya vivo. Si OAuth falla en el celu, no insistas: repetí en web con la misma cuenta.</p>
+    </div>
+
+    <div class="card card-warn">
+      <h3>⚠️ Error común</h3>
+      <p><strong>Conectar todo el Google y pedirle “hacé mi empresa”.</strong> Sale ruido y miedo a permisos. Arreglo: 1 conector + 1 pregunta concreta + 1 automatización chica (ej. resumen semanal de mails de un remitente).</p>
+    </div>
+
+    <div class="card card-example">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Negocio:</strong> inmobiliaria chica.</p>
+      <p>Conector: Gmail. Automatización: lunes 9:00 — “listá consultas de la semana que no respondí, en tabla: nombre, barrio, estado”. La dueña revisa 10 minutos y reenvía. Drive queda para fichas; no hace falta Salesforce.</p>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla A — Primera pregunta con conector</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · conector</span><button class="copy" type="button">Copiar</button></div>
+<pre>Usá mi conector de <strong class="field">[Gmail/Drive/…]</strong>.
+<strong class="field">[Pregunta concreta con fecha o filtro]</strong>.
+Si no tenés acceso, decilo — no inventes mails ni archivos.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla B — Diseño de automatización</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · diseño automatización</span><button class="copy" type="button">Copiar</button></div>
+<pre>Nombre: <strong class="field">[…]</strong>
+Frecuencia: <strong class="field">[…]</strong>
+Trigger: <strong class="field">[…]</strong>
+Acción: Grok debe…
+Formato de salida: <strong class="field">[…]</strong>
+Contexto fijo de mi negocio: <strong class="field">[ancla corta]</strong>
+Reviso yo: sí / cada vez</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla C — Resumen operativo</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · resumen operativo</span><button class="copy" type="button">Copiar</button></div>
+<pre>Con mis mails/archivos de <strong class="field">[período]</strong>, armá:
+1) urgentes 2) esperan respuesta 3) puedo ignorar.
+Máximo 12 viñetas.</pre>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>≥1 conector conectado y probado con pregunta <strong>real</strong> (datos tuyos).</li>
+        <li>1 automatización creada <strong>o</strong> diseñada + corrida manual.</li>
+        <li><strong>Iteraste</strong> el piloto al menos una vez (v1 → ajuste → v2).</li>
+        <li>Sabés qué permisos diste (mail/drive/etc.).</li>
+        <li>Probaste el conector en el dispositivo que vas a usar de verdad (y OAuth en web si hizo falta).</li>
+        <li><code>05-conectado-piloto</code> guardado.</li>
+        <li>Podés explicar la rutina en 30 segundos sin la guía.</li>
+      </ul>
+    </div>
+
+    <div class="card card-kit">
+      <h3>📦 Qué guardar · 05-conectado-piloto</h3>
+      <p>En <code>Sistema IA/Grok-Intermedio/05-conectado-piloto/</code>:</p>
+      <ol>
+        <li>Servicio conectado + captura o nota de la pregunta real que respondió con datos tuyos.</li>
+        <li>Diseño de automatización (Plantilla B) o captura de la automatización creada.</li>
+        <li>Registro del piloto: <em>v1 → qué falló → v2</em> (automatización o corrida manual).</li>
+        <li>Permisos que diste + frecuencia + quién revisa.</li>
+        <li>Si no se activó en producto: marcá <code>⚠️ pendiente de activar en producto</code> + la corrida manual equivalente.</li>
+      </ol>
+    </div>
+
+    <span class="entregable">📦 Entregable · 05-conectado-piloto</span>
+
+    <label class="modcheck" data-mod="5">
+      <input type="checkbox" data-mod="5" aria-label="Completé el módulo 5">
+      <span>Completé el módulo 5 · Conectado y en piloto</span>
+    </label>
+
+    <div class="card card-map" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat →</a></p>
+    </div>
+
+    <div class="next">
+      <div class="kicker">Siguiente módulo</div>
+      <h3>Módulo 6 · <span class="c">Imágenes que venden (y se corrigen)</span></h3>
+      <p>Con datos y piloto, llega el clímax visual: ya no “una imagen linda”, sino <strong>generar y corregir</strong> con criterio de negocio.</p>
+      <label class="go" for="t-m6">Ir al módulo 6 →</label>
+    </div>
+  </section>
+
+  <section class="panel" id="p-m6">
+    <div class="sec-head"><span class="numchip">06</span><h2>Imágenes que venden (y se corrigen)</h2></div>
+    <p class="sec-sub">El básico te hizo sacar piezas. El intermedio te deja un <strong>mini estudio</strong>: app <strong>Imagine</strong>, grilla de variantes, corrección por follow-up y panel <strong>Editar</strong> (referencias, recorte, regenerar). Al final tenés imágenes de <strong>tu</strong> negocio listas para usar — no un jarrón genérico por dejar el placeholder en el prompt.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p><strong>Imagine</strong> → chip <strong>Imagen</strong> → prompt con <strong>nombre real de producto/local</strong> (sin corchetes) → elegí 1 de la grilla → follow-up: <em>“misma imagen, fondo más limpio, sin texto inventado”</em>. Descargá las dos versiones. Micro-win de corrección.</p></div></div>
+
+    <div class="card card-sol">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> Fotos caras, o IA genérica que no parece tu marca.</p>
+      <p><strong>Te llevás:</strong> Set de imágenes + 1 corrección documentada + <code>06-imagenes-pro</code>.</p>
+      <p><strong>Lo usás cuando:</strong> Catálogo, IG, portada de propuesta, anuncio.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Dominar el flujo <strong>Imagine → Imagen → grilla → corrección → descarga</strong>, con datos reales y criterio de “¿la publicaría hoy?”.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Capturas reales: grilla multi-resultado, ratio (ej. 2:3), Calidad/Velocidad/Automático, follow-up que reescribe el prompt, detalle con <strong>Editar</strong>, <strong>@</strong> para referenciar, <strong>Recortar</strong>, <strong>Animar</strong>, <strong>Regenerar</strong>. Marca de agua <strong>grok</strong>: no se quita (oficial). Uso comercial de outputs: permitido con reglas de marca xAI; igual verificá derechos de <strong>tus</strong> fotos de referencia. El chip <strong>Agente</strong> no se enseña acá → CTA del módulo 8, <em>Tu sistema Grok intermedio</em> / Grok Avanzado.</p></div></div>
+    </div>
+
+    <div class="tool-intro">
+      <h3>🎨 Imagine · chip Imagen</h3>
+      <p>UI: sidebar <strong>Imagine</strong> · chip <strong>Imagen</strong>. No es el tour del básico: acá el núcleo es <strong>generar + corregir</strong> hasta publicable. Asume contexto de los módulos 3, <em>Tu base: Proyectos y memoria</em>, y 4, <em>Habilidades que entregan papeles</em> (marca, tono, productos reales).</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 1 — Entrar bien</h3>
+      <ol>
+        <li>Sidebar <strong>Imagine</strong> (no solo el chat).</li>
+        <li>Chip <strong>Imagen</strong> activo.</li>
+        <li>Project de Imagine si aparece (podés usar “Untitled” o uno de marca).</li>
+        <li>Ratio: para IG feed vertical suele ir <strong>2:3</strong> u otro que uses; elegí a propósito.</li>
+      </ol>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">🖼 Imagine · chip Imagen + grilla (orientativo)</span>
+      <div class="uimock" role="img" aria-label="Home Imagine con chip Imagen y grilla de variantes">
+        <div class="bar">Imagine · Imagen · 2:3</div>
+        <div class="ubody">
+          <div class="sidebaritem on">Chip Imagen</div>
+          <div class="sidebaritem">Calidad / Velocidad / Automático</div>
+          <div class="fld" style="margin-top:10px"><label>Prompt</label><span class="box">Foto de producto… nombre real, sin corchetes</span></div>
+          <div class="fld"><label>Grilla</label><span class="box">[ toma 1 ] [ toma 2 ] [ toma 3 ] [ toma 4 ]</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 2 — Brief de marca (antes del prompt)</h3>
+      <p>En 4 líneas (del Project del módulo 3, <em>Proyectos y memoria</em>):</p>
+      <ul>
+        <li>producto o local</li>
+        <li>colores / estilo</li>
+        <li>qué <strong>no</strong> querés (texto inventado, logos falsos, stock “de stock”)</li>
+        <li>para qué canal (IG, web, WhatsApp)</li>
+      </ul>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 3 — Generar (grilla)</h3>
+      <p>Plantilla A con datos reales. Mandá generar. Vas a ver <strong>varias</strong> tomas: elegí 1–2 finalistas (corazón / criterio tuyo).</p>
+      <div class="prompt">
+        <div class="top"><span>prompt · generar imagen</span><button class="copy" type="button">Copiar</button></div>
+<pre>Foto de producto profesional de <strong class="field">[nombre exacto del producto]</strong>,
+<strong class="field">[material/color]</strong>, en <strong class="field">[contexto real: mostrador / mano / mesa]</strong>,
+luz natural, estilo catálogo Instagram, sin texto en la imagen.
+Marca: <strong class="field">[nombre]</strong>. Estilo: <strong class="field">[3 adjetivos]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 4 — Corregir (follow-up)</h3>
+      <p>En el mismo hilo, no empieces de cero:</p>
+      <div class="prompt">
+        <div class="top"><span>prompt · corregir imagen</span><button class="copy" type="button">Copiar</button></div>
+<pre>Misma imagen base.
+Cambios: <strong class="field">[fondo / luz / quitar objeto / más profesional]</strong>.
+No agregues texto ni logos que no pedí.</pre>
+      </div>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">✏️ Follow-up + grilla nueva (orientativo)</span>
+      <div class="uimock" role="img" aria-label="Dos prompts apilados y grilla nueva de corrección">
+        <div class="bar">Imagine · mismo hilo</div>
+        <div class="ubody">
+          <div class="fld"><label>v1</label><span class="box">Foto de producto profesional de…</span></div>
+          <div class="fld"><label>Corrección</label><span class="box">Misma imagen base. Cambios: fondo más limpio…</span></div>
+          <div class="fld"><label>Grilla v2</label><span class="box">[ finalista ] [ alt ] · Editar · Descargar</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 5 — Detalle y herramientas</h3>
+      <p>Tocá una imagen finalista:</p>
+      <ul>
+        <li><strong>Editar</strong> / “Describe tu edición”</li>
+        <li><strong>@</strong> o miniatura para <strong>referenciar</strong> otra imagen</li>
+        <li><strong>Recortar</strong> / <strong>Relación de aspecto</strong></li>
+        <li><strong>Regenerar</strong> si salió mal</li>
+        <li><strong>Descargar</strong></li>
+      </ul>
+      <p>Opcional: subir <strong>foto real</strong> del producto y pedir variante (Plantilla C).</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 6 — Criterio de publicación</h3>
+      <p>Antes de guardar, check:</p>
+      <ul>
+        <li>¿Se entiende el producto en 1 segundo?</li>
+        <li>¿Hay texto basura o manos raras?</li>
+        <li>¿La publicaría en mi red <strong>hoy</strong>?</li>
+      </ul>
+      <p>Si no → otra corrección, no “ya fue”.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 7 — Guardar</h3>
+      <p><code>Sistema IA/Grok-Intermedio/06-imagenes-pro/</code>:</p>
+      <ul>
+        <li>originales</li>
+        <li>corregidas</li>
+        <li>nota: prompt final + canal de uso</li>
+      </ul>
+      <p><strong>Pool de uso:</strong> Imagine gasta del pool semanal (módulo 1, <em>El salto a SuperGrok</em>). Si vas a hacer muchas, mirá <strong>Uso</strong>.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><b>📱 Móvil — app iOS/Android</b></div>
+        <p><strong>Imagine · chip Imagen:</strong> sidebar / tab Imagine. <strong>Grilla</strong> de variantes: 1–2 a la vez; hay que scrollear. Follow-up de corrección: cómodo (texto corto). Panel <strong>Editar</strong>, recorte, @ referencia: controles chicos; fácil tocar mal. Descargar: se van a la galería del celu (renombrá después). <strong>Publicar / ver en IG:</strong> mirá el resultado en el celular (ahí se publica).</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><b>💻 Desktop — grok.com o PWA</b></div>
+        <p>Grilla más grande: <strong>mejor</strong> para comparar 4 tomas juntas. Follow-up igual. <strong>Mejor</strong> para editar fino, recorte y referenciar. Guardá directo en <code>06-imagenes-pro/</code>. Generaste en desktop, <strong>validá en móvil</strong> cómo se ve al publicar.</p>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✅ Conviene en esta tarea</h3>
+      <p><strong>Generar y corregir en desktop</strong> si podés; <strong>validar “¿lo subiría?” en el celular</strong> (brillo, recorte, legibilidad). Si solo tenés móvil: generá menos variantes y sé estricto con el check de publicación.</p>
+    </div>
+
+    <div class="card card-warn">
+      <h3>⚠️ Error común</h3>
+      <p><strong>Prompt con <code>[producto/local]</code> literal</strong> → cerámica genérica (pasó en pruebas reales). Siempre: nombre, material, color, contexto real.</p>
+    </div>
+
+    <div class="card card-example">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Negocio:</strong> cafetería.</p>
+      <p>Gen: vaso de latte con logo real descrito (sin inventar tipografía rara). Corrección: “fondo de barra realista, menos saturado, sin texto”. Tres variantes para menú del finde. Watermark aceptada en stories; para print evalúan foto real.</p>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla A — Generar</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · generar</span><button class="copy" type="button">Copiar</button></div>
+<pre>Foto de producto profesional de <strong class="field">[nombre exacto del producto]</strong>,
+<strong class="field">[material/color]</strong>, en <strong class="field">[contexto real: mostrador / mano / mesa]</strong>,
+luz natural, estilo catálogo Instagram, sin texto en la imagen.
+Marca: <strong class="field">[nombre]</strong>. Estilo: <strong class="field">[3 adjetivos]</strong>.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla B — Corregir</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · corregir</span><button class="copy" type="button">Copiar</button></div>
+<pre>Misma imagen. <strong class="field">[cambios concretos]</strong>.
+Mantené el producto idéntico. Sin texto ni logo inventado.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla C — Desde foto real</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · foto real</span><button class="copy" type="button">Copiar</button></div>
+<pre>Usá la imagen adjunta como referencia del producto real.
+Generá variante: <strong class="field">[fondo neutro / lifestyle / empaque]</strong>.
+No cambies el diseño del producto.</pre>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>≥1 grilla con producto <strong>real</strong>.</li>
+        <li>≥1 corrección documentada (antes/después).</li>
+        <li>1–3 archivos descargados en la carpeta.</li>
+        <li>Criterio “¿la publicaría?” pasado.</li>
+        <li><strong>En operación:</strong> la subí/envié, <strong>o</strong> anoté por escrito por qué no hoy (y cuándo sí).</li>
+        <li>Podés repetir el flujo sin la guía.</li>
+      </ul>
+    </div>
+
+    <div class="card card-kit">
+      <h3>📦 Qué guardar · 06-imagenes-pro</h3>
+      <p>En <code>Sistema IA/Grok-Intermedio/06-imagenes-pro/</code>:</p>
+      <ol>
+        <li>Originales de la grilla (producto real, no placeholder).</li>
+        <li>Versiones corregidas (antes/después documentado).</li>
+        <li>Nota: prompt final + canal de uso (IG, web, WhatsApp…).</li>
+        <li>Checklist de publicación: ¿se entiende en 1s? ¿texto basura? ¿la publicaría hoy?</li>
+        <li>Estado de operación: subida/enviada, o por qué no hoy y cuándo sí.</li>
+      </ol>
+    </div>
+
+    <span class="entregable">📦 Entregable · 06-imagenes-pro</span>
+
+    <label class="modcheck" data-mod="6">
+      <input type="checkbox" data-mod="6" aria-label="Completé el módulo 6">
+      <span>Completé el módulo 6 · Imágenes que venden (y se corrigen)</span>
+    </label>
+
+    <div class="card card-map" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat →</a></p>
+    </div>
+
+    <div class="next">
+      <div class="kicker">Siguiente módulo</div>
+      <h3>Módulo 7 · <span class="c">Video corto que se corrige</span></h3>
+      <p>Con la imagen ganadora, el módulo 7 la pone en movimiento (o arranca video desde cero) con el mismo rigor de corrección.</p>
+      <label class="go" for="t-m7">Ir al módulo 7 →</label>
+    </div>
+  </section>
+
+  <section class="panel" id="p-m7">
+    <div class="sec-head"><span class="numchip">07</span><h2>Video corto que se corrige</h2></div>
+    <p class="sec-sub">Una imagen quieta no alcanza para reels y stories. Acá trabajás <strong>video corto</strong> en Imagine: duración real de producto (en capturas, clips de <strong>unos 6 segundos</strong>), varias tomas, corrección por prompt y botones de <strong>Extender</strong> / <strong>Aumentar resolución</strong> cuando existan. Mismo estándar que el módulo 6, <em>Imágenes que venden (y se corrigen)</em>: si no lo publicarías, se corrige.</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p><strong>Imagine</strong> → <strong>Video</strong> → prompt de 6 s con tu producto real <strong>o</strong> abrí una imagen del módulo 6, <em>Imágenes que venden</em> → <strong>Animar</strong> / <strong>Crear video</strong>. Cuando salga el clip, follow-up: <em>“mismo video, más lento, sin texto”</em>. Descargá. Micro-win.</p></div></div>
+
+    <div class="card card-sol">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> No hay video, o hay uno genérico que no muestra el producto.</p>
+      <p><strong>Te llevás:</strong> 1–2 clips corregidos + <code>07-video-pro</code>.</p>
+      <p><strong>Lo usás cuando:</strong> Reels, stories, WhatsApp status, portada animada.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Completar el flujo <strong>video de negocio → corrección → descarga</strong>, y saber cuándo partir de <strong>imagen</strong> vs de <strong>prompt puro</strong>.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Capturas: reproductor <code>0:00 / 0:06</code>, filmstrip de variantes (frente, zoom, espalda), menú <strong>Crear video</strong>, <strong>Extender</strong>, <strong>Aumentar resolución</strong>, <strong>Regenerar</strong>, prompt de corrección en el input. Video también gasta <strong>pool</strong> de uso: no hagas 40 pruebas el mismo día sin mirar Uso. <strong>Agente:</strong> no se enseña el flujo completo → módulo 8, <em>Tu sistema Grok intermedio</em> / Avanzado.</p></div></div>
+    </div>
+
+    <div class="tool-intro">
+      <h3>🎬 Imagine · chip Video</h3>
+      <p>UI: sidebar <strong>Imagine</strong> · chip <strong>Video</strong> · acciones <strong>Animar / Crear video / Extender</strong>. Clímax 2 del curso: <strong>generar + corregir</strong> video de negocio (~6 s en capturas). Ideal: imagen del módulo 6, <em>Imágenes que venden (y se corrigen)</em>; si no, datos de marca de los módulos 3, <em>Tu base: Proyectos y memoria</em>, y 4, <em>Habilidades que entregan papeles</em>.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 1 — Elegir camino</h3>
+      <div class="tablewrap">
+        <table class="routinetable">
+          <thead>
+            <tr><th>Camino</th><th>Cuándo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>A. Imagen → video</strong></td><td>Ya tenés foto buena del módulo 6, <em>Imágenes que venden (y se corrigen)</em></td></tr>
+            <tr><td><strong>B. Prompt → video</strong></td><td>Querés movimiento desde cero</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 2 — Chip Video</h3>
+      <p>Imagine → <strong>Video</strong>. Ajustá calidad/velocidad si la barra lo muestra (Automático está bien al inicio).</p>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">🎬 Imagine · chip Video + input (orientativo)</span>
+      <div class="uimock" role="img" aria-label="Home Imagine con chip Video e input para imaginar">
+        <div class="bar">Imagine · Video · ~6 s</div>
+        <div class="ubody">
+          <div class="sidebaritem on">Chip Video</div>
+          <div class="sidebaritem">Calidad / Velocidad / Automático</div>
+          <div class="fld" style="margin-top:10px"><label>Escribe para imaginar</label><span class="box">Clip 6 s · producto real · sin texto en pantalla</span></div>
+          <div class="fld"><label>Filmstrip</label><span class="box">[ frente ] [ zoom ] [ espalda ] · 0:00 / 0:06</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 3 — Generar</h3>
+      <ul>
+        <li><strong>Camino A:</strong> en el detalle de la imagen → <strong>Animar</strong> o <strong>Crear video</strong>.</li>
+        <li><strong>Camino B:</strong> Plantilla A con producto real.</li>
+      </ul>
+      <p>Esperá la grilla/filmstrip. Reproducí <strong>todas</strong> las tomas cortas antes de elegir.</p>
+      <div class="prompt">
+        <div class="top"><span>prompt · video desde cero</span><button class="copy" type="button">Copiar</button></div>
+<pre>Clip corto de unos 6 segundos: <strong class="field">[producto/local real]</strong>,
+cámara suave, buena luz, estilo reel comercial, sin texto en pantalla.</pre>
+      </div>
+      <div class="prompt" style="margin-top:12px">
+        <div class="top"><span>prompt · imagen a video</span><button class="copy" type="button">Copiar</button></div>
+<pre>Animá esta imagen: movimiento suave de cámara, 6 segundos,
+mismo producto, sin deformar caras ni logos.</pre>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 4 — Corregir</h3>
+      <p>Mismo hilo / mismo detalle:</p>
+      <div class="prompt">
+        <div class="top"><span>prompt · corregir video</span><button class="copy" type="button">Copiar</button></div>
+<pre>Mismo video, <strong class="field">[más lento / más zoom al producto / sin texto / cámara más estable]</strong>.
+No cambies el producto.</pre>
+      </div>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">▶️ Corrección bajo el player 0:06 (orientativo)</span>
+      <div class="uimock" role="img" aria-label="Player de video 6 segundos con prompt de corrección">
+        <div class="bar">Imagine · Video · player</div>
+        <div class="ubody">
+          <div class="fld"><label>Player</label><span class="box">▶ 0:00 / 0:06 · filmstrip de tomas</span></div>
+          <div class="fld"><label>Corrección</label><span class="box">Mismo video, más lento, zoom al producto. Sin texto.</span></div>
+          <div class="fld"><label>Menú</label><span class="box">Extender · Aumentar resolución · Regenerar · Descargar</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 5 — Extender / resolución (si aparece)</h3>
+      <ul>
+        <li><strong>Extender</strong> — si necesitás un poco más de tiempo (sin inventar el límite exacto: mirá qué te deja la UI).</li>
+        <li><strong>Aumentar resolución</strong> — si vas a pantalla grande.</li>
+      </ul>
+      <p>No spamees: cada acción puede costar uso.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 6 — Publicable</h3>
+      <p>Check antes de guardar:</p>
+      <ul>
+        <li>Se entiende el producto en 2 segundos</li>
+        <li>No hay texto fantasma</li>
+        <li>Movimiento no marea</li>
+        <li>¿Lo subiría hoy a stories/reels?</li>
+      </ul>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 7 — Guardar</h3>
+      <p><code>Sistema IA/Grok-Intermedio/07-video-pro/</code>:</p>
+      <ul>
+        <li>clip(s)</li>
+        <li>nota: camino A/B, prompt final, destino (IG/WhatsApp)</li>
+      </ul>
+      <p><strong>Pool de uso:</strong> video gasta del pool semanal (módulo 1, <em>El salto a SuperGrok</em>). Si vas a hacer muchas tomas, mirá <strong>Uso</strong>.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><b>📱 Móvil — app iOS/Android</b></div>
+        <p><strong>Chip Video / Animar / Crear video:</strong> disponible; controles de Extender pueden ser más difíciles. <strong>Reproducir el clip 6 s:</strong> <strong>mejor acá</strong> — es como lo ve el cliente en stories/reels. Corregir con prompt: bien. Descargar: Galería / Archivos del celu. Imagen → video: abrí la imagen del módulo 6, <em>Imágenes que venden (y se corrigen)</em>, en Imagine.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><b>💻 Desktop — grok.com o PWA</b></div>
+        <p><strong>Mejor</strong> para filmstrip, Extender, Aumentar resolución. Reproducir: vista previa útil pero no es el tamaño real de bolsillo. Corregir con prompt: bien. Descargá a carpeta <code>07-video-pro/</code> ordenada. Imagen → video: más fácil arrastrar/elegir del historial.</p>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✅ Conviene en esta tarea</h3>
+      <p><strong>Armá y corregí el clip en desktop/web</strong>; <strong>aprobá o rechazá mirándolo en el celular a pantalla completa</strong>. Si en móvil no ves Extender/Aumentar resolución, no inventes el botón: usá web o dejá el clip en 6 s bien corregido.</p>
+    </div>
+
+    <div class="card card-warn">
+      <h3>⚠️ Error común</h3>
+      <p><strong>Pedir un “video publicitario de 1 minuto”.</strong> El producto actual en capturas rinde en <strong>clips cortos</strong>. Arreglo: 6 s bien hechos + segundo clip si hace falta, no un largometraje.</p>
+    </div>
+
+    <div class="card card-example">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Negocio:</strong> indumentaria.</p>
+      <p>Desde foto de look del módulo 6, <em>Imágenes que venden (y se corrigen)</em> → Crear video 6 s (giro suave). Corrección: “más lento, zoom a la textura del jean”. Subido como story; segundo clip para feed con otro ángulo del filmstrip.</p>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla A — Video desde cero</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · video desde cero</span><button class="copy" type="button">Copiar</button></div>
+<pre>Clip corto de unos 6 segundos: <strong class="field">[producto/local real]</strong>,
+cámara suave, buena luz, estilo reel comercial, sin texto en pantalla.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla B — Imagen a video</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · imagen a video</span><button class="copy" type="button">Copiar</button></div>
+<pre>Animá esta imagen: movimiento suave de cámara, 6 segundos,
+mismo producto, sin deformar caras ni logos.</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla C — Corregir</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · corregir</span><button class="copy" type="button">Copiar</button></div>
+<pre>Mismo video: <strong class="field">[más lento / más zoom al producto / sin texto / cámara más estable]</strong>.
+Mantené identidad del producto. Sin texto.</pre>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>≥1 clip de <strong>tu</strong> negocio (datos reales en el prompt o desde imagen tuya).</li>
+        <li><strong>Iteraste el clip al menos una vez</strong> (follow-up de corrección o segunda toma).</li>
+        <li>Lo miraste a pantalla completa en <strong>móvil</strong> (como stories/reels) antes de aprobar.</li>
+        <li>Descargado en <code>07-video-pro/</code>.</li>
+        <li>Criterio “¿lo subiría hoy?” pasado.</li>
+        <li>Sabés repetir imagen→video o prompt→video sin reabrir toda la guía.</li>
+      </ul>
+    </div>
+
+    <div class="card card-kit">
+      <h3>📦 Qué guardar · 07-video-pro</h3>
+      <p>En <code>Sistema IA/Grok-Intermedio/07-video-pro/</code>:</p>
+      <ol>
+        <li>Clip(s) finales (producto real, no genérico).</li>
+        <li>Nota: camino A (imagen→video) o B (prompt→video).</li>
+        <li>Prompt final de generación + prompt de corrección usado.</li>
+        <li>Destino de uso (IG story/reel, WhatsApp status, portada…).</li>
+        <li>Check publicable: producto en 2 s · sin texto fantasma · no marea · ¿lo subiría hoy?</li>
+      </ol>
+    </div>
+
+    <span class="entregable">📦 Entregable · 07-video-pro</span>
+
+    <label class="modcheck" data-mod="7">
+      <input type="checkbox" data-mod="7" aria-label="Completé el módulo 7">
+      <span>Completé el módulo 7 · Video corto que se corrige</span>
+    </label>
+
+    <div class="card card-map" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat →</a></p>
+    </div>
+
+    <div class="next">
+      <div class="kicker">Siguiente módulo</div>
+      <h3>Módulo 8 · <span class="c">Tu sistema Grok intermedio</span></h3>
+      <p>Con radar, base, papeles, piloto e Imagine (foto + video), el módulo 8 lo cierra en una <strong>rutina semanal</strong> y te muestra la puerta al <strong>Grok Avanzado</strong> (sin meterte a codear).</p>
+      <label class="go" for="t-m8">Ir al módulo 8 →</label>
+    </div>
+  </section>
+
+  <section class="panel" id="p-m8">
+    <div class="sec-head"><span class="numchip">08</span><h2>Tu sistema Grok intermedio</h2></div>
+    <p class="sec-sub">Ya no son features sueltas: tenés <strong>radar</strong>, <strong>base</strong>, <strong>papeles</strong>, <strong>piloto</strong>, <strong>imagen</strong> y <strong>video</strong>. Este módulo los <strong>ata</strong> en una rutina que podés repetir sin reabrir los ocho módulos, y marca con honestidad el techo del intermedio (y la puerta al avanzado).</p>
+
+    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Abrí <code>Sistema IA/Grok-Intermedio/</code> y listá en una nota qué archivos <strong>01–07</strong> existen de verdad. Los que falten: o los completás en 15 min o los marcás “pendiente semana 1”. Eso es el mapa crudo del sistema.</p></div></div>
+
+    <div class="card card-sol">
+      <h3>✅ Tu solución al terminar</h3>
+      <p><strong>Problema:</strong> Hiciste piezas potentes pero la semana que viene no sabés por dónde empezar.</p>
+      <p><strong>Te llevás:</strong> Rutina semanal escrita + mapa 02–07 + <code>08-sistema-intermedio</code> + claridad de siguiente nivel.</p>
+      <p><strong>Lo usás cuando:</strong> Cada semana de operación del negocio.</p>
+    </div>
+
+    <div class="modintro">
+      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Un <strong>sistema repetible</strong> que nombra explícitamente los entregables anteriores, con tiempos y dueño (vos), más un CTA consciente al avanzado.</p></div></div>
+      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Sin este cierre el curso es un buffet. Con el módulo 8 es un <strong>menú semanal</strong>. Eso es lo que el mercado de “cursos Grok” no suele entregar: cadena, no tips.</p></div></div>
+    </div>
+
+    <div class="tool-intro">
+      <h3>🗺️ Cierre del concatenado</h3>
+      <p>Asume módulos 2 a 7 (<em>Radar Expert</em> … <em>Video corto…</em>), aunque sea en versión mínima. CTA: <strong>Grok Avanzado</strong> (Construir, Agente, Build) — sin tutorial. No se codea acá.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 1 — Inventario honesto</h3>
+      <p>Tabla en <code>08-sistema-intermedio</code>:</p>
+      <div class="tablewrap">
+        <table class="routinetable">
+          <thead>
+            <tr><th>Entregable</th><th>¿Existe?</th><th>Última fecha</th><th>Próxima acción</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>02-radar-expert</code></td><td></td><td></td><td></td></tr>
+            <tr><td><code>03-base-proyecto</code></td><td></td><td></td><td></td></tr>
+            <tr><td><code>04-habilidades</code></td><td></td><td></td><td></td></tr>
+            <tr><td><code>05-conectado-piloto</code></td><td></td><td></td><td></td></tr>
+            <tr><td><code>06-imagenes-pro</code></td><td></td><td></td><td></td></tr>
+            <tr><td><code>07-video-pro</code></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 2 — Rutina semanal (plantilla A)</h3>
+      <p>Armá bloques <strong>cortos</strong> (ejemplo; ajustá):</p>
+      <div class="tablewrap">
+        <table class="routinetable">
+          <thead>
+            <tr><th>Día</th><th>Bloque</th><th>Módulo de origen</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Lun 20 min</td><td>Radar Expert (1 pregunta)</td><td>módulo 2, <em>Radar Expert</em></td></tr>
+            <tr><td>Mar 15 min</td><td>Mails/Drive con conector</td><td>módulo 5, <em>Conectado y en piloto</em></td></tr>
+            <tr><td>Mié 20 min</td><td>Un papel (presupuesto/propuesta)</td><td>módulo 4, <em>Habilidades que entregan papeles</em></td></tr>
+            <tr><td>Jue 25 min</td><td>1 set imagen o 1 clip</td><td>módulos 6–7 (<em>Imágenes…</em> / <em>Video…</em>)</td></tr>
+            <tr><td>Vie 10 min</td><td>Uso + memoria + qué se publica</td><td>módulos 1 y 3 (<em>Salto SuperGrok</em> / <em>Proyectos y memoria</em>)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>La automatización del módulo 5, <em>Conectado y en piloto</em>, si está viva, <strong>resta</strong> minutos del mar/jue — anotalo.</p>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 3 — Contrato de calidad</h3>
+      <p>Escribí 5 reglas tuyas, por ejemplo:</p>
+      <ol>
+        <li>Nada se publica sin check de imagen/video (módulo 6, <em>Imágenes que venden (y se corrigen)</em> y módulo 7, <em>Video corto que se corrige</em>).</li>
+        <li>Todo precio sale de mi lista, no de Grok.</li>
+        <li>Expert solo con pregunta de la semana.</li>
+        <li>Pool: si Uso &gt; X sensación, freno Imagine.</li>
+        <li>Un humano revisa la automatización.</li>
+      </ol>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 4 — Mapa visual del sistema</h3>
+      <p>Cadena que volvés a recorrer cada semana:</p>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">🗺️ Mapa del sistema intermedio (orientativo)</span>
+      <div class="uimock" role="img" aria-label="Diagrama del sistema Grok intermedio en cadena semanal">
+        <div class="bar">Sistema IA · Grok-Intermedio</div>
+        <div class="ubody">
+          <div class="sidebaritem on">1 · Salto SuperGrok</div>
+          <div class="sidebaritem">2 · Radar Expert</div>
+          <div class="sidebaritem">3 · Proyectos / memoria</div>
+          <div class="sidebaritem">4 · Habilidades</div>
+          <div class="sidebaritem">5 · Conectado / piloto</div>
+          <div class="sidebaritem">6 · Imágenes</div>
+          <div class="sidebaritem">7 · Video</div>
+          <div class="fld" style="margin-top:10px"><label>Vuelta semanal</label><span class="box">→ inventario + Uso + 1 pieza publicable</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 5 — Techos y dinero</h3>
+      <ul>
+        <li><strong>SuperGrok:</strong> Facturación (lo que pagás de verdad).</li>
+        <li><strong>Uso:</strong> pool semanal.</li>
+        <li><strong>Créditos extra:</strong> solo si te pasa el techo a menudo; si es siempre, el hábito de uso está mal calibrado.</li>
+      </ul>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 6 — CTA Grok Avanzado (solo asomate)</h3>
+      <p>En tu UI pueden aparecer:</p>
+      <ul>
+        <li><strong>Construir</strong> (sidebar, badge Nuevo)</li>
+        <li>Banner <strong>Grok Build</strong> / Grok 4.5 + comando <code>curl</code></li>
+        <li>Chip <strong>Agente</strong> en Imagine</li>
+      </ul>
+      <p><strong>Qué significa para este curso:</strong> ahí empieza el mundo de <strong>código, agentes y automatización técnica</strong>.</p>
+      <p><strong>Qué no hagas ahora:</strong> instalar CLI “porque sí”, seguir un tutorial de terminal, montar MCP.</p>
+      <p><em>Si más adelante querés que Grok programe y orqueste en serio, eso es el <strong>Grok Avanzado</strong> (COCO GO, próximamente) — Construir, Agente y Build. Este intermedio ya te deja el sistema de negocio sin código.</em></p>
+    </div>
+
+    <div class="mock-block">
+      <span class="gptmock-tag">🚪 Construir / Agente → Avanzado (próximamente)</span>
+      <div class="uimock" role="img" aria-label="Callout Construir y Agente como puerta al avanzado">
+        <div class="bar">Grok · sidebar</div>
+        <div class="ubody">
+          <div class="sidebaritem">Imagine</div>
+          <div class="sidebaritem on">Construir · badge Nuevo</div>
+          <div class="sidebaritem">Chip Agente (Imagine)</div>
+          <div class="fld" style="margin-top:10px"><label>Este curso</label><span class="box">No instalar CLI · no MCP · solo reconocer</span></div>
+          <div class="fld"><label>Próximo nivel</label><span class="box">Grok Avanzado · COCO GO · próximamente</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-step">
+      <h3>Paso 7 — Una corrida de prueba del sistema</h3>
+      <p>En una sola sesión de 45–60 min (o repartida):</p>
+      <ol>
+        <li>Expert: 1 hallazgo nuevo (módulo 2, <em>Radar Expert</em>)</li>
+        <li>Actualizá ancla del Project (módulo 3, <em>Tu base: Proyectos y memoria</em>)</li>
+        <li>Un mini papel o mail (módulo 4, <em>Habilidades que entregan papeles</em> / módulo 5, <em>Conectado y en piloto</em>)</li>
+        <li>Una corrección de imagen <strong>o</strong> video (módulo 6, <em>Imágenes que venden (y se corrigen)</em> / módulo 7, <em>Video corto que se corrige</em>)</li>
+      </ol>
+      <p>Si cerrás el ciclo una vez, el sistema existe.</p>
+    </div>
+
+    <div class="devsplit">
+      <div class="devsplit-card">
+        <div class="dh"><b>📱 Móvil — app iOS/Android</b></div>
+        <p><strong>Inventario 01–08:</strong> difícil ver carpetas. Escribir la rutina: nota rápida. Chequear <strong>Uso</strong> / Facturación: rápido si el menú coopera. Corrida Expert / conector / Imagine del día: podés hacer trozos del ciclo. <strong>Publicar</strong> piezas (IG, WhatsApp): <strong>acá se publica y se ve el resultado</strong>. CTA Construir / Agente: sidebar y Imagine — solo reconocer.</p>
+      </div>
+      <div class="devsplit-card">
+        <div class="dh"><b>💻 Desktop — grok.com o PWA</b></div>
+        <p><strong>Mejor</strong> para carpeta <code>Sistema IA/Grok-Intermedio/</code> a la vista. Documento <code>08-sistema-intermedio</code> prolijo. <strong>Ritual semanal de techos en web</strong> (Uso / Facturación). Ideal para el ciclo completo de 45–60 min. Publicar: solo preparación. Banner Build más visible — no instalar.</p>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✅ Conviene en esta tarea</h3>
+      <p><strong>Armá el mapa y la rutina en desktop</strong>; <strong>ejecutá trozos diarios en móvil</strong> (radar corto, mirar mails, validar un video). Una vez por semana, en web: Uso + inventario de la carpeta + lo que se publica.</p>
+    </div>
+
+    <div class="card card-warn">
+      <h3>⚠️ Error común</h3>
+      <p><strong>Querer “automatizar todo” el día 1</strong> y no abrir nunca el radar ni corregir una imagen. El fuerte del intermedio es la <strong>cadena</strong>; la automatización es un engranaje, no el motor entero.</p>
+    </div>
+
+    <div class="card card-example">
+      <h3>💡 Ejemplo</h3>
+      <p><strong>Negocio:</strong> academia de idiomas.</p>
+      <p>Lunes: Expert sobre objeciones de precio. Miércoles: propuesta con Habilidad. Jueves: video 6 s de clase demo. Automatización: resumen de mails “inscripción”. Viernes: publica 1 pieza y revisa Uso. <code>08-sistema-intermedio</code> cabe en una página.</p>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla A — Rutina semanal</h3>
+      <div class="prompt">
+        <div class="top"><span>nota · rutina semanal</span><button class="copy" type="button">Copiar</button></div>
+<pre>Semana del <strong class="field">__/__</strong> :
+Lun: <strong class="field">[…]</strong>
+Mar: <strong class="field">[…]</strong>
+Mié: <strong class="field">[…]</strong>
+Jue: <strong class="field">[…]</strong>
+Vie: <strong class="field">[…]</strong>
+Dueño: yo | Reviso automatización: <strong class="field">[…]</strong></pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla B — Checklist pre-publicación</h3>
+      <div class="prompt">
+        <div class="top"><span>nota · pre-publicación</span><button class="copy" type="button">Copiar</button></div>
+<pre>[ ] Dato de precio/real verificado
+[ ] Imagen/video corregidos (no genéricos)
+[ ] Tono de marca
+[ ] CTA claro
+[ ] Uso/pool OK esta semana</pre>
+      </div>
+    </div>
+
+    <div class="card card-plantilla">
+      <h3>📎 Plantilla C — Handoff a futuro Avanzado (solo nota)</h3>
+      <div class="prompt">
+        <div class="top"><span>nota · handoff avanzado</span><button class="copy" type="button">Copiar</button></div>
+<pre>Cuando exista Grok Avanzado, quiero profundizar:
+[ ] Construir / Build
+[ ] Agente Imagine
+[ ] Otra: <strong class="field">[…]</strong>
+Hoy mi sistema sin código ya hace: <strong class="field">[…]</strong></pre>
+      </div>
+    </div>
+
+    <div class="card card-sol">
+      <h3>✓ Listo cuando…</h3>
+      <ul>
+        <li>Inventario de entregables desde el módulo 2, <em>Radar Expert</em>, hasta el módulo 7, <em>Video corto que se corrige</em>, hecho con honestidad.</li>
+        <li>Rutina semanal escrita y <strong>probable</strong> (no heroica), con nota de qué va en <strong>móvil</strong> y qué en <strong>web</strong>.</li>
+        <li>Corriste al menos un ciclo parcial (radar → base/papeles o piloto → una pieza visual).</li>
+        <li>Sabés qué es SuperGrok y dónde está Uso/Facturación (ideal: chequeo en web).</li>
+        <li>Entendés el CTA Avanzado <strong>sin</strong> haberte ido a codear.</li>
+        <li><code>08-sistema-intermedio</code> guardado en la carpeta del sistema.</li>
+      </ul>
+    </div>
+
+    <div class="card card-kit">
+      <h3>📦 Qué guardar · 08-sistema-intermedio</h3>
+      <p>En <code>Sistema IA/Grok-Intermedio/08-sistema-intermedio/</code>:</p>
+      <ol>
+        <li>Inventario 02–07 con ¿existe? / fecha / próxima acción.</li>
+        <li>Rutina semanal (Plantilla A) ajustada a tu negocio — probable, no heroica.</li>
+        <li>Contrato de calidad (5 reglas tuyas).</li>
+        <li>Nota de techos: SuperGrok / Uso / si necesitás créditos extra.</li>
+        <li>Registro de 1 corrida de prueba del ciclo (aunque sea parcial).</li>
+        <li>Handoff Avanzado (Plantilla C) como nota futura, sin instalar nada.</li>
+      </ol>
+    </div>
+
+    <span class="entregable">📦 Entregable · 08-sistema-intermedio</span>
+
+    <label class="modcheck" data-mod="8">
+      <input type="checkbox" data-mod="8" aria-label="Completé el módulo 8">
+      <span>Completé el módulo 8 · Tu sistema Grok intermedio</span>
+    </label>
+
+    <div class="card card-map" style="margin-top:20px;text-align:center;border-style:dashed">
+      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
+      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat →</a></p>
+    </div>
+
+    <div class="card card-map" style="margin-top:14px">
+      <h3>🎓 Cierre del curso</h3>
+      <p>Pasá por la pestaña <strong>Verificación</strong> (checks 01–08), el <strong>Bonus</strong> si querés el ritual corto, y <strong>Aplicaciones</strong> si necesitás explicarle a alguien <strong>qué es SuperGrok</strong>.</p>
+      <p>Cuando quieras el siguiente salto técnico: <strong>Grok Avanzado</strong>, próximamente en COCO GO.</p>
+    </div>
+
+    <div class="next">
+      <div class="kicker">Siguiente</div>
+      <h3>Verificación · <span class="c">checks 01–08</span></h3>
+      <p>Un check por entregable. Solo si es real. Después, Bonus si querés el ritual corto.</p>
+      <label class="go" for="t-verif">Ir a Verificación →</label>
+    </div>
+  </section>
+
+
+<section class="panel" id="p-apps">
+    <div class="sec-head"><span class="numchip" style="font-size:1.1rem">↗</span><h2>Aplicaciones por tipo de negocio</h2></div>
+    <p class="sec-sub">Ejemplos <strong>orientativos</strong>, no taxativos — adaptá a tu rubro.</p>
+
+    <div class="card card-map">
+      <h3>🧠 ¿Qué es SuperGrok y para qué se usa?</h3>
+      <p><strong>SuperGrok</strong> es el <strong>plan de suscripción de pago de xAI</strong> para usar <strong>Grok</strong> con capacidad de trabajo: más límite de uso, búsqueda en modo <strong>Expert</strong>, e Imagine en serio. Es el plan natural de <strong>este curso intermedio</strong>.</p>
+      <p><strong>Precio:</strong> la card pública de xAI lista SuperGrok en torno a <strong>US$30/mes</strong>. En tu cuenta puede haber <strong>oferta o precio local</strong>. <strong>Vale lo que dice Facturación.</strong></p>
+      <p><strong>Cómo comprobarlo en 30 s:</strong> avatar → Configuración → <strong>Facturación</strong> → Plan actual.</p>
+    </div>
+
+    <div class="card card-kit" style="margin-top:14px">
+      <h3>Free · SuperGrok · Heavy</h3>
+      <div class="tablewrap">
+        <table class="routinetable">
+          <thead>
+            <tr><th></th><th>Free</th><th>SuperGrok</th><th>Heavy</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Idea</td><td>Probar y laburar con techo</td><td>Plan de <strong>trabajo</strong></td><td>Techo / multi-agente máximo</td></tr>
+            <tr><td>Búsqueda web + X</td><td>Limited</td><td><strong>Expert</strong></td><td>Máximo del ecosistema</td></tr>
+            <tr><td>Imagine</td><td>Puerta de pago / techo bajo</td><td>Uso de trabajo (módulos imagen y video)</td><td>—</td></tr>
+            <tr><td>Dónde se ve</td><td>—</td><td>Home “SuperGrok” · <strong>Configuración → Facturación</strong></td><td>Upgrade / Facturación</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card card-step" style="margin-top:14px">
+      <h3>No confundir</h3>
+      <div class="tablewrap">
+        <table class="routinetable">
+          <thead>
+            <tr><th>Nombre</th><th>Qué es</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Grok</td><td>La herramienta (asistente).</td></tr>
+            <tr><td>SuperGrok</td><td>El <strong>plan</strong> de pago de trabajo.</td></tr>
+            <tr><td>X Premium</td><td>Plan de X; en el básico podía abrir puerta a imágenes. Este intermedio se para en SuperGrok.</td></tr>
+            <tr><td>Construir / Build / Agente</td><td>Puerta al <strong>Grok Avanzado</strong> (código/agentes), no contenido de este curso.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="sec-sub" style="margin-top:22px">En los casos de abajo la mecánica es la del sistema del curso: Radar Expert, papeles/habilidades, piloto/conectores, imagen y video. Cambia el QUÉ, no el método.</p>
+
+    <div class="card card-kit">
+      <p style="margin:0">Ejemplos <strong>ORIENTATIVOS</strong>, no lista cerrada. Si tu rubro no aparece, agarrá el caso más parecido. Si un conector o la automatización no aparece: usá el plan B del módulo (texto pegado / corrida manual).</p>
+    </div>
+
+    <div class="app-grid">
+      <div class="app">
+        <div class="ic">🏪</div>
+        <h4>Local / servicios</h4>
+        <p>Competencia, presupuestos y piezas del local.</p>
+        <ul>
+          <li><strong>Radar Expert:</strong> competencia y demanda.</li>
+          <li><strong>Papeles / Habilidades:</strong> presupuestos, policies.</li>
+          <li><strong>Piloto / conectores:</strong> mails y recordatorios.</li>
+          <li><strong>Imagen / Video:</strong> antes/después, local · reel del servicio.</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">🛒</div>
+        <h4>Comercio</h4>
+        <p>Precios, combos y clips de producto.</p>
+        <ul>
+          <li><strong>Radar Expert:</strong> precios y tendencias.</li>
+          <li><strong>Papeles / Habilidades:</strong> listas, combos.</li>
+          <li><strong>Piloto / conectores:</strong> stock / consultas.</li>
+          <li><strong>Imagen / Video:</strong> foto producto · clip ~6 s de producto.</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">💼</div>
+        <h4>Freelance</h4>
+        <p>Nicho, propuestas y portfolio vivo.</p>
+        <ul>
+          <li><strong>Radar Expert:</strong> nicho y clientes.</li>
+          <li><strong>Papeles / Habilidades:</strong> propuestas, decks.</li>
+          <li><strong>Piloto / conectores:</strong> inbox de leads.</li>
+          <li><strong>Imagen / Video:</strong> portfolio · demo corta.</li>
+        </ul>
+      </div>
+      <div class="app">
+        <div class="ic">📣</div>
+        <h4>Marca personal</h4>
+        <p>Conversación en X+web y ritmo de piezas.</p>
+        <ul>
+          <li><strong>Radar Expert:</strong> conversación en X+web.</li>
+          <li><strong>Papeles / Habilidades:</strong> calendario de piezas.</li>
+          <li><strong>Piloto / conectores:</strong> rutinas.</li>
+          <li><strong>Imagen / Video:</strong> feed · stories/reels.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="p-bonus">
+    <div class="sec-head"><span class="numchip" style="font-size:1.15rem">★</span><h2>Bonus · extras de alto valor</h2></div>
+    <p class="sec-sub">Usalos <strong>después</strong> de armar el sistema real — no como atajo para saltear módulos.</p>
+
+    <p class="bonus-cat">Mapa del sistema</p>
+    <div class="card bonus-card bc-theme card-kit">
+      <h3>🗺️ Mapa del Sistema IA (Grok Intermedio)</h3>
+      <p>La carpeta donde vive todo lo que construiste. Abrila al empezar la semana y al cerrarla:</p>
+      <div class="foldertree">
+        <div class="root"><span>📁</span> Sistema IA/Grok-Intermedio/</div>
+        <div class="kids">
+          <div class="ft-row"><span class="ft-file"><span>📄</span>01-plan-y-modos</span><span class="ft-arrow">→</span><span class="ft-desc">módulo 1, El salto a SuperGrok</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>02-radar-expert</span><span class="ft-arrow">→</span><span class="ft-desc">módulo 2, Radar Expert</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>03-base-proyecto</span><span class="ft-arrow">→</span><span class="ft-desc">módulo 3, Proyectos y memoria</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>04-habilidades/</span><span class="ft-arrow">→</span><span class="ft-desc">módulo 4, Habilidades que entregan papeles</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>05-conectado-piloto</span><span class="ft-arrow">→</span><span class="ft-desc">módulo 5, Conectado y en piloto</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>06-imagenes-pro/</span><span class="ft-arrow">→</span><span class="ft-desc">módulo 6, Imágenes que venden</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>07-video-pro/</span><span class="ft-arrow">→</span><span class="ft-desc">módulo 7, Video corto que se corrige</span></div>
+          <div class="ft-row"><span class="ft-file"><span>📄</span>08-sistema-intermedio</span><span class="ft-arrow">→</span><span class="ft-desc">módulo 8, Tu sistema Grok intermedio</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bonus-card bc-coral card-map">
+      <h3>📱💻 Móvil vs desktop — regla del curso</h3>
+      <p><b>💻 Web / desktop (grok.com):</b> Facturación, Uso, OAuth de conectores, crear automatizaciones, grilla Imagine, descargas a la carpeta del sistema, inventario semanal.</p>
+      <p><b>📱 Móvil (app):</b> modos del chat, radar corto, validar “¿lo subo?” de imagen/video a tamaño real, publicar en IG/WhatsApp.</p>
+      <p><strong>Misma cuenta</strong> en ambos. Si una pantalla no aparece en el celu, no inventes: cerrá la tarea en web.</p>
+    </div>
+
+    <p class="bonus-cat">Mantenimiento del sistema</p>
+    <div class="card bonus-card bc-mint card-sol">
+      <h3>✅ Checklist semanal (7)</h3>
+      <p>Una vez por semana, con el sistema delante (podés anclarlo en el domingo o el lunes):</p>
+      <ol>
+        <li>¿Miré <strong>Uso</strong> y Facturación esta semana?</li>
+        <li>¿Corrí 1 radar <strong>Expert</strong> con decisión escrita?</li>
+        <li>¿El Project sigue limpio (sin chats basura)?</li>
+        <li>¿Generé o reutilicé 1 papel con Habilidad?</li>
+        <li>¿El conector/automatización sigue vivo?</li>
+        <li>¿Hay 1 pieza visual <strong>corregida</strong> (foto o video)?</li>
+        <li>¿Publiqué o envié algo real a un cliente?</li>
+      </ol>
+    </div>
+
+    <p class="bonus-cat">Rutina corta</p>
+    <div class="card bonus-card bc-theme card-step">
+      <h3>🗓️ Ritual de 20 minutos (día de poco tiempo)</h3>
+      <p>No es otro módulo: es el hábito que evita que el sistema se oxide. Abrí <code>08-sistema-intermedio</code> (o el mapa de arriba) y corré solo esto, en orden:</p>
+      <p>Empezá con <strong>5 minutos en Expert</strong>: una sola pregunta de la semana (competencia, demanda o contenido), no un ensayo. Anotá en una línea “decido / no hago”. Después, <strong>5 minutos con el conector o la bandeja</strong>: mirá si el piloto sigue vivo y si hay algo que contestar o cerrar. Los últimos <strong>10 minutos van a corregir</strong>: una imagen <em>o</em> un video ya generado — no crees de cero si el tiempo aprieta; pedí un solo cambio concreto y descargá la versión mejor.</p>
+      <p>Si al minuto 20 no cerraste, cortá igual: guardá lo que hay y seguí mañana. El ritual gana por repetición, no por perfectitud.</p>
+    </div>
+
+    <p class="bonus-cat">Cuando sale genérico</p>
+    <div class="card bonus-card bc-gold card-warn">
+      <h3>🧭 Anti-genérico — imagen y video</h3>
+      <ol>
+        <li><strong>Datos reales en el prompt</strong> (nombre, color, lugar) — nunca placeholders literales tipo <code>[producto/local]</code>.</li>
+        <li><strong>Una corrección obligatoria</strong> en el mismo hilo (misma imagen/video + un cambio concreto).</li>
+        <li>Check final: <strong>“¿lo subiría hoy?”</strong> Si no, otra pasada, no “ya fue”.</li>
+      </ol>
+      <p>Si contestaste que no a alguna, el problema no es “Imagine”: es el contexto y el criterio de publicación.</p>
+    </div>
+
+    <p class="bonus-cat">Plantillas exprés</p>
+    <div class="card bonus-card bc-mint card-plantilla">
+      <h3>📎 1 · Radar — 5 hallazgos + decisión</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · radar exprés</span><button class="copy" type="button">Copiar</button></div>
+<pre>Modo Expert. Negocio: <strong class="field">[nombre]</strong>, <strong class="field">[rubro]</strong>, <strong class="field">[ciudad]</strong>.
+Pregunta de esta semana: <strong class="field">[una sola]</strong>.
+Dame exactamente 5 hallazgos verificables (no genéricos) + fuentes.
+Al final: 1 amenaza, 1 oportunidad, 1 idea para ESTA semana.
+Después yo escribo: DECIDO / NO HAGO.</pre>
+      </div>
+    </div>
+
+    <div class="card bonus-card bc-theme card-plantilla">
+      <h3>📎 2 · Presupuesto solo con precios míos</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · presupuesto real</span><button class="copy" type="button">Copiar</button></div>
+<pre>Estoy en el Project de mi negocio.
+Negocio: <strong class="field">[nombre]</strong>, <strong class="field">[rubro]</strong>, <strong class="field">[ciudad]</strong>.
+Generá un presupuesto para: <strong class="field">[cliente o servicio]</strong>.
+Ítems y precios (SOLO estos; no inventes):
+- <strong class="field">…</strong>
+Formato claro, listo para enviar.
+Si algo no está en la lista, escribí [COMPLETAR].</pre>
+      </div>
+    </div>
+
+    <div class="card bonus-card bc-coral card-plantilla">
+      <h3>📎 3 · Misma imagen/video + un cambio concreto</h3>
+      <div class="prompt">
+        <div class="top"><span>prompt · corrección visual</span><button class="copy" type="button">Copiar</button></div>
+<pre>Misma imagen / mismo video base.
+Cambios: <strong class="field">[fondo / luz / quitar objeto / más profesional / duración]</strong>.
+Mantené el producto idéntico. Sin texto ni logo inventado.
+No deformes caras ni marcas.</pre>
+      </div>
+    </div>
+
+    <div class="card bonus-card bc-gold card-warn">
+      <h3>📡 Radar de datos que cambian</h3>
+      <p>Cosas que se vencen y te rompen el sistema si no las tocás:</p>
+      <ul>
+        <li>Precios y oferta de <strong>SuperGrok</strong> (Facturación).</li>
+        <li>Límites de pool / créditos visibles en <strong>Uso</strong>.</li>
+        <li>UI de <strong>Automatizaciones</strong> y conectores (OAuth se cae).</li>
+        <li>UI de <strong>Imagine</strong> (chips, grilla, Editar) — re-chequear en producto; son volátiles.</li>
+      </ul>
+      <p>Regla: si la pantalla no coincide con la guía, manda lo que ves hoy en grok.com / app.</p>
+    </div>
+
+    <div class="card bonus-card bc-theme card-step">
+      <h3>🩹 Recuperación en 4 pasos (si “se rompió” el hábito)</h3>
+      <ol>
+        <li>Abrí <strong>Facturación + Uso</strong>.</li>
+        <li>Abrí el <strong>Project del negocio</strong>.</li>
+        <li>Un solo entregable flojo de la semana (el más urgente).</li>
+        <li>Anotá la rutina del módulo 8 otra vez, más corta.</li>
+      </ol>
+      <p>No reabrás los 8 módulos de golpe. Un entregable vivo vale más que un repaso completo.</p>
+    </div>
+
+    <div class="next" style="margin-top:20px">
+      <div class="kicker">Explorá otros cursos</div>
+      <h3>ChatGPT · <span class="c">Claude · Gemini</span></h3>
+      <p>Mismo método COCO GO. El básico de Grok es el piso natural de este intermedio.</p>
+      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
+    </div>
+  </section>
+
+  <section class="panel" id="p-verif">
+    <div class="sec-head"><span class="numchip" style="font-size:1.1rem">✓</span><h2>Verificación final</h2></div>
+    <p class="sec-sub">Un check por entregable. Marcá solo si el archivo existe y lo usaste en la vida real.</p>
+    <div class="check-list">
+      <div class="check"><span class="box">✓</span><p>01-plan-y-modos<small>Plan y modos · El salto a SuperGrok</small></p></div>
+      <div class="check"><span class="box">✓</span><p>02-radar-expert<small>Research + decisión</small></p></div>
+      <div class="check"><span class="box">✓</span><p>03-base-proyecto<small>Project + memoria</small></p></div>
+      <div class="check"><span class="box">✓</span><p>04-habilidades<small>Papel + habilidad propia</small></p></div>
+      <div class="check"><span class="box">✓</span><p>05-conectado-piloto<small>Conector + auto o diseño</small></p></div>
+      <div class="check"><span class="box">✓</span><p>06-imagenes-pro<small>Gen + corrección</small></p></div>
+      <div class="check"><span class="box">✓</span><p>07-video-pro<small>Clip + corrección</small></p></div>
+      <div class="check"><span class="box">✓</span><p>08-sistema-intermedio<small>Rutina semanal</small></p></div>
+    </div>
+    <div class="next">
+      <div class="kicker">Cuando termines esto…</div>
+      <h3>Catálogo · <span class="c">Grok Avanzado próximamente</span></h3>
+      <p>Si te falta el <strong>básico</strong> de Grok, completá la base conversacional y el Free. Pack / ruta básico + intermedio Grok: cuando el catálogo lo ofrezca. <strong>Grok Avanzado</strong> (Construir, Agente, Build, API) — <em>próximamente</em>, sin link muerto.</p>
+      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
+    </div>
+    <div class="card feedbackbox card-map" style="margin-top:20px">
+      <h3>💬 Tu feedback real</h3>
+      <p style="margin-bottom:10px">¿Qué te trabó? ¿Qué harías en 10 min menos? ¿Qué feature no te apareció en tu cuenta?</p>
+      <textarea id="feedback-text" placeholder="Ej: el módulo 3 me costó por el plan SuperGrok…"></textarea>
+      <div class="fb-actions">
+        <button type="button" class="copy" id="feedback-copy">Copiar mi comentario</button>
+        <span style="font-size:.85rem;color:var(--muted)">Instagram — <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat</a> · <a href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a></span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="wrap" id="catalogo" style="padding:10px 20px 40px">
+  <div class="sec-head"><span class="numchip" style="font-size:1.05rem">＋</span><h2 style="font-size:clamp(1.3rem,3vw,1.7rem)">Otros cursos <img src="../assets/logo-coco-go.svg" alt="COCO GO" style="height:1.1em;vertical-align:-0.15em"></h2></div>
+  <p class="sec-sub">Mismo método COCO GO. Primero los intermedios; después tres básicos (sin el de esta herramienta).</p>
+  <div class="app-grid">
+    <div class="app curso-cta">
+      <div class="ic"><img src="../assets/logo-openai.svg" alt="" width="22" height="22"></div>
+      <h4>ChatGPT · intermedio</h4>
+      <p>GPTs, memoria, conectores y tareas que se repiten en el día a día.</p>
+      <a class="cta-curso" href="../chatgpt-intermedio/">Ver curso →</a>
+    </div>
+    <div class="app curso-cta">
+      <div class="ic"><img src="../assets/logo-claude.svg" alt="" width="22" height="22"></div>
+      <h4>Claude · intermedio</h4>
+      <p>Proyectos, skills y un sistema Anthropic que labura con vos.</p>
+      <a class="cta-curso" href="../claude-intermedio/">Ver curso →</a>
+    </div>
+    <div class="app curso-cta">
+      <div class="ic"><img src="../assets/logo-gemini.svg" alt="" width="22" height="22"></div>
+      <h4>Gemini · intermedio</h4>
+      <p>Gems, Knowledge, scheduled y el panel dentro de Google.</p>
+      <a class="cta-curso" href="../gemini-intermedio/">Ver curso →</a>
+    </div>
+    <div class="app curso-cta">
+      <div class="ic"><img src="../assets/logo-openai.svg" alt="" width="22" height="22"></div>
+      <h4>ChatGPT · básico</h4>
+      <p>El mismo método aplicado a la herramienta de OpenAI, desde cero.</p>
+      <a class="cta-curso" href="../chatgpt/">Ver curso →</a>
+    </div>
+    <div class="app curso-cta">
+      <div class="ic"><img src="../assets/logo-claude.svg" alt="" width="22" height="22"></div>
+      <h4>Claude · básico</h4>
+      <p>Estilo Anthropic desde cero para el negocio.</p>
+      <a class="cta-curso" href="../claude/">Ver curso →</a>
+    </div>
+    <div class="app curso-cta">
+      <div class="ic"><img src="../assets/logo-gemini.svg" alt="" width="22" height="22"></div>
+      <h4>Gemini · básico</h4>
+      <p>La mirada Google con el mismo método COCO GO.</p>
+      <a class="cta-curso" href="../gemini/">Ver curso →</a>
+    </div>
+  </div>
+  <p style="margin-top:14px;font-size:.9rem;color:var(--muted)">Seguinos en <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener" style="color:var(--theme-light)">@coco_go.lat</a> · <a href="https://x.com/cocogo" target="_blank" rel="noopener" style="color:var(--theme-light)">@cocogo</a>.</p>
+</section>
+
+<footer>
+  <a class="foot-home" href="../" aria-label="COCO GO — todos los cursos"><img src="../assets/logo-coco-go.svg" class="foot-logo" alt="COCO GO"></a>
+  <div class="socials">
+    <a class="soc" href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener" aria-label="Instagram @coco_go.lat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06.36 2.23.41C8.42 2.17 8.8 2.16 12 2.16Zm0-2.16C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.94 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg></a>
+    <a class="soc" href="https://x.com/cocogo" target="_blank" rel="noopener" aria-label="X @cocogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93ZM17.61 20.64h2.04L6.49 3.24H4.3Z"/></svg></a>
+
+  </div>
+  <p>Soporte: <a href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a> (respondemos en 48 h hábiles)</p>
+  <p>Más cursos: <a href="../">Ver todos en la página de venta →</a> — mismo método COCO GO.</p>
+    <p class="legal-links"><a href="../privacidad.html">Privacidad</a> · <a href="../terminos.html">Términos</a> · <a href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a></p>
+<p>© COCO GO 2026. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+(function(){
+  var ACCESS_TOKEN='COCO-GRKINT-2026';
+  var ACCESS_STORAGE_KEY='coco-go-grok-intermedio-access-ok';
+  var gate=document.getElementById('access-gate');
+  var input=document.getElementById('access-code-input');
+  var submit=document.getElementById('access-code-submit');
+  var error=document.getElementById('access-gate-error');
+  if(!gate||!input||!submit) return;
+  var params=new URLSearchParams(location.search);
+  var fromUrl=(params.get('k')||'').trim();
+  var stored=localStorage.getItem(ACCESS_STORAGE_KEY)==='1';
+  function unlock(){
+    try{localStorage.setItem(ACCESS_STORAGE_KEY,'1');}catch(e){}
+    document.body.classList.remove('access-locked');
+    gate.hidden=true;
+    if(fromUrl){
+      params.delete('k');
+      var qs=params.toString();
+      history.replaceState(null,'',location.pathname+(qs?'?'+qs:'')+location.hash);
+    }
+  }
+  function tryCode(raw){
+    var code=(raw||'').trim();
+    if(code.toUpperCase()===ACCESS_TOKEN.toUpperCase()){
+      if(error) error.textContent='';
+      unlock();
+      return true;
+    }
+    if(error) error.textContent='Código incorrecto. Revisá el email de compra.';
+    return false;
+  }
+  if(stored||(fromUrl&&tryCode(fromUrl))) return;
+  document.body.classList.add('access-locked');
+  gate.hidden=false;
+  submit.addEventListener('click',function(){tryCode(input.value);});
+  input.addEventListener('keydown',function(e){if(e.key==='Enter')tryCode(input.value);});
+})();
+
+(function(){
+  var c=document.getElementById('bg'); if(!c) return;
+  var ctx=c.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2);
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var RGB=(getComputedStyle(document.documentElement).getPropertyValue('--theme-rgb').trim())||'120,124,130';
+  var W,H,pts,raf;
+  function resize(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.min(90,Math.max(30,Math.floor(W*H/16000)));pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18});}
+  function frame(move){ctx.clearRect(0,0,W,H);var i,j,a,b,dx,dy,d,o;
+    if(move)for(i=0;i<pts.length;i++){a=pts[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;}
+    for(i=0;i<pts.length;i++)for(j=i+1;j<pts.length;j++){a=pts[i];b=pts[j];dx=a.x-b.x;dy=a.y-b.y;d=dx*dx+dy*dy;
+      if(d<19000){var boost=document.body.classList.contains('access-locked')?1.65:1;o=(1-d/19000)*.22*boost;ctx.strokeStyle='rgba('+RGB+','+Math.min(o,.55).toFixed(3)+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+    for(i=0;i<pts.length;i++){a=pts[i];var boost2=document.body.classList.contains('access-locked')?1.4:1;ctx.fillStyle='rgba('+RGB+','+(0.55*boost2).toFixed(3)+')';ctx.beginPath();ctx.arc(a.x,a.y,1.5,0,6.283);ctx.fill();}
+  }
+  function loop(){frame(true);raf=requestAnimationFrame(loop);}
+  resize();window.addEventListener('resize',function(){cancelAnimationFrame(raf);resize();reduce?frame(false):loop();});
+  reduce?frame(false):loop();
+})();
+
+(function(){
+  var terms=document.querySelectorAll('.gterm');
+  terms.forEach(function(b){
+    b.addEventListener('click',function(){
+      var open=b.classList.contains('open');
+      terms.forEach(function(o){o.classList.remove('open');o.nextElementSibling.style.maxHeight=null;});
+      if(!open){b.classList.add('open');var d=b.nextElementSibling;d.style.maxHeight=d.scrollHeight+'px';}
+    });
+  });
+  var q=document.getElementById('gloss-q');
+  if(q)q.addEventListener('input',function(){
+    var v=q.value.toLowerCase();
+    document.querySelectorAll('#gloss-list .gitem').forEach(function(it){
+      it.style.display=it.querySelector('.gterm').textContent.toLowerCase().indexOf(v)>-1?'':'none';
+    });
+    document.querySelectorAll('#gloss-list .gloss-group').forEach(function(g){
+      var n=g.nextElementSibling, any=false;
+      while(n && !n.classList.contains('gloss-group')){
+        if(n.classList.contains('gitem') && n.style.display!=='none') any=true;
+        n=n.nextElementSibling;
+      }
+      g.style.display=any?'':'none';
+    });
+  });
+})();
+
+document.querySelectorAll('input[name="coco-tab"]').forEach(function(r){
+  r.addEventListener('change',function(){window.scrollTo({top:0,behavior:'instant'});});
+});
+
+document.querySelectorAll('.copy:not(#feedback-copy)').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var pre=btn.closest('.prompt').querySelector('pre');
+    if(!pre) return;
+    var text=pre.textContent.trim();
+    function done(){btn.textContent='✓ Copiado';setTimeout(function(){btn.textContent='Copiar';},1500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text,done);});
+    } else { fallback(text,done); }
+  });
+});
+function fallback(text,cb){
+  var ta=document.createElement('textarea');
+  ta.value=text;ta.style.cssText='position:fixed;left:-9999px;top:0;opacity:0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');cb();}catch(e){}
+  document.body.removeChild(ta);
+}
+
+(function(){
+  var btn=document.getElementById('feedback-copy');
+  var ta=document.getElementById('feedback-text');
+  if(!btn||!ta) return;
+  btn.addEventListener('click',function(){
+    var text=ta.value.trim();
+    if(!text) return;
+    function done(){btn.textContent='✓ Copiado';setTimeout(function(){btn.textContent='Copiar mi comentario';},1500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text,done);});
+    } else { fallback(text,done); }
+  });
+})();
+
+(function(){
+  var KEY='cocogo_progreso_grok_intermedio', TOTAL=8;
+  function load(){try{var v=JSON.parse(localStorage.getItem(KEY));return Array.isArray(v)?v.filter(function(n){return n>=1&&n<=TOTAL;}):[];}catch(e){return [];}}
+  function save(a){try{localStorage.setItem(KEY,JSON.stringify(a));}catch(e){}}
+  var done=load();
+  var inputs=document.querySelectorAll('.modcheck input[data-mod]');
+  if(!inputs.length) return;
+  var checks=document.querySelectorAll('#p-verif .check-list .check');
+  var fill=document.querySelector('.progfill');
+  var label=document.querySelector('.proglabel');
+  var pwrap=document.querySelector('.progwrap');
+  function render(){
+    inputs.forEach(function(inp){
+      var n=+inp.getAttribute('data-mod'), on=done.indexOf(n)>-1;
+      inp.checked=on;
+      inp.closest('.modcheck').classList.toggle('done',on);
+    });
+    checks.forEach(function(c,i){c.classList.toggle('done',done.indexOf(i+1)>-1);});
+    var pct=Math.round(done.length/TOTAL*100);
+    if(fill)fill.style.width=pct+'%';
+    if(label)label.textContent=done.length+'/'+TOTAL;
+    if(pwrap){pwrap.classList.toggle('complete',done.length>=TOTAL);pwrap.setAttribute('aria-valuenow',done.length);}
+  }
+  inputs.forEach(function(inp){
+    inp.addEventListener('change',function(){
+      var n=+inp.getAttribute('data-mod'), i=done.indexOf(n);
+      if(inp.checked&&i<0)done.push(n);
+      else if(!inp.checked&&i>-1)done.splice(i,1);
+      save(done);render();
+    });
+  });
+  render();
+})();
+
+document.querySelectorAll('input.tab').forEach(function(t){
+  var lbl=document.querySelector('.modnav label[for="'+t.id+'"]');
+  if(!lbl) return;
+  t.addEventListener('focus',function(){lbl.classList.add('kbfocus');});
+  t.addEventListener('blur',function(){lbl.classList.remove('kbfocus');});
+});
+</script>
+</body>
+</html>

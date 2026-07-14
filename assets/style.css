@@ -299,11 +299,17 @@ strong.field{background:rgba(var(--theme-rgb),.14);color:var(--theme-light);font
 .next .go,.next label.go{display:inline-flex;align-items:center;gap:9px;font-weight:700;color:var(--text);text-decoration:none;padding:13px 22px;border-radius:13px;background:rgba(255,255,255,.05);border:1px solid var(--border-strong);transition:all .25s;align-self:flex-end;margin-left:auto;cursor:pointer}
 .next .go:hover,.next label.go:hover{transform:translateX(3px);border-color:var(--coral);color:var(--coral)}
 
-footer{text-align:center;padding:40px 20px 54px;color:var(--faint);font-size:.86rem;border-top:1px solid var(--border);margin-top:30px}
-.foot-logo{width:240px;height:auto;margin-bottom:14px;opacity:.96}
-footer p{margin:4px auto;max-width:64ch}
+/* Footer: columna flex centrada. El mark es izquierdo-pesado (icono 40px sólido);
+   .foot-logo lleva translateX óptico SOLO en pie (no brandbar). N=9px @ ~200px display
+   (~4.5% del ancho; escala visual con el eje de .socials). */
+footer{display:flex;flex-direction:column;align-items:center;text-align:center;padding:40px 20px 54px;color:var(--faint);font-size:.86rem;border-top:1px solid var(--border);margin-top:30px}
+.foot-home{display:inline-flex;justify-content:center;align-items:center;width:fit-content;max-width:100%;margin:0 0 14px;text-decoration:none;line-height:0}
+.foot-home:hover{opacity:.92}
+.foot-logo{display:block;width:min(200px,62vw);height:auto;margin:0;opacity:.96;transform:translateX(9px)}
+footer p{margin:4px 0;max-width:64ch;text-align:center}
+footer .legal-links{text-align:center;display:block;width:fit-content;max-width:100%}
 footer a{color:var(--theme-light);text-decoration:none}
-.socials{display:flex;gap:14px;justify-content:center;margin:6px 0 14px}
+.socials{display:flex;gap:14px;justify-content:center;margin:6px 0 14px;width:fit-content;max-width:100%}
 .soc{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:50%;color:var(--faint);transition:color .2s,border-color .2s}
 .soc:hover{color:var(--theme-light);border-color:var(--theme-light)}
 .soc svg{width:18px;height:18px;fill:currentColor}
