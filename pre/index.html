@@ -53,6 +53,16 @@
   --shadow-lg:0 2px 4px rgba(24,35,56,.05), 0 22px 50px rgba(24,35,56,.10);
   --radius:18px;
   --maxw:920px;
+  /* ── ESCALA DE ESPACIADO (tokens, patrón lógico, no a ojo) ──
+     kicker→título = sp-2 · título→lead = sp-2 · lead→contenido = sp-4 ·
+     entre bloques de una sección = sp-5 · padding de sección = sp-6 ·
+     márgenes de divisores = sp-5. Se usa en TODA la página. */
+  --sp-1:6px;    /* micro (chip↔chip, k↔texto) */
+  --sp-2:14px;   /* kicker→título, título→lead */
+  --sp-3:22px;   /* lead→primer bloque corto */
+  --sp-4:34px;   /* lead→contenido, entre sub-bloques */
+  --sp-5:52px;   /* entre bloques mayores, divisores */
+  --sp-6:78px;   /* padding vertical de sección */
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:20px}
@@ -89,12 +99,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,.
    border-bottom:1px solid var(--line)}
 #hero-bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 .hero .wrap{position:relative;z-index:1;padding-top:26px;padding-bottom:52px}
-.brandbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:46px}
-.brandbar img{height:34px;width:auto}
+.brandbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:52px}
+.brandbar img{height:44px;width:auto}
+@media(max-width:520px){ .brandbar img{height:36px} .brandbar{margin-bottom:40px} }
 .brandbar .backlink{font-size:.86rem;color:var(--ink-2);font-weight:600;display:inline-flex;align-items:center;gap:5px}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:1px solid var(--line-2);
   color:var(--coral-deep);font-weight:700;font-size:.74rem;letter-spacing:.11em;text-transform:uppercase;
-  padding:7px 15px;border-radius:999px;box-shadow:var(--shadow);margin-bottom:22px}
+  padding:7px 15px;border-radius:999px;box-shadow:var(--shadow);margin-bottom:var(--sp-3)}
 .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--coral-soft)}
 .hero h1{font-size:clamp(2.35rem,7.2vw,4.15rem);font-weight:800;letter-spacing:-.03em;max-width:15ch}
 .hero h1 .hl{color:var(--coral);position:relative;white-space:nowrap}
@@ -121,18 +132,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,.
 .teaser a.chip:hover{border-color:var(--coral);color:var(--coral-deep)}
 .teaser .qmark{margin-left:auto;font-weight:700;color:var(--coral-deep);font-size:.9rem;text-decoration:underline;text-underline-offset:3px}
 
-/* ═══ SECCIONES / RITMO ═══ */
-section{padding:58px 0}
+/* ═══ SECCIONES / RITMO (espaciado por tokens, no a ojo) ═══ */
+section{padding:var(--sp-6) 0}
 .band{background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.76rem;font-weight:800;letter-spacing:.13em;
-  text-transform:uppercase;color:var(--coral-deep);margin-bottom:14px}
+  text-transform:uppercase;color:var(--coral-deep);margin-bottom:var(--sp-2)}
 .eyebrow .num{font-family:"JetBrains Mono",monospace;background:var(--coral);color:#fff;width:26px;height:26px;
   border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:.82rem;letter-spacing:0}
-.sec-title{font-size:clamp(1.7rem,4.4vw,2.5rem);font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
-.sec-lead{font-size:1.08rem;color:var(--ink-2);max-width:60ch;margin-bottom:8px}
-.sec-note{font-size:.9rem;color:var(--muted);max-width:66ch;margin-bottom:22px}
-h3.block-h{font-size:1.28rem;margin:34px 0 12px;font-weight:700}
-h4.block-h{font-size:1.06rem;margin:24px 0 8px;font-weight:700;color:var(--ink)}
+.sec-title{font-size:clamp(1.7rem,4.4vw,2.5rem);font-weight:800;letter-spacing:-.02em;margin-bottom:var(--sp-2)}
+.sec-lead{font-size:1.08rem;color:var(--ink-2);max-width:60ch;margin-bottom:0}
+.sec-note{font-size:.9rem;color:var(--muted);max-width:66ch;margin-bottom:0}
+/* el primer bloque de contenido tras el encabezado respira sp-4 */
+.reveal + .reveal{margin-top:var(--sp-4)}
+h3.block-h{font-size:1.28rem;margin:0 0 var(--sp-2);font-weight:700}
+h4.block-h{font-size:1.06rem;margin:var(--sp-4) 0 var(--sp-1);font-weight:700;color:var(--ink)}
 .lead-in{font-size:1.05rem}
 
 /* micro-entrada */
@@ -263,8 +276,8 @@ table code{font-family:"JetBrains Mono",monospace;font-size:.86em;background:var
 .floater .ic{font-size:1rem}
 
 /* cierre de sección + next */
-.sec-close{margin-top:30px}
-.next{margin-top:22px;background:
+.sec-close{margin-top:var(--sp-5)}
+.next{margin-top:var(--sp-4);background:
    radial-gradient(600px 200px at 90% 0%, rgba(255,107,74,.10), transparent 70%),var(--paper);
    border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow);
    display:flex;flex-direction:column}
@@ -276,7 +289,9 @@ table code{font-family:"JetBrains Mono",monospace;font-size:.86em;background:var
 
 /* comparativa herramientas */
 .tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:8px 0 6px}
-.tool-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow)}
+.tool-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow);
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s}
+.tool-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--coral)}
 .tool-card .hd{display:flex;align-items:center;gap:11px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line)}
 .tool-card .hd img{height:26px;width:26px;object-fit:contain}
 .logo-chip.dark{background:#111;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;padding:4px;flex-shrink:0}
@@ -343,10 +358,92 @@ footer p a{color:var(--coral-deep);font-weight:600}
 
 /* util */
 .small{font-size:.86rem;color:var(--muted)}
-.divider{height:1px;background:var(--line);border:none;margin:34px 0}
+.divider{height:1px;background:var(--line);border:none;margin:var(--sp-5) 0}
 .pill-inline{font-family:"JetBrains Mono",monospace;font-size:.85em;background:var(--cream-2);border:1px solid var(--line-2);
   padding:1px 7px;border-radius:6px;color:var(--ink-2)}
 .task-anchor{scroll-margin-top:20px}
+
+/* ── grillas de 4: 4-en-línea (mapa, cards livianas) · 2×2 (comparativa, cards densas) ── */
+@media(min-width:880px){
+  .map-grid{grid-template-columns:repeat(4,1fr)}
+  .tools-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ═══ componentes visuales nuevos (subir N1-N2-N3 a la vara del bonus) ═══ */
+/* burbujas de frases citadas — rompen el muro de texto sin tocar el texto */
+.quote-chips{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:var(--sp-3) 0 var(--sp-1)}
+.quote-chips li{background:var(--paper);border:1px solid var(--line-2);border-radius:14px;
+  padding:9px 14px;font-size:.92rem;color:var(--ink-2);box-shadow:var(--shadow);position:relative;line-height:1.4}
+.quote-chips li::before{content:"“";position:absolute;left:6px;top:-2px;color:var(--coral-soft);font-size:1.1rem;font-weight:800;opacity:.5}
+.quote-chips li{padding-left:20px}
+.quote-chips.amber li::before{color:var(--amber-soft)}
+
+/* pull-quote de énfasis (frase-bisagra de una sección) */
+.pull{margin:var(--sp-4) 0;padding:4px 0 4px 22px;border-left:4px solid var(--coral);
+  font-family:"Bricolage Grotesque",serif;font-weight:700;font-size:clamp(1.15rem,2.6vw,1.5rem);
+  line-height:1.28;color:var(--ink);letter-spacing:-.01em}
+.pull.amber{border-left-color:var(--amber)}
+.pull .c{color:var(--coral)}
+
+/* diagrama del patrón: contexto → tarea → formato */
+.flow{display:grid;grid-template-columns:1fr;gap:12px;margin:var(--sp-4) 0}
+@media(min-width:640px){.flow{grid-template-columns:repeat(3,1fr);align-items:stretch}}
+.flow-step{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;
+  box-shadow:var(--shadow);position:relative;border-top:4px solid var(--coral-soft)}
+.flow-step:nth-child(2){border-top-color:var(--amber-soft)}
+.flow-step:nth-child(3){border-top-color:var(--sol-line)}
+.flow-step .fn{font-family:"JetBrains Mono",monospace;font-size:.76rem;font-weight:500;color:var(--coral-deep);
+  background:var(--ex-bg);border:1px solid var(--ex-line);width:30px;height:30px;border-radius:9px;
+  display:inline-flex;align-items:center;justify-content:center;margin-bottom:11px}
+.flow-step:nth-child(2) .fn{color:var(--warn-ink);background:var(--warn-bg);border-color:var(--warn-line)}
+.flow-step:nth-child(3) .fn{color:var(--sol-ink);background:var(--sol-bg);border-color:var(--sol-line)}
+.flow-step h4{font-size:1.06rem;margin-bottom:5px;font-weight:700}
+.flow-step p{font-size:.9rem;color:var(--ink-2);margin:0}
+.flow-arrow{display:none}
+@media(min-width:640px){
+  .flow-step:not(:last-child)::after{content:"→";position:absolute;right:-22px;top:50%;transform:translateY(-50%);
+    color:var(--coral-soft);font-weight:800;font-size:1.2rem;z-index:2}
+}
+
+/* mini-cabecera de sub-bloque con ícono (rompe la sucesión de h3 planos) */
+.blockhead{display:flex;align-items:center;gap:11px;margin:0 0 var(--sp-2)}
+.blockhead .bi{flex-shrink:0;width:34px;height:34px;border-radius:10px;display:inline-flex;align-items:center;
+  justify-content:center;font-size:1.05rem;background:var(--cream-2);border:1px solid var(--line-2)}
+.blockhead h3{margin:0}
+.blockhead.coral .bi{background:var(--ex-bg);border-color:var(--ex-line)}
+.blockhead.amber .bi{background:var(--warn-bg);border-color:var(--warn-line)}
+.blockhead.sol .bi{background:var(--sol-bg);border-color:var(--sol-line)}
+
+/* rótulo antes/después sobre los chat mock */
+.ba{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;margin:var(--sp-3) 0 2px;padding:3px 11px;border-radius:999px}
+.ba.before{color:var(--muted);background:var(--cream-2);border:1px solid var(--line-2)}
+.ba.after{color:var(--sol-ink);background:var(--sol-bg);border:1px solid var(--sol-line)}
+.ba .d{width:7px;height:7px;border-radius:50%;background:currentColor}
+
+/* tira de escenas (N1) numeradas */
+.scene-tag{display:inline-flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-size:.78rem;
+  color:var(--coral-deep);font-weight:500;background:var(--ex-bg);border:1px solid var(--ex-line);
+  border-radius:999px;padding:4px 13px;margin:var(--sp-4) 0 var(--sp-1)}
+
+/* tarjeta de curso recomendado (decisor) — logo + resumen + precio + checkout */
+.course-card{margin-top:16px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--paper);box-shadow:var(--shadow)}
+.course-card .cc-top{display:flex;align-items:center;gap:13px;padding:16px 18px;background:var(--cream-2);border-bottom:1px solid var(--line)}
+.course-card .cc-logo{height:34px;width:34px;object-fit:contain;flex-shrink:0}
+.course-card .cc-logo.chip{height:auto;width:auto;padding:5px}
+.course-card .cc-ttl{font-family:"Bricolage Grotesque",serif;font-weight:800;font-size:1.12rem;color:var(--ink);line-height:1.15}
+.course-card .cc-ttl small{display:block;font-family:"Hanken Grotesk",sans-serif;font-weight:600;font-size:.76rem;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--coral-deep);margin-top:3px}
+.course-card .cc-body{padding:16px 18px}
+.course-card .cc-sum{font-size:.94rem;color:var(--ink-2);margin:0 0 12px}
+.course-card .cc-feat{list-style:none;margin:0 0 14px;display:grid;gap:7px}
+.course-card .cc-feat li{position:relative;padding-left:24px;font-size:.92rem;color:var(--ink-2)}
+.course-card .cc-feat li::before{content:"✓";position:absolute;left:0;top:0;color:var(--sol-ink);font-weight:800}
+.course-card .cc-foot{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between;
+  padding-top:13px;border-top:1px solid var(--line)}
+.course-card .cc-price{font-size:.95rem;color:var(--ink-2)}
+.course-card .cc-price b{font-size:1.15rem;color:var(--coral-deep)}
+.course-card .cc-foot .btn{margin-left:auto}
 </style>
 </head>
 <body>
@@ -1527,29 +1624,49 @@ datos reales: [pegá acá precios, políticas, tono, o lo que corresponda].</pre
 <a href="#glosario" class="floater" aria-label="Abrir el glosario"><span class="ic">💬</span> ¿Qué significa esto?</a>
 
 <script>
-/* ── partículas SOLO en el hero (pastel coral/ámbar, pocas, lentas) ── */
+/* ── red de partículas SOLO en el hero — mismo motor que la página de venta
+      (puntos + LÍNEAS que los conectan, movimiento perceptible), adaptado al
+      mundo CLARO del PRE: coral/ámbar pastel, puntos chicos, elegante.
+      pointer-events:none, hero únicamente, prefers-reduced-motion respetado. ── */
 (function(){
   var c=document.getElementById('hero-bg'); if(!c) return;
-  var hero=c.parentElement.querySelector('.wrap')?c.parentElement:c.parentElement;
   var ctx=c.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2);
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var COLORS=[[255,107,74],[244,169,59]];
+  var CORAL='226,75,39', AMBER='217,138,31';   /* --coral / --amber en rgb */
+  var LINK=150, LINK2=LINK*LINK;               /* radio de conexión (px) */
   var W,H,pts,raf;
-  function box(){var r=c.parentElement.getBoundingClientRect();W=r.width;H=r.height;}
-  function resize(){box();c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
-    var n=Math.min(26,Math.max(12,Math.floor(W/46)));pts=[];
-    for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,
-      r:1.5+Math.random()*3.5,vx:(Math.random()-.5)*.16,vy:(Math.random()-.5)*.16,
-      col:COLORS[i%2],a:.16+Math.random()*.20});}
-  function draw(move){ctx.clearRect(0,0,W,H);var i,p;
-    for(i=0;i<pts.length;i++){p=pts[i];if(move){p.x+=p.vx;p.y+=p.vy;
-      if(p.x<-10)p.x=W+10;if(p.x>W+10)p.x=-10;if(p.y<-10)p.y=H+10;if(p.y>H+10)p.y=-10;}
-      ctx.fillStyle='rgba('+p.col[0]+','+p.col[1]+','+p.col[2]+','+p.a.toFixed(3)+')';
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.2832);ctx.fill();}}
-  function loop(){draw(true);raf=requestAnimationFrame(loop);}
-  resize();
-  window.addEventListener('resize',function(){cancelAnimationFrame(raf);resize();reduce?draw(false):loop();});
-  reduce?draw(false):loop();
+  function resize(){
+    W=c.clientWidth;H=c.clientHeight;
+    if(W<2||H<2){var r=c.parentElement.getBoundingClientRect();W=r.width;H=r.height;}
+    c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.min(46,Math.max(20,Math.floor(W*H/13000)));
+    pts=[];for(var i=0;i<n;i++)pts.push({
+      x:Math.random()*W,y:Math.random()*H,
+      vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,
+      r:1.1+Math.random()*1.4, amber:i%3===0});
+  }
+  function frame(move){
+    ctx.clearRect(0,0,W,H);
+    var i,j,a,b,dx,dy,d,o;
+    if(move)for(i=0;i<pts.length;i++){a=pts[i];a.x+=a.vx;a.y+=a.vy;
+      if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;}
+    for(i=0;i<pts.length;i++)for(j=i+1;j<pts.length;j++){
+      a=pts[i];b=pts[j];dx=a.x-b.x;dy=a.y-b.y;d=dx*dx+dy*dy;
+      if(d<LINK2){
+        o=(1-d/LINK2)*.28;
+        ctx.strokeStyle='rgba('+CORAL+','+o.toFixed(3)+')';
+        ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+      }
+    }
+    for(i=0;i<pts.length;i++){a=pts[i];
+      ctx.fillStyle='rgba('+(a.amber?AMBER:CORAL)+',.55)';
+      ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,6.283);ctx.fill();}
+  }
+  function loop(){frame(true);raf=requestAnimationFrame(loop);}
+  function start(){cancelAnimationFrame(raf);resize();reduce?frame(false):loop();}
+  start();
+  window.addEventListener('resize',start);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(start);
 })();
 
 /* ── glosario: acordeón (una abierta a la vez) + búsqueda ── */
