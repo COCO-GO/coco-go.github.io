@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Tu primer resultado real con IA — COCO GO (gratis)</title>
+<meta name="description" content="Mini-curso gratis: en una sesión resolvés una tarea real de tu negocio con IA, usando tus propios datos. El patrón contexto + tarea + formato, un glosario para que ninguna palabra te frene, y con qué herramienta seguir." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Tu primer resultado real con IA — COCO GO" />
+<meta property="og:description" content="Una sesión. Una tarea de tu negocio resuelta con tus propios datos. Y sabés con qué herramienta seguir. Gratis, sin código de acceso." />
+<meta property="og:site_name" content="COCO GO" />
+<meta property="og:url" content="https://coco-go.lat/pre/" />
+<meta property="og:image" content="https://coco-go.lat/pre/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="es_AR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Tu primer resultado real con IA — COCO GO" />
+<meta name="twitter:description" content="Gratis: resolvé una tarea de tu negocio con IA en una sola sesión, con tus datos reales. Y descubrí con qué herramienta seguir." />
+<meta name="twitter:image" content="https://coco-go.lat/pre/og.png" />
+<meta name="theme-color" content="#FBF6EE" />
+<link rel="canonical" href="https://coco-go.lat/pre/" />
+<link rel="icon" type="image/svg+xml" href="../assets/logo-coco-go.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   COCO GO · PRE (mundo CLARO CREMA) — patrones nuevos, NO tocan assets/style.css
+   Gate visual cerrado por Pablo 2026-07-16: crema + navy + coral/ámbar ·
+   híbrido mapa+anclas · partículas solo hero + micro-entrada CSS.
+   ═══════════════════════════════════════════════════════════════════ */
+:root{
+  --cream:#FBF6EE;        /* fondo base cálido */
+  --cream-2:#F5ECDE;      /* banda más profunda */
+  --paper:#FFFFFF;        /* cards */
+  --ink:#182338;          /* navy titulos */
+  --ink-2:#3B4761;        /* cuerpo */
+  --muted:#6E7488;        /* micro-labels */
+  --coral:#E24B27;        /* acento marca */
+  --coral-soft:#FF6B4A;
+  --coral-deep:#B8371A;
+  --amber:#D98A1F;
+  --amber-soft:#F4A93B;
+  --line:#EADFCD;         /* borde cálido */
+  --line-2:#E2D5BF;
+  /* ritmo de bloque (reskin claro de las cards de fábrica) */
+  --sol-bg:#EAF6EE; --sol-line:#BFE3CB; --sol-ink:#217A47;
+  --warn-bg:#FBF1DA; --warn-line:#EBD59B; --warn-ink:#9A6B10;
+  --ex-bg:#FDEDE6; --ex-line:#F4C9B7; --ex-ink:#C1401E;
+  --plt-bg:#F6F1E7; --plt-line:#E4D8C2; --plt-ink:#5A5138;
+  --shadow:0 1px 2px rgba(24,35,56,.04), 0 10px 30px rgba(24,35,56,.06);
+  --shadow-lg:0 2px 4px rgba(24,35,56,.05), 0 22px 50px rgba(24,35,56,.10);
+  --radius:18px;
+  --maxw:920px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{
+  font-family:"Hanken Grotesk",-apple-system,system-ui,sans-serif;
+  background:var(--cream);
+  color:var(--ink-2);
+  font-size:16px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+@media(max-width:520px){ body{font-size:15px} }
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:"Bricolage Grotesque",serif;color:var(--ink);line-height:1.12;letter-spacing:-.015em;font-weight:700}
+p{margin:0 0 1em}
+a{color:var(--coral);text-decoration:none}
+strong,b{color:var(--ink);font-weight:700}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.center{text-align:center}
+
+/* skip link */
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200}
+.skip:focus{left:0}
+
+/* ── foco visible AA ── */
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,.gterm:focus-visible,label:focus-visible{
+  outline:3px solid var(--coral);outline-offset:3px;border-radius:6px}
+
+/* ═══ HERO ═══ */
+.hero{position:relative;overflow:hidden;background:
+   radial-gradient(1200px 520px at 82% -12%, rgba(255,107,74,.16), transparent 60%),
+   radial-gradient(760px 460px at 4% 8%, rgba(244,169,59,.14), transparent 58%),
+   var(--cream);
+   border-bottom:1px solid var(--line)}
+#hero-bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.hero .wrap{position:relative;z-index:1;padding-top:26px;padding-bottom:52px}
+.brandbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:46px}
+.brandbar img{height:34px;width:auto}
+.brandbar .backlink{font-size:.86rem;color:var(--ink-2);font-weight:600;display:inline-flex;align-items:center;gap:5px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:1px solid var(--line-2);
+  color:var(--coral-deep);font-weight:700;font-size:.74rem;letter-spacing:.11em;text-transform:uppercase;
+  padding:7px 15px;border-radius:999px;box-shadow:var(--shadow);margin-bottom:22px}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--coral-soft)}
+.hero h1{font-size:clamp(2.35rem,7.2vw,4.15rem);font-weight:800;letter-spacing:-.03em;max-width:15ch}
+.hero h1 .hl{color:var(--coral);position:relative;white-space:nowrap}
+.hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.16em;
+  background:rgba(244,169,59,.42);z-index:-1;border-radius:3px}
+.hero .sub{font-size:clamp(1.05rem,2.6vw,1.32rem);color:var(--ink-2);max-width:44ch;margin:22px 0 30px;font-weight:500}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:"Hanken Grotesk",sans-serif;font-weight:700;
+  font-size:1rem;padding:14px 26px;border-radius:999px;cursor:pointer;border:1.5px solid transparent;transition:transform .16s ease,box-shadow .16s ease,background .16s ease;text-decoration:none;line-height:1}
+.btn-primary{background:var(--coral);color:#fff;box-shadow:0 8px 22px rgba(226,75,39,.28)}
+.btn-primary:hover{background:var(--coral-deep);transform:translateY(-2px)}
+.btn-ghost{background:var(--paper);color:var(--ink);border-color:var(--line-2);box-shadow:var(--shadow)}
+.btn-ghost:hover{border-color:var(--coral);color:var(--coral-deep);transform:translateY(-2px)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:26px;font-size:.9rem;color:var(--muted);font-weight:600}
+.hero-meta span{display:inline-flex;align-items:center;gap:7px}
+.hero-meta .ic{color:var(--coral-soft)}
+
+/* teaser chips glosario */
+.teaser{margin-top:34px;padding:16px 18px;background:var(--paper);border:1px solid var(--line);border-radius:16px;
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;box-shadow:var(--shadow)}
+.teaser .lead{font-weight:700;color:var(--ink);font-size:.92rem}
+.teaser a.chip{font-family:"JetBrains Mono",monospace;font-size:.82rem;background:var(--cream-2);border:1px solid var(--line-2);
+  color:var(--ink-2);padding:5px 12px;border-radius:999px;font-weight:500;text-decoration:none}
+.teaser a.chip:hover{border-color:var(--coral);color:var(--coral-deep)}
+.teaser .qmark{margin-left:auto;font-weight:700;color:var(--coral-deep);font-size:.9rem;text-decoration:underline;text-underline-offset:3px}
+
+/* ═══ SECCIONES / RITMO ═══ */
+section{padding:58px 0}
+.band{background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.76rem;font-weight:800;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--coral-deep);margin-bottom:14px}
+.eyebrow .num{font-family:"JetBrains Mono",monospace;background:var(--coral);color:#fff;width:26px;height:26px;
+  border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:.82rem;letter-spacing:0}
+.sec-title{font-size:clamp(1.7rem,4.4vw,2.5rem);font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+.sec-lead{font-size:1.08rem;color:var(--ink-2);max-width:60ch;margin-bottom:8px}
+.sec-note{font-size:.9rem;color:var(--muted);max-width:66ch;margin-bottom:22px}
+h3.block-h{font-size:1.28rem;margin:34px 0 12px;font-weight:700}
+h4.block-h{font-size:1.06rem;margin:24px 0 8px;font-weight:700;color:var(--ink)}
+.lead-in{font-size:1.05rem}
+
+/* micro-entrada */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,.8,.3,1),transform .6s cubic-bezier(.16,.8,.3,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1 !important;transform:none !important;transition:none}}
+
+/* cards de ritmo (mundo claro) */
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);margin:18px 0}
+.card > :last-child{margin-bottom:0}
+.card .k{display:block;font-size:.74rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;margin-bottom:9px}
+.card-sol{background:var(--sol-bg);border-color:var(--sol-line)} .card-sol .k{color:var(--sol-ink)}
+.card-warn{background:var(--warn-bg);border-color:var(--warn-line)} .card-warn .k{color:var(--warn-ink)}
+.card-ex{background:var(--ex-bg);border-color:var(--ex-line)} .card-ex .k{color:var(--ex-ink)}
+.card-plt{background:var(--plt-bg);border-color:var(--plt-line)} .card-plt .k{color:var(--plt-ink)}
+.card-step{background:var(--paper);border-left:4px solid var(--coral-soft)}
+.card-quote{background:var(--paper);border-left:4px solid var(--amber-soft);font-style:normal}
+.card-quote p{color:var(--ink);font-weight:500}
+
+/* términos del glosario en el cuerpo */
+.term{color:var(--ink);text-decoration:underline;text-decoration-color:var(--coral-soft);
+  text-decoration-thickness:2px;text-underline-offset:2px;cursor:help;font-weight:600}
+.term:hover{color:var(--coral-deep);text-decoration-color:var(--coral)}
+
+/* tablas */
+.table-wrap{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:440px;background:var(--paper);font-size:.95rem}
+th,td{text-align:left;padding:11px 15px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--cream-2);color:var(--ink);font-weight:700;font-size:.82rem;letter-spacing:.02em;
+  text-transform:uppercase;position:sticky;top:0}
+tbody tr:last-child td{border-bottom:none}
+td strong{color:var(--ink)}
+table code{font-family:"JetBrains Mono",monospace;font-size:.86em;background:var(--cream-2);padding:1px 6px;border-radius:6px;color:var(--ink-2)}
+
+/* chat mock */
+.chat{border:1px solid var(--line);border-radius:16px;background:var(--cream);padding:14px;margin:16px 0;box-shadow:var(--shadow)}
+.chat .msg{padding:11px 15px;border-radius:13px;margin:8px 0;max-width:94%}
+.chat .who{display:block;font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;opacity:.7}
+.chat .msg p{margin:0;white-space:pre-wrap;font-size:.96rem}
+.chat .you{background:#FDECE6;border:1px solid var(--ex-line);color:var(--ink);margin-left:auto}
+.chat .you .who{color:var(--coral-deep)}
+.chat .ai{background:var(--paper);border:1px solid var(--line-2);color:var(--ink-2)}
+.chat .ai .who{color:var(--amber)}
+
+/* prompt block + copiar */
+.prompt{background:#F6F1E7;border:1px solid var(--plt-line);border-radius:14px;overflow:hidden;margin:14px 0;box-shadow:var(--shadow)}
+.prompt .top{display:flex;justify-content:space-between;align-items:center;gap:10px;
+  background:var(--cream-2);padding:8px 14px;border-bottom:1px solid var(--plt-line)}
+.prompt .top span{font-family:"JetBrains Mono",monospace;font-size:.74rem;color:var(--plt-ink);font-weight:500;letter-spacing:.02em}
+.prompt .copy{font-family:"Hanken Grotesk",sans-serif;font-size:.78rem;font-weight:700;color:#fff;background:var(--ink);
+  border:none;border-radius:8px;padding:6px 13px;cursor:pointer;transition:background .15s}
+.prompt .copy:hover{background:var(--coral-deep)}
+.prompt pre{font-family:"JetBrains Mono",monospace;font-size:.86rem;line-height:1.6;color:var(--ink);
+  padding:15px 16px;white-space:pre-wrap;word-break:break-word;overflow-x:auto}
+
+/* uimock */
+.uimock{border:2px dashed var(--line-2);border-radius:14px;background:var(--cream);padding:18px 20px;margin:16px 0;
+  display:flex;gap:13px;align-items:flex-start;color:var(--ink-2)}
+.uimock .ic{font-size:1.5rem;line-height:1;flex-shrink:0}
+.uimock .cap{font-size:.94rem}
+.uimock .cap b{color:var(--ink)}
+
+/* listas checklist / bullets */
+.ul-clean{list-style:none;margin:8px 0 0}
+.ul-clean li{position:relative;padding-left:26px;margin-bottom:8px}
+.ul-clean li::before{content:"→";position:absolute;left:0;top:0;color:var(--coral-soft);font-weight:800}
+.checklist{list-style:none;margin:6px 0 0}
+.checklist li{position:relative;padding-left:32px;margin-bottom:10px;font-size:.98rem}
+.checklist li::before{content:"";position:absolute;left:0;top:2px;width:20px;height:20px;border:2px solid var(--sol-line);
+  border-radius:6px;background:var(--paper)}
+.checklist li::after{content:"✓";position:absolute;left:4px;top:0px;color:var(--sol-ink);font-weight:800;font-size:.9rem}
+
+/* mapa de curso */
+.map-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:16px;margin-top:6px}
+.map-card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px;
+  box-shadow:var(--shadow);text-decoration:none;color:var(--ink-2);transition:transform .18s ease,box-shadow .18s ease,border-color .18s}
+.map-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--coral)}
+.map-card .mnum{font-family:"JetBrains Mono",monospace;font-size:.8rem;font-weight:500;color:var(--coral-deep);
+  background:var(--ex-bg);border:1px solid var(--ex-line);width:34px;height:34px;border-radius:10px;
+  display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px}
+.map-card h3{font-size:1.12rem;margin-bottom:6px}
+.map-card .desc{font-size:.9rem;color:var(--ink-2);margin-bottom:12px}
+.map-card .time{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:700;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.06em}
+.map-card .go{font-size:.85rem;font-weight:700;color:var(--coral-deep);margin-top:10px;display:block}
+.map-extra{margin-top:16px;background:var(--paper);border:1px dashed var(--line-2);border-radius:16px;padding:18px 20px;
+  display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;box-shadow:var(--shadow)}
+.map-extra p{margin:0;font-size:.95rem}
+.takeaways{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:22px}
+.takeaway{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.takeaway .n{font-family:"JetBrains Mono",monospace;color:var(--coral-deep);font-weight:500;font-size:.85rem}
+.takeaway p{margin:6px 0 0;font-size:.94rem;color:var(--ink-2)}
+
+/* ═══ GLOSARIO ═══ */
+.gloss-head{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;justify-content:space-between;margin-bottom:8px}
+.gloss-search{display:flex;align-items:center;gap:9px;background:var(--paper);border:1px solid var(--line-2);
+  border-radius:999px;padding:9px 18px;box-shadow:var(--shadow);min-width:250px;flex:1;max-width:360px}
+.gloss-search span{color:var(--muted)}
+.gloss-search input{border:none;background:none;outline:none;font-family:inherit;font-size:.96rem;color:var(--ink);width:100%}
+.gloss-count{font-size:.84rem;color:var(--muted);font-weight:600}
+.gloss-list{margin-top:22px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.gitem{background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;
+  align-self:start;scroll-margin-top:24px}
+.gitem:target{border-color:var(--coral);box-shadow:0 0 0 3px rgba(255,107,74,.22),var(--shadow)}
+.gterm{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;
+  background:none;border:none;cursor:pointer;font-family:"Bricolage Grotesque",serif;font-weight:700;
+  font-size:1rem;color:var(--ink);padding:15px 17px;line-height:1.25}
+.gterm .chev{color:var(--coral-soft);font-size:1.3rem;font-weight:400;transition:transform .2s;flex-shrink:0}
+.gterm.open .chev{transform:rotate(45deg)}
+.gdef{max-height:0;overflow:hidden;transition:max-height .28s ease}
+.gdef-in{padding:0 17px 16px}
+.gdef p{margin:0 0 9px;font-size:.92rem;color:var(--ink-2)}
+.gdef .egline{font-size:.9rem;color:var(--ink-2)}
+.gdef .egline b{color:var(--ink)}
+.gdef .hear{font-size:.86rem;color:var(--muted);font-style:italic}
+.gdef .micro-cta{margin-top:8px;font-size:.86rem;color:var(--coral-deep);font-weight:600;
+  background:var(--ex-bg);border:1px solid var(--ex-line);border-radius:10px;padding:8px 11px}
+.gloss-close{margin-top:26px;background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--amber-soft);
+  border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+.gloss-close p{margin:0 0 8px;color:var(--ink)}
+.gloss-close p:last-child{margin:0;font-size:.92rem;color:var(--ink-2)}
+
+/* botón flotante ¿Qué significa esto? */
+.floater{position:fixed;right:16px;bottom:16px;z-index:120;background:var(--ink);color:#fff;font-weight:700;
+  font-size:.86rem;padding:12px 18px;border-radius:999px;box-shadow:0 10px 28px rgba(24,35,56,.28);
+  display:inline-flex;align-items:center;gap:8px;text-decoration:none;border:1.5px solid rgba(255,255,255,.14)}
+.floater:hover{background:var(--coral-deep);color:#fff}
+.floater .ic{font-size:1rem}
+
+/* cierre de sección + next */
+.sec-close{margin-top:30px}
+.next{margin-top:22px;background:
+   radial-gradient(600px 200px at 90% 0%, rgba(255,107,74,.10), transparent 70%),var(--paper);
+   border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow);
+   display:flex;flex-direction:column}
+.next .kicker{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--coral-deep);margin-bottom:6px}
+.next h3{font-size:1.22rem;margin-bottom:5px}
+.next h3 .c{color:var(--coral)}
+.next p{font-size:.95rem;color:var(--ink-2);margin-bottom:16px}
+.next .go{align-self:flex-end}
+
+/* comparativa herramientas */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:8px 0 6px}
+.tool-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow)}
+.tool-card .hd{display:flex;align-items:center;gap:11px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.tool-card .hd img{height:26px;width:26px;object-fit:contain}
+.tool-card .hd .nm{font-family:"Bricolage Grotesque",serif;font-weight:800;font-size:1.2rem;color:var(--ink)}
+.tool-row{margin-bottom:10px;font-size:.93rem}
+.tool-row .lb,.tool-course .lb{display:block;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.tool-course{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);font-size:.92rem}
+.tool-course .cn{font-weight:700;color:var(--ink)}
+.tool-course .pr{color:var(--coral-deep);font-weight:700}
+.tool-frase{margin-top:12px;font-size:.92rem;font-style:italic;color:var(--ink-2)}
+
+/* decisor */
+.decisor{background:var(--paper);border:1px solid var(--line-2);border-radius:18px;padding:26px 24px;box-shadow:var(--shadow-lg);margin:16px 0}
+.decisor .dnote{font-size:.88rem;color:var(--muted);margin-bottom:20px}
+.dq{margin-bottom:22px}
+.dq > .qh{font-weight:700;color:var(--ink);font-size:1.05rem;margin-bottom:12px;display:block}
+.dq .qh .qn{font-family:"JetBrains Mono",monospace;color:var(--coral-deep);margin-right:7px}
+.dopts{display:grid;gap:9px}
+.dopt{display:flex;gap:11px;align-items:flex-start;background:var(--cream);border:1.5px solid var(--line);
+  border-radius:12px;padding:12px 15px;cursor:pointer;transition:border-color .15s,background .15s}
+.dopt:hover{border-color:var(--coral-soft)}
+.dopt input{margin-top:4px;accent-color:var(--coral);width:17px;height:17px;flex-shrink:0}
+.dopt.sel{border-color:var(--coral);background:#FDECE6}
+.dopt span{font-size:.95rem;color:var(--ink-2)}
+.decisor .drun{margin-top:6px}
+.dhint{font-size:.85rem;color:var(--muted);margin-top:10px}
+.dresult{margin-top:22px;border:1px solid var(--coral);border-radius:16px;padding:24px;background:
+   radial-gradient(500px 200px at 100% 0%, rgba(244,169,59,.14), transparent 70%),var(--paper);box-shadow:var(--shadow-lg)}
+.dresult.hidden{display:none}
+.dresult .rt{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.dresult .rt img{height:30px;width:30px;object-fit:contain}
+.dresult .rt h3{font-size:1.35rem}
+.dresult .why{font-size:.98rem;color:var(--ink-2);margin:10px 0}
+.dresult .free{font-size:.92rem;color:var(--ink-2);background:var(--sol-bg);border:1px solid var(--sol-line);
+  border-radius:10px;padding:10px 13px;margin:10px 0}
+.dresult .empate{font-size:.9rem;color:var(--warn-ink);background:var(--warn-bg);border:1px solid var(--warn-line);
+  border-radius:10px;padding:10px 13px;margin:10px 0}
+.dresult .rcta{display:flex;justify-content:flex-end;margin-top:14px}
+.price-tag{font-weight:800;color:var(--coral-deep)}
+
+/* CTA final */
+.finalcta{background:
+   radial-gradient(700px 300px at 15% 0%, rgba(255,107,74,.14), transparent 65%),
+   radial-gradient(600px 300px at 90% 100%, rgba(244,169,59,.13), transparent 60%),var(--cream-2);
+   border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.finalcta .box{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:34px 30px;
+  box-shadow:var(--shadow-lg);text-align:center}
+.finalcta h2{font-size:clamp(1.6rem,4vw,2.3rem);margin-bottom:12px}
+.finalcta p{max-width:52ch;margin:0 auto 10px;color:var(--ink-2)}
+.finalcta .price{font-size:1.1rem;font-weight:800;color:var(--coral-deep);margin:14px 0 4px}
+.finalcta .cta-note{font-size:.86rem;color:var(--muted);margin-top:14px}
+
+/* footer */
+footer{background:var(--cream);border-top:1px solid var(--line);padding:44px 0 40px;text-align:center}
+.foot-home{display:inline-flex;justify-content:center;align-items:center;margin-bottom:16px;line-height:0}
+.foot-logo{width:min(190px,60vw);height:auto;opacity:.96}
+footer .socs{display:flex;justify-content:center;gap:16px;margin:6px 0 14px}
+footer .socs a{color:var(--ink-2)}
+footer .socs svg{width:22px;height:22px;fill:currentColor}
+footer .socs a:hover{color:var(--coral-deep)}
+footer p{font-size:.9rem;color:var(--muted);margin:6px 0}
+footer p a{color:var(--coral-deep);font-weight:600}
+
+/* util */
+.small{font-size:.86rem;color:var(--muted)}
+.divider{height:1px;background:var(--line);border:none;margin:34px 0}
+.pill-inline{font-family:"JetBrains Mono",monospace;font-size:.85em;background:var(--cream-2);border:1px solid var(--line-2);
+  padding:1px 7px;border-radius:6px;color:var(--ink-2)}
+.task-anchor{scroll-margin-top:20px}
+</style>
+</head>
+<body>
+<a href="#n1" class="skip">Saltar al contenido</a>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <canvas id="hero-bg" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="brandbar">
+      <a href="../" aria-label="COCO GO — todos los cursos"><img src="../assets/logo-coco-go.svg" alt="COCO GO"></a>
+      <a href="../" class="backlink">← Más cursos</a>
+    </div>
+    <span class="hero-badge"><span class="dot"></span>Curso gratis · acceso libre</span>
+    <h1>Tu primer resultado <span class="hl">real</span> con IA</h1>
+    <p class="sub">Una sesión. Una tarea de tu negocio resuelta con tus propios datos. Y sabés con qué herramienta seguir.</p>
+    <div class="hero-cta">
+      <a href="#mapa" class="btn btn-primary">Empezar la sesión →</a>
+      <a href="#glosario" class="btn btn-ghost">¿Qué significa esto?</a>
+    </div>
+    <div class="hero-meta">
+      <span><span class="ic">◷</span> Una sentada (celular o compu)</span>
+      <span><span class="ic">✦</span> 4 secciones + glosario</span>
+      <span><span class="ic">↓</span> Salís con un archivo real</span>
+    </div>
+    <div class="teaser">
+      <span class="lead">Palabras que vas a escuchar hoy — tocá para entender:</span>
+      <a class="chip" href="#g-prompt">prompt</a>
+      <a class="chip" href="#g-alucinar">alucinar</a>
+      <a class="chip" href="#g-contexto">contexto</a>
+      <a class="chip" href="#g-revisar">revisar</a>
+      <a class="qmark" href="#glosario">Ver glosario →</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════ MAPA DEL CURSO ═══════════════ -->
+<section id="mapa" class="wrap">
+  <div class="reveal">
+    <span class="eyebrow"><span class="num">◆</span> Qué vas a hacer en esta sesión</span>
+    <h2 class="sec-title">El mapa de la sesión</h2>
+    <p class="sec-lead">Cuatro pasos, en orden. Cada uno tiene su ancla: tocás la card y vas directo. Los minutos son de <strong>hacer</strong>, no de leer de un tirón.</p>
+  </div>
+  <div class="map-grid reveal">
+    <a class="map-card" href="#n1">
+      <span class="mnum">01</span>
+      <h3>La estás usando como Google</h3>
+      <p class="desc">El clic: buscar vs. hacer con tus datos.</p>
+      <span class="time">◷ ~5 min de acción</span>
+      <span class="go">Ir a la sección →</span>
+    </a>
+    <a class="map-card" href="#n2">
+      <span class="mnum">02</span>
+      <h3>El patrón</h3>
+      <p class="desc">Cómo pedirle: contexto + tarea + formato.</p>
+      <span class="time">◷ ~7 min de acción</span>
+      <span class="go">Ir a la sección →</span>
+    </a>
+    <a class="map-card" href="#n3">
+      <span class="mnum">03</span>
+      <h3>Tu resultado real</h3>
+      <p class="desc">Una tarea real (menú de 6) + revisar + guardar.</p>
+      <span class="time">◷ el de tu tarea</span>
+      <span class="go">Ir a la sección →</span>
+    </a>
+    <a class="map-card" href="#n4">
+      <span class="mnum">04</span>
+      <h3>¿Con cuál seguís?</h3>
+      <p class="desc">Comparativa de las 4 + decisor → un básico.</p>
+      <span class="time">◷ ~7 min de acción</span>
+      <span class="go">Ir a la sección →</span>
+    </a>
+  </div>
+  <div class="map-extra reveal">
+    <p><strong>También:</strong> el glosario <em>Para que ninguna palabra te frene</em>. Tocá las palabras <span class="term">subrayadas</span> cuando aparezcan, o abrí el botón <em>¿Qué significa esto?</em>.</p>
+    <a href="#glosario" class="btn btn-ghost" style="padding:10px 18px;font-size:.9rem">Ver glosario →</a>
+  </div>
+  <div class="reveal">
+    <h3 class="block-h">Qué te llevás</h3>
+    <div class="takeaways">
+      <div class="takeaway"><span class="n">01</span><p>Un resultado en <span class="pill-inline">Sistema IA/</span> (<span class="pill-inline">01-primer-resultado</span> o <span class="pill-inline">02-resultado-emprendedor</span>).</p></div>
+      <div class="takeaway"><span class="n">02</span><p>El prompt universal de refinamiento (<span class="pill-inline">00-prompt-universal-refinamiento</span>).</p></div>
+      <div class="takeaway"><span class="n">03</span><p>Claridad de <strong>con qué herramienta y curso</strong> seguir.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ANTES DE EMPEZAR (privacidad + planes) ═══════════════ -->
+<section class="band">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow"><span class="num">✓</span> Antes de empezar</span>
+      <h2 class="sec-title">Dos cosas en claro</h2>
+    </div>
+    <div class="card card-plt reveal">
+      <span class="k">🔒 Privacidad de tus datos</span>
+      <p>Lo que pegás en un chat (precios, nombres de clientes, políticas) <strong>sale de tu dispositivo hacia el servicio</strong> de esa herramienta. No es un bloc de notas local.</p>
+      <p style="margin-bottom:6px"><strong>Hábitos simples para esta sesión:</strong></p>
+      <ul class="ul-clean">
+        <li>Preferí datos <strong>necesarios</strong> para la tarea; no hace falta pegar DNI, tarjetas ni secretos de más.</li>
+        <li>Si un dato es muy sensible, <strong>anonimizá</strong> (“Cliente A”, “precio X”) o usá un caso real sin datos banales.</li>
+        <li>Revisá siempre el borrador antes de mandarlo a un cliente: la IA puede inventar promesas.</li>
+        <li>Cada herramienta tiene su propia política de privacidad y planes; acá no las reemplazamos.</li>
+      </ul>
+      <p style="margin-top:12px"><strong>En una línea:</strong> tratá el chat como un ayudante externo — útil, no un cajón fuerte de tu negocio.</p>
+    </div>
+    <div class="card card-step reveal">
+      <span class="k" style="color:var(--coral-deep)">💳 Plan gratis / pago de las herramientas</span>
+      <p>Las cuatro herramientas grandes (ChatGPT, Claude, Gemini y Grok) tienen un <a href="#g-plan" class="term">acceso gratis</a> usable para <strong>toda esta sesión</strong> (pedidos de texto, borradores, reescrituras). También ofrecen planes pagos con más capacidad.</p>
+      <p>Los límites y precios de <strong>esas</strong> suscripciones <strong>cambian</strong>: no los fijamos acá. Para los resultados de hoy <strong>no hace falta pagar</strong>.</p>
+      <p style="margin-bottom:0">Cuando elijas profundizar, el precio del siguiente paso <strong>COCO GO</strong> (curso básico de la herramienta) es <span class="price-tag">US$11,99</span> — ver sección <a href="#n4"><em>¿Con cuál seguís?</em></a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ GLOSARIO ═══════════════ -->
+<section id="glosario" class="wrap">
+  <div class="reveal">
+    <span class="eyebrow"><span class="num">✦</span> El gancho dentro del gancho</span>
+    <h2 class="sec-title">Para que ninguna palabra te frene</h2>
+    <p class="sec-lead">Las palabras que más se repiten cuando se habla de IA, en criollo y con un ejemplo de negocio real. Buscá o tocá una para abrirla. Cada una la podés capturar o compartir sola.</p>
+  </div>
+  <div class="gloss-head reveal">
+    <div class="gloss-search"><span aria-hidden="true">🔎</span><input id="gloss-q" placeholder="Buscar un término…" autocomplete="off" aria-label="Buscar un término del glosario"></div>
+    <span class="gloss-count"><span id="gloss-shown">26</span> de 26 palabras</span>
+  </div>
+  <div class="gloss-list reveal" id="gloss-list">
+
+    <div class="gitem" id="g-ia"><button class="gterm">la IA<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Programa que responde en lenguaje natural: le escribís y te contesta como en una charla. En esta sesión, “la IA” es el chat que ya usás o podés abrir con acceso gratis.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> En la ferretería, es donde pegás el reclamo de un cliente y pedís el borrador de la respuesta de WhatsApp.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan “preguntale a la IA”, “pasalo por la IA” o “la uso como un Google”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-ia-generativa"><button class="gterm">IA generativa<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Tipo de IA que <strong>crea</strong> texto nuevo (y a veces imagen u otros) a partir de tu pedido. No solo encuentra una página: genera un borrador con lo que le diste.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> En el almacén, le pedís un cartel de promo del fin de semana y te devuelve el texto listo para mandar al grupo del barrio.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Hablen de “generar un texto”, “contenido con IA” o “que te arme el mail”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-prompt"><button class="gterm">prompt<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>El mensaje que le mandás al chat: tu pedido completo. Un buen prompt no es una frase mágica: es <strong>contexto + tarea + formato</strong> con datos reales.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> En el vivero: “Somos Los Álamos… redactá la respuesta a este cliente… WhatsApp en 5 líneas…” — eso entero es el prompt.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan “tirale un buen prompt”, “el prompt está mal” o “compartime el prompt”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-alucinar"><button class="gterm">alucinar<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Cuando la IA <strong>inventa</strong> un dato, un precio, una cláusula o un hecho que suena creíble pero no es verdad (o no lo sabe). Por eso se revisa antes de mandar.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> Le pedís un presupuesto y pone “envío gratis a todo el país” aunque tu ferretería no ofrece envío.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Alguien diga “me inventó una cláusula”, “alucinó el precio” o “no le creo nada”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-contexto"><button class="gterm">contexto<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>La información de fondo que la IA necesita: tu rubro, tu cliente, tus reglas, lo que pasó, tus números. Sin contexto, el resultado es genérico.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> “Almacén Don Pepe, 8 kg de tybo que vence en 10 días” es contexto. “Dame una promo” sin eso no alcanza.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Te digan “dale más contexto” o “pegá el mensaje del cliente en el contexto”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-tarea"><button class="gterm">tarea / instrucción clara<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Lo que querés que <strong>haga</strong>, con un verbo concreto: redactá, listá, reescribí, ordená. No “algo sobre mi negocio”; sí “respondé este mensaje”.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> “Armame el presupuesto en tabla con total” es tarea clara. “Ayudame con los números” es vago.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Hablen de “instrucciones claras” o “la tarea estaba mal planteada”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-formato"><button class="gterm">formato<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Cómo querés la respuesta: canal, largo, estructura, tono, lo que no querés. Define el envase del resultado.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> “WhatsApp, 5 líneas, tono de vecino, sin prometer plazos que no manejo” es formato.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan “pedile el formato”, “en bullets” o “máximo N líneas”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-revisar"><button class="gterm">revisar / repreguntar<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p><strong>Revisar:</strong> leer el borrador con criterio de dueño (datos, promesas, tono, formato).<br><strong>Repreguntar:</strong> pedir una reescritura con fallas nombradas y datos extra — no solo “mejorámelo”.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> El chat inventó un 20% de descuento; lo tachás en la revisión y repregunta: “borrá el descuento; no lo ofrezco”.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan “siempre revisá lo que te da” o “pedile otra vez con más datos”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-prompt-universal"><button class="gterm">prompt universal<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Plantilla fija de refinamiento: explicás por qué no te sirve el borrador y pedís que lo rehaga con tus datos reales. Sirve en cualquier chat y cualquier tarea.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> “No me sirve porque es genérica… volvé a hacerla con estos precios y esta política de cambios.”</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> En COCO GO te digan “usá el prompt universal del glosario” en vez de tirar el chat.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-modelo"><button class="gterm">modelo vs herramienta<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p><strong>Herramienta</strong> = la app o web donde chateás (ChatGPT, Claude, Gemini, Grok…).<br><strong>Modelo</strong> = el motor de IA detrás. Para esta sesión: abrís la herramienta que ya tengas; no hace falta elegir modelo.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> El patrón es el mismo para describir un potus en el vivero, estés en una u otra app.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Pregunten “¿qué modelo usás?” vs “¿en qué herramienta lo hiciste?”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-plan"><button class="gterm">plan gratis / pago<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Las herramientas grandes ofrecen acceso <strong>gratis</strong> (con límites) y planes de pago con más capacidad. Para esta sesión el gratis alcanza.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> Armás la respuesta al cliente del almacén sin suscripción. Si después la usás muchas horas por día, evaluás pagar.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan “con el gratis no alcanza” o “pasate al plan pago”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-privacidad"><button class="gterm">privacidad de tus datos<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Lo que pegás en el chat viaja al servicio de esa herramienta. No es un bloc solo en tu celular. Conviene no pegar de más y anonimizar lo sensible.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> En vez del DNI del cliente, “Cliente A, reclamo de cambio de taladro, ticket del jueves”.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Alguien diga “no le mandes datos del negocio a la IA” o “¿se queda con lo que escribo?”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-sistema"><button class="gterm">sistema<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>El conjunto de hábitos y archivos con los que repetís resultados sin empezar de cero cada vez. En esta sesión sembrás la carpeta <span class="pill-inline">Sistema IA/</span>; el básico lo profundiza.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> Guardar pedidos y versiones finales de WhatsApp, promos y presupuestos en una sola carpeta del almacén.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> En COCO GO digan “el free despierta; el sistema es el básico”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-chat"><button class="gterm">chat / chatbot<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>La ventana de conversación donde escribís y la IA responde por turnos. “Chatbot” es el mismo tipo de programa: charla por mensajes.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> Abrís un chat y pegás el mensaje del cliente de la ferretería para que te arme la respuesta.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan “tírale por el chat”, “en el chatbot” o “abrí un chat nuevo”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-asistente"><button class="gterm">asistente<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Forma de llamar a la IA cuando la usás como ayuda de laburo: redacta, ordena, propone borradores. No es un empleado con criterio propio: <strong>vos</strong> firmás.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> “Que el asistente me arme el primer borrador del mail; yo lo corrijo y lo mando.”</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Hablen de “asistente de IA”, “mi asistente virtual” o “que te asista con la atención al cliente”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-app-web"><button class="gterm">app vs web (dónde vive la herramienta)<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p><strong>Web:</strong> la usás en el navegador (dirección del sitio).<br><strong>App:</strong> la aplicación instalada en el celular (o a veces en la compu).<br>El patrón de pedido es el mismo; cambia el lugar donde abrís el chat.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> En el colectivo contestás con la app; en el local podés usar la web en la compu del mostrador.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan “¿lo abriste en la app o en la web?” o “desde el navegador”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-historial"><button class="gterm">historial / chat nuevo<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p><strong>Historial:</strong> conversaciones viejas que quedaron guardadas en la herramienta.<br><strong>Chat nuevo:</strong> hilo limpio, sin el ruido de pedidos anteriores. Para una tarea con patrón, conviene empezar de cero.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> No mezcles el plan de la semana del vivero en el mismo hilo donde pediste ideas de post a las 2 de la mañana.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Te digan “empezá un chat nuevo” o “está en el historial”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-memoria"><button class="gterm">memoria (de la herramienta)<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Algunas herramientas pueden <strong>recordar</strong> datos o preferencias entre conversaciones (si esa función está activa en tu cuenta). No es mágica ni igual en todas; en esta sesión no dependemos de ella: <strong>pegás</strong> el contexto cada vez.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> Aunque “te recuerde” el nombre del almacén, igual conviene pegar la política de cambios del día para no inventar.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan “tiene memoria”, “acordate de mi negocio” o “borré la memoria”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-limite"><button class="gterm">límite de uso (mensajes por día)<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Tope de cuánto podés usar el plan gratis (o el pago) en un período. Los números cambian; si te frena, esperás el reinicio o evaluás el plan pago. Para esta sesión suele alcanzar.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> Si después de varios borradores del presupuesto te dice que esperes, guardá el texto en <span class="pill-inline">Sistema IA/</span> y seguís más tarde.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> “Me cortó el límite”, “se me acabaron los mensajes” o “esperá unas horas”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-suscripcion"><button class="gterm">suscripción (Plus / Pro / Premium)<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Plan pago de la herramienta (cada marca le pone un nombre: Plus, Pro, Premium, etc.). Suma capacidad o funciones. <strong>No</strong> es lo mismo que el curso COCO GO (el curso es aparte, US$11,99 el básico).</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> Podés hacer esta sesión en gratis; la suscripción de la herramienta es otra decisión, cuando ya la uses muchas horas.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> “¿Tenés Plus?”, “pasate a Pro” o “con Premium desbloqueás…”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-voz"><button class="gterm">modo voz<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Usar la IA <strong>hablando</strong> en vez de (o además de) escribir, cuando la herramienta lo ofrece. Útil en el celular con las manos ocupadas; el criterio de revisar el resultado sigue igual.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> Mientras acomodás góndolas en el almacén, dictás: “anotá tres ideas de promo para el tybo” y después leés lo que escribió.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> “Activá el modo voz”, “hablale” o “por voz es más cómodo”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-adjuntar"><button class="gterm">adjuntar un archivo<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Sumar un PDF, foto o documento al pedido. En <strong>esta sesión free</strong> no es obligatorio: todo se puede hacer <strong>pegando texto</strong>. Si más adelante adjuntás, igual revisá: puede alucinar sobre el archivo.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> En vez de adjuntar la lista de precios, la copiás y la pegás debajo del patrón.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> “Adjuntá el PDF”, “subí el archivo” o “no me lee el Excel”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-imagen"><button class="gterm">imagen generada<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Cuando la IA crea una imagen a partir de una descripción (si esa función está en tu plan/herramienta). No es el foco de esta sesión: acá el entregable es <strong>texto de negocio</strong>.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> Más adelante, un cartel simple del vivero; hoy el cartel puede ser texto de 12 palabras que imprimís o escribís a mano.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> “Que te genere la imagen”, “un dibujo con IA” o “imagen generada para el post”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-buscador"><button class="gterm">buscador con IA vs chat<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p><strong>Buscador con IA:</strong> resúmenes encima de resultados de búsqueda (tipo “overview” en Google): te mezcla fuentes y a veces confunde.<br><strong>Chat:</strong> conversación donde <strong>vos</strong> pegás contexto y pedís un entregable con el patrón.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> El resumen del buscador te habla de “promos de almacenes en general”; el chat con tus datos te arma <strong>tu</strong> promo del tybo.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> “Me salió en el resumen de Google”, “la IA del buscador” o “mejor preguntale al chat”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-automatizar"><button class="gterm">automatizar<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Hacer que una tarea se repita con menos esfuerzo manual (reglas, plantillas, herramientas que conectan pasos). En el free <strong>no</strong> instalamos automatización: sembramos el hábito a mano. Va más a fondo en niveles pagos del catálogo.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> Hoy copiás el patrón cada vez; más adelante podés tener plantillas fijas de respuesta a “¿hacen envíos?”.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> “Quiero automatizar las respuestas” o “que se mande solo”.</p>
+    </div></div></div>
+
+    <div class="gitem" id="g-agente"><button class="gterm">agente<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Una IA a la que se le puede dejar un trabajo más largo o en varios pasos, con más autonomía que un chat de ida y vuelta simple.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> ⚠️ Definición a propósito incompleta acá.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan “agente de IA”, “que el agente lo resuelva” o “modo agente”.</p>
+      <p class="micro-cta"><strong>Cómo se usa de verdad, en el intermedio de COCO GO</strong> — el free solo te deja la palabra en el mapa; no es el nivel para meterse ahí.</p>
+    </div></div></div>
+
+  </div>
+  <div class="gloss-close reveal">
+    <p>Estos son los que más se repiten en una charla. El básico trae el mazo completo, aplicado a tu negocio.</p>
+    <p>Free = vocabulario de <strong>conversación</strong>. Básico = vocabulario <strong>operativo</strong> aplicado a tu negocio (la escalera es de <strong>uso</strong>, no de “quién tiene más palabras”).</p>
+  </div>
+</section>
+
+<!-- ═══════════════ N1 ═══════════════ -->
+<section id="n1" class="wrap">
+  <div class="reveal">
+    <span class="eyebrow"><span class="num">01</span> La estás usando como Google</span>
+    <h2 class="sec-title">La estás usando como Google</h2>
+    <p class="sec-note">Tiempo de acción del alumno: ~5 min · Esta sección te deja el “clic” y la expectativa honesta. No hay pasos todavía: primero entendés el salto. Después, en <em>El patrón</em>, aprendés a pedirle.</p>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">¿La usás así? (el espejo)</h3>
+    <p class="lead-in">Abrís el <a href="#g-chat" class="term">chat</a> en el celular, en el colectivo, entre un cliente y el otro. Escribís algo corto. Leés. Cerrás. Segís con el día.</p>
+    <p>Frases que se escuchan todo el tiempo — y tal vez son las tuyas:</p>
+    <ul class="ul-clean">
+      <li>«¿Qué es un presupuesto?» · «Ideas de post para Instagram» · «Cómo contestar a un cliente enojado»</li>
+      <li>«Dame un mail de reclamo» · «Resumime esto» · «¿Sirve la IA para un negocio chico?»</li>
+    </ul>
+    <p style="margin-top:1em">La respuesta llega prolija. Suena bien. A veces hasta te hace pensar. Y después… no cambia nada en el mostrador, en el WhatsApp ni en la caja. Volvés a buscar otra cosa. O la usás “como psicólogo”: a desahogarte, a ordenar la cabeza.</p>
+    <p>Eso <strong>no está mal</strong>. Es el primer uso que casi todos hacemos. Es la <a href="#g-ia" class="term">IA</a> como un <a href="#g-buscador" class="term">buscador con IA</a> con mejor redacción: preguntás, te contesta, seguís. Como un Google avanzado.</p>
+    <p>El problema no es usarla. El problema es <strong>quedarse ahí</strong> y creer que “ya la uso” cuando en realidad solo <strong>buscás</strong>.</p>
+    <p>Porque el mismo chat puede <strong>hacer trabajo de tu negocio</strong> con tus datos: una tarea tuya, con nombres, precios, plazos y tono reales, y un borrador que podés mandar, publicar o usar hoy.</p>
+    <p>Eso es el salto de esta sesión. No es magia. Es un pedido distinto.</p>
+    <div class="card card-quote"><p>📱 <strong>Celular o compu:</strong> se hace igual. Abrís un chat, escribís o pegás texto, leés la respuesta. La herramienta da igual: la que ya uses alcanza.</p></div>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Del buscador al resultado (el delta)</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Buscar (como Google)</th><th>Hacer (con tu negocio)</th></tr></thead>
+      <tbody>
+        <tr><td>Pregunta genérica</td><td>Pedido con <strong>tus</strong> datos</td></tr>
+        <tr><td>Respuesta para “cualquiera”</td><td>Borrador listo para <strong>tu</strong> cliente</td></tr>
+        <tr><td>“¿Cómo se responde un reclamo?”</td><td>“Respondé <strong>este</strong> reclamo, con <strong>esta</strong> política”</td></tr>
+        <tr><td>Ideas sueltas que se te olvidan</td><td>Texto que copiás, editás y mandás</td></tr>
+        <tr><td>Cero rastro en tu negocio</td><td>Archivo guardado que podés repetir</td></tr>
+      </tbody>
+    </table></div>
+
+    <h4 class="block-h">Escena 1 — El reclamo (ferretería)</h4>
+    <p><strong>Antes (como buscador)</strong></p>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>¿Cómo respondo a un cliente enojado?</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Cuando un cliente está enojado, mantené la calma, pedí disculpas, escuchá su reclamo y ofrecé una solución concreta. Evitá pelear y seguí el caso hasta cerrarlo.</p></div>
+    </div>
+    <p>Útil… y genérico. No menciona tu rubro, tu cliente ni lo que pasó. Segís vos con la hoja en blanco.</p>
+    <p><strong>Después (con tu negocio)</strong></p>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Soy de Ferretería El Tornillo (barrio, venta al público). Un cliente compró un taladro hace 5 días; se le trabó la mandíbula. Quiere devolverlo. Política: cambios hasta 7 días con ticket. Tono amable y claro. Escribime el mensaje de WhatsApp en 4–6 líneas, sin prometer envío (no lo hacemos).</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Hola, soy de Ferretería El Tornillo. Lamento que el taladro te haya fallado. Con el ticket y dentro de los 7 días hacemos el cambio sin problema en el local. ¿Podés pasar con el producto y el ticket, o preferís que te digamos horarios? Decime y lo resolvemos hoy.</p></div>
+    </div>
+    <p>Misma herramienta. Distinto pedido. <strong>Resultado usable.</strong></p>
+
+    <h4 class="block-h">Escena 2 — La promo del fin de semana (almacén)</h4>
+    <p><strong>Antes</strong></p>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Dame ideas de promoción para el fin de semana</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Podés ofrecer descuentos por volumen, combos familiares, publicación en redes con fotos atractivas, y un sorteo entre clientes.</p></div>
+    </div>
+    <p>Correcto e inútil. No hay precios, no hay productos, no hay canal.</p>
+    <p><strong>Después</strong></p>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Soy de Almacén Don Pepe, barrio. Este fin de semana quiero mover ~8 kg de queso tybo que vence en 10 días. Clientes del barrio, WhatsApp y mostrador. Armame: (1) mensaje de WhatsApp 4–6 líneas, tono de vecino; (2) cartel de mostrador máx. 12 palabras. Dejá el precio como $X el kg. Incluí “hasta el domingo o hasta agotar”.</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>WhatsApp: “Hola, soy de Don Pepe. Este finde tenemos promo de queso tybo fresco: $X el kg, hasta el domingo o hasta que se acabe. Si querés, te lo separamos. ¿Cuánto te mando?” Cartel: “Tybo fresco · $X/kg · Hasta domingo o agotar”</p></div>
+    </div>
+    <p>Ahí sí: pegás el precio real, mandás el mensaje, escribís el cartel. <strong>Tiempo ahorrado en el laburo de redactar.</strong></p>
+
+    <h4 class="block-h">Qué cambia en la cabeza</h4>
+    <p>Dejá de pedirle teoría y pedile <strong>entregables de tu negocio</strong>: un mensaje a un cliente concreto, un cartel con <strong>tus</strong> productos, un orden de la semana con <strong>tus</strong> pendientes, un presupuesto con <strong>tus</strong> números.</p>
+    <p>Si el pedido no tiene tus datos, la respuesta no puede tener tu negocio adentro. Suena obvio. En la práctica, casi nadie lo hace.</p>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Qué puede hacer · qué NO puede (honesto, temprano)</h3>
+    <p>La <a href="#g-ia-generativa" class="term">IA generativa</a> escribe, resume, ordena ideas, arma borradores, reescribe con tu tono. Es buena para <strong>borradores de laburo</strong>: mails, respuestas a clientes, descripciones, listas, planes de la semana, primeros números de un presupuesto.</p>
+    <p>No es magia. No es un <a href="#g-asistente" class="term">asistente</a> que entiende tu negocio solo. No “sabe” lo que pasa en tu local si no se lo contás. Y a veces <strong>se inventa cosas</strong>.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>✅ Puede (con tus datos)</th><th>❌ No puede (o no confíes ciego)</th></tr></thead>
+      <tbody>
+        <tr><td>Borrador de un mensaje a un cliente <strong>con tus datos</strong></td><td>Saber hechos de tu negocio que no le contaste</td></tr>
+        <tr><td>Reescribir más claro, corto o formal</td><td>Garantizar que un precio o una norma sea verdad</td></tr>
+        <tr><td>Ordenar semana o presupuesto <strong>con lo que le pegás</strong></td><td>Reemplazar tu criterio, tu firma o tu decisión final</td></tr>
+        <tr><td>Dar opciones y estructuras para que elijas</td><td>Prometer ventas o “el post que se vuelve viral”</td></tr>
+        <tr><td>Mantener un tono si se lo pedís con ejemplos</td><td>Leer tu planilla o WhatsApp “solos” (acá todo es texto que <strong>vos pegás</strong>)</td></tr>
+      </tbody>
+    </table></div>
+
+    <h4 class="block-h">Tres límites claros</h4>
+    <p><strong>1. Es un borrador, no una verdad sellada.</strong> Leelo como el de un ayudante nuevo: útil, a veces genial, a veces con un error que te quema si lo mandás tal cual.</p>
+    <p><strong>2. No reemplaza tu oficio.</strong> Vos sabés qué podés prometer. Si le pedís “ofrele lo que sea”, puede inventar un descuento o un envío que vos no das.</p>
+    <p><strong>3. No adivina el vacío.</strong> Sin contexto, rellena con frases de manual. Eso no es “no sirve para tu rubro”: es que le pediste como a un buscador.</p>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">El freno #1: “me inventa” / alucinar</h3>
+    <p>Cuando no sabe algo, a veces <strong>completa igual</strong>. Inventa un dato, un precio, un plazo, un envío gratis. Eso se llama <a href="#g-alucinar" class="term">alucinar</a>. Pasa en las herramientas de chat en general. Por eso en esta sesión vas a <strong>revisar</strong> lo que te da antes de mandarlo.</p>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Armame las condiciones de un presupuesto para un cliente de la ferretería. Trabajo de instalación de estanterías.</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Incluye garantía de 24 meses, envío gratis a todo el país y financiación en 12 cuotas sin interés. Válido 30 días.</p></div>
+    </div>
+    <p>Si vos <strong>no</strong> das eso, el texto suena profesional y es mentira para tu negocio.</p>
+    <div class="card card-warn">
+      <span class="k">⚠️ Qué hacés vos (desde ya)</span>
+      <p style="margin-bottom:0">(1) leés buscando <strong>promesas</strong>; (2) tachás o pedís reescribir lo que no es verdad; (3) pedí: <em>“Si te falta un dato, no lo inventes: poné [COMPLETAR].”</em></p>
+    </div>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Reescribí las condiciones. Solo podés usar: validez 7 días, seña 50%, el resto al retirar, sin envío, garantía del fabricante del producto. Si algo no te dije, poné [COMPLETAR]. No inventes financiación ni envío.</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Condiciones: validez 7 días · seña 50%, saldo al retirar · sin envío · garantía del fabricante del producto · [COMPLETAR: plazo de instalación si aplica].</p></div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">“Probé y no me salió”</h3>
+    <p>Casi siempre el pedido fue vago o sin contexto. No es que “no sea para tu rubro”. Es que le pediste como a un buscador y esperaste un empleado.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Lo que escribiste</th><th>Lo que pasó</th></tr></thead>
+      <tbody>
+        <tr><td>“Haceme un post”</td><td>Frase genérica con emojis</td></tr>
+        <tr><td>“Presupuesto para un cliente”</td><td>Estructura vacía o precios inventados</td></tr>
+        <tr><td>“Ordename la semana”</td><td>Lista motivacional sin tus tareas</td></tr>
+        <tr><td>“Respondé a este cliente” (sin pegar el mensaje)</td><td>Charla de manual de atención</td></tr>
+      </tbody>
+    </table></div>
+    <p>En <em>El patrón</em> vas a ver <strong>una sola forma</strong> de pedirle — contexto + tarea + formato. Por ahora: <strong>si el output es genérico, el pedido fue genérico</strong>. No tires la herramienta: completá el pedido.</p>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Plan gratis: alcanza para esta sesión</h3>
+    <p>Las cuatro herramientas grandes (ChatGPT, Claude, Gemini y Grok) tienen un <a href="#g-plan" class="term">plan gratis/pago</a> con acceso gratis suficiente para <strong>toda esta sesión</strong>. Los límites cambian; no hace falta pagar para lo de hoy. Usá la que ya tengas abierta.</p>
+    <div class="card card-quote"><p>“Gratis” no significa “sin <a href="#g-limite" class="term">límite de uso</a> para siempre”. Para pedidos de texto y borradores de hoy, el acceso gratis alcanza. Si más adelante la usás muchas horas por día, evaluás una <a href="#g-suscripcion" class="term">suscripción</a>.</p></div>
+    <p><a href="#g-modelo" class="term">modelo vs herramienta</a>: el <strong>modelo</strong> es el “motor”; la <strong>herramienta</strong> es la <a href="#g-app-web" class="term">app vs web</a> donde chateás. Hoy no hace falta elegir motor: abrí el chat que ya uses. El mapa de “con cuál seguir” viene al final.</p>
+  </div>
+
+  <div class="reveal sec-close">
+    <div class="card card-sol">
+      <span class="k">✓ Qué te llevás · puente</span>
+      <ul class="ul-clean">
+        <li>El espejo: usarla como Google no es el techo.</li>
+        <li>El delta: <strong>buscar</strong> vs <strong>hacer con tus datos</strong>.</li>
+        <li>Expectativa: sirve para borradores; <strong>alucina</strong>; no firma por vos.</li>
+        <li>Plan gratis alcanza para lo de hoy.</li>
+      </ul>
+    </div>
+    <div class="next">
+      <span class="kicker">Sección siguiente</span>
+      <h3>Falta la <span class="c">forma de pedir</span></h3>
+      <p>Un solo patrón — <strong>contexto + tarea + formato</strong>. Eso es <em>El patrón</em>. Después, en <em>Tu resultado real</em>, elegís una tarea y salís con un archivo en <span class="pill-inline">Sistema IA/</span>.</p>
+      <a class="btn btn-primary go" href="#n2">Ir a El patrón →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ N2 ═══════════════ -->
+<section id="n2" class="band">
+ <div class="wrap">
+  <div class="reveal">
+    <span class="eyebrow"><span class="num">02</span> El patrón</span>
+    <h2 class="sec-title">El patrón: contexto + tarea + formato</h2>
+    <p class="sec-note">Tiempo de acción del alumno: ~7 min · Acá aprendés <strong>una sola forma</strong> de pedirle. Asume: el salto buscar→hacer de <em>La estás usando como Google</em>. Deja: el patrón + cards copiables para pegar en el chat.</p>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Una forma de pedir (no cien “prompts mágicos”)</h3>
+    <p>El salto de la sección anterior no es suerte. Es un <a href="#g-prompt" class="term">prompt</a> armado con <strong>tres piezas</strong> siempre iguales:</p>
+    <ol class="ul-clean" style="list-style:none">
+      <li><strong><a href="#g-contexto" class="term">contexto</a></strong> — quién sos, de qué negocio, qué datos importan para <strong>esta</strong> tarea</li>
+      <li><strong><a href="#g-tarea" class="term">tarea</a></strong> — qué querés que haga, con un verbo concreto</li>
+      <li><strong><a href="#g-formato" class="term">formato</a></strong> — cómo lo querés de vuelta (largo, canal, tono, estructura, lo que no querés)</li>
+    </ol>
+    <p style="margin-top:1em">Eso es <strong>el patrón</strong>. Si una pieza falta:</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Si falta…</th><th>Suele pasar…</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Contexto</strong></td><td>Texto genérico (“para cualquier negocio”)</td></tr>
+        <tr><td><strong>Tarea</strong></td><td>Ensayo, “tips”, no un entregable</td></tr>
+        <tr><td><strong>Formato</strong></td><td>Bloque largo que después recortás a mano</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Pieza 1 — Contexto</h3>
+    <p>No es tu biografía. Es lo mínimo para que el borrador no sea de manual: negocio y rubro · a quién le hablás · datos duros de <strong>hoy</strong> · tono · lo que <strong>no</strong> podés prometer.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Flojo</th><th>Bueno</th></tr></thead>
+      <tbody><tr><td>“Tengo un vivero”</td><td>“Vivero Los Álamos, CABA, plantas de interior. Cliente habitual por WhatsApp. Producto: potus maceta 12 cm. Precio $X. No hacemos envío a provincia.”</td></tr></tbody>
+    </table></div>
+    <p><strong>Sin contexto</strong></p>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Redactá un mensaje para un cliente que pregunta por una planta</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>¡Hola! Gracias por escribirnos. Tenemos una gran variedad de plantas para todos los gustos. Contanos qué buscás y te asesoramos con gusto.</p></div>
+    </div>
+    <p><strong>Con contexto</strong></p>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Contexto: Vivero Los Álamos, CABA, interior. Cliente Mariela pregunta por potus en maceta 12 cm. Precio $X. Luz indirecta, riego cada 7–10 días. No envío a provincia. Tono cercano.
+Tarea: Redactá la respuesta de WhatsApp.
+Formato: 5 líneas, una pregunta al final, sin “¡la mejor planta del mundo!”</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Hola Mariela, soy de Los Álamos. El potus en maceta 12 cm está $X; va bien con luz indirecta y riego cada 7–10 días. No hacemos envío a provincia: se retira en el vivero. ¿Te lo separamos o preferís pasar a verlo primero?</p></div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Pieza 2 — Tarea (verbo concreto)</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Vago (evitar)</th><th>Claro (usar)</th></tr></thead>
+      <tbody>
+        <tr><td>“Algo sobre mi negocio”</td><td>“Redactá la descripción de este producto”</td></tr>
+        <tr><td>“Ayudame con el cliente”</td><td>“Respondé este mensaje del cliente”</td></tr>
+        <tr><td>“Ideas de la semana”</td><td>“Ordená estas 8 tareas por día, máx. 3 por día”</td></tr>
+        <tr><td>“Números”</td><td>“Armá un presupuesto en lista con total a partir de estos ítems”</td></tr>
+      </tbody>
+    </table></div>
+    <p>Verbos que suelen funcionar: <strong>redactá, reescribí, respondé, listá, ordená, armá, acortá, separá en bullets</strong>.</p>
+    <p><strong>Tarea vaga</strong></p>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Contexto: Almacén Don Pepe, barrio. Tengo queso tybo por vencer.
+Tarea: Ayudame con la promo.
+Formato: lo que te parezca.</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Podrías hacer un descuento, avisar por redes, armar un combo y destacar frescura…</p></div>
+    </div>
+    <p><strong>Tarea clara</strong></p>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Contexto: Almacén Don Pepe, barrio. ~8 kg tybo, vence en 10 días. Clientes WhatsApp + mostrador.
+Tarea: Escribí UN mensaje de WhatsApp de promo y UN cartel de mostrador.
+Formato: WhatsApp 4–6 líneas; cartel máx. 12 palabras; precio como $X; “hasta domingo o agotar”.</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>[mensaje + cartel concretos, listos para completar precio]</p></div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Pieza 3 — Formato</h3>
+    <p>Incluí al menos: <strong>canal</strong> · <strong>largo</strong> · <strong>estructura</strong> · <strong>tono</strong> · <strong>prohibiciones</strong> (“no inventes precios”, “si falta dato poné [COMPLETAR]”).</p>
+    <p><strong>Sin formato</strong></p>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Contexto: Ferretería El Tornillo. Cliente quiere cambiar un destornillador.
+Tarea: Redactá la respuesta.</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Estimado cliente: Lamentamos los inconvenientes ocasionados. Nuestra política de cambios contempla… [párrafo largo, tono de manual corporativo]</p></div>
+    </div>
+    <p><strong>Con formato</strong></p>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Contexto: Ferretería El Tornillo, barrio. Cliente Juan, destornillador de ayer, mandíbula floja. Cambios 7 días con ticket. Sin envío.
+Tarea: Redactá la respuesta.
+Formato: WhatsApp, 5 líneas, tono de ferretero de barrio (no corporativo), invitar a pasar con ticket, una pregunta al final. No culpes al cliente.</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Hola Juan, soy de El Tornillo. Lamento que el destornillador no te esté sirviendo. Con el ticket y dentro de los 7 días te lo cambiamos en el local. ¿Podés pasar hoy o mañana con el producto y el ticket? Cualquier cosa escribime.</p></div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">El patrón completo (un ejemplo)</h3>
+    <p><strong>Pedido vago</strong></p>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Dame ideas de promoción para el fin de semana</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Podés ofrecer descuentos por volumen, combos familiares, publicación en redes con fotos atractivas, y un sorteo entre clientes.</p></div>
+    </div>
+    <p><strong>Pedido con el patrón</strong></p>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Contexto: Soy de Almacén Don Pepe, barrio, venta de fiambres y almacén. Este fin de semana quiero mover el stock de queso tybo que vence en 10 días (tengo ~8 kg). Clientes del barrio, WhatsApp y mostrador. No hago delivery fuera del barrio.
+Tarea: Armame un mensaje de WhatsApp y un cartel corto de mostrador para una promo de fin de semana.
+Formato: WhatsApp en 4–6 líneas, tono de vecino de confianza. Cartel: máximo 12 palabras + precio como $X. Incluí “hasta el domingo o hasta agotar”. No inventes sorteos ni envío gratis.</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>WhatsApp: “Hola, soy de Don Pepe. Este finde tenemos promo de queso tybo fresco: $X el kg, hasta el domingo o hasta que se acabe. Si querés, te lo separamos. ¿Cuánto te mando?” Cartel: “Tybo fresco · $X/kg · Hasta domingo o agotar”</p></div>
+    </div>
+    <p>Misma herramienta. Distinto pedido. <strong>Algo que podés pegar y mandar.</strong></p>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Cards copiables del patrón</h3>
+    <h4 class="block-h">Card 1 — Bloques (recomendada para empezar)</h4>
+    <div class="prompt">
+      <div class="top"><span>card · patrón en bloques</span><button class="copy">Copiar</button></div>
+      <pre>Contexto:
+- Negocio / rubro: [ej. ferretería de barrio]
+- Qué hago / a quién le vendo: […]
+- Datos que importan para ESTA tarea: [precios, plazos, producto, nombre del cliente, lo que pasó…]
+- Tono que uso con la gente: [cercano / formal / corto…]
+- Lo que NO puedo prometer: […]
+
+Tarea:
+[Verbo claro: redactá / armá / respondé / listá / reescribí…] [el entregable concreto]
+
+Formato:
+- Canal: [WhatsApp / mail / Instagram / nota interna…]
+- Largo: [N líneas / N palabras / viñetas…]
+- Estructura: [saludo + cuerpo + cierre / tabla / lista…]
+- Lo que NO quiero: [emojis / tecnicismos / promesas que no puedo cumplir…]
+- Si falta un dato: poné [COMPLETAR], no inventes</pre>
+    </div>
+    <h4 class="block-h">Card 2 — En un solo párrafo (rápida, celular)</h4>
+    <div class="prompt">
+      <div class="top"><span>card · patrón en un párrafo</span><button class="copy">Copiar</button></div>
+      <pre>Sos mi asistente de redacción. Contexto: [negocio + datos clave]. Tarea: [verbo + entregable]. Formato: [canal, largo, tono, estructura]. Reglas: no inventes precios ni promesas; si falta algo, [COMPLETAR]. Datos extra: [pegá mensaje del cliente / lista / números].</pre>
+    </div>
+    <h4 class="block-h">Card 3 — Con “entrada de datos” al final</h4>
+    <div class="prompt">
+      <div class="top"><span>card · patrón con datos al final</span><button class="copy">Copiar</button></div>
+      <pre>Contexto: [quién soy y reglas del negocio]
+Tarea: [qué hacer con el texto de abajo]
+Formato: [cómo devolverlo]
+Reglas: no inventes; si el texto de abajo se contradice con el contexto, avisame en una línea y priorizá el contexto.
+
+--- TEXTO / DATOS ---
+[pegá acá el mensaje del cliente, la lista desordenada, los ítems del presupuesto, etc.]</pre>
+    </div>
+    <p>Guardá al menos una card. La copiás, la completás, la pegás en un <a href="#g-historial" class="term">historial / chat nuevo</a> (mejor <strong>chat nuevo</strong>).</p>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Antes / después (ferretería)</h3>
+    <p><strong>Vago</strong></p>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Cliente enojado, escribime algo</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Lamentamos los inconvenientes. Su satisfacción es nuestra prioridad. Por favor contáctenos para encontrar una solución.</p></div>
+    </div>
+    <p><strong>Con patrón</strong></p>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Contexto: Ferretería El Tornillo. Juan, destornillador ayer, no engancha. Cambios 7 días con ticket. Tono amable y directo.
+Tarea: Respuesta WhatsApp.
+Formato: 5 líneas, invitar a pasar con ticket, sin culpar.</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Hola Juan, soy de El Tornillo. Lamento que el destornillador no te esté sirviendo. Con el ticket y dentro de los 7 días te lo cambiamos en el local. ¿Pasás hoy o mañana con el producto y el ticket? Escribime y te esperamos.</p></div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card card-warn">
+      <span class="k">⚠️ Error común</span>
+      <p><strong>Error:</strong> “Escribí algo lindo sobre mi negocio” / “haceme un post” <strong>sin contexto ni formato.</strong> La IA rellena con frases de manual. Vos pensás “no me sale” o “no es para mi rubro”.</p>
+      <p style="margin-bottom:0"><strong>Arreglo:</strong> volvé al patrón. Si sigue genérico, no cambies de herramienta: agregá más contexto y pedí <strong>el mismo formato</strong> otra vez.</p>
+    </div>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Quedó genérico. Usá SOLO estos datos extra y reescribí el mismo formato: el cliente se llama Laura; producto manguera 15 m; compró el jueves; no ofrezcas envío gratis. WhatsApp 5 líneas.</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Hola Laura, soy de Ferretería El Tornillo. Vi tu mensaje por la manguera de 15 m que llevaste el jueves. Podemos hacer el cambio con el ticket en el local. ¿Pasás hoy o mañana? Avisame y te esperamos.</p></div>
+    </div>
+    <p><strong>Genérico se cura con más datos + mismo formato.</strong> En <em>Tu resultado real</em> vas a practicar el loop de revisar y repreguntar con método.</p>
+  </div>
+
+  <div class="reveal sec-close">
+    <div class="card card-sol">
+      <span class="k">✓ Lo que te llevás · puente</span>
+      <ul class="ul-clean">
+        <li>Un solo patrón: <strong>contexto + tarea + formato</strong></li>
+        <li>Tres cards copiables</li>
+        <li>El error común y la repregunta mínima</li>
+      </ul>
+    </div>
+    <div class="next">
+      <span class="kicker">Sección siguiente</span>
+      <h3>Ahora se pone <span class="c">real</span></h3>
+      <p>Elegís <strong>una</strong> tarea real del menú, le pegás <strong>tus</strong> datos y salís con un resultado guardado en <span class="pill-inline">Sistema IA/</span>.</p>
+      <a class="btn btn-primary go" href="#n3">Ir a Tu resultado real →</a>
+    </div>
+  </div>
+ </div>
+</section>
+
+<!-- ═══════════════ N3 ═══════════════ -->
+<section id="n3" class="wrap">
+  <div class="reveal">
+    <span class="eyebrow"><span class="num">03</span> Tu resultado real · corazón de la sesión</span>
+    <h2 class="sec-title">Tu resultado real (con datos de tu negocio)</h2>
+    <p class="sec-note">Tiempo de acción del alumno: el de la tarea que elijas · <strong>Corazón de la sesión.</strong> Asume: el patrón de <em>El patrón</em> (contexto + tarea + formato). Deja: un output real revisado + archivo en <span class="pill-inline">Sistema IA/</span> + el prompt universal. Elegís <strong>UNA</strong> del menú; las <strong>seis</strong> están guiadas (compactas).</p>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Acá se pone real</h3>
+    <p>Hasta acá: el salto y el patrón. Ahora <strong>hacés</strong>.</p>
+    <p>Elegí <strong>una</strong> tarea. Pegá <strong>tus</strong> datos reales en el chat. Salí con un borrador usable, <strong>revisalo</strong>, <strong>guardalo</strong>.</p>
+    <p>No hace falta cuenta paga ni <a href="#g-adjuntar" class="term">adjuntar un archivo</a>: copiá y pegá texto. Abrí un chat nuevo.</p>
+    <div class="card card-step"><span class="k" style="color:var(--coral-deep)">Flujo (común a las seis)</span><p style="margin-bottom:0">setup → tu tarea → <strong>revisar/repreguntar + prompt universal</strong> (una sola vez) → guardar.</p></div>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Menú: elegí UNA</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>#</th><th>Tarea</th><th>Cuando te sirve</th></tr></thead>
+      <tbody>
+        <tr><td><strong><a href="#task-a">A</a></strong></td><td><strong>Responder a un cliente</strong></td><td>Mensaje pendiente o caso que se repite</td></tr>
+        <tr><td><strong><a href="#task-b">B</a></strong></td><td><strong>Descripción de producto</strong></td><td>Catálogo, publicación o etiqueta tuya</td></tr>
+        <tr><td><strong><a href="#task-c">C</a></strong></td><td><strong>Planificar la semana</strong></td><td>Prioridades con <strong>tus</strong> pendientes</td></tr>
+        <tr><td><strong><a href="#task-d">D</a></strong></td><td><strong>Presupuesto</strong></td><td>Cotización o lista de costos con <strong>tus</strong> números</td></tr>
+        <tr><td><strong><a href="#task-e">E</a></strong></td><td><strong>Mejorar mi oferta</strong></td><td>Decir con claridad qué es, para quién y por qué vos</td></tr>
+        <tr><td><strong><a href="#task-f">F</a></strong></td><td><strong>Primer mensaje de venta / pitch</strong></td><td>Presentar lo que hacés y abrir conversación</td></tr>
+      </tbody>
+    </table></div>
+    <p>Elegí la que más te duele <strong>hoy</strong>. Saltá a tu letra; el setup y la revisión son comunes.</p>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Setup común</h3>
+    <ol class="ul-clean" style="list-style:none">
+      <li><strong>Chat nuevo</strong> en la herramienta que ya uses.</li>
+      <li><strong>Datos reales en una nota:</strong> negocio, lo de esta tarea, reglas, tono. Caso real, no negocio ficticio.</li>
+      <li><strong>Card del patrón</strong> de <em>El patrón</em> (la de bloques suele ser la más clara).</li>
+      <li><strong>Regla anti-invención</strong> al final de todo pedido:</li>
+    </ol>
+    <div class="prompt">
+      <div class="top"><span>prompt · regla anti-invención</span><button class="copy">Copiar</button></div>
+      <pre>Reglas: no inventes precios, plazos, envíos ni promesas que no estén en el contexto.
+Si te falta un dato, escribí [COMPLETAR]. Yo reviso antes de mandar o publicar.</pre>
+    </div>
+    <div class="uimock"><span class="ic">🖥️</span><span class="cap"><b>Pantalla:</b> chat vacío listo para escribir o pegar texto.</span></div>
+  </div>
+
+  <!-- A -->
+  <div class="reveal task-anchor" id="task-a">
+    <h3 class="block-h">A — Responder a un cliente</h3>
+    <p><strong>Resultado:</strong> texto listo para el canal donde te escribieron.</p>
+    <p><strong>Pasos:</strong> (1) pegá o resumí el mensaje/caso real · (2) plantilla A con tus datos · (3) revisión común · (4) última milla tuya y guardá.</p>
+    <div class="prompt">
+      <div class="top"><span>plantilla A · responder a un cliente</span><button class="copy">Copiar</button></div>
+      <pre>Contexto:
+- Negocio: [nombre y rubro]
+- Qué pasó: [pegá o resumí el mensaje del cliente]
+- Mi política: [cambios, plazos, lo que sí y no puedo hacer]
+- Tono: [cómo hablo yo]
+Tarea: Redactá la respuesta al cliente.
+Formato:
+- Canal: [WhatsApp / mail / comentario] · Largo: 4–8 líneas
+- Incluí: saludo, reconocimiento, solución o próximo paso, pregunta al cierre
+- No inventes promesas · Si falta dato: [COMPLETAR]</pre>
+    </div>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Contexto: Ferretería El Tornillo, barrio. Cliente Juan escribió por WhatsApp: “el destornillador que compré ayer no engancha bien las mechas, quiero cambio”. Política: cambios 7 días con ticket. Tono amable y directo. No hacemos envíos.
+Tarea: Redactá la respuesta al cliente.
+Formato: WhatsApp, 5 líneas, sin culpar al cliente, invitar a pasar con ticket, una pregunta al final.
+Reglas: no inventes descuentos ni envío; si falta dato [COMPLETAR].</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Hola Juan, soy de El Tornillo. Lamento que el destornillador no te esté sirviendo. Con el ticket y dentro de los 7 días te lo cambiamos en el local. ¿Podés pasar hoy o mañana con el producto y el ticket? Cualquier cosa escribime.</p></div>
+    </div>
+    <div class="card card-sol"><span class="k">✓ Listo cuando… (A)</span>
+      <ul class="checklist">
+        <li>Usaste <strong>mensaje/caso real</strong> tuyo (no el ejemplo)</li>
+        <li>Si salió genérico o con promesas falsas, <strong>iteraste</strong></li>
+        <li><strong>Probaste</strong> en operación real <em>o</em> listo para mandar <strong>hoy</strong></li>
+        <li><strong>Guardaste</strong> en <span class="pill-inline">Sistema IA/01-primer-resultado</span></li>
+        <li>Podés <strong>repetir</strong> el patrón sin la guía</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- B -->
+  <div class="reveal task-anchor" id="task-b">
+    <h3 class="block-h">B — Descripción de producto</h3>
+    <p><strong>Resultado:</strong> texto con hechos verdaderos, sin adjetivos vacíos.</p>
+    <p><strong>Pasos:</strong> (1) ficha mínima (nombre, para quién, 3 hechos, precio, canal, lo que no decís) · (2) plantilla B · (3) revisión anti-humo · (4) guardá.</p>
+    <div class="prompt">
+      <div class="top"><span>plantilla B · descripción de producto</span><button class="copy">Copiar</button></div>
+      <pre>Contexto:
+- Negocio: [nombre y rubro] · Producto/servicio: [nombre exacto]
+- Para quién: [cliente tipo] · Datos reales: [precio, medidas, plazos…]
+- Dónde va: [Instagram / catálogo / web / etiqueta]
+Tarea: Escribí la descripción.
+Formato: gancho en la 1ª línea + 3 beneficios concretos + cierre a consultar · sin adjetivos vacíos · [COMPLETAR] si falta</pre>
+    </div>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Contexto: Vivero Los Álamos, CABA, plantas de interior. Producto: potus en maceta 12 cm. Para: regalo de oficina / principiante. Hechos: luz indirecta, riego cada 7–10 días, retiro en local. Precio $X. Canal: Instagram.
+Tarea: Escribí la descripción.
+Formato: 1 frase gancho + 3 bullets + cierre “escribinos por WhatsApp”. Máx. 2 emojis. Sin “las mejores del país”.
+Reglas: no inventes beneficios; precio como $X si no te doy número.</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Gancho: “El potus de oficina que no te pide un título en jardinería.” · Fácil de cuidar (luz indirecta, riego 7–10 días) · Maceta 12 cm, listo para regalar · $X · Cierre: “Escribinos por WhatsApp y te lo separamos.”</p></div>
+    </div>
+    <div class="card card-sol"><span class="k">✓ Listo cuando… (B)</span>
+      <ul class="checklist">
+        <li><strong>Datos reales</strong> de un producto/servicio tuyo</li>
+        <li>Sacaste beneficios inventados (<strong>iteraste</strong> si hizo falta)</li>
+        <li><strong>Probaste</strong> en el canal <em>o</em> lista para publicar <strong>hoy</strong></li>
+        <li><strong>Guardaste</strong> en <span class="pill-inline">Sistema IA/01-primer-resultado</span></li>
+        <li>Podés <strong>repetir</strong> con otro producto sin la guía</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- C -->
+  <div class="reveal task-anchor" id="task-c">
+    <h3 class="block-h">C — Planificar la semana</h3>
+    <p><strong>Resultado:</strong> reparto por día + “si solo hago 3 cosas…”, con <strong>tus</strong> tareas.</p>
+    <p><strong>Pasos:</strong> (1) volcá 5–10 pendientes reales · (2) restricciones (días pesados, lo fijo) · (3) plantilla C · (4) si inventó tareas, repreguntá en el bloque común · guardá.</p>
+    <div class="prompt">
+      <div class="top"><span>plantilla C · planificar la semana</span><button class="copy">Copiar</button></div>
+      <pre>Contexto:
+- Negocio: […] · Esta semana tengo que: [5–10 cosas reales]
+- Horas / lo que NO puedo mover / días más pesados de público: […]
+Tarea: Ordename la semana por prioridad.
+Formato: lista por día · máx. 3 prioridades/día · qué postergar · al final “si solo hago 3 cosas…” · no inventes tareas que no listé</pre>
+    </div>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Contexto: Almacén Don Pepe. Trabajo yo solo. Miércoles y sábado hay más movimiento en mostrador. Pendientes: (1) pedir pan rallado (2) armar promo tybo (3) cargar precios galletitas (4) cobrar cuenta de Juan (5) limpiar cámara (6) pagar luz (7) mensaje al grupo por la promo (8) stock de aceite. No laburo de noche.
+Tarea: Ordename la semana lunes a sábado por prioridad.
+Formato: lista por día; máx. 3 por día; qué postergar; al final “si solo hago 3 cosas…”. Solo ESTAS tareas.</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Lunes: cobrar a Juan · pagar luz · pedir pan rallado. Martes: promo tybo · mensaje al grupo · precios. Miércoles: mostrador prioritario… Si solo hago 3: cobrar a Juan, promo + aviso, pedir pan rallado.</p></div>
+    </div>
+    <div class="card card-sol"><span class="k">✓ Listo cuando… (C)</span>
+      <ul class="checklist">
+        <li>Plan con <strong>tus</strong> pendientes reales</li>
+        <li><strong>Iteraste</strong> si inventó tareas o ignoró restricciones</li>
+        <li><strong>Probaste</strong> en operación (al menos mirarlo al arrancar el día)</li>
+        <li><strong>Guardaste</strong> en <span class="pill-inline">Sistema IA/01-primer-resultado</span></li>
+        <li>Podés <strong>repetir</strong> la semana que viene</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- D -->
+  <div class="reveal task-anchor" id="task-d">
+    <h3 class="block-h">D — Presupuesto</h3>
+    <p><strong>Resultado:</strong> estructura con <strong>tus</strong> números; si falta dato → <span class="pill-inline">[COMPLETAR]</span>, no invento.</p>
+    <p><strong>Pasos:</strong> (1) ítems y números aunque desprolijos · (2) reglas (validez, seña, qué no incluye) · (3) plantilla D · (4) freno si inventó precios · completá vos y guardá.</p>
+    <div class="prompt">
+      <div class="top"><span>plantilla D · presupuesto</span><button class="copy">Copiar</button></div>
+      <pre>Contexto:
+- Negocio: […] · Para qué: [cliente / proyecto]
+- Ítems y números: [lista desprolija OK] · Condiciones reales: [validez, seña, qué no incluye]
+Tarea: Armá un presupuesto claro.
+Formato: ítem | cantidad | unitario | subtotal · total · 2–3 líneas de condiciones · no inventes precios: si falta, [COMPLETAR]</pre>
+    </div>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Contexto: Ferretería El Tornillo. Presupuesto para Roberto: instalación de 3 estanterías. Ítems: (1) 3 estanterías modelo X — $A c/u (2) tornillería — $B (3) mano de obra 4 h — $C/h. No hago envío. Seña 50%, resto al terminar. Validez 7 días. Garantía: solo fabricante del producto.
+Tarea: Armá un presupuesto claro.
+Formato: lista ítem | cantidad | unitario | subtotal; total; 3 líneas de condiciones. Si falta número: [COMPLETAR]. No inventes financiación ni envío gratis.</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>[tabla con A/B/C o [COMPLETAR]] Total: … Condiciones: validez 7 días · seña 50% · saldo al terminar · sin envío · garantía fabricante.</p></div>
+    </div>
+    <div class="card card-sol"><span class="k">✓ Listo cuando… (D)</span>
+      <ul class="checklist">
+        <li>Montos <strong>tuyos</strong> o <span class="pill-inline">[COMPLETAR]</span> (nada inventado al cliente)</li>
+        <li><strong>Iteraste</strong> si inventó envío/cuotas/garantías</li>
+        <li>Usable en <strong>operación real</strong> hoy</li>
+        <li><strong>Guardaste</strong> en <span class="pill-inline">Sistema IA/01-primer-resultado</span></li>
+        <li>Podés <strong>repetir</strong> con otro cliente</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- E -->
+  <div class="reveal task-anchor" id="task-e">
+    <h3 class="block-h">E — Mejorar mi oferta</h3>
+    <p><strong>Resultado:</strong> ficha clara — qué vendés, a quién, qué problema, por qué vos.</p>
+    <p><strong>Pasos:</strong> (1) inventario a mano (qué vendo, a quién, problema, por qué me eligen, qué NO hago) · (2) plantilla E · (3) leé en voz alta; si suena a folleto, revisión común · (4) guardá en <span class="pill-inline">02-resultado-emprendedor</span>.</p>
+    <div class="prompt">
+      <div class="top"><span>plantilla E · mejorar mi oferta</span><button class="copy">Copiar</button></div>
+      <pre>Contexto:
+- Negocio / qué vendo / cliente al que mejor le va / problema / por qué me eligen (hechos) / límites / precio si aplica
+Tarea: Armá mi oferta mejorada en ficha usable.
+Formato:
+1) Frase de posicionamiento (máx. 20 palabras)
+2) Tres bullets: para quién / problema / por qué nosotros
+3) Una objeción + respuesta corta
+4) Qué NO prometemos
+Sin adjetivos vacíos. [COMPLETAR] si falta.</pre>
+    </div>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Contexto: Almacén Don Pepe, barrio. Vendo fiambres, almacén y algunos frescos. Me eligen vecinos que no quieren ir al súper grande. Diferencial real: conocemos a la gente, fiamos con criterio, cortamos al momento. No hago delivery fuera del barrio. Precio: a veces un poco más que el súper, a cambio de trato y cercanía.
+Tarea: Reescribí mi oferta en una ficha clara para hablar y para un WhatsApp al grupo del barrio.
+Formato: (1) frase de 1 línea (2) 3 bullets para quién / problema / por qué nosotros (3) WhatsApp 5 líneas. Sin “el mejor del barrio”. Sin inventar envíos.</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Frase: “Almacén de barrio: fiambres al momento y trato de conocido.” Bullets… WhatsApp…</p></div>
+    </div>
+    <div class="card card-sol"><span class="k">✓ Listo cuando… (E)</span>
+      <ul class="checklist">
+        <li>Ficha con hechos de <strong>tu</strong> negocio</li>
+        <li>Sacaste promesas imposibles (<strong>iteraste</strong> si hizo falta)</li>
+        <li><strong>Probaste</strong> la frase (podés decirla sin leer)</li>
+        <li><strong>Guardaste</strong> en <span class="pill-inline">Sistema IA/02-resultado-emprendedor</span></li>
+        <li>Podés <strong>repetir</strong> el inventario → ficha sin la guía</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- F -->
+  <div class="reveal task-anchor" id="task-f">
+    <h3 class="block-h">F — Primer mensaje de venta / pitch corto</h3>
+    <p><strong>Resultado:</strong> texto corto para presentar lo que hacés y abrir conversación.</p>
+    <p><strong>Pasos:</strong> (1) elegí canal · (2) plantilla F · (3) anti-presión (¿ayuda o acoso? ¿una pregunta? ¿descuentos inventados?) · (4) guardá; si podés, mandá uno hoy.</p>
+    <div class="prompt">
+      <div class="top"><span>plantilla F · primer mensaje de venta</span><button class="copy">Copiar</button></div>
+      <pre>Contexto:
+- Qué ofrezco / a quién se lo mando / cómo me conocen / lo que NO hago / tono
+Tarea: Primer mensaje de venta / presentación de la oferta.
+Formato: WhatsApp · 5–8 líneas · una sola pregunta al final · sin urgencia falsa · precio solo si te lo di; si no [COMPLETAR] o “te cotizo”</pre>
+    </div>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Contexto: Ferretería El Tornillo. Además de vender, armo y corto a medida (estanterías simples, varillas). Cliente tipo: vecinos y comercios chicos del barrio. No hago instalaciones grandes ni electricista. Mensaje para 10 comercios del barrio que ya me compran tornillos.
+Tarea: Primer mensaje de venta del servicio de armado/corte.
+Formato: WhatsApp, 6–8 líneas, tono de conocido, una sola pregunta al final, sin “oportunidad única”. Precio: si no te doy número, [COMPLETAR] o “te paso valor según medida”.</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Hola, soy de El Tornillo. Además de lo de siempre, estoy armando/cortando a medida para comercios del barrio (estanterías simples, etc.). Si te sirve, contame qué necesitás y te digo si lo puedo hacer y el valor. ¿Tenés algo pendiente de ese estilo?</p></div>
+    </div>
+    <div class="card card-sol"><span class="k">✓ Listo cuando… (F)</span>
+      <ul class="checklist">
+        <li>Mensaje con <strong>tu</strong> oferta real</li>
+        <li><strong>Iteraste</strong> si sonaba a spam o promesa falsa</li>
+        <li>Listo para mandar <strong>o ya mandado</strong> (operación real)</li>
+        <li><strong>Guardaste</strong> en <span class="pill-inline">Sistema IA/02-resultado-emprendedor</span></li>
+        <li>Podés <strong>repetir</strong> con otro canal/oferta</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Común: revisar/repreguntar + prompt universal -->
+  <div class="reveal">
+    <h3 class="block-h">Común — Revisar y repreguntar + prompt universal</h3>
+    <div class="card card-quote"><p><strong>Una vez</strong> por resultado (no se repite en cada letra). El paso que casi nadie hace: <a href="#g-revisar" class="term">revisar/repreguntar</a>. En <em>La estás usando como Google</em> ya viste que puede <a href="#g-alucinar" class="term">alucinar</a>.</p></div>
+    <div class="prompt">
+      <div class="top"><span>flujo · revisar y repreguntar</span><button class="copy">Copiar</button></div>
+      <pre>Pedido con patrón → borrador → REVISAR → ¿sirve?
+                              no → REPREGUNTAR → borrador v2 → REVISAR → sí → guardás</pre>
+    </div>
+    <p>Dos vueltas alcanzan casi siempre. A la tercera: falta <strong>contexto</strong>, no “la herramienta”.</p>
+
+    <h4 class="block-h">Revisar (gafas de dueño)</h4>
+    <div class="table-wrap"><table>
+      <thead><tr><th>#</th><th>Pregunta</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>¿Usa <strong>mis</strong> datos?</td></tr>
+        <tr><td>2</td><td>¿Hay <strong>promesas</strong> que yo no doy?</td></tr>
+        <tr><td>3</td><td>¿El <strong>tono</strong> es mío o de manual?</td></tr>
+        <tr><td>4</td><td>¿El <strong>formato</strong> es el que pedí?</td></tr>
+        <tr><td>5</td><td>¿Hay <strong>próximo paso</strong> claro?</td></tr>
+        <tr><td>6</td><td>¿Lo mandaría <strong>hoy</strong>?</td></tr>
+      </tbody>
+    </table></div>
+    <div class="chat">
+      <div class="msg ai"><span class="who">la IA</span><p>Estimado cliente: Lamentamos profundamente los inconvenientes. Le ofrecemos envío gratis del reemplazo a todo el país y 20% de descuento en su próxima compra. Su satisfacción es nuestra prioridad.</p></div>
+    </div>
+    <p>Falla: datos míos · promesas inventadas · tono · formato · ¿lo mando? → no. Anotá las fallas: alimentan la repregunta.</p>
+
+    <h4 class="block-h">Repreguntar</h4>
+    <p>No digas solo “mejorámelo”. Nombrá fallas + datos + mismo formato.</p>
+    <div class="prompt">
+      <div class="top"><span>prompt · repregunta con fallas</span><button class="copy">Copiar</button></div>
+      <pre>Quedó mal por esto:
+- [falla 1]
+- [falla 2]
+Reescribí el mismo formato ([canal, largo, estructura]).
+Usá SOLO estos datos: [datos reales].
+Prohibido: [promesas que no das].
+Si te falta algo: [COMPLETAR]. No inventes.</pre>
+    </div>
+    <div class="chat">
+      <div class="msg you"><span class="who">vos</span><p>Quedó mal por esto:
+- tono de manual, no de ferretería de barrio
+- inventó envío gratis y 20% que yo no doy
+- no nombra a Juan ni el destornillador ni el ticket
+Reescribí WhatsApp, 5 líneas, tono directo y amable.
+Datos: Juan, destornillador de ayer, cambios 7 días con ticket, solo en el local, sin envío.
+Prohibido: descuentos y envíos que no ofrecí. Si falta: [COMPLETAR].</p></div>
+      <div class="msg ai"><span class="who">la IA</span><p>Hola Juan, soy de El Tornillo. Lamento que el destornillador de ayer no te esté sirviendo. Con el ticket y dentro de los 7 días te lo cambiamos en el local. ¿Pasás hoy o mañana con el producto y el ticket? Escribime y te esperamos.</p></div>
+    </div>
+
+    <h4 class="block-h">Prompt universal de refinamiento</h4>
+    <p>El <a href="#g-prompt-universal" class="term">prompt universal</a> — sirve en cualquier chat y cualquier tarea:</p>
+    <div class="prompt">
+      <div class="top"><span>prompt · refinamiento universal</span><button class="copy">Copiar</button></div>
+      <pre>Esta respuesta no me sirve porque [explicá qué falla: muy genérica, no usa
+mis datos, el tono no es el mío, inventó algo, etc.].
+
+Volvé a hacerla, más [concreta / corta / cercana a mi negocio], usando estos
+datos reales: [pegá acá precios, políticas, tono, o lo que corresponda].</pre>
+    </div>
+    <p>Variante corta: <span class="pill-inline">No me sirve: [fallas]. Rehacé más [concreto/corto/mío] con estos datos: […]. Mismo formato. No inventes. Si falta: [COMPLETAR].</span></p>
+    <p><strong>Guardalo en:</strong> <span class="pill-inline">Sistema IA/00-prompt-universal-refinamiento</span></p>
+    <div class="card card-warn">
+      <span class="k">⚠️ Error común / error espejo</span>
+      <p><strong>Error común:</strong> mandar el primer borrador “porque suena bien”.</p>
+      <p><strong>Error espejo:</strong> repreguntar veinte veces sin sumar datos.</p>
+      <p style="margin-bottom:0"><strong>Arreglo:</strong> checklist + repregunta con fallas y datos. Después, vos firmás.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Guardar el entregable</h3>
+    <ol class="ul-clean" style="list-style:none">
+      <li>Carpeta <strong><span class="pill-inline">Sistema IA/</span></strong></li>
+      <li>Archivo: A–D → <span class="pill-inline">01-primer-resultado</span> · E–F → <span class="pill-inline">02-resultado-emprendedor</span> · siempre <span class="pill-inline">00-prompt-universal-refinamiento</span></li>
+      <li>Adentro: letra · pedido completo · versión final revisada</li>
+    </ol>
+    <p>Esa carpeta es el primer ladrillo del <a href="#g-sistema" class="term">sistema</a>. El básico lo completa; acá sembramos el hábito de <strong>guardar</strong>.</p>
+    <div class="uimock"><span class="ic">📁</span><span class="cap"><b>Pantalla:</b> carpeta “Sistema IA” con el archivo de resultado abierto.</span></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Síntoma</th><th>Qué hacer</th></tr></thead>
+      <tbody>
+        <tr><td>Podría firmarlo cualquier negocio</td><td>Sumá 2–3 datos y pedí el <strong>mismo formato</strong></td></tr>
+        <tr><td>Inventó precio / envío / garantía</td><td>“Borrá X; no lo ofrezco. Reescribí.”</td></tr>
+        <tr><td>Agregó tareas o ítems que no pediste</td><td>“Solo usá la lista original.”</td></tr>
+        <tr><td>Tono de manual</td><td>“Tono de [ferretero de barrio / vecino]. Reescribí.”</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="reveal sec-close">
+    <div class="card card-sol"><span class="k">✓ Listo cuando… (cierre global)</span>
+      <ul class="checklist">
+        <li>Usaste <strong>datos reales</strong> de tu negocio</li>
+        <li>Si salió genérico o con inventos, <strong>iteraste</strong> (revisar → repreguntar)</li>
+        <li><strong>Probaste</strong> en operación real <em>o</em> listo para usar <strong>hoy</strong></li>
+        <li><strong>Guardaste</strong> en <span class="pill-inline">Sistema IA/</span> (+ prompt universal)</li>
+        <li>Podés <strong>repetir</strong> patrón + loop sin reabrir la guía</li>
+      </ul>
+      <p style="margin:12px 0 0">El punto no es “terminar de leer”: es <strong>tener el archivo y el resultado</strong>.</p>
+    </div>
+    <div class="next">
+      <span class="kicker">Sección siguiente</span>
+      <h3>¿Con cuál <span class="c">seguís</span>?</h3>
+      <p>Ya no es “la uso como Google”: tenés un resultado tuyo y el hábito de cerrar el loop. Siguiente: <em>¿Con cuál seguís?</em> — comparativa de las cuatro + decisor → <strong>un</strong> básico COCO GO.</p>
+      <a class="btn btn-primary go" href="#n4">Ir a ¿Con cuál seguís? →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ N4 ═══════════════ -->
+<section id="n4" class="band">
+ <div class="wrap">
+  <div class="reveal">
+    <span class="eyebrow"><span class="num">04</span> ¿Con cuál seguís?</span>
+    <h2 class="sec-title">¿Con cuál seguís? Guía comparativa + decisor</h2>
+    <p class="sec-note">Tiempo de acción del alumno: ~7 min · Cierre de la sesión free. Asume: al menos un resultado real con el patrón (<em>Tu resultado real</em>). Deja: <strong>una</strong> herramienta priorizada + <strong>un</strong> básico COCO GO + el porqué. Precio del siguiente paso: <span class="price-tag">US$11,99</span> — único precio de esta página.</p>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Para qué es esta sección</h3>
+    <p>Hasta acá el free fue <strong>agnóstico</strong>: usaste la herramienta que ya tenías.</p>
+    <p>Para seguir de verdad —instalar el sistema, no solo un par de resultados— conviene elegir <strong>dónde</strong> profundizar. Las cuatro se parecen en el chat y se diferencian en el día a día del negocio.</p>
+    <ol class="ul-clean" style="list-style:none">
+      <li><strong>Guía comparativa</strong> — card por herramienta: qué es, en qué brilla, para quién, con qué curso seguir.</li>
+      <li><strong>Decisor</strong> — 3 preguntas → <strong>un</strong> básico.</li>
+      <li><strong>CTA único</strong> — el free despierta; el <strong>sistema</strong> es el básico.</li>
+    </ol>
+    <p style="margin-top:1em">No hay pack. Un camino claro.</p>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Lo que las cuatro comparten</h3>
+    <ul class="ul-clean">
+      <li><a href="#g-plan" class="term">plan gratis/pago</a>: gratis suficiente para esta sesión; planes pagos si después vivís del chat.</li>
+      <li>Responden en lenguaje natural con <strong>contexto + tarea + formato</strong>.</li>
+      <li>Pueden <a href="#g-alucinar" class="term">alucinar</a>: el loop de <em>Tu resultado real</em> aplica en todas.</li>
+      <li>Ninguna “instala el sistema” sola: lo armás vos (<span class="pill-inline">Sistema IA/</span>, hábitos, cursos).</li>
+    </ul>
+    <p style="margin-top:1em">La diferencia no es “cuál es la mejor del mundo”. Es <strong>cuál encaja con cómo laburás vos</strong>.</p>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Guía comparativa de las 4</h3>
+    <p class="small">Fuentes: masters de los básicos COCO GO + mapa herramienta→curso del funnel. Sin cifras de planes de las herramientas. Sin tour de botones.</p>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="hd"><img src="../assets/logo-openai.svg" alt="ChatGPT"><span class="nm">ChatGPT</span></div>
+        <div class="tool-row"><span class="lb">Qué es</span>El chat de IA más conocido. <a href="#g-asistente" class="term">Asistente</a> general: redacción, ideas, ventas, atención, resúmenes, tareas de oficina y comercio.</div>
+        <div class="tool-row"><span class="lb">En qué brilla</span><strong>Todo-terreno.</strong> Día mixto de textos, ideas y clientes: el comodín.</div>
+        <div class="tool-row"><span class="lb">Para quién</span>Quiere <strong>una sola herramienta versátil</strong> y no vive solo en Gmail/Docs, ni solo en textos largos, ni solo en tendencias.</div>
+        <div class="tool-row"><span class="lb">Ojo honesto</span>El “sistema” no viene solo: hay que enseñarle tu negocio con el patrón.</div>
+        <div class="tool-course"><span class="lb">Curso COCO GO</span><span class="cn">ChatGPT para tu negocio</span> · <span class="pill-inline">/chatgpt</span> · <span class="pr">US$11,99</span></div>
+        <p class="tool-frase">“Me sirve casi para todo lo del día a día del negocio.”</p>
+      </div>
+      <div class="tool-card">
+        <div class="hd"><img src="../assets/logo-claude.svg" alt="Claude"><span class="nm">Claude</span></div>
+        <div class="tool-row"><span class="lb">Qué es</span>Chat de Anthropic, fuerte en <strong>escritura y documentos</strong>: propuestas, mails largos, resúmenes, reescrituras, material de negocio.</div>
+        <div class="tool-row"><span class="lb">En qué brilla</span><strong>Textos largos y documentos.</strong> Redactar, editar, propuestas, PDFs/listas/informes prolijos.</div>
+        <div class="tool-row"><span class="lb">Para quién</span>Vive de <strong>propuestas, contratos, informes, contenidos largos</strong> o necesita texto más cuidado.</div>
+        <div class="tool-row"><span class="lb">Ojo honesto</span>No es el camino natural si tu #1 es Gmail/Calendar o radar de tendencias en X.</div>
+        <div class="tool-course"><span class="lb">Curso COCO GO</span><span class="cn">Claude para tu negocio</span> · <span class="pill-inline">/claude</span> · <span class="pr">US$11,99</span></div>
+        <p class="tool-frase">“Cuando el trabajo es texto y documentos, se nota.”</p>
+      </div>
+      <div class="tool-card">
+        <div class="hd"><img src="../assets/logo-gemini.svg" alt="Gemini"><span class="nm">Gemini</span></div>
+        <div class="tool-row"><span class="lb">Qué es</span>El chat de IA de Google. Entra con la cuenta que muchas veces <strong>ya usás</strong> para mail y documentos.</div>
+        <div class="tool-row"><span class="lb">En qué brilla</span><strong>Vivir en el mundo Google.</strong> Gmail, Docs, Drive y el día a día en esa cuenta.</div>
+        <div class="tool-row"><span class="lb">Para quién</span><strong>Ya labura en Gmail/Docs/Drive</strong> y quiere la IA “en la misma casa”.</div>
+        <div class="tool-row"><span class="lb">Ojo honesto</span>Si casi no usás Google para el trabajo, el diferencial se achica.</div>
+        <div class="tool-course"><span class="lb">Curso COCO GO</span><span class="cn">Gemini para tu negocio</span> · <span class="pill-inline">/gemini</span> · <span class="pr">US$11,99</span></div>
+        <p class="tool-frase">“Si mi negocio vive en Google, empiezo por acá.”</p>
+      </div>
+      <div class="tool-card">
+        <div class="hd"><img src="../assets/logo-grok.svg" alt="Grok"><span class="nm">Grok</span></div>
+        <div class="tool-row"><span class="lb">Qué es</span>Chat de xAI. Conversacional; se destaca por <strong>tiempo real</strong> y lo que se mueve en la web y en X.</div>
+        <div class="tool-row"><span class="lb">En qué brilla</span><strong>Tendencias, actualidad y radar.</strong> Qué se habla ahora, competidores, rubro en vivo.</div>
+        <div class="tool-row"><span class="lb">Para quién</span>Cuida <strong>marca, redes, competencia, actualidad del rubro</strong>.</div>
+        <div class="tool-row"><span class="lb">Ojo honesto</span>Si el dolor es documentos largos formales o “todo es Gmail/Docs”, otra puede encajar más de entrada.</div>
+        <div class="tool-course"><span class="lb">Curso COCO GO</span><span class="cn">Grok para tu negocio</span> · <span class="pill-inline">/grok</span> · <span class="pr">US$11,99</span></div>
+        <p class="tool-frase">“Cuando me importa lo que pasa ahora y en la conversación pública.”</p>
+      </div>
+    </div>
+
+    <h4 class="block-h">Tabla rápida</h4>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Herramienta</th><th>Brilla en…</th><th>Elegila si…</th><th>Curso</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ChatGPT</strong></td><td>Todo-terreno, día mixto</td><td>Querés un comodín versátil</td><td><code>/chatgpt</code></td></tr>
+        <tr><td><strong>Claude</strong></td><td>Textos largos y documentos</td><td>Propuestas, mails, informes</td><td><code>/claude</code></td></tr>
+        <tr><td><strong>Gemini</strong></td><td>Ecosistema Google</td><td>Ya vivís en Gmail/Docs/Drive</td><td><code>/gemini</code></td></tr>
+        <tr><td><strong>Grok</strong></td><td>Tiempo real, tendencias, X</td><td>Radar de rubro, redes, actualidad</td><td><code>/grok</code></td></tr>
+      </tbody>
+    </table></div>
+    <div class="card card-quote"><p>Las cuatro tienen gratis y pago (límites y precios de <strong>esas</strong> suscripciones cambian). El precio del siguiente paso COCO GO: <span class="price-tag">US$11,99</span>.</p></div>
+    <p>No hace falta “casarte” para siempre. El patrón viaja a las cuatro. El free no instala el sistema; el básico sí avanza. Si dos te tiran igual → <strong>decisor</strong>.</p>
+  </div>
+
+  <div class="reveal">
+    <h3 class="block-h">Decisor — 3 preguntas → un básico</h3>
+    <div class="decisor">
+      <p class="dnote">Tres preguntas. Según lo que marques, te recomendamos <strong>un</strong> curso básico y te decimos por qué. No guardamos tus respuestas en ningún servidor: es solo esta página.</p>
+      <form id="decisor-form">
+        <div class="dq">
+          <span class="qh"><span class="qn">1.</span>¿Qué te pesa más en el laburo de ahora?</span>
+          <div class="dopts">
+            <label class="dopt"><input type="radio" name="q1" value="chatgpt:2"><span>Textos, clientes, ideas y un poco de todo</span></label>
+            <label class="dopt"><input type="radio" name="q1" value="claude:2"><span>Propuestas, documentos largos, mails prolijos, informes</span></label>
+            <label class="dopt"><input type="radio" name="q1" value="gemini:2"><span>Contestar mails, Docs, archivos en Drive, vivir en Google</span></label>
+            <label class="dopt"><input type="radio" name="q1" value="grok:2"><span>Estar al día: competencia, tendencias, redes, lo que se dice ahora</span></label>
+          </div>
+        </div>
+        <div class="dq">
+          <span class="qh"><span class="qn">2.</span>¿Dónde está hoy la mayor parte de tu trabajo digital?</span>
+          <div class="dopts">
+            <label class="dopt"><input type="radio" name="q2" value="chatgpt:1"><span>Un poco en todos lados / no tengo un lugar fijo</span></label>
+            <label class="dopt"><input type="radio" name="q2" value="claude:1"><span>Sobre todo documentos y correo “formal”</span></label>
+            <label class="dopt"><input type="radio" name="q2" value="gemini:2"><span>Sobre todo Gmail, Docs, Drive</span></label>
+            <label class="dopt"><input type="radio" name="q2" value="grok:2"><span>Sobre todo redes, X, mirar qué pasa afuera</span></label>
+          </div>
+        </div>
+        <div class="dq">
+          <span class="qh"><span class="qn">3.</span>¿Qué resultado querés practicar primero en el básico?</span>
+          <div class="dopts">
+            <label class="dopt"><input type="radio" name="q3" value="chatgpt:2"><span>Un sistema general de uso de IA en el negocio (versátil)</span></label>
+            <label class="dopt"><input type="radio" name="q3" value="claude:2"><span>Escribir y trabajar documentos con mucho más método</span></label>
+            <label class="dopt"><input type="radio" name="q3" value="gemini:2"><span>Meter la IA donde ya tengo el mail y los docs de Google</span></label>
+            <label class="dopt"><input type="radio" name="q3" value="grok:2"><span>Radar de rubro, actualidad y conversación en vivo</span></label>
+          </div>
+        </div>
+      </form>
+      <button id="decisor-run" class="btn btn-primary drun" type="button">Ver mi recomendación →</button>
+      <p id="decisor-hint" class="dhint" role="status" aria-live="polite"></p>
+      <div id="decisor-result" class="dresult hidden" role="region" aria-label="Tu curso recomendado"></div>
+    </div>
+    <p class="small">¿Preferís elegir a mano? Mirá la <strong>tabla rápida</strong> de arriba y quedate con la que más te describe. El patrón que aprendiste viaja a las cuatro.</p>
+  </div>
+
+  <div class="reveal sec-close">
+    <div class="card card-sol"><span class="k">✓ Listo cuando… (cierre de sesión free)</span>
+      <ul class="checklist">
+        <li>Leí las 4 cards (o la mía + la finalista)</li>
+        <li>Completé el decisor <strong>o</strong> elegí con la tabla</li>
+        <li>Sé <strong>qué curso</strong> sigue y <strong>por qué</strong></li>
+        <li>Tengo en <span class="pill-inline">Sistema IA/</span> al menos un resultado de <em>Tu resultado real</em> (+ prompt universal)</li>
+        <li>Entiendo: free = despertar; básico = sistema</li>
+      </ul>
+    </div>
+    <div class="card card-quote">
+      <p><strong>Puente final.</strong> Si volvés mañana: abrí <span class="pill-inline">Sistema IA/</span>, repetí el patrón, usá el prompt universal cuando falle el borrador.</p>
+      <p style="margin-bottom:0">Cuando quieras profundidad: <strong>un</strong> básico — el del decisor.</p>
+    </div>
+  </div>
+ </div>
+</section>
+
+<!-- ═══════════════ CTA FINAL ÚNICO ═══════════════ -->
+<section class="finalcta">
+  <div class="wrap">
+    <div class="box reveal">
+      <span class="eyebrow" style="justify-content:center"><span class="num">→</span> Mensaje claro</span>
+      <h2>Esto fue gratis. El sistema está en el curso básico.</h2>
+      <p>Esto es <strong>gratis</strong> y de calidad a propósito: prueba del estándar COCO GO.</p>
+      <ul class="ul-clean" style="display:inline-block;text-align:left;margin:8px auto 4px">
+        <li>El free <strong>despierta</strong> y deja resultados reales.</li>
+        <li>El free <strong>no</strong> instala el sistema completo.</li>
+        <li>El <strong>básico</strong> (US$11,99) es el siguiente escalón.</li>
+      </ul>
+      <p class="price">Seguir con mi básico recomendado — US$11,99</p>
+      <p>El sistema está en el curso básico de la herramienta que te quedó en el decisor.</p>
+      <div style="display:flex;justify-content:center;margin-top:18px">
+        <a class="btn btn-primary" href="#n4">Elegí tu básico con el decisor →</a>
+      </div>
+      <p class="cta-note">Sin pack. Sin grilla de cuatro botones de compra. Un camino claro.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <a class="foot-home" href="../" aria-label="COCO GO — todos los cursos"><img src="../assets/logo-coco-go.svg" class="foot-logo" alt="COCO GO"></a>
+  <div class="socs">
+    <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener" aria-label="Instagram @coco_go.lat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg></a>
+    <a href="https://x.com/cocogo" target="_blank" rel="noopener" aria-label="X @cocogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.6h3.5l-7.6 8.7 9 11.9h-7l-5.5-7.2-6.3 7.2H1.5l8.1-9.3L1 1.6h7.2l5 6.6 5.7-6.6Zm-1.2 18.4h1.9L6.4 3.6H4.3l13.4 16.4Z"/></svg></a>
+  </div>
+  <p>Más cursos: <a href="../">Ver todos en la página de venta →</a> — mismo método COCO GO.</p>
+  <p class="small">Curso gratis de entrada · acceso libre, sin código · <a href="https://coco-go.lat/pre/">coco-go.lat/pre</a></p>
+</footer>
+
+<a href="#glosario" class="floater" aria-label="Abrir el glosario"><span class="ic">💬</span> ¿Qué significa esto?</a>
+
+<script>
+/* ── partículas SOLO en el hero (pastel coral/ámbar, pocas, lentas) ── */
+(function(){
+  var c=document.getElementById('hero-bg'); if(!c) return;
+  var hero=c.parentElement.querySelector('.wrap')?c.parentElement:c.parentElement;
+  var ctx=c.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2);
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var COLORS=[[255,107,74],[244,169,59]];
+  var W,H,pts,raf;
+  function box(){var r=c.parentElement.getBoundingClientRect();W=r.width;H=r.height;}
+  function resize(){box();c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.min(26,Math.max(12,Math.floor(W/46)));pts=[];
+    for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,
+      r:1.5+Math.random()*3.5,vx:(Math.random()-.5)*.16,vy:(Math.random()-.5)*.16,
+      col:COLORS[i%2],a:.16+Math.random()*.20});}
+  function draw(move){ctx.clearRect(0,0,W,H);var i,p;
+    for(i=0;i<pts.length;i++){p=pts[i];if(move){p.x+=p.vx;p.y+=p.vy;
+      if(p.x<-10)p.x=W+10;if(p.x>W+10)p.x=-10;if(p.y<-10)p.y=H+10;if(p.y>H+10)p.y=-10;}
+      ctx.fillStyle='rgba('+p.col[0]+','+p.col[1]+','+p.col[2]+','+p.a.toFixed(3)+')';
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.2832);ctx.fill();}}
+  function loop(){draw(true);raf=requestAnimationFrame(loop);}
+  resize();
+  window.addEventListener('resize',function(){cancelAnimationFrame(raf);resize();reduce?draw(false):loop();});
+  reduce?draw(false):loop();
+})();
+
+/* ── glosario: acordeón (una abierta a la vez) + búsqueda ── */
+(function(){
+  var terms=document.querySelectorAll('.gterm');
+  function closeAll(){terms.forEach(function(o){o.classList.remove('open');o.nextElementSibling.style.maxHeight=null;});}
+  terms.forEach(function(b){
+    b.addEventListener('click',function(){
+      var open=b.classList.contains('open');
+      closeAll();
+      if(!open){b.classList.add('open');var d=b.nextElementSibling;d.style.maxHeight=d.scrollHeight+'px';}
+    });
+  });
+  var q=document.getElementById('gloss-q');
+  var shown=document.getElementById('gloss-shown');
+  if(q)q.addEventListener('input',function(){
+    var v=q.value.toLowerCase().trim(),n=0;
+    document.querySelectorAll('#gloss-list .gitem').forEach(function(it){
+      var hit=it.textContent.toLowerCase().indexOf(v)>-1;
+      it.style.display=hit?'':'none';if(hit)n++;
+    });
+    if(shown)shown.textContent=n;
+  });
+  /* abrir card al llegar por ancla (#g-...) */
+  function openTarget(){
+    var h=location.hash;if(!h||h.indexOf('#g-')!==0)return;
+    var el=document.querySelector(h);if(!el)return;
+    var btn=el.querySelector('.gterm');if(btn&&!btn.classList.contains('open')){
+      closeAll();btn.classList.add('open');var d=btn.nextElementSibling;
+      setTimeout(function(){d.style.maxHeight=d.scrollHeight+'px';},60);
+    }
+  }
+  window.addEventListener('hashchange',openTarget);openTarget();
+})();
+
+/* ── copiar prompts ── */
+document.querySelectorAll('.prompt .copy').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var pre=btn.closest('.prompt').querySelector('pre');if(!pre)return;
+    var text=pre.textContent.replace(/\s+$/,'');
+    function done(){var o=btn.textContent;btn.textContent='✓ Copiado';setTimeout(function(){btn.textContent='Copiar';},1500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){fb(text,done);});
+    }else{fb(text,done);}
+  });
+});
+function fb(text,cb){var ta=document.createElement('textarea');ta.value=text;
+  ta.style.cssText='position:fixed;left:-9999px;top:0;opacity:0';document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');cb();}catch(e){}document.body.removeChild(ta);}
+
+/* ── micro-entrada de cards al entrar al viewport ── */
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(ents){
+    ents.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e);});
+})();
+
+/* ── decisor: 3 preguntas → un básico ── */
+(function(){
+  var CFG={
+    chatgpt:{nm:'ChatGPT',logo:'../assets/logo-openai.svg',href:'https://www.creem.io/payment/prod_6ucKv0tVsrvupoRsnuF649',
+      why:'Marcaste laburo mixto o sistema versátil. ChatGPT es el todo-terreno: el básico te lleva de pedidos sueltos a un uso ordenado en el día a día.'},
+    claude:{nm:'Claude',logo:'../assets/logo-claude.svg',href:'https://www.creem.io/payment/prod_4kLre0tG00WQsHpaUsp5bP',
+      why:'Tu dolor apunta a textos largos, documentos y escritura cuidadosa. Claude brilla ahí; el básico te entrena en propuestas, mails y material de negocio.'},
+    gemini:{nm:'Gemini',logo:'../assets/logo-gemini.svg',href:'https://www.creem.io/payment/prod_53XgbMuAJYvZAuHoC7EgG4',
+      why:'Ya vivís en Google (Gmail/Docs/Drive). Gemini es el camino natural; el básico lo baja a cómo laburás.'},
+    grok:{nm:'Grok',logo:'../assets/logo-grok.svg',href:'https://www.creem.io/payment/prod_7K4TTw5vyOOnioDjxPvy6B',
+      why:'Te importa el pulso de ahora: tendencias, competencia, conversación pública. El básico lo baja a hábitos de negocio.'}
+  };
+  var form=document.getElementById('decisor-form');if(!form)return;
+  form.querySelectorAll('.dopt').forEach(function(lb){
+    lb.addEventListener('click',function(){
+      var nm=lb.querySelector('input').name;
+      form.querySelectorAll('input[name="'+nm+'"]').forEach(function(i){i.closest('.dopt').classList.remove('sel');});
+      lb.classList.add('sel');
+    });
+  });
+  var btn=document.getElementById('decisor-run');
+  var res=document.getElementById('decisor-result');
+  btn.addEventListener('click',function(){
+    var q1=form.querySelector('input[name="q1"]:checked');
+    var q2=form.querySelector('input[name="q2"]:checked');
+    var q3=form.querySelector('input[name="q3"]:checked');
+    var hint=document.getElementById('decisor-hint');
+    if(!q1||!q2||!q3){if(hint)hint.textContent='Marcá una opción en las tres preguntas para ver tu recomendación.';return;}
+    if(hint)hint.textContent='';
+    var score={chatgpt:0,claude:0,gemini:0,grok:0};
+    [q1,q2,q3].forEach(function(inp){
+      var parts=inp.value.split(':');score[parts[0]]+=parseInt(parts[1],10);
+    });
+    var order=['chatgpt','claude','gemini','grok'];
+    var max=-1,winners=[];
+    order.forEach(function(k){if(score[k]>max){max=score[k];winners=[k];}else if(score[k]===max){winners.push(k);}});
+    var win,empate=false;
+    if(winners.length===1){win=winners[0];}
+    else{ /* desempate por Pregunta 1 */
+      var q1k=q1.value.split(':')[0];
+      if(winners.indexOf(q1k)>-1){win=q1k;empate=true;}
+      else{win='chatgpt';empate=true;}
+    }
+    var c=CFG[win];
+    res.innerHTML=
+      '<div class="rt"><img src="'+c.logo+'" alt=""><h3>Tu siguiente paso: '+c.nm+' para tu negocio</h3></div>'+
+      '<p class="why"><strong>Por qué:</strong> '+c.why+'</p>'+
+      '<p class="free"><strong>Esto fue gratis:</strong> acá despertaste y sacaste resultados. El básico es el <strong>sistema</strong>.</p>'+
+      (empate?'<p class="empate">Empataban dos caminos; te recomendamos ChatGPT como todo-terreno para no frenarte. Si preferís el otro finalista, mirá su card arriba y elegí con el pecho.</p>':'')+
+      '<div class="rcta"><a class="btn btn-primary" href="'+c.href+'" target="_blank" rel="noopener">Ir al curso '+c.nm+' · US$11,99 →</a></div>';
+    res.classList.remove('hidden');
+    res.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+})();
+</script>
+</body>
+</html>
