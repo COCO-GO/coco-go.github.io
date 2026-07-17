@@ -355,6 +355,10 @@ footer .socs svg{width:22px;height:22px;fill:currentColor}
 footer .socs a:hover{color:var(--coral-deep)}
 footer p{font-size:.9rem;color:var(--muted);margin:6px 0}
 footer p a{color:var(--coral-deep);font-weight:600}
+footer .legal-links{margin-top:14px;font-size:.88rem;color:var(--ink-2)}
+footer .legal-links a{color:var(--ink-2);font-weight:600;text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}
+footer .legal-links a:hover{color:var(--coral-deep);text-decoration-color:var(--coral)}
+footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
 
 /* util */
 .small{font-size:.86rem;color:var(--muted)}
@@ -904,14 +908,14 @@ footer p a{color:var(--coral-deep);font-weight:600}
   </div>
 
   <div class="reveal">
-    <h3 class="block-h">Una forma de pedir (no cien “prompts mágicos”)</h3>
+    <div class="blockhead coral"><span class="bi">🧩</span><h3 class="block-h">Una forma de pedir (no cien “prompts mágicos”)</h3></div>
     <p>El salto de la sección anterior no es suerte. Es un <a href="#g-prompt" class="term">prompt</a> armado con <strong>tres piezas</strong> siempre iguales:</p>
-    <ol class="ul-clean" style="list-style:none">
-      <li><strong><a href="#g-contexto" class="term">contexto</a></strong> — quién sos, de qué negocio, qué datos importan para <strong>esta</strong> tarea</li>
-      <li><strong><a href="#g-tarea" class="term">tarea</a></strong> — qué querés que haga, con un verbo concreto</li>
-      <li><strong><a href="#g-formato" class="term">formato</a></strong> — cómo lo querés de vuelta (largo, canal, tono, estructura, lo que no querés)</li>
-    </ol>
-    <p style="margin-top:1em">Eso es <strong>el patrón</strong>. Si una pieza falta:</p>
+    <div class="flow">
+      <div class="flow-step"><span class="fn">1</span><h4><a href="#g-contexto" class="term">contexto</a></h4><p>quién sos, de qué negocio, qué datos importan para <strong>esta</strong> tarea</p></div>
+      <div class="flow-step"><span class="fn">2</span><h4><a href="#g-tarea" class="term">tarea</a></h4><p>qué querés que haga, con un verbo concreto</p></div>
+      <div class="flow-step"><span class="fn">3</span><h4><a href="#g-formato" class="term">formato</a></h4><p>cómo lo querés de vuelta (largo, canal, tono, estructura, lo que no querés)</p></div>
+    </div>
+    <p style="margin-top:var(--sp-3)">Eso es <strong>el patrón</strong>. Si una pieza falta:</p>
     <div class="table-wrap"><table>
       <thead><tr><th>Si falta…</th><th>Suele pasar…</th></tr></thead>
       <tbody>
@@ -1626,6 +1630,8 @@ datos reales: [pegá acá precios, políticas, tono, o lo que corresponda].</pre
   </div>
   <p>Más cursos: <a href="../">Ver todos en la página de venta →</a> — mismo método COCO GO.</p>
   <p class="small">Curso gratis de entrada · acceso libre, sin código · <a href="https://coco-go.lat/pre/">coco-go.lat/pre</a></p>
+  <p class="legal-links"><a href="../privacidad.html">Privacidad</a> · <a href="../terminos.html">Términos</a> · <a href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a></p>
+  <p class="copyright">© COCO GO 2026. Todos los derechos reservados.</p>
 </footer>
 
 <a href="#glosario" class="floater" aria-label="Abrir el glosario"><span class="ic">💬</span> ¿Qué significa esto?</a>
