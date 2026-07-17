@@ -44,6 +44,9 @@
   --amber-soft:#F4A93B;
   --line:#EADFCD;         /* borde cálido */
   --line-2:#E2D5BF;
+  /* banda de sección durazno (opción C del preview de fondos — Pablo 2026-07-17) */
+  --band:#F9EADF;
+  --band-line:#F0D8C6;
   /* ritmo de bloque (reskin claro de las cards de fábrica) */
   --sol-bg:#EAF6EE; --sol-line:#BFE3CB; --sol-ink:#217A47;
   --warn-bg:#FBF1DA; --warn-line:#EBD59B; --warn-ink:#9A6B10;
@@ -138,7 +141,7 @@ section{padding:var(--sp-6) 0}
    se restituye acá para que el aire inter-sección sea generoso y CONSISTENTE
    en toda la página (kicker de una sección nunca pegado a la card anterior). */
 section.wrap{padding-top:var(--sp-6);padding-bottom:var(--sp-6)}
-.band{background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band{background:var(--band);border-top:1px solid var(--band-line);border-bottom:1px solid var(--band-line)}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.76rem;font-weight:800;letter-spacing:.13em;
   text-transform:uppercase;color:var(--coral-deep);margin-bottom:var(--sp-3)}
 .eyebrow .num{font-family:"JetBrains Mono",monospace;background:var(--coral);color:#fff;width:26px;height:26px;
@@ -338,8 +341,8 @@ table code{font-family:"JetBrains Mono",monospace;font-size:.86em;background:var
 /* CTA final */
 .finalcta{background:
    radial-gradient(700px 300px at 15% 0%, rgba(255,107,74,.14), transparent 65%),
-   radial-gradient(600px 300px at 90% 100%, rgba(244,169,59,.13), transparent 60%),var(--cream-2);
-   border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+   radial-gradient(600px 300px at 90% 100%, rgba(244,169,59,.13), transparent 60%),var(--band);
+   border-top:1px solid var(--band-line);border-bottom:1px solid var(--band-line)}
 .finalcta .box{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:34px 30px;
   box-shadow:var(--shadow-lg);text-align:center}
 .finalcta h2{font-size:clamp(1.6rem,4vw,2.3rem);margin-bottom:12px}
@@ -1628,7 +1631,7 @@ datos reales: [pegá acá precios, políticas, tono, o lo que corresponda].</pre
         <span class="p-now">US$2,99</span>
         <span class="p-code">con cupón <b>SOY100</b> en el checkout</span>
       </div>
-      <p class="cta-note">Precio de lista US$11,99; el cupón <strong>SOY100</strong> lo deja en US$2,99 mientras dure.</p>
+      <p class="cta-note">Precio de lista US$11,99; con el cupón <strong>SOY100</strong> queda en US$2,99. Es para las primeras 100 personas — por eso el nombre.</p>
       <div class="cta-2">
         <a class="btn btn-primary" href="https://coco-go.lat/" target="_blank" rel="noopener">Ver los cursos en coco-go.lat →</a>
         <a class="cta-sub" href="#decisor-form">¿No sabés cuál? Volvé al decisor →</a>
