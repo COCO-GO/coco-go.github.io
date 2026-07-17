@@ -927,18 +927,18 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
   </div>
 
   <div class="reveal">
-    <h3 class="block-h">Pieza 1 — Contexto</h3>
+    <div class="blockhead coral"><span class="bi">①</span><h3 class="block-h">Pieza 1 — Contexto</h3></div>
     <p>No es tu biografía. Es lo mínimo para que el borrador no sea de manual: negocio y rubro · a quién le hablás · datos duros de <strong>hoy</strong> · tono · lo que <strong>no</strong> podés prometer.</p>
     <div class="table-wrap"><table>
       <thead><tr><th>Flojo</th><th>Bueno</th></tr></thead>
       <tbody><tr><td>“Tengo un vivero”</td><td>“Vivero Los Álamos, CABA, plantas de interior. Cliente habitual por WhatsApp. Producto: potus maceta 12 cm. Precio $X. No hacemos envío a provincia.”</td></tr></tbody>
     </table></div>
-    <p><strong>Sin contexto</strong></p>
+    <div class="ba before"><span class="d"></span>Sin contexto</div>
     <div class="chat">
       <div class="msg you"><span class="who">vos</span><p>Redactá un mensaje para un cliente que pregunta por una planta</p></div>
       <div class="msg ai"><span class="who">la IA</span><p>¡Hola! Gracias por escribirnos. Tenemos una gran variedad de plantas para todos los gustos. Contanos qué buscás y te asesoramos con gusto.</p></div>
     </div>
-    <p><strong>Con contexto</strong></p>
+    <div class="ba after"><span class="d"></span>Con contexto</div>
     <div class="chat">
       <div class="msg you"><span class="who">vos</span><p>Contexto: Vivero Los Álamos, CABA, interior. Cliente Mariela pregunta por potus en maceta 12 cm. Precio $X. Luz indirecta, riego cada 7–10 días. No envío a provincia. Tono cercano.
 Tarea: Redactá la respuesta de WhatsApp.
@@ -948,7 +948,7 @@ Formato: 5 líneas, una pregunta al final, sin “¡la mejor planta del mundo!�
   </div>
 
   <div class="reveal">
-    <h3 class="block-h">Pieza 2 — Tarea (verbo concreto)</h3>
+    <div class="blockhead amber"><span class="bi">②</span><h3 class="block-h">Pieza 2 — Tarea (verbo concreto)</h3></div>
     <div class="table-wrap"><table>
       <thead><tr><th>Vago (evitar)</th><th>Claro (usar)</th></tr></thead>
       <tbody>
@@ -959,14 +959,14 @@ Formato: 5 líneas, una pregunta al final, sin “¡la mejor planta del mundo!�
       </tbody>
     </table></div>
     <p>Verbos que suelen funcionar: <strong>redactá, reescribí, respondé, listá, ordená, armá, acortá, separá en bullets</strong>.</p>
-    <p><strong>Tarea vaga</strong></p>
+    <div class="ba before"><span class="d"></span>Tarea vaga</div>
     <div class="chat">
       <div class="msg you"><span class="who">vos</span><p>Contexto: Almacén Don Pepe, barrio. Tengo queso tybo por vencer.
 Tarea: Ayudame con la promo.
 Formato: lo que te parezca.</p></div>
       <div class="msg ai"><span class="who">la IA</span><p>Podrías hacer un descuento, avisar por redes, armar un combo y destacar frescura…</p></div>
     </div>
-    <p><strong>Tarea clara</strong></p>
+    <div class="ba after"><span class="d"></span>Tarea clara</div>
     <div class="chat">
       <div class="msg you"><span class="who">vos</span><p>Contexto: Almacén Don Pepe, barrio. ~8 kg tybo, vence en 10 días. Clientes WhatsApp + mostrador.
 Tarea: Escribí UN mensaje de WhatsApp de promo y UN cartel de mostrador.
@@ -976,15 +976,15 @@ Formato: WhatsApp 4–6 líneas; cartel máx. 12 palabras; precio como $X; “ha
   </div>
 
   <div class="reveal">
-    <h3 class="block-h">Pieza 3 — Formato</h3>
+    <div class="blockhead sol"><span class="bi">③</span><h3 class="block-h">Pieza 3 — Formato</h3></div>
     <p>Incluí al menos: <strong>canal</strong> · <strong>largo</strong> · <strong>estructura</strong> · <strong>tono</strong> · <strong>prohibiciones</strong> (“no inventes precios”, “si falta dato poné [COMPLETAR]”).</p>
-    <p><strong>Sin formato</strong></p>
+    <div class="ba before"><span class="d"></span>Sin formato</div>
     <div class="chat">
       <div class="msg you"><span class="who">vos</span><p>Contexto: Ferretería El Tornillo. Cliente quiere cambiar un destornillador.
 Tarea: Redactá la respuesta.</p></div>
       <div class="msg ai"><span class="who">la IA</span><p>Estimado cliente: Lamentamos los inconvenientes ocasionados. Nuestra política de cambios contempla… [párrafo largo, tono de manual corporativo]</p></div>
     </div>
-    <p><strong>Con formato</strong></p>
+    <div class="ba after"><span class="d"></span>Con formato</div>
     <div class="chat">
       <div class="msg you"><span class="who">vos</span><p>Contexto: Ferretería El Tornillo, barrio. Cliente Juan, destornillador de ayer, mandíbula floja. Cambios 7 días con ticket. Sin envío.
 Tarea: Redactá la respuesta.
@@ -994,13 +994,13 @@ Formato: WhatsApp, 5 líneas, tono de ferretero de barrio (no corporativo), invi
   </div>
 
   <div class="reveal">
-    <h3 class="block-h">El patrón completo (un ejemplo)</h3>
-    <p><strong>Pedido vago</strong></p>
+    <div class="blockhead"><span class="bi">🎯</span><h3 class="block-h">El patrón completo (un ejemplo)</h3></div>
+    <div class="ba before"><span class="d"></span>Pedido vago</div>
     <div class="chat">
       <div class="msg you"><span class="who">vos</span><p>Dame ideas de promoción para el fin de semana</p></div>
       <div class="msg ai"><span class="who">la IA</span><p>Podés ofrecer descuentos por volumen, combos familiares, publicación en redes con fotos atractivas, y un sorteo entre clientes.</p></div>
     </div>
-    <p><strong>Pedido con el patrón</strong></p>
+    <div class="ba after"><span class="d"></span>Pedido con el patrón</div>
     <div class="chat">
       <div class="msg you"><span class="who">vos</span><p>Contexto: Soy de Almacén Don Pepe, barrio, venta de fiambres y almacén. Este fin de semana quiero mover el stock de queso tybo que vence en 10 días (tengo ~8 kg). Clientes del barrio, WhatsApp y mostrador. No hago delivery fuera del barrio.
 Tarea: Armame un mensaje de WhatsApp y un cartel corto de mostrador para una promo de fin de semana.
@@ -1011,7 +1011,7 @@ Formato: WhatsApp en 4–6 líneas, tono de vecino de confianza. Cartel: máximo
   </div>
 
   <div class="reveal">
-    <h3 class="block-h">Cards copiables del patrón</h3>
+    <div class="blockhead coral"><span class="bi">📋</span><h3 class="block-h">Cards copiables del patrón</h3></div>
     <h4 class="block-h">Card 1 — Bloques (recomendada para empezar)</h4>
     <div class="prompt">
       <div class="top"><span>card · patrón en bloques</span><button class="copy">Copiar</button></div>
@@ -1052,13 +1052,13 @@ Reglas: no inventes; si el texto de abajo se contradice con el contexto, avisame
   </div>
 
   <div class="reveal">
-    <h3 class="block-h">Antes / después (ferretería)</h3>
-    <p><strong>Vago</strong></p>
+    <div class="blockhead"><span class="bi">↔️</span><h3 class="block-h">Antes / después (ferretería)</h3></div>
+    <div class="ba before"><span class="d"></span>Vago</div>
     <div class="chat">
       <div class="msg you"><span class="who">vos</span><p>Cliente enojado, escribime algo</p></div>
       <div class="msg ai"><span class="who">la IA</span><p>Lamentamos los inconvenientes. Su satisfacción es nuestra prioridad. Por favor contáctenos para encontrar una solución.</p></div>
     </div>
-    <p><strong>Con patrón</strong></p>
+    <div class="ba after"><span class="d"></span>Con patrón</div>
     <div class="chat">
       <div class="msg you"><span class="who">vos</span><p>Contexto: Ferretería El Tornillo. Juan, destornillador ayer, no engancha. Cambios 7 días con ticket. Tono amable y directo.
 Tarea: Respuesta WhatsApp.
