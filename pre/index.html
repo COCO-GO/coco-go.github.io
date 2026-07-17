@@ -134,6 +134,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,.
 
 /* ═══ SECCIONES / RITMO (espaciado por tokens, no a ojo) ═══ */
 section{padding:var(--sp-6) 0}
+/* secciones que SON .wrap: el shorthand de .wrap pisa el padding vertical →
+   se restituye acá para que el aire inter-sección sea generoso y CONSISTENTE
+   en toda la página (kicker de una sección nunca pegado a la card anterior). */
+section.wrap{padding-top:var(--sp-6);padding-bottom:var(--sp-6)}
 .band{background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.76rem;font-weight:800;letter-spacing:.13em;
   text-transform:uppercase;color:var(--coral-deep);margin-bottom:var(--sp-2)}
@@ -342,8 +346,18 @@ table code{font-family:"JetBrains Mono",monospace;font-size:.86em;background:var
   box-shadow:var(--shadow-lg);text-align:center}
 .finalcta h2{font-size:clamp(1.6rem,4vw,2.3rem);margin-bottom:12px}
 .finalcta p{max-width:52ch;margin:0 auto 10px;color:var(--ink-2)}
-.finalcta .price{font-size:1.1rem;font-weight:800;color:var(--coral-deep);margin:14px 0 4px}
 .finalcta .cta-note{font-size:.86rem;color:var(--muted);margin-top:14px}
+/* bloque de oferta con cupón (lista NUNCA baja; promo = tachado + cupón) */
+.promo{display:inline-flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:6px 12px;
+  background:var(--paper);border:1px solid var(--line-2);border-radius:14px;padding:12px 20px;margin:var(--sp-3) auto 2px;box-shadow:var(--shadow)}
+.promo .p-list{font-size:1rem;color:var(--muted);text-decoration:line-through}
+.promo .p-now{font-size:1.6rem;font-weight:800;color:var(--coral-deep);font-family:"Bricolage Grotesque",serif}
+.promo .p-code{font-size:.86rem;color:var(--ink-2)}
+.promo .p-code b{font-family:"JetBrains Mono",monospace;background:var(--ex-bg);border:1px solid var(--ex-line);
+  color:var(--coral-deep);padding:2px 9px;border-radius:8px;letter-spacing:.04em}
+.finalcta .cta-2{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center;margin-top:var(--sp-3)}
+.finalcta .cta-sub{font-size:.9rem;color:var(--ink-2);font-weight:600}
+.finalcta .cta-sub:hover{color:var(--coral-deep)}
 
 /* footer */
 footer{background:var(--cream);border-top:1px solid var(--line);padding:44px 0 40px;text-align:center}
@@ -1602,20 +1616,26 @@ datos reales: [pegá acá precios, políticas, tono, o lo que corresponda].</pre
 <section class="finalcta">
   <div class="wrap">
     <div class="box reveal">
-      <span class="eyebrow" style="justify-content:center"><span class="num">→</span> Mensaje claro</span>
-      <h2>Esto fue gratis. El sistema está en el curso básico.</h2>
-      <p>Esto es <strong>gratis</strong> y de calidad a propósito: prueba del estándar COCO GO.</p>
-      <ul class="ul-clean" style="display:inline-block;text-align:left;margin:8px auto 4px">
-        <li>El free <strong>despierta</strong> y deja resultados reales.</li>
-        <li>El free <strong>no</strong> instala el sistema completo.</li>
-        <li>El <strong>básico</strong> (US$11,99) es el siguiente escalón.</li>
+      <span class="eyebrow" style="justify-content:center"><span class="num">→</span> Hasta acá, y lo que sigue</span>
+      <h2>Esto fue gratis. Y recién es el principio.</h2>
+      <p>Hoy pediste distinto y saliste con algo que podés usar de verdad. Nos gusta que el free valga por sí solo: es la forma más honesta de que veas cómo trabajamos.</p>
+      <ul class="ul-clean" style="display:inline-block;text-align:left;margin:12px auto 4px">
+        <li>Despertaste: el mismo chat ya te resolvió una tarea de tu negocio.</li>
+        <li>El free deja la puerta abierta; todavía no arma el <strong>sistema</strong> completo.</li>
+        <li>Ese sistema —el hábito que trabaja con vos cada semana— vive en el <strong>curso básico</strong>.</li>
       </ul>
-      <p class="price">Seguir con mi básico recomendado — US$11,99</p>
-      <p>El sistema está en el curso básico de la herramienta que te quedó en el decisor.</p>
-      <div style="display:flex;justify-content:center;margin-top:18px">
-        <a class="btn btn-primary" href="#n4">Elegí tu básico con el decisor →</a>
+      <p>Cuando tengas ganas de dar el paso, están los cuatro básicos en un solo lugar. Y hay un cupón de bienvenida para arrancar.</p>
+      <div class="promo">
+        <span class="p-list">US$11,99</span>
+        <span class="p-now">US$2,99</span>
+        <span class="p-code">con cupón <b>SOY100</b> en el checkout</span>
       </div>
-      <p class="cta-note">Sin pack. Sin grilla de cuatro botones de compra. Un camino claro.</p>
+      <p class="cta-note">Precio de lista US$11,99; el cupón <strong>SOY100</strong> lo deja en US$2,99 mientras dure.</p>
+      <div class="cta-2">
+        <a class="btn btn-primary" href="https://coco-go.lat/" target="_blank" rel="noopener">Ver los cursos en coco-go.lat →</a>
+        <a class="cta-sub" href="#decisor-form">¿No sabés cuál? Volvé al decisor →</a>
+      </div>
+      <p class="cta-note">Sin apuro y sin pack: un solo camino claro, cuando vos quieras.</p>
     </div>
   </div>
 </section>
@@ -1744,13 +1764,21 @@ function fb(text,cb){var ta=document.createElement('textarea');ta.value=text;
 /* ── decisor: 3 preguntas → un básico ── */
 (function(){
   var CFG={
-    chatgpt:{nm:'ChatGPT',logo:'../assets/logo-openai.svg',href:'https://www.creem.io/payment/prod_6ucKv0tVsrvupoRsnuF649',
+    chatgpt:{nm:'ChatGPT',curso:'ChatGPT para tu negocio',logo:'../assets/logo-openai.svg',dark:false,
+      href:'https://www.creem.io/payment/prod_6ucKv0tVsrvupoRsnuF649',mods:'8 módulos con prompts y entregables reales',
+      sum:'Sistema IA: perfil, contenido, ventas y rutina semanal.',
       why:'Marcaste laburo mixto o sistema versátil. ChatGPT es el todo-terreno: el básico te lleva de pedidos sueltos a un uso ordenado en el día a día.'},
-    claude:{nm:'Claude',logo:'../assets/logo-claude.svg',href:'https://www.creem.io/payment/prod_4kLre0tG00WQsHpaUsp5bP',
+    claude:{nm:'Claude',curso:'Claude para tu negocio',logo:'../assets/logo-claude.svg',dark:false,
+      href:'https://www.creem.io/payment/prod_4kLre0tG00WQsHpaUsp5bP',mods:'7 módulos para propuestas e informes',
+      sum:'Documentos largos, Projects, escritura y Artifacts.',
       why:'Tu dolor apunta a textos largos, documentos y escritura cuidadosa. Claude brilla ahí; el básico te entrena en propuestas, mails y material de negocio.'},
-    gemini:{nm:'Gemini',logo:'../assets/logo-gemini.svg',href:'https://www.creem.io/payment/prod_53XgbMuAJYvZAuHoC7EgG4',
+    gemini:{nm:'Gemini',curso:'Gemini para tu negocio',logo:'../assets/logo-gemini.svg',dark:false,
+      href:'https://www.creem.io/payment/prod_53XgbMuAJYvZAuHoC7EgG4',mods:'8 módulos si vivís en el ecosistema Google',
+      sum:'Gems, imágenes, Deep Research y NotebookLM.',
       why:'Ya vivís en Google (Gmail/Docs/Drive). Gemini es el camino natural; el básico lo baja a cómo laburás.'},
-    grok:{nm:'Grok',logo:'../assets/logo-grok.svg',href:'https://www.creem.io/payment/prod_7K4TTw5vyOOnioDjxPvy6B',
+    grok:{nm:'Grok',curso:'Grok para tu negocio',logo:'../assets/logo-grok.svg',dark:true,
+      href:'https://www.creem.io/payment/prod_7K4TTw5vyOOnioDjxPvy6B',mods:'7 módulos para pulso de marca y tendencia',
+      sum:'Voz, tiempo real con X, archivos e Imagine.',
       why:'Te importa el pulso de ahora: tendencias, competencia, conversación pública. El básico lo baja a hábitos de negocio.'}
   };
   var form=document.getElementById('decisor-form');if(!form)return;
@@ -1777,21 +1805,32 @@ function fb(text,cb){var ta=document.createElement('textarea');ta.value=text;
     var order=['chatgpt','claude','gemini','grok'];
     var max=-1,winners=[];
     order.forEach(function(k){if(score[k]>max){max=score[k];winners=[k];}else if(score[k]===max){winners.push(k);}});
-    var win,empate=false;
+    /* Q1 siempre suma +2 a su elegido → en cualquier empate, la opción de Q1 está
+       entre los ganadores; se usa como desempate (sin rama muerta ni copy de empate). */
+    var win;
     if(winners.length===1){win=winners[0];}
-    else{ /* desempate por Pregunta 1 */
-      var q1k=q1.value.split(':')[0];
-      if(winners.indexOf(q1k)>-1){win=q1k;}
-      else{win='chatgpt';empate=true;}
-    }
+    else{var q1k=q1.value.split(':')[0];win=(winners.indexOf(q1k)>-1)?q1k:winners[0];}
     var c=CFG[win];
-    var logoHtml=win==='grok'?'<span class="logo-chip dark"><img src="'+c.logo+'" alt=""></span>':'<img src="'+c.logo+'" alt="">';
+    var logoHead=c.dark?'<span class="logo-chip dark"><img src="'+c.logo+'" alt=""></span>':'<img src="'+c.logo+'" alt="">';
+    var logoCard=c.dark?'<span class="logo-chip dark cc-logo chip"><img src="'+c.logo+'" alt="" style="height:24px;width:24px"></span>'
+                       :'<img class="cc-logo" src="'+c.logo+'" alt="">';
     res.innerHTML=
-      '<div class="rt">'+logoHtml+'<h3>Tu siguiente paso: '+c.nm+' para tu negocio</h3></div>'+
+      '<div class="rt">'+logoHead+'<h3>Tu siguiente paso: '+c.nm+' para tu negocio</h3></div>'+
       '<p class="why"><strong>Por qué:</strong> '+c.why+'</p>'+
-      '<p class="free"><strong>Esto fue gratis:</strong> acá despertaste y sacaste resultados. El básico es el <strong>sistema</strong>.</p>'+
-      (empate?'<p class="empate">Empataban dos caminos; te recomendamos ChatGPT como todo-terreno para no frenarte. Si preferís el otro finalista, mirá su card arriba y elegí con el pecho.</p>':'')+
-      '<div class="rcta"><a class="btn btn-primary" href="'+c.href+'" target="_blank" rel="noopener">Ir al curso '+c.nm+' · US$11,99 →</a></div>';
+      '<div class="course-card">'+
+        '<div class="cc-top">'+logoCard+'<div class="cc-ttl">'+c.curso+'<small>Curso básico · COCO GO</small></div></div>'+
+        '<div class="cc-body">'+
+          '<p class="cc-sum">'+c.sum+'</p>'+
+          '<ul class="cc-feat">'+
+            '<li>'+c.mods+'</li>'+
+            '<li>Un entregable real por módulo en tu carpeta <code>Sistema IA/</code></li>'+
+            '<li>Glosario, Aplicaciones, Bonus y Verificación final incluidos</li>'+
+          '</ul>'+
+          '<div class="cc-foot"><span class="cc-price">Precio de lista <b>US$11,99</b></span>'+
+          '<a class="btn btn-primary" href="'+c.href+'" target="_blank" rel="noopener">Ir al checkout →</a></div>'+
+        '</div>'+
+      '</div>'+
+      '<p class="free"><strong>Esto fue gratis:</strong> acá despertaste y sacaste resultados. El básico es el <strong>sistema</strong>.</p>';
     res.classList.remove('hidden');
     res.scrollIntoView({behavior:'smooth',block:'nearest'});
   });
