@@ -68,7 +68,7 @@
   --sp-6:60px;   /* padding vertical de sección (78→60: Pablo 2026-07-17, el cambio de módulo quedaba muy separado) */
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:20px}
+html{scroll-behavior:smooth;scroll-padding-top:48px}
 body{
   font-family:"Hanken Grotesk",-apple-system,system-ui,sans-serif;
   background:var(--cream);
@@ -282,6 +282,19 @@ table code{font-family:"JetBrains Mono",monospace;font-size:.86em;background:var
 .floater:hover{background:var(--coral-deep);color:#fff}
 .floater .ic{font-size:1rem}
 
+/* separador simétrico entre módulos (Pablo 2026-07-17: línea que separa cada módulo,
+   pareja en todos; corta el aire muerto de la transición) — va arriba de cada N1-N4 */
+.mod-sep{display:flex;align-items:center;justify-content:center;gap:14px;
+  width:min(280px,64%);margin:0 auto var(--sp-4)}
+.mod-sep::before,.mod-sep::after{content:"";height:1px;flex:1}
+.mod-sep::before{background:linear-gradient(90deg,transparent,var(--line-2))}
+.mod-sep::after{background:linear-gradient(90deg,var(--line-2),transparent)}
+.mod-sep i{flex:none;width:7px;height:7px;transform:rotate(45deg);border-radius:1px;
+  background:var(--coral);box-shadow:0 0 0 4px rgba(226,75,39,.10)}
+section.band .mod-sep i{box-shadow:0 0 0 4px rgba(226,75,39,.07)}
+/* la sección de módulo con separador arranca con menos aire arriba (el sep ya separa) */
+section.has-sep{padding-top:var(--sp-5)}
+
 /* cierre de sección + next */
 .sec-close{margin-top:var(--sp-5)}
 .next{margin-top:var(--sp-4);background:
@@ -312,6 +325,10 @@ table code{font-family:"JetBrains Mono",monospace;font-size:.86em;background:var
 .bonus-tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--coral-deep);background:var(--cream-2);border:1px solid var(--line-2);border-radius:999px;padding:4px 12px;margin:6px 0 2px}
 
 /* decisor */
+.decisor-head{text-align:center;max-width:44ch;margin:0 auto var(--sp-4)}
+.decisor-head .kicker{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:.74rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--coral-deep);background:var(--cream-2);border:1px solid var(--line-2);border-radius:999px;padding:5px 14px;margin-bottom:14px}
+.decisor-head h3{font-size:clamp(1.55rem,3.4vw,2.05rem);margin-bottom:10px;letter-spacing:-.015em}
+.decisor-head p{font-size:1rem;color:var(--ink-2);margin:0}
 .decisor{background:var(--paper);border:1px solid var(--line-2);border-radius:18px;padding:26px 24px;box-shadow:var(--shadow-lg);margin:16px 0}
 .decisor .dnote{font-size:.88rem;color:var(--muted);margin-bottom:20px}
 .dq{margin-bottom:22px}
@@ -760,7 +777,8 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
 </section>
 
 <!-- ═══════════════ N1 ═══════════════ -->
-<section id="n1" class="wrap">
+<section id="n1" class="wrap has-sep">
+  <div class="mod-sep" aria-hidden="true"><i></i></div>
   <div class="reveal">
     <span class="eyebrow"><span class="num">01</span> El clic inicial</span>
     <h2 class="sec-title">La estás usando como Google</h2>
@@ -916,8 +934,9 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
 </section>
 
 <!-- ═══════════════ N2 ═══════════════ -->
-<section id="n2" class="band">
+<section id="n2" class="band has-sep">
  <div class="wrap">
+  <div class="mod-sep" aria-hidden="true"><i></i></div>
   <div class="reveal">
     <span class="eyebrow"><span class="num">02</span> El patrón</span>
     <h2 class="sec-title">El patrón: contexto + tarea + formato</h2>
@@ -1117,7 +1136,8 @@ Formato: 5 líneas, invitar a pasar con ticket, sin culpar.</p></div>
 </section>
 
 <!-- ═══════════════ N3 ═══════════════ -->
-<section id="n3" class="wrap">
+<section id="n3" class="wrap has-sep">
+  <div class="mod-sep" aria-hidden="true"><i></i></div>
   <div class="reveal">
     <span class="eyebrow"><span class="num">03</span> Tu resultado real · corazón de la sesión</span>
     <h2 class="sec-title">Tu resultado real (con datos de tu negocio)</h2>
@@ -1464,14 +1484,15 @@ datos reales: [pegá acá precios, políticas, tono, o lo que corresponda].</pre
       <span class="kicker">Sección siguiente</span>
       <h3>¿Con cuál <span class="c">seguís</span>?</h3>
       <p>Ya no es “la uso como Google”: tenés un resultado tuyo y el hábito de cerrar el loop. Siguiente: <em>¿Con cuál seguís?</em> — comparativa de las cuatro + decisor → <strong>un</strong> básico COCO GO.</p>
-      <a class="btn btn-primary go" href="#n4">Ir a ¿Con cuál seguís? →</a>
+      <a class="btn btn-primary go" href="#n4">Ver la comparativa y el decisor →</a>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════ N4 ═══════════════ -->
-<section id="n4" class="band">
+<section id="n4" class="band has-sep">
  <div class="wrap">
+  <div class="mod-sep" aria-hidden="true"><i></i></div>
   <div class="reveal">
     <span class="eyebrow"><span class="num">04</span> ¿Con cuál seguís?</span>
     <h2 class="sec-title">¿Con cuál seguís? Guía comparativa + decisor</h2>
@@ -1484,7 +1505,7 @@ datos reales: [pegá acá precios, políticas, tono, o lo que corresponda].</pre
     <p>Para seguir de verdad —instalar el sistema, no solo un par de resultados— conviene elegir <strong>dónde</strong> profundizar. Las cuatro se parecen en el chat y se diferencian en el día a día del negocio.</p>
     <ol class="ul-clean" style="list-style:none">
       <li><strong>Guía comparativa</strong> — card por herramienta: qué es, en qué brilla, para quién, con qué curso seguir.</li>
-      <li><strong>Decisor</strong> — 3 preguntas → <strong>un</strong> básico.</li>
+      <li><strong>Decisor</strong> — 5 preguntas → <strong>un</strong> básico.</li>
       <li><strong>CTA único</strong> — el free despierta; el <strong>sistema</strong> es el básico.</li>
     </ol>
     <p style="margin-top:1em">No hay pack. Un camino claro.</p>
@@ -1558,9 +1579,13 @@ datos reales: [pegá acá precios, políticas, tono, o lo que corresponda].</pre
   </div>
 
   <div class="reveal">
-    <h3 class="block-h">Decisor — 3 preguntas → un básico</h3>
+    <div class="decisor-head">
+      <span class="kicker">Decisor COCO GO</span>
+      <h3>¿Con cuál de las cuatro empezás?</h3>
+      <p>Cinco preguntas rápidas y te decimos qué básico va con tu laburo — y por qué. Sin registro, sin guardar nada: se calcula acá, en tu navegador.</p>
+    </div>
     <div class="decisor">
-      <p class="dnote">Tres preguntas. Según lo que marques, te recomendamos <strong>un</strong> curso básico y te decimos por qué. No guardamos tus respuestas en ningún servidor: es solo esta página.</p>
+      <p class="dnote">Marcá una opción en cada una. Al final te recomendamos <strong>un</strong> curso básico con el motivo. No guardamos tus respuestas en ningún servidor: es solo esta página.</p>
       <form id="decisor-form">
         <div class="dq">
           <span class="qh"><span class="qn">1.</span>¿Qué te pesa más en el laburo de ahora?</span>
@@ -1587,6 +1612,24 @@ datos reales: [pegá acá precios, políticas, tono, o lo que corresponda].</pre
             <label class="dopt"><input type="radio" name="q3" value="claude:2"><span>Escribir y trabajar documentos con mucho más método</span></label>
             <label class="dopt"><input type="radio" name="q3" value="gemini:2"><span>Meter la IA donde ya tengo el mail y los docs de Google</span></label>
             <label class="dopt"><input type="radio" name="q3" value="grok:2"><span>Radar de rubro, actualidad y conversación en vivo</span></label>
+          </div>
+        </div>
+        <div class="dq">
+          <span class="qh"><span class="qn">4.</span>¿Qué te haría decir “esto me cambió la semana”?</span>
+          <div class="dopts">
+            <label class="dopt"><input type="radio" name="q4" value="chatgpt:2"><span>Una sola IA para todo, que me saque tareas de encima sin complicarme</span></label>
+            <label class="dopt"><input type="radio" name="q4" value="claude:2"><span>Sacar propuestas e informes largos más rápido y más prolijos</span></label>
+            <label class="dopt"><input type="radio" name="q4" value="gemini:2"><span>Que la IA ya esté metida en mi Gmail, Docs y Drive</span></label>
+            <label class="dopt"><input type="radio" name="q4" value="grok:2"><span>Enterarme antes que nadie de lo que se dice de mi rubro</span></label>
+          </div>
+        </div>
+        <div class="dq">
+          <span class="qh"><span class="qn">5.</span>¿Cuánto pesa la info de <em>hoy</em> (lo que pasa ahora mismo) en tu trabajo?</span>
+          <div class="dopts">
+            <label class="dopt"><input type="radio" name="q5" value="claude:1"><span>Poco: trabajo sobre mis propios textos y datos</span></label>
+            <label class="dopt"><input type="radio" name="q5" value="chatgpt:1"><span>Algo, pero no es lo central</span></label>
+            <label class="dopt"><input type="radio" name="q5" value="gemini:1"><span>Media: necesito el mail y los archivos de Google al día</span></label>
+            <label class="dopt"><input type="radio" name="q5" value="grok:2"><span>Mucha: vivo del pulso del momento, redes y actualidad</span></label>
           </div>
         </div>
       </form>
@@ -1768,7 +1811,7 @@ function fb(text,cb){var ta=document.createElement('textarea');ta.value=text;
   els.forEach(function(e){io.observe(e);});
 })();
 
-/* ── decisor: 3 preguntas → un básico ── */
+/* ── decisor: 5 preguntas → un básico ── */
 (function(){
   var CFG={
     chatgpt:{nm:'ChatGPT',curso:'ChatGPT para tu negocio',logo:'../assets/logo-openai.svg',dark:false,
@@ -1802,18 +1845,21 @@ function fb(text,cb){var ta=document.createElement('textarea');ta.value=text;
     var q1=form.querySelector('input[name="q1"]:checked');
     var q2=form.querySelector('input[name="q2"]:checked');
     var q3=form.querySelector('input[name="q3"]:checked');
+    var q4=form.querySelector('input[name="q4"]:checked');
+    var q5=form.querySelector('input[name="q5"]:checked');
     var hint=document.getElementById('decisor-hint');
-    if(!q1||!q2||!q3){if(hint)hint.textContent='Marcá una opción en las tres preguntas para ver tu recomendación.';return;}
+    if(!q1||!q2||!q3||!q4||!q5){if(hint)hint.textContent='Marcá una opción en las cinco preguntas para ver tu recomendación.';return;}
     if(hint)hint.textContent='';
     var score={chatgpt:0,claude:0,gemini:0,grok:0};
-    [q1,q2,q3].forEach(function(inp){
+    [q1,q2,q3,q4,q5].forEach(function(inp){
       var parts=inp.value.split(':');score[parts[0]]+=parseInt(parts[1],10);
     });
     var order=['chatgpt','claude','gemini','grok'];
     var max=-1,winners=[];
     order.forEach(function(k){if(score[k]>max){max=score[k];winners=[k];}else if(score[k]===max){winners.push(k);}});
-    /* Q1 siempre suma +2 a su elegido → en cualquier empate, la opción de Q1 está
-       entre los ganadores; se usa como desempate (sin rama muerta ni copy de empate). */
+    /* Desempate determinista: si la elegida en Q1 (que pesa +2) está entre las empatadas,
+       gana; si no, cae al orden de prioridad (chatgpt>claude>gemini>grok). Sin rama muerta
+       ni copy de empate: siempre sale UN ganador con su "por qué". */
     var win;
     if(winners.length===1){win=winners[0];}
     else{var q1k=q1.value.split(':')[0];win=(winners.indexOf(q1k)>-1)?q1k:winners[0];}
