@@ -1,0 +1,43 @@
+<!doctype html>
+<!-- OG COCO GO · PRE (mundo CLARO CREMA, 1200x630). Render:
+     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu
+     --hide-scrollbars --window-size=1200,630 --screenshot=og.png "file://.../pre/og.html"
+     NOTA: usa system-ui para render sin red (no depende de Google Fonts). -->
+<html lang="es"><head><meta charset="utf-8">
+<style>
+  :root{--cream:#FBF6EE;--ink:#182338;--ink2:#3B4761;--coral:#E24B27;--coral-soft:#FF6B4A;--amber:#F4A93B;--line:#EADFCD;}
+  *{margin:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{background:
+      radial-gradient(1200px 620px at 82% -12%, rgba(255,107,74,.20), transparent 60%),
+      radial-gradient(760px 480px at 2% 10%, rgba(244,169,59,.20), transparent 58%),
+      var(--cream);
+    color:var(--ink);font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+    padding:76px 84px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+  /* blob decorativo */
+  .blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.5}
+  .b1{width:24px;height:24px;background:var(--coral-soft);top:150px;right:220px}
+  .b2{width:16px;height:16px;background:var(--amber);top:360px;right:150px}
+  .b3{width:12px;height:12px;background:var(--coral-soft);bottom:170px;left:120px}
+  .top{display:flex;align-items:center;gap:18px}
+  .top img{height:48px}
+  .chip{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--coral);
+    border:1.5px solid var(--line);border-radius:999px;padding:9px 22px;
+    font-size:22px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 8px 24px rgba(24,35,56,.06)}
+  .chip .dot{width:11px;height:11px;border-radius:50%;background:var(--coral-soft)}
+  h1{font-size:92px;line-height:1.02;font-weight:800;letter-spacing:-.03em;max-width:1010px;color:var(--ink)}
+  h1 .hl{color:var(--coral);position:relative}
+  h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.05em;height:.16em;background:rgba(244,169,59,.5);border-radius:4px;z-index:-1}
+  .sub{font-size:31px;color:var(--ink2);margin-top:26px;font-weight:500;font-family:"Helvetica Neue",Arial,sans-serif;max-width:960px}
+  .foot{display:flex;align-items:center;justify-content:space-between;font-size:25px;color:#8A8272;font-family:"Helvetica Neue",Arial,sans-serif}
+  .foot b{color:var(--ink)}
+</style></head>
+<body>
+  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  <div class="top"><img src="../assets/logo-coco-go.svg" alt="COCO GO"><span class="chip"><span class="dot"></span>Curso gratis</span></div>
+  <div>
+    <h1>Tu primer resultado <span class="hl">real</span> con IA</h1>
+    <div class="sub">Una sesión. Una tarea de tu negocio resuelta con tus propios datos. Y sabés con qué herramienta seguir.</div>
+  </div>
+  <div class="foot"><span>Mini-curso interactivo · 4 secciones + glosario</span><span><b>coco-go.lat/pre</b></span></div>
+</body></html>
