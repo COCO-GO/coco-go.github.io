@@ -374,9 +374,10 @@ footer p a{color:var(--coral-deep);font-weight:600}
 .quote-chips{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:var(--sp-3) 0 var(--sp-1)}
 .quote-chips li{background:var(--paper);border:1px solid var(--line-2);border-radius:14px;
   padding:9px 14px;font-size:.92rem;color:var(--ink-2);box-shadow:var(--shadow);position:relative;line-height:1.4}
-.quote-chips li::before{content:"“";position:absolute;left:6px;top:-2px;color:var(--coral-soft);font-size:1.1rem;font-weight:800;opacity:.5}
-.quote-chips li{padding-left:20px}
-.quote-chips.amber li::before{color:var(--amber-soft)}
+.quote-chips li::before{content:"";position:absolute;left:11px;top:50%;transform:translateY(-50%);
+  width:6px;height:6px;border-radius:50%;background:var(--coral-soft)}
+.quote-chips li{padding-left:24px}
+.quote-chips.amber li::before{background:var(--amber-soft)}
 
 /* pull-quote de énfasis (frase-bisagra de una sección) */
 .pull{margin:var(--sp-4) 0;padding:4px 0 4px 22px;border-left:4px solid var(--coral);
@@ -746,23 +747,27 @@ footer p a{color:var(--coral-deep);font-weight:600}
   </div>
 
   <div class="reveal">
-    <h3 class="block-h">¿La usás así? (el espejo)</h3>
+    <div class="blockhead"><span class="bi">🪞</span><h3 class="block-h">¿La usás así? (el espejo)</h3></div>
     <p class="lead-in">Abrís el <a href="#g-chat" class="term">chat</a> en el celular, en el colectivo, entre un cliente y el otro. Escribís algo corto. Leés. Cerrás. Seguís con el día.</p>
     <p>Frases que se escuchan todo el tiempo — y tal vez son las tuyas:</p>
-    <ul class="ul-clean">
-      <li>«¿Qué es un presupuesto?» · «Ideas de post para Instagram» · «Cómo contestar a un cliente enojado»</li>
-      <li>«Dame un mail de reclamo» · «Resumime esto» · «¿Sirve la IA para un negocio chico?»</li>
+    <ul class="quote-chips">
+      <li>«¿Qué es un presupuesto?»</li>
+      <li>«Ideas de post para Instagram»</li>
+      <li>«Cómo contestar a un cliente enojado»</li>
+      <li>«Dame un mail de reclamo»</li>
+      <li>«Resumime esto»</li>
+      <li>«¿Sirve la IA para un negocio chico?»</li>
     </ul>
-    <p style="margin-top:1em">La respuesta llega prolija. Suena bien. A veces hasta te hace pensar. Y después… no cambia nada en el mostrador, en el WhatsApp ni en la caja. Volvés a buscar otra cosa. O la usás “como psicólogo”: a desahogarte, a ordenar la cabeza.</p>
+    <p style="margin-top:var(--sp-3)">La respuesta llega prolija. Suena bien. A veces hasta te hace pensar. Y después… no cambia nada en el mostrador, en el WhatsApp ni en la caja. Volvés a buscar otra cosa. O la usás “como psicólogo”: a desahogarte, a ordenar la cabeza.</p>
     <p>Eso <strong>no está mal</strong>. Es el primer uso que casi todos hacemos. Es la <a href="#g-ia" class="term">IA</a> como un <a href="#g-buscador" class="term">buscador con IA</a> con mejor redacción: preguntás, te contesta, seguís. Como un Google avanzado.</p>
-    <p>El problema no es usarla. El problema es <strong>quedarse ahí</strong> y creer que “ya la uso” cuando en realidad solo <strong>buscás</strong>.</p>
+    <p class="pull">El problema no es usarla. El problema es <span class="c">quedarse ahí</span> y creer que “ya la uso” cuando en realidad solo buscás.</p>
     <p>Porque el mismo chat puede <strong>hacer trabajo de tu negocio</strong> con tus datos: una tarea tuya, con nombres, precios, plazos y tono reales, y un borrador que podés mandar, publicar o usar hoy.</p>
     <p>Eso es el salto de esta sesión. No es magia. Es un pedido distinto.</p>
     <div class="card card-quote"><p>📱 <strong>Celular o compu:</strong> se hace igual. Abrís un chat, escribís o pegás texto, leés la respuesta. La herramienta da igual: la que ya uses alcanza.</p></div>
   </div>
 
   <div class="reveal">
-    <h3 class="block-h">Del buscador al resultado (el delta)</h3>
+    <div class="blockhead coral"><span class="bi">🔀</span><h3 class="block-h">Del buscador al resultado (el delta)</h3></div>
     <div class="table-wrap"><table>
       <thead><tr><th>Buscar (como Google)</th><th>Hacer (con tu negocio)</th></tr></thead>
       <tbody>
@@ -774,28 +779,30 @@ footer p a{color:var(--coral-deep);font-weight:600}
       </tbody>
     </table></div>
 
-    <h4 class="block-h">Escena 1 — El reclamo (ferretería)</h4>
-    <p><strong>Antes (como buscador)</strong></p>
+    <div class="scene-tag">◆ Escena 1</div>
+    <h4 class="block-h">El reclamo (ferretería)</h4>
+    <div class="ba before"><span class="d"></span>Antes (como buscador)</div>
     <div class="chat">
       <div class="msg you"><span class="who">vos</span><p>¿Cómo respondo a un cliente enojado?</p></div>
       <div class="msg ai"><span class="who">la IA</span><p>Cuando un cliente está enojado, mantené la calma, pedí disculpas, escuchá su reclamo y ofrecé una solución concreta. Evitá pelear y seguí el caso hasta cerrarlo.</p></div>
     </div>
     <p>Útil… y genérico. No menciona tu rubro, tu cliente ni lo que pasó. Seguís vos con la hoja en blanco.</p>
-    <p><strong>Después (con tu negocio)</strong></p>
+    <div class="ba after"><span class="d"></span>Después (con tu negocio)</div>
     <div class="chat">
       <div class="msg you"><span class="who">vos</span><p>Soy de Ferretería El Tornillo (barrio, venta al público). Un cliente compró un taladro hace 5 días; se le trabó la mandíbula. Quiere devolverlo. Política: cambios hasta 7 días con ticket. Tono amable y claro. Escribime el mensaje de WhatsApp en 4–6 líneas, sin prometer envío (no lo hacemos).</p></div>
       <div class="msg ai"><span class="who">la IA</span><p>Hola, soy de Ferretería El Tornillo. Lamento que el taladro te haya fallado. Con el ticket y dentro de los 7 días hacemos el cambio sin problema en el local. ¿Podés pasar con el producto y el ticket, o preferís que te digamos horarios? Decime y lo resolvemos hoy.</p></div>
     </div>
     <p>Misma herramienta. Distinto pedido. <strong>Resultado usable.</strong></p>
 
-    <h4 class="block-h">Escena 2 — La promo del fin de semana (almacén)</h4>
-    <p><strong>Antes</strong></p>
+    <div class="scene-tag">◆ Escena 2</div>
+    <h4 class="block-h">La promo del fin de semana (almacén)</h4>
+    <div class="ba before"><span class="d"></span>Antes</div>
     <div class="chat">
       <div class="msg you"><span class="who">vos</span><p>Dame ideas de promoción para el fin de semana</p></div>
       <div class="msg ai"><span class="who">la IA</span><p>Podés ofrecer descuentos por volumen, combos familiares, publicación en redes con fotos atractivas, y un sorteo entre clientes.</p></div>
     </div>
     <p>Correcto e inútil. No hay precios, no hay productos, no hay canal.</p>
-    <p><strong>Después</strong></p>
+    <div class="ba after"><span class="d"></span>Después</div>
     <div class="chat">
       <div class="msg you"><span class="who">vos</span><p>Soy de Almacén Don Pepe, barrio. Este fin de semana quiero mover ~8 kg de queso tybo que vence en 10 días. Clientes del barrio, WhatsApp y mostrador. Armame: (1) mensaje de WhatsApp 4–6 líneas, tono de vecino; (2) cartel de mostrador máx. 12 palabras. Dejá el precio como $X el kg. Incluí “hasta el domingo o hasta agotar”.</p></div>
       <div class="msg ai"><span class="who">la IA</span><p>WhatsApp: “Hola, soy de Don Pepe. Este finde tenemos promo de queso tybo fresco: $X el kg, hasta el domingo o hasta que se acabe. Si querés, te lo separamos. ¿Cuánto te mando?” Cartel: “Tybo fresco · $X/kg · Hasta domingo o agotar”</p></div>
@@ -808,7 +815,7 @@ footer p a{color:var(--coral-deep);font-weight:600}
   </div>
 
   <div class="reveal">
-    <h3 class="block-h">Qué puede hacer · qué NO puede (honesto, temprano)</h3>
+    <div class="blockhead sol"><span class="bi">⚖️</span><h3 class="block-h">Qué puede hacer · qué NO puede (honesto, temprano)</h3></div>
     <p>La <a href="#g-ia-generativa" class="term">IA generativa</a> escribe, resume, ordena ideas, arma borradores, reescribe con tu tono. Es buena para <strong>borradores de laburo</strong>: mails, respuestas a clientes, descripciones, listas, planes de la semana, primeros números de un presupuesto.</p>
     <p>No es magia. No es un <a href="#g-asistente" class="term">asistente</a> que entiende tu negocio solo. No “sabe” lo que pasa en tu local si no se lo contás. Y a veces <strong>se inventa cosas</strong>.</p>
     <div class="table-wrap"><table>
@@ -829,7 +836,7 @@ footer p a{color:var(--coral-deep);font-weight:600}
   </div>
 
   <div class="reveal">
-    <h3 class="block-h">El freno #1: “me inventa” / alucinar</h3>
+    <div class="blockhead amber"><span class="bi">⚠️</span><h3 class="block-h">El freno #1: “me inventa” / alucinar</h3></div>
     <p>Cuando no sabe algo, a veces <strong>completa igual</strong>. Inventa un dato, un precio, un plazo, un envío gratis. Eso se llama <a href="#g-alucinar" class="term">alucinar</a>. Pasa en las herramientas de chat en general. Por eso en esta sesión vas a <strong>revisar</strong> lo que te da antes de mandarlo.</p>
     <div class="chat">
       <div class="msg you"><span class="who">vos</span><p>Armame las condiciones de un presupuesto para un cliente de la ferretería. Trabajo de instalación de estanterías.</p></div>
@@ -847,7 +854,7 @@ footer p a{color:var(--coral-deep);font-weight:600}
   </div>
 
   <div class="reveal">
-    <h3 class="block-h">“Probé y no me salió”</h3>
+    <div class="blockhead"><span class="bi">🤔</span><h3 class="block-h">“Probé y no me salió”</h3></div>
     <p>Casi siempre el pedido fue vago o sin contexto. No es que “no sea para tu rubro”. Es que le pediste como a un buscador y esperaste un empleado.</p>
     <div class="table-wrap"><table>
       <thead><tr><th>Lo que escribiste</th><th>Lo que pasó</th></tr></thead>
@@ -862,7 +869,7 @@ footer p a{color:var(--coral-deep);font-weight:600}
   </div>
 
   <div class="reveal">
-    <h3 class="block-h">Plan gratis: alcanza para esta sesión</h3>
+    <div class="blockhead sol"><span class="bi">💳</span><h3 class="block-h">Plan gratis: alcanza para esta sesión</h3></div>
     <p>Las cuatro herramientas grandes (ChatGPT, Claude, Gemini y Grok) tienen un <a href="#g-plan" class="term">plan gratis/pago</a> con acceso gratis suficiente para <strong>toda esta sesión</strong>. Los límites cambian; no hace falta pagar para lo de hoy. Usá la que ya tengas abierta.</p>
     <div class="card card-quote"><p>“Gratis” no significa “sin <a href="#g-limite" class="term">límite de uso</a> para siempre”. Para pedidos de texto y borradores de hoy, el acceso gratis alcanza. Si más adelante la usás muchas horas por día, evaluás una <a href="#g-suscripcion" class="term">suscripción</a>.</p></div>
     <p><a href="#g-modelo" class="term">modelo vs herramienta</a>: el <strong>modelo</strong> es el “motor”; la <strong>herramienta</strong> es la <a href="#g-app-web" class="term">app vs web</a> donde chateás. Hoy no hace falta elegir motor: abrí el chat que ya uses. El mapa de “con cuál seguir” viene al final.</p>
