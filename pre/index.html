@@ -1408,7 +1408,7 @@ datos reales: [pegá acá precios, políticas, tono, o lo que corresponda].</pre
         <p class="tool-frase">“Si mi negocio vive en Google, empiezo por acá.”</p>
       </div>
       <div class="tool-card">
-        <div class="hd"><img src="../assets/logo-grok.svg" alt="Grok"><span class="nm">Grok</span></div>
+        <div class="hd"><span class="logo-chip dark"><img src="../assets/logo-grok.svg" alt="Grok"></span><span class="nm">Grok</span></div>
         <div class="tool-row"><span class="lb">Qué es</span>Chat de xAI. Conversacional; se destaca por <strong>tiempo real</strong> y lo que se mueve en la web y en X.</div>
         <div class="tool-row"><span class="lb">En qué brilla</span><strong>Tendencias, actualidad y radar.</strong> Qué se habla ahora, competidores, rubro en vivo.</div>
         <div class="tool-row"><span class="lb">Para quién</span>Cuida <strong>marca, redes, competencia, actualidad del rubro</strong>.</div>
@@ -1511,7 +1511,7 @@ datos reales: [pegá acá precios, políticas, tono, o lo que corresponda].</pre
     </div>
   </div>
 </section>
-
+</main>
 
 <!-- ═══════════════ FOOTER ═══════════════ -->
 <footer>
@@ -1651,12 +1651,13 @@ function fb(text,cb){var ta=document.createElement('textarea');ta.value=text;
     if(winners.length===1){win=winners[0];}
     else{ /* desempate por Pregunta 1 */
       var q1k=q1.value.split(':')[0];
-      if(winners.indexOf(q1k)>-1){win=q1k;empate=true;}
+      if(winners.indexOf(q1k)>-1){win=q1k;}
       else{win='chatgpt';empate=true;}
     }
     var c=CFG[win];
+    var logoHtml=win==='grok'?'<span class="logo-chip dark"><img src="'+c.logo+'" alt=""></span>':'<img src="'+c.logo+'" alt="">';
     res.innerHTML=
-      '<div class="rt"><img src="'+c.logo+'" alt=""><h3>Tu siguiente paso: '+c.nm+' para tu negocio</h3></div>'+
+      '<div class="rt">'+logoHtml+'<h3>Tu siguiente paso: '+c.nm+' para tu negocio</h3></div>'+
       '<p class="why"><strong>Por qué:</strong> '+c.why+'</p>'+
       '<p class="free"><strong>Esto fue gratis:</strong> acá despertaste y sacaste resultados. El básico es el <strong>sistema</strong>.</p>'+
       (empate?'<p class="empate">Empataban dos caminos; te recomendamos ChatGPT como todo-terreno para no frenarte. Si preferís el otro finalista, mirá su card arriba y elegí con el pecho.</p>':'')+
