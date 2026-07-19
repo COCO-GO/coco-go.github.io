@@ -465,6 +465,84 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
   color:var(--coral-deep);font-weight:500;background:var(--ex-bg);border:1px solid var(--ex-line);
   border-radius:999px;padding:4px 13px;margin:var(--sp-4) 0 var(--sp-1)}
 
+
+/* ═══ R2 FABLE — visual first (P0) ═══ */
+.diagram{
+  padding:28px 22px 24px;margin:var(--sp-5) 0;
+  border:2px solid var(--line);border-top:5px solid var(--coral-soft);
+  box-shadow:var(--shadow-lg);min-height:220px;
+  animation:diag-in .7s cubic-bezier(.16,.8,.3,1) both;
+}
+.diagram .diag-label{font-size:1.2rem;margin-bottom:var(--sp-3)}
+.diag-2col{gap:18px}
+.diag-col{padding:20px 18px;min-height:140px;border-radius:16px}
+.diag-col h4{font-size:1.15rem}
+.diag-col p{font-size:1rem;line-height:1.5}
+.diag-icon{font-size:2.2rem;margin-bottom:12px}
+.diag-chip{font-size:.78rem;padding:5px 12px;margin-bottom:12px}
+.diag-foot{font-size:.98rem;margin-top:18px}
+.flow-step{min-height:150px;padding:22px 18px}
+.flow-step h4{font-size:1.15rem}
+.flow-step p{font-size:1rem}
+.flow-step .fn{width:40px;height:40px;font-size:1rem;border-radius:12px}
+.r1{width:min(380px,92vw);height:min(380px,92vw)}
+.tree-root{font-size:1.15rem;padding:18px 22px}
+.circuit .cstep{padding:16px 18px}
+.circuit .cn{width:36px;height:36px;font-size:1rem}
+.out-grid{gap:14px}
+.out-cell{padding:20px 14px;min-height:150px}
+.out-cell .oic{width:48px;height:48px;font-size:1.25rem;border-radius:14px}
+.out-cell h4{font-size:1.08rem}
+.out-cell .who4{font-size:.9rem}
+.mock-block{margin:var(--sp-5) 0}
+.mock-block .chat{padding:18px;border:2px solid var(--line);box-shadow:var(--shadow-lg)}
+.mock-block .msg{font-size:1.02rem;padding:14px 16px}
+/* tools hero */
+.tools-grid{display:grid;grid-template-columns:1fr;gap:18px;margin:var(--sp-4) 0}
+@media(min-width:720px){.tools-grid{grid-template-columns:1fr 1fr}}
+.tool-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px 22px 18px;
+  box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease,border-color .18s}
+.tool-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--coral)}
+.tool-card .hd{display:flex;align-items:center;gap:14px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.tool-card .logo-chip{width:52px;height:52px;border-radius:14px;background:var(--cream-2);border:1px solid var(--line-2);
+  display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.tool-card .logo-chip img{height:32px;width:32px;object-fit:contain}
+.tool-card .nm{font-family:"Bricolage Grotesque",serif;font-weight:800;font-size:1.35rem;color:var(--ink)}
+.tool-row{margin-bottom:12px;font-size:1rem;line-height:1.45}
+.tool-row .lb{display:block;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.tool-frase{margin:14px 0 0;font-size:.95rem;font-style:italic;color:var(--ink-2);border-top:1px dashed var(--line-2);padding-top:12px}
+/* feedback fábrica en mundo crema */
+.feedbackbox textarea{width:100%;min-height:100px;border:1px solid var(--line-2);border-radius:12px;padding:12px 14px;
+  font-family:inherit;font-size:.95rem;resize:vertical;background:var(--cream);color:var(--ink-2);margin-bottom:12px}
+.feedbackbox .fb-actions{display:flex;justify-content:flex-end;margin-bottom:12px}
+.feedbackbox .copy,.feedbackbox button.copy{font-family:"Hanken Grotesk",sans-serif;font-size:.9rem;font-weight:700;color:#fff;
+  background:var(--ink);border:none;border-radius:999px;padding:10px 18px;cursor:pointer}
+.feedbackbox .copy:hover{background:var(--coral-deep)}
+.feedbackbox .fb-paths{display:flex;flex-direction:column;gap:6px;font-size:.9rem;color:var(--ink-2)}
+.feedbackbox .fb-paths a{color:var(--coral-deep);font-weight:700}
+/* scene row S1 */
+.scene-row{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:var(--sp-4) 0}
+@media(min-width:720px){.scene-row{grid-template-columns:repeat(5,1fr)}}
+.scene{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 12px;text-align:center;
+  box-shadow:var(--shadow);transition:transform .18s ease}
+.scene:hover{transform:translateY(-3px)}
+.scene .sic{font-size:1.8rem;display:block;margin-bottom:8px}
+.scene p{margin:0;font-size:.82rem;font-weight:600;color:var(--ink-2);line-height:1.3}
+/* dual filter cards */
+.filter-duo{display:grid;grid-template-columns:1fr;gap:14px;margin:var(--sp-4) 0}
+@media(min-width:600px){.filter-duo{grid-template-columns:1fr 1fr}}
+.filter-duo .fcard{border-radius:16px;padding:20px;border:1px solid var(--line);box-shadow:var(--shadow);min-height:120px}
+.filter-duo .fcard.a{background:var(--ex-bg);border-color:var(--ex-line)}
+.filter-duo .fcard.b{background:var(--sol-bg);border-color:var(--sol-line)}
+.filter-duo h4{margin:0 0 8px;font-size:1.1rem}
+.filter-duo p{margin:0;font-size:.95rem}
+@keyframes diag-in{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.diagram{animation:none}}
+/* pull quote stronger */
+.pull-big{margin:var(--sp-5) 0;padding:18px 8px 18px 24px;border-left:5px solid var(--coral);
+  font-family:"Bricolage Grotesque",serif;font-weight:800;font-size:clamp(1.25rem,3.2vw,1.75rem);
+  line-height:1.25;color:var(--ink);letter-spacing:-.02em}
+
 </style>
 </head>
 <body>
@@ -539,97 +617,10 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
     </a>
   </div>
   <div class="map-extra reveal">
-    <p><strong>También:</strong> el glosario para que ninguna palabra te frene. Tocá las palabras <span class="term">subrayadas</span> cuando aparezcan.</p>
+    <p><strong>También:</strong> el glosario (al final) para que ninguna palabra te frene. Tocá las palabras <span class="term">subrayadas</span> cuando aparezcan.</p>
     <a href="#glosario" class="btn btn-ghost" style="padding:10px 18px;font-size:.9rem">Ver glosario →</a>
   </div>
 </section>
-
-
-<section id="glosario" class="wrap">
-  <div class="reveal">
-    <span class="eyebrow"><span class="num">✦</span> Lo que conviene saber · para no trabarte</span>
-    <h2 class="sec-title">Para que ninguna palabra te frene</h2>
-    <p class="sec-lead">Las palabras que más se repiten cuando se habla de IA, en criollo y con un ejemplo de negocio real. Buscá o tocá una para abrirla.</p>
-  </div>
-  <div class="gloss-head reveal">
-    <div class="gloss-search"><span aria-hidden="true">🔎</span><input id="gloss-q" placeholder="Buscar un término…" autocomplete="off" aria-label="Buscar un término del glosario"></div>
-    <span class="gloss-count"><span id="gloss-shown">14</span> de 14 palabras</span>
-  </div>
-  <div class="gloss-list reveal" id="gloss-list">
-
-    <div class="gitem" id="g-ia"><button class="gterm" type="button">inteligencia artificial (IA)<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
-      <p>La capacidad de una computadora o un programa de comportarse como si tuviera algo de criterio —reconocer, recomendar, decidir dentro de una tarea puntual— sin que un humano le esté dictando cada paso. También es el nombre del campo entero que estudia y construye eso.</p>
-      <p class="egline"><b>Ejemplo de negocio:</b> En la peluquería, la app que le sugiere a la clienta productos "para vos" según lo que compró antes tiene IA adentro, aunque nadie le haya puesto ese cartel.</p>
-      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "esto tiene IA", "es un producto con inteligencia artificial" o "ahora todo lleva IA".</p>
-    </div></div></div>
-    <div class="gitem" id="g-algoritmo"><button class="gterm" type="button">algoritmo<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
-      <p>Una receta de pasos que un programa sigue, en orden, para decidir algo o resolver una tarea. No es magia ni es "pensar": es una secuencia de instrucciones que se ejecuta sola, una y otra vez.</p>
-      <p class="egline"><b>Ejemplo de negocio:</b> El filtro de spam del mail de la gomería sigue un algoritmo: revisa cada mail que entra con la misma receta de pasos para decidir si es spam o no.</p>
-      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "cambiaron el algoritmo", "el algoritmo de Instagram" o "eso lo decide un algoritmo".</p>
-    </div></div></div>
-    <div class="gitem" id="g-datos"><button class="gterm" type="button">datos<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
-      <p>La información que un sistema junta y usa para hacer mejor su tarea con el tiempo: lo que la gente compró, miró, tipeó, corrigió. Sin datos, un sistema de IA no tiene de qué aprender.</p>
-      <p class="egline"><b>Ejemplo de negocio:</b> En el almacén, los datos son el historial de ventas de la semana: cuánto tubo se vendió, qué días, a qué hora. Eso es lo que una app de reposición de stock usa para sugerir cuánto pedir.</p>
-      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "necesita más datos para aprender", "con esos datos ya alcanza" o "no tiene suficiente historial todavía".</p>
-    </div></div></div>
-    <div class="gitem" id="g-ani"><button class="gterm" type="button">IA estrecha (ANI)<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
-      <p>Un sistema de IA que hace UNA cosa puntual, y la hace bien, dentro de un terreno acotado. No entiende nada fuera de esa tarea. Es literalmente todo lo que existe hoy, en cualquier herramienta que uses.</p>
-      <p class="egline"><b>Ejemplo de negocio:</b> El lector de patentes de la barrera del estacionamiento reconoce patentes muy bien — y no sabe hacer absolutamente nada más. Eso es IA estrecha.</p>
-      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "IA estrecha", "hace una sola cosa" o cuando alguien te aclare "eso no es una mente, es una herramienta afilada".</p>
-    </div></div></div>
-    <div class="gitem" id="g-agi"><button class="gterm" type="button">IA general (AGI)<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
-      <p>Una máquina capaz de hacer CUALQUIER tarea intelectual que hace un humano, con el mismo criterio general, adaptándose a lo que sea. Es la idea de "una mente completa". No existe todavía en ningún producto real — es lo que ves en las películas de ciencia ficción.</p>
-      <p class="egline"><b>Ejemplo de negocio:</b> Ninguna herramienta que uses en tu negocio hoy es esto — ni la más cara ni la más nueva. Si algo te promete "hace de todo, entiende todo", desconfiá.</p>
-      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "inteligencia artificial general", "AGI" o cuando alguien confunda una herramienta puntual con "una mente que lo sabe todo".</p>
-    </div></div></div>
-    <div class="gitem" id="g-automatizar"><button class="gterm" type="button">automatizar<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
-      <p>Hacer que una tarea se resuelva sola, sin que una persona la repita a mano cada vez. En esta guía es un concepto, todavía no una acción: acá entendés QUÉ significa: en niveles más avanzados del catálogo se aprende a montarlo.</p>
-      <p class="egline"><b>Ejemplo de negocio:</b> Que el sistema de reposición de stock del vivero calcule solo cuánto pedir cada semana, en vez de que alguien lo revise a mano, es automatizar esa tarea.</p>
-      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "hay que automatizar eso", "que se resuelva solo" o "no lo quiero seguir haciendo a mano".</p>
-    </div></div></div>
-    <div class="gitem" id="g-modelo"><button class="gterm" type="button">modelo<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
-      <p>El resultado que queda después de entrenar un sistema con montones de ejemplos: no es una lista de reglas escritas, es algo más parecido a una tabla enorme de patrones y probabilidades aprendidas, lista para calcular una respuesta frente a un caso nuevo.</p>
-      <p class="egline"><b>Ejemplo de negocio:</b> cuando la app de reposición de stock de la ferretería "aprende" de meses de ventas, lo que queda entrenado —lo que ya sabe calcular cuánto pedir— es el modelo.</p>
-      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "entrenamos un modelo con nuestros datos", "el modelo se equivocó" o "ese modelo es más nuevo que el otro".</p>
-    </div></div></div>
-    <div class="gitem" id="g-entrenar"><button class="gterm" type="button">entrenar<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
-      <p>Mostrarle a un sistema un montón de ejemplos ya resueltos por personas —mails ya marcados spam o no, fotos ya clasificadas, textos ya escritos— para que encuentre solo el patrón, en vez de que alguien le escriba las reglas a mano.</p>
-      <p class="egline"><b>Ejemplo de negocio:</b> en el vivero, entrenar sería mostrarle al sistema meses de ventas reales ya registradas para que aprenda solo qué plantas se venden más en cada época, sin que nadie le dicte esa regla.</p>
-      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "lo entrenaron con estos datos", "todavía no está entrenado para eso" o "hay que reentrenarlo".</p>
-    </div></div></div>
-    <div class="gitem" id="g-predecir"><button class="gterm" type="button">predecir patrones<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
-      <p>Lo que hace en el fondo cualquier IA cuando te contesta algo: no piensa ni entiende el pedido, calcula cuál es la continuación más probable según los patrones que vio durante el entrenamiento.</p>
-      <p class="egline"><b>Ejemplo de negocio:</b> cuando el corrector del teclado te sugiere la próxima palabra del mensaje que le mandás a un cliente, no entendió tu conversación: predijo la palabra más probable después de la anterior.</p>
-      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "la IA no piensa, predice patrones" o cuando algo suene demasiado seguro para ser cierto y te preguntes de dónde salió ese dato.</p>
-    </div></div></div>
-    <div class="gitem" id="g-ml"><button class="gterm" type="button">machine learning (aprendizaje automático)<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
-      <p>La parte de la IA donde el sistema aprende mirando ejemplos, en vez de que alguien le programe las reglas a mano. Es un subconjunto de la IA: toda IA que "aprende de datos" usa machine learning, aunque no toda IA lo necesite.</p>
-      <p class="egline"><b>Ejemplo de negocio:</b> el filtro de spam del mail de la gomería es machine learning en acción: nadie escribió la lista de palabras prohibidas, el sistema la sacó de millones de mails ya marcados.</p>
-      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "eso lo resuelve con machine learning", "aprendizaje automático" o lo vean abreviado como "ML".</p>
-    </div></div></div>
-    <div class="gitem" id="g-red"><button class="gterm" type="button">red neuronal<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
-      <p>Una estructura matemática de capas de nodos conectados entre sí, inspirada lejanamente en cómo se conectan las neuronas del cerebro humano — pero no es un cerebro digital ni se le parece en la complejidad real. Se usa para las tareas más difíciles de resolver con reglas fijas, como reconocer una cara o entender un texto libre.</p>
-      <p class="egline"><b>Ejemplo de negocio:</b> el sistema que reconoce tu cara para desbloquear el celular usa una red neuronal entrenada con millones de fotos — no "piensa" tu cara, calcula si los patrones coinciden.</p>
-      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "eso corre con redes neuronales" o alguien compare (mal) una IA con "un cerebro artificial".</p>
-    </div></div></div>
-    <div class="gitem" id="g-llm"><button class="gterm" type="button">LLM (modelo de lenguaje)<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
-      <p>Un tipo de modelo entrenado con cantidades enormes de texto, cuyo trabajo es predecir cuál es la palabra siguiente más probable en una frase. "LLM" son las siglas en inglés de <em>large language model</em> — modelo de lenguaje grande. Es la tecnología detrás del chat que probablemente ya probaste.</p>
-      <p class="egline"><b>Ejemplo de negocio:</b> cuando le pedís a un chat que te redacte un mail de cobro para un cliente, quien arma esa respuesta palabra por palabra es un LLM.</p>
-      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "LLM", "modelo de lenguaje" o comparen "qué modelo" usa cada chat.</p>
-    </div></div></div>
-    <div class="gitem" id="g-gen"><button class="gterm" type="button">IA generativa<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
-      <p>Sistemas —los LLM son un caso— que en vez de solo clasificar algo o calcular un número, crean contenido nuevo: texto, imágenes, audio o código, prediciendo paso a paso qué es lo más probable que siga.</p>
-      <p class="egline"><b>Ejemplo de negocio:</b> pedirle a una herramienta que arme desde cero un afiche para la promo del local, o un texto de cero para las redes de la peluquería, es usar IA generativa — no busca algo hecho, lo genera.</p>
-      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "IA generativa", "genAI" o "esto lo generó una IA" hablando de texto, imagen o audio creado de cero.</p>
-    </div></div></div>
-    <div class="gitem" id="g-alucinacion"><button class="gterm" type="button">alucinación<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
-      <p>Cuando una IA te da una respuesta redactada con total seguridad, pero el dato, la cita o el hecho que contiene está inventado — no tiene respaldo real, aunque suene exactamente igual de convincente que una respuesta correcta.</p>
-      <p class="egline"><b>Ejemplo de negocio:</b> que un chat te dé, con total seguridad, un número de trámite o una tasa que no existe en ningún lado, es una alucinación — y la redacción no te avisa que pasó.</p>
-      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "la IA alucinó ese dato", "eso te lo inventó" o cuando un número o una cita no aparezcan en ningún lado por más que los busques.</p>
-    </div></div></div>
-  </div>
-</section>
-
 
 
 <section id="s1" class="wrap">
@@ -649,6 +640,14 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
 <li>Si desbloqueás el celular mirándolo, algo reconoció tu cara entre millones de caras posibles.</li>
 <li>El filtro de spam de tu mail dejó afuera la promo trucha del "premio" que nunca ganaste.</li>
 </ul>
+<div class="scene-row reveal" role="img" aria-label="Cinco momentos del día con IA">
+  <div class="scene"><span class="sic" aria-hidden="true">📱</span><p>Feed que elige el video</p></div>
+  <div class="scene"><span class="sic" aria-hidden="true">🛒</span><p>App que te recomienda</p></div>
+  <div class="scene"><span class="sic" aria-hidden="true">⌨️</span><p>Teclado que predice</p></div>
+  <div class="scene"><span class="sic" aria-hidden="true">🙂</span><p>Cara para desbloquear</p></div>
+  <div class="scene"><span class="sic" aria-hidden="true">✉️</span><p>Filtro de spam</p></div>
+</div>
+
 <p>Ninguna de esas cosas te pidió permiso ni te avisó "che, esto lo hizo IA". Simplemente pasó, en el fondo, mientras vos hacías otra cosa. Ese filtro de spam, por ejemplo, no revisa mail por mail a mano: sigue un <a class="term" href="#g-algoritmo">algoritmo</a> — una receta de pasos que el programa ejecuta solo, una y otra vez, para decidir qué es spam y qué no.</p>
 <p>Esto importa porque casi todo el mundo entra a este tema pensando en dos cosas: un robot de película o un chat al que le escribís. Y la verdad es más aburrida y más útil al mismo tiempo: <strong>la IA ya está metida, hace rato, en un montón de cosas comunes que usás sin pensarlo.</strong> El chat es apenas la punta que se ve. Esta sección es sobre la base entera.</p>
 <h3 class="block-h reveal">¿Qué es, en criollo?</h3>
@@ -687,10 +686,12 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
 </div>
 <p>Por eso esta guía no persigue la definición perfecta. Se queda con algo más útil: <strong>un filtro de dos preguntas</strong> para mirar cualquier cosa y decidir, vos solo, si tiene IA o no.</p>
 <h3 class="block-h reveal">El filtro que sí sirve: ¿decide sola? ¿mejora con el uso?</h3>
-<p>Fuera de la definición de diccionario, hay dos características que se usan para separar "esto tiene IA" de "esto es un programa común":</p>
-<p><strong>1. Autonomía</strong> — hace la tarea en una situación que cambia, sin que un humano le esté dictando cada paso en el momento. No es un trámite fijo tipo "apretá 1 para ventas, 2 para soporte": tiene que arreglárselas con variedad.</p>
-<p><strong>2. Adaptatividad</strong> — mejora con el uso. Cuantos más datos y experiencia junta, mejor le sale la tarea. No hace siempre exactamente lo mismo de la misma forma: ajusta.</p>
-<p>Cuando un sistema hace algo solo (autonomía) Y encima mejora con el tiempo (adaptatividad), ahí está la línea. A esto, en la jerga, se lo llama a veces <a class="term" href="#g-automatizar">automatizar</a> la tarea: que se resuelva sola, sin que alguien tenga que hacerla a mano cada vez. Y ese "mejorar con el uso" pasa porque el sistema aprende de la experiencia, es decir, de los <a class="term" href="#g-datos">datos</a>: lo que la gente miró, compró, tipeó o corrigió antes.</p>
+<p>Fuera del diccionario, dos preguntas separan "esto tiene IA" de "programa común":</p>
+<div class="filter-duo reveal">
+  <div class="fcard a"><h4>1 · ¿Decide sola?</h4><p><strong>Autonomía.</strong> Hace la tarea aunque la situación cambie — no es “apretá 1 para ventas, 2 para soporte”.</p></div>
+  <div class="fcard b"><h4>2 · ¿Mejora con el uso?</h4><p><strong>Adaptatividad.</strong> Cuantos más <a class="term" href="#g-datos">datos</a> ve, mejor afina. No repite siempre lo mismo igual.</p></div>
+</div>
+<p class="pull-big reveal" style="font-size:clamp(1.1rem,2.8vw,1.45rem)">Las dos en sí → hay IA de verdad. Eso es <a class="term" href="#g-automatizar">automatizar</a> con criterio, no un cartel de marketing.</p>
 <p>Para que se entienda con algo de tu día a día:</p>
 <div class="table-wrap reveal"><table>
 <thead><tr><th></th><th>¿Decide sola?</th><th>¿Mejora con el uso?</th><th>¿Tiene IA?</th></tr></thead><tbody>
@@ -1052,21 +1053,44 @@ Fijate que en ningún caso necesitaste saber de qué negocio se trataba, ni qui�
 <p>Las cuatro herramientas de las que vamos a hablar en esta sección — vas a reconocer los nombres, seguro cruzaste alguno — se llaman, en conjunto, <strong>asistentes generales</strong>: una sola herramienta, con la que hablás por chat (escribiendo o, en algunas, hablando), a la que le podés pedir cosas muy distintas entre sí sin cambiar de aplicación. Redactar un mail, resumir un texto largo, ordenar ideas para una propuesta, resolver una duda puntual, armar una lista: todo eso, con el mismo asistente, en la misma conversación.</p>
 <p>La palabra clave es <strong>general</strong>: no están hechas para UNA sola tarea, como el lector de patentes de la barrera del estacionamiento que viste en la primera sección de esta guía — están hechas para acompañarte en un montón de tareas distintas de tu día a día. Eso las hace, para la mayoría de un negocio chico, el punto de partida más razonable: antes de salir a buscar una herramienta específica para cada cosa, con un buen asistente general ya resolvés la mayor parte de lo que un negocio necesita día a día.</p>
 <p>Los cuatro asistentes generales que existen hoy, y que probablemente ya escuchaste nombrar en algún lado, son <strong>ChatGPT</strong>, <strong>Claude</strong>, <strong>Gemini</strong> y <strong>Grok</strong>. Los cuatro hacen, en mayor o menor medida, cosas parecidas: conversan con vos, escriben, resumen, responden preguntas. La diferencia entre ellos no es que uno sea "más inteligente" que otro — ya viste en la sección anterior que medir la inteligencia de una herramienta con una sola regla no tiene mucho sentido. La diferencia real es <strong>en qué brilla cada uno</strong> y <strong>dónde encaja mejor con la forma en que ya trabajás</strong>. Eso es lo que viene ahora.</p>
+
 <h3 class="block-h reveal">Los 4 asistentes generales, en criollo</h3>
-<div class="blockhead coral reveal" style="margin-top:var(--sp-4)"><img src="../assets/logo-openai.svg" alt="" style="height:28px;width:auto"><h3 style="margin:0;font-size:1.15rem">ChatGPT — el todo-terreno</h3></div>
-<p>Es la opción más pensada para el uso general del día a día: le pedís de todo, desde redactar un texto hasta resolver una duda suelta, pasando por armar un borrador rápido o ayudarte a pensar en voz alta un problema. Tiene una app propia y un modo de conversación por voz, así que también le podés hablar en vez de escribirle. Si buscás un solo asistente para arrancar sin pensar demasiado en cuál te conviene según tu rubro, ChatGPT es, para la mayoría, el default más seguro: hace un poco de todo, y lo hace bien.</p>
-<p>Te sirve especialmente si tu necesidad es variada y cambia de un día al otro — hoy un mail, mañana una idea para una promo, pasado una duda sobre cómo redactar un aviso — y si te gusta la idea de tener una tarea que se repite (por ejemplo, un resumen semanal de ventas) resuelta de forma automática sin tener que armarla a mano cada vez.</p>
-<div class="blockhead coral reveal" style="margin-top:var(--sp-4)"><img src="../assets/logo-claude.svg" alt="" style="height:28px;width:auto"><h3 style="margin:0;font-size:1.15rem">Claude — el que escribe y lee con más cuidado</h3></div>
-<p>Se destaca en dos cosas puntuales: escritura larga y cuidada, y trabajo con documentos densos. Si tu negocio necesita redactar textos comerciales extensos y prolijos — una propuesta para un cliente grande, una serie de mails que tienen que sonar profesionales, contenido más elaborado para tus redes — Claude tiende a producir algo más pulido de entrada, con menos vueltas de edición. Es también, de los cuatro, el que mejor acompaña si en algún momento tu negocio necesita ayuda con código: páginas, planillas automatizadas, ese tipo de tarea técnica.</p>
-<p>Lo que Claude no hace es generar imágenes — es el único de los cuatro sin esa función dentro del chat, algo para tener en cuenta si buscás una sola herramienta que te resuelva texto e imagen a la vez.</p>
-<p>Te sirve especialmente si tu cuello de botella es la escritura: si te cuesta redactar bien, si tenés contratos o informes largos que necesitás entender rápido, o si estás armando algo (una web, una planilla) que tiene una parte de código de por medio.</p>
-<div class="blockhead coral reveal" style="margin-top:var(--sp-4)"><img src="../assets/logo-gemini.svg" alt="" style="height:28px;width:auto"><h3 style="margin:0;font-size:1.15rem">Gemini — el que ya vive en tus herramientas de Google</h3></div>
-<p>Su diferencial no está en una función exclusiva, sino en dónde vive: si tu negocio ya usa Gmail para el correo, Drive para guardar archivos, Calendar para la agenda o Docs para escribir, Gemini trabaja directamente sobre eso. Le podés pedir que resuma los mails de hoy, que busque un dato dentro de un archivo que ya tenés guardado, que ordene tu agenda de la semana — sin exportar nada ni pasarle el archivo a mano, porque ya está ahí. También genera imágenes en la misma conversación.</p>
-<p>Te sirve especialmente si tu negocio ya vive, en gran parte, dentro de las herramientas de Google — que es el caso de una enorme cantidad de negocios chicos en la región, aunque no se hayan puesto a pensarlo así. Si todos los días abrís Gmail y Drive para laburar, Gemini te ahorra el paso de mover información de un lado a otro.</p>
-<div class="blockhead coral reveal" style="margin-top:var(--sp-4)"><img src="../assets/logo-grok.svg" alt="" style="height:28px;width:auto"><h3 style="margin:0;font-size:1.15rem">Grok — el más suelto, el que sigue la actualidad</h3></div>
-<p>Su rasgo distintivo es la conexión con lo que está pasando ahora mismo: de los cuatro, es el que mejor sigue noticias, tendencias y conversación en tiempo real, con acceso directo a lo que se está diciendo en la red social X. El tono, además, es más informal y menos corporativo que el de los otros tres — algo que a algunos usuarios les resulta más cómodo, según cómo les guste que les hablen. También genera imágenes y video corto en la misma conversación.</p>
-<p>Te sirve especialmente si tu negocio necesita estar atento a la actualidad — precios que cambian rápido, una novedad de un proveedor, qué se está comentando de tu rubro hoy — o si preferís una herramienta con un tono más relajado que el de un asistente de oficina.</p>
-<p><em>Nota rápida:</em> elegir entre estos cuatro no te libera del criterio de la sección anterior — si te da un dato duro, lo verificás igual, sin importar cuál abras. Repasalo en <em>Hasta dónde le podés confiar</em> si hace falta.</p>
+<p class="lead-in reveal">Misma familia (chat de texto), cuatro personalidades. Elegí <strong>uno</strong> para arrancar — no los cuatro a la vez.</p>
+<div class="tools-grid reveal">
+  <article class="tool-card">
+    <div class="hd"><span class="logo-chip"><img src="../assets/logo-openai.svg" alt=""></span><span class="nm">ChatGPT</span></div>
+    <div class="tool-row"><span class="lb">Qué es</span>El todo-terreno del día a día: redactar, dudar, armar un borrador, pensar en voz alta.</div>
+    <div class="tool-row"><span class="lb">En qué brilla</span><strong>Versatilidad.</strong> Un poco de todo, bien. App y modo voz.</div>
+    <div class="tool-row"><span class="lb">Para quién</span>Necesidades mixtas que cambian cada día (mail → promo → duda).</div>
+    <div class="tool-row"><span class="lb">Ojo</span>Default seguro para la mayoría; no es “el mejor en todo”.</div>
+    <p class="tool-frase">Si no sabés por dónde, empezá acá.</p>
+  </article>
+  <article class="tool-card">
+    <div class="hd"><span class="logo-chip"><img src="../assets/logo-claude.svg" alt=""></span><span class="nm">Claude</span></div>
+    <div class="tool-row"><span class="lb">Qué es</span>El que escribe y lee con más cuidado: textos largos y documentos densos.</div>
+    <div class="tool-row"><span class="lb">En qué brilla</span><strong>Prosa prolija</strong> + docs + ayuda con código.</div>
+    <div class="tool-row"><span class="lb">Para quién</span>Cuello de botella = escritura, contratos, informes, armar algo técnico.</div>
+    <div class="tool-row"><span class="lb">Ojo</span><strong>No genera imágenes</strong> dentro del chat (único de los 4).</div>
+    <p class="tool-frase">Cuando el texto tiene que salir bien a la primera.</p>
+  </article>
+  <article class="tool-card">
+    <div class="hd"><span class="logo-chip"><img src="../assets/logo-gemini.svg" alt=""></span><span class="nm">Gemini</span></div>
+    <div class="tool-row"><span class="lb">Qué es</span>El que ya vive en Gmail, Drive, Docs y Calendar.</div>
+    <div class="tool-row"><span class="lb">En qué brilla</span><strong>Integración Google</strong> + imágenes en el mismo chat.</div>
+    <div class="tool-row"><span class="lb">Para quién</span>Tu negocio ya corre en el ecosistema Google.</div>
+    <div class="tool-row"><span class="lb">Ojo</span>El diferencial es <em>dónde vive</em>, no una magia aparte.</div>
+    <p class="tool-frase">Si abrís Gmail y Drive todos los días, este te ahorra pasos.</p>
+  </article>
+  <article class="tool-card">
+    <div class="hd"><span class="logo-chip"><img src="../assets/logo-grok.svg" alt=""></span><span class="nm">Grok</span></div>
+    <div class="tool-row"><span class="lb">Qué es</span>El más suelto: actualidad, redes y tono directo.</div>
+    <div class="tool-row"><span class="lb">En qué brilla</span><strong>Qué está pasando hoy</strong> + conversación sin corbata.</div>
+    <div class="tool-row"><span class="lb">Para quién</span>Vivís del pulso del rubro, competencia y lo que se dice afuera.</div>
+    <div class="tool-row"><span class="lb">Ojo</span>Actualidad fuerte; no reemplaza un sistema de docs de Google.</div>
+    <p class="tool-frase">Cuando necesitás el pulso del momento, no un archivo viejo.</p>
+  </article>
+</div>
+<p class="diag-foot reveal" style="text-align:left;margin-top:8px">Detalle y matices de cada uno siguen abajo en la guía solo si los necesitás; la decisión de arranque alcanza con estas cuatro cards.</p>
 <h3 class="block-h reveal">No todo es "el mismo asistente para todo": el mapa por tipo de salida</h3>
 <p>Hasta acá viste los cuatro asistentes generales, pensados para conversar y ayudarte con texto. Pero "IA" no es solo texto: existen, además, familias enteras de herramientas dedicadas a un solo tipo de resultado — generar una imagen, armar un video corto, sintetizar una voz, escribir código, buscar información con la fuente marcada. Esta es la parte que casi ninguna guía te cuenta bien: la mayoría se queda en "usá ChatGPT para todo" y ahí termina, como si no existiera nada más.</p>
 <p>La realidad tiene dos capas. Primero, varios de los cuatro asistentes generales YA hacen algunas de estas cosas dentro de la misma conversación. Segundo, cuando una necesidad se vuelve muy específica y muy frecuente, existen <strong>familias de herramientas dedicadas</strong> — construidas para un solo tipo de tarea, con más control y más calidad que un asistente general de paso.</p>
@@ -1114,6 +1138,95 @@ Fijate que en ningún caso necesitaste saber de qué negocio se trataba, ni qui�
 
 
 <!-- verificación final (fijos) -->
+
+<section id="glosario" class="wrap">
+  <div class="reveal">
+    <span class="eyebrow"><span class="num">✦</span> Lo que conviene saber · para no trabarte</span>
+    <h2 class="sec-title">Para que ninguna palabra te frene</h2>
+    <p class="sec-lead">Las palabras que más se repiten cuando se habla de IA, en criollo y con un ejemplo de negocio real. Buscá o tocá una para abrirla.</p>
+  </div>
+  <div class="gloss-head reveal">
+    <div class="gloss-search"><span aria-hidden="true">🔎</span><input id="gloss-q" placeholder="Buscar un término…" autocomplete="off" aria-label="Buscar un término del glosario"></div>
+    <span class="gloss-count"><span id="gloss-shown">14</span> de 14 palabras</span>
+  </div>
+  <div class="gloss-list reveal" id="gloss-list">
+
+    <div class="gitem" id="g-ia"><button class="gterm" type="button">inteligencia artificial (IA)<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>La capacidad de una computadora o un programa de comportarse como si tuviera algo de criterio —reconocer, recomendar, decidir dentro de una tarea puntual— sin que un humano le esté dictando cada paso. También es el nombre del campo entero que estudia y construye eso.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> En la peluquería, la app que le sugiere a la clienta productos "para vos" según lo que compró antes tiene IA adentro, aunque nadie le haya puesto ese cartel.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "esto tiene IA", "es un producto con inteligencia artificial" o "ahora todo lleva IA".</p>
+    </div></div></div>
+    <div class="gitem" id="g-algoritmo"><button class="gterm" type="button">algoritmo<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Una receta de pasos que un programa sigue, en orden, para decidir algo o resolver una tarea. No es magia ni es "pensar": es una secuencia de instrucciones que se ejecuta sola, una y otra vez.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> El filtro de spam del mail de la gomería sigue un algoritmo: revisa cada mail que entra con la misma receta de pasos para decidir si es spam o no.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "cambiaron el algoritmo", "el algoritmo de Instagram" o "eso lo decide un algoritmo".</p>
+    </div></div></div>
+    <div class="gitem" id="g-datos"><button class="gterm" type="button">datos<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>La información que un sistema junta y usa para hacer mejor su tarea con el tiempo: lo que la gente compró, miró, tipeó, corrigió. Sin datos, un sistema de IA no tiene de qué aprender.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> En el almacén, los datos son el historial de ventas de la semana: cuánto tubo se vendió, qué días, a qué hora. Eso es lo que una app de reposición de stock usa para sugerir cuánto pedir.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "necesita más datos para aprender", "con esos datos ya alcanza" o "no tiene suficiente historial todavía".</p>
+    </div></div></div>
+    <div class="gitem" id="g-ani"><button class="gterm" type="button">IA estrecha (ANI)<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Un sistema de IA que hace UNA cosa puntual, y la hace bien, dentro de un terreno acotado. No entiende nada fuera de esa tarea. Es literalmente todo lo que existe hoy, en cualquier herramienta que uses.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> El lector de patentes de la barrera del estacionamiento reconoce patentes muy bien — y no sabe hacer absolutamente nada más. Eso es IA estrecha.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "IA estrecha", "hace una sola cosa" o cuando alguien te aclare "eso no es una mente, es una herramienta afilada".</p>
+    </div></div></div>
+    <div class="gitem" id="g-agi"><button class="gterm" type="button">IA general (AGI)<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Una máquina capaz de hacer CUALQUIER tarea intelectual que hace un humano, con el mismo criterio general, adaptándose a lo que sea. Es la idea de "una mente completa". No existe todavía en ningún producto real — es lo que ves en las películas de ciencia ficción.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> Ninguna herramienta que uses en tu negocio hoy es esto — ni la más cara ni la más nueva. Si algo te promete "hace de todo, entiende todo", desconfiá.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "inteligencia artificial general", "AGI" o cuando alguien confunda una herramienta puntual con "una mente que lo sabe todo".</p>
+    </div></div></div>
+    <div class="gitem" id="g-automatizar"><button class="gterm" type="button">automatizar<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Hacer que una tarea se resuelva sola, sin que una persona la repita a mano cada vez. En esta guía es un concepto, todavía no una acción: acá entendés QUÉ significa: en niveles más avanzados del catálogo se aprende a montarlo.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> Que el sistema de reposición de stock del vivero calcule solo cuánto pedir cada semana, en vez de que alguien lo revise a mano, es automatizar esa tarea.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "hay que automatizar eso", "que se resuelva solo" o "no lo quiero seguir haciendo a mano".</p>
+    </div></div></div>
+    <div class="gitem" id="g-modelo"><button class="gterm" type="button">modelo<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>El resultado que queda después de entrenar un sistema con montones de ejemplos: no es una lista de reglas escritas, es algo más parecido a una tabla enorme de patrones y probabilidades aprendidas, lista para calcular una respuesta frente a un caso nuevo.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> cuando la app de reposición de stock de la ferretería "aprende" de meses de ventas, lo que queda entrenado —lo que ya sabe calcular cuánto pedir— es el modelo.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "entrenamos un modelo con nuestros datos", "el modelo se equivocó" o "ese modelo es más nuevo que el otro".</p>
+    </div></div></div>
+    <div class="gitem" id="g-entrenar"><button class="gterm" type="button">entrenar<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Mostrarle a un sistema un montón de ejemplos ya resueltos por personas —mails ya marcados spam o no, fotos ya clasificadas, textos ya escritos— para que encuentre solo el patrón, en vez de que alguien le escriba las reglas a mano.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> en el vivero, entrenar sería mostrarle al sistema meses de ventas reales ya registradas para que aprenda solo qué plantas se venden más en cada época, sin que nadie le dicte esa regla.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "lo entrenaron con estos datos", "todavía no está entrenado para eso" o "hay que reentrenarlo".</p>
+    </div></div></div>
+    <div class="gitem" id="g-predecir"><button class="gterm" type="button">predecir patrones<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Lo que hace en el fondo cualquier IA cuando te contesta algo: no piensa ni entiende el pedido, calcula cuál es la continuación más probable según los patrones que vio durante el entrenamiento.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> cuando el corrector del teclado te sugiere la próxima palabra del mensaje que le mandás a un cliente, no entendió tu conversación: predijo la palabra más probable después de la anterior.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "la IA no piensa, predice patrones" o cuando algo suene demasiado seguro para ser cierto y te preguntes de dónde salió ese dato.</p>
+    </div></div></div>
+    <div class="gitem" id="g-ml"><button class="gterm" type="button">machine learning (aprendizaje automático)<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>La parte de la IA donde el sistema aprende mirando ejemplos, en vez de que alguien le programe las reglas a mano. Es un subconjunto de la IA: toda IA que "aprende de datos" usa machine learning, aunque no toda IA lo necesite.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> el filtro de spam del mail de la gomería es machine learning en acción: nadie escribió la lista de palabras prohibidas, el sistema la sacó de millones de mails ya marcados.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "eso lo resuelve con machine learning", "aprendizaje automático" o lo vean abreviado como "ML".</p>
+    </div></div></div>
+    <div class="gitem" id="g-red"><button class="gterm" type="button">red neuronal<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Una estructura matemática de capas de nodos conectados entre sí, inspirada lejanamente en cómo se conectan las neuronas del cerebro humano — pero no es un cerebro digital ni se le parece en la complejidad real. Se usa para las tareas más difíciles de resolver con reglas fijas, como reconocer una cara o entender un texto libre.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> el sistema que reconoce tu cara para desbloquear el celular usa una red neuronal entrenada con millones de fotos — no "piensa" tu cara, calcula si los patrones coinciden.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "eso corre con redes neuronales" o alguien compare (mal) una IA con "un cerebro artificial".</p>
+    </div></div></div>
+    <div class="gitem" id="g-llm"><button class="gterm" type="button">LLM (modelo de lenguaje)<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Un tipo de modelo entrenado con cantidades enormes de texto, cuyo trabajo es predecir cuál es la palabra siguiente más probable en una frase. "LLM" son las siglas en inglés de <em>large language model</em> — modelo de lenguaje grande. Es la tecnología detrás del chat que probablemente ya probaste.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> cuando le pedís a un chat que te redacte un mail de cobro para un cliente, quien arma esa respuesta palabra por palabra es un LLM.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "LLM", "modelo de lenguaje" o comparen "qué modelo" usa cada chat.</p>
+    </div></div></div>
+    <div class="gitem" id="g-gen"><button class="gterm" type="button">IA generativa<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Sistemas —los LLM son un caso— que en vez de solo clasificar algo o calcular un número, crean contenido nuevo: texto, imágenes, audio o código, prediciendo paso a paso qué es lo más probable que siga.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> pedirle a una herramienta que arme desde cero un afiche para la promo del local, o un texto de cero para las redes de la peluquería, es usar IA generativa — no busca algo hecho, lo genera.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "IA generativa", "genAI" o "esto lo generó una IA" hablando de texto, imagen o audio creado de cero.</p>
+    </div></div></div>
+    <div class="gitem" id="g-alucinacion"><button class="gterm" type="button">alucinación<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>Cuando una IA te da una respuesta redactada con total seguridad, pero el dato, la cita o el hecho que contiene está inventado — no tiene respaldo real, aunque suene exactamente igual de convincente que una respuesta correcta.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> que un chat te dé, con total seguridad, un número de trámite o una tasa que no existe en ningún lado, es una alucinación — y la redacción no te avisa que pasó.</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "la IA alucinó ese dato", "eso te lo inventó" o cuando un número o una cita no aparezcan en ningún lado por más que los busques.</p>
+    </div></div></div>
+  </div>
+</section>
+
+
+
+
 <section id="verificacion" class="wrap">
   <div class="reveal">
     <span class="eyebrow"><span class="num">✓</span> Cierre</span>
@@ -1135,16 +1248,18 @@ Fijate que en ningún caso necesitaste saber de qué negocio se trataba, ni qui�
     <p style="margin:0">No hace falta una ley para que esto te importe: no cargues datos sensibles de tus clientes — nombre completo, número de documento, tarjeta, dirección — en una herramienta de IA sin saber dónde queda guardada esa información. Es el mismo cuidado que ya tenés con cualquier planilla o sistema donde guardás datos de gente real; acá aplica igual.</p>
   </div>
 
-  <div class="fb-box reveal" id="feedback">
-    <p style="margin:0 0 4px;font-weight:700;color:var(--ink)">¿Te sirvió esta guía?</p>
-    <div class="fb-btns">
-      <button type="button" id="fb-yes">👍 Sí</button>
-      <button type="button" id="fb-no">👎 No</button>
+  
+  <div class="card feedbackbox reveal" id="feedback" style="margin-top:20px">
+    <h3>💬 Tu feedback real</h3>
+    <p style="margin-bottom:10px">¿Qué te sirvió, qué te faltó, qué no entendiste? Escribilo acá — no hay respuesta automática, pero lo leemos.</p>
+    <textarea id="feedback-text" placeholder="Ej: el diagrama del spam me cerró el concepto, pero la parte de las 4 herramientas se me hizo larga…"></textarea>
+    <div class="fb-actions">
+      <button type="button" class="copy" id="feedback-copy">Copiar mi comentario</button>
     </div>
-    <label for="fb-text" class="small">¿Qué te faltó o qué no entendiste? (opcional, anónimo)</label>
-    <textarea id="fb-text" placeholder="Escribí acá si querés…"></textarea>
-    <button type="button" class="fb-send" id="fb-send">Enviar feedback</button>
-    <p class="small" id="fb-status" role="status" aria-live="polite" style="margin-top:10px"></p>
+    <div class="fb-paths">
+      <span>Mandalo por Instagram — <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat</a></span>
+      <span>O por mail a <a href="mailto:cocogo.hola@gmail.com?subject=Feedback%20mini-gu%C3%ADa%20%C2%BFQu%C3%A9%20es%20la%20IA%3F">cocogo.hola@gmail.com</a> — pegá el comentario que copiaste arriba.</span>
+    </div>
   </div>
 </section>
 
@@ -1290,19 +1405,17 @@ function fb(text,cb){var ta=document.createElement('textarea');ta.value=text;
 })();
 
 
-/* feedback simple (mailto anónimo-friendly) */
+/* feedback fábrica: copiar comentario */
 (function(){
-  var st=document.getElementById('fb-status');
-  var yes=document.getElementById('fb-yes');
-  var no=document.getElementById('fb-no');
-  var vote=null;
-  if(yes)yes.addEventListener('click',function(){vote='sí';if(st)st.textContent='Gracias — marcaste que te sirvió.';});
-  if(no)no.addEventListener('click',function(){vote='no';if(st)st.textContent='Gracias — marcaste que no te sirvió del todo.';});
-  var send=document.getElementById('fb-send');
-  if(send)send.addEventListener('click',function(){
-    var t=(document.getElementById('fb-text')||{}).value||'';
-    var body=encodeURIComponent('Voto: '+(vote||'(sin voto)')+'\n\n'+t);
-    window.location.href='mailto:cocogo.hola@gmail.com?subject='+encodeURIComponent('Feedback mini-guía ¿Qué es la IA?')+'&body='+body;
+  var btn=document.getElementById('feedback-copy');
+  var ta=document.getElementById('feedback-text');
+  if(!btn||!ta)return;
+  btn.addEventListener('click',function(){
+    var t=ta.value||'';
+    function done(){var o=btn.textContent;btn.textContent='✓ Copiado';setTimeout(function(){btn.textContent='Copiar mi comentario';},1500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(done).catch(function(){fb(t,done);});
+    }else{fb(t,done);}
   });
 })();
 </script>
