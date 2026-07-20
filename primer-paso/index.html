@@ -3,30 +3,30 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Tu primer resultado real con IA — COCO GO (gratis)</title>
+<title>Primer paso con IA — COCO GO (gratis)</title>
 <meta name="description" content="Mini-curso gratis: en una sesión resolvés una tarea real de tu negocio con IA, usando tus propios datos. El patrón contexto + tarea + formato, un glosario para que ninguna palabra te frene, y con qué herramienta seguir." />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Tu primer resultado real con IA — COCO GO" />
+<meta property="og:title" content="Primer paso con IA — COCO GO" />
 <meta property="og:description" content="Una sesión. Una tarea de tu negocio resuelta con tus propios datos. Y sabés con qué herramienta seguir. Gratis, sin código de acceso." />
 <meta property="og:site_name" content="COCO GO" />
-<meta property="og:url" content="https://coco-go.lat/pre/" />
-<meta property="og:image" content="https://coco-go.lat/pre/og.png" />
+<meta property="og:url" content="https://coco-go.lat/primer-paso/" />
+<meta property="og:image" content="https://coco-go.lat/primer-paso/og.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="es_AR" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Tu primer resultado real con IA — COCO GO" />
+<meta name="twitter:title" content="Primer paso con IA — COCO GO" />
 <meta name="twitter:description" content="Gratis: resolvé una tarea de tu negocio con IA en una sola sesión, con tus datos reales. Y descubrí con qué herramienta seguir." />
-<meta name="twitter:image" content="https://coco-go.lat/pre/og.png" />
+<meta name="twitter:image" content="https://coco-go.lat/primer-paso/og.png" />
 <meta name="theme-color" content="#FBF6EE" />
-<link rel="canonical" href="https://coco-go.lat/pre/" />
+<link rel="canonical" href="https://coco-go.lat/primer-paso/" />
 <link rel="icon" type="image/svg+xml" href="../assets/logo-coco-go.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════════════
-   COCO GO · PRE (mundo CLARO CREMA) — patrones nuevos, NO tocan assets/style.css
+   COCO GO · Primer paso (mundo CLARO CREMA) — patrones nuevos, NO tocan assets/style.css
    Gate visual cerrado por Pablo 2026-07-16: crema + navy + coral/ámbar ·
    híbrido mapa+anclas · partículas solo hero + micro-entrada CSS.
    ═══════════════════════════════════════════════════════════════════ */
@@ -257,6 +257,19 @@ table code{font-family:"JetBrains Mono",monospace;font-size:.86em;background:var
 .gitem{background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;
   align-self:start;scroll-margin-top:24px}
 .gitem:target{border-color:var(--coral);box-shadow:0 0 0 3px rgba(255,107,74,.22),var(--shadow)}
+.g-focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(255,107,74,.22),var(--shadow)}
+.gloss-back{display:none;position:sticky;top:10px;z-index:40;margin:0 0 14px;align-items:center;gap:10px;
+  background:var(--ink);color:#fff;border:none;border-radius:999px;padding:11px 18px;font-family:inherit;
+  font-weight:700;font-size:.9rem;cursor:pointer;box-shadow:0 10px 24px rgba(24,35,56,.22)}
+.gloss-back.show{display:inline-flex}
+.gloss-back:hover{background:var(--coral-deep)}
+.gdef .g-back-inline{display:inline-flex;margin-top:10px;font-size:.86rem;font-weight:700;color:var(--coral-deep);
+  background:var(--ex-bg);border:1px solid var(--ex-line);border-radius:999px;padding:6px 12px;cursor:pointer;
+  font-family:inherit}
+.gdef .g-back-inline:hover{border-color:var(--coral);color:var(--coral)}
+/* foco temporal en el término del cuerpo al volver */
+a.term.g-focus,a.chip.g-focus{outline:2px solid var(--coral);outline-offset:3px;border-radius:4px}
+
 .gterm{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;
   background:none;border:none;cursor:pointer;font-family:"Bricolage Grotesque",serif;font-weight:700;
   font-size:1rem;color:var(--ink);padding:15px 17px;line-height:1.25}
@@ -497,7 +510,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
       <a href="../" class="backlink">← Más cursos</a>
     </div>
     <span class="hero-badge"><span class="dot"></span>Curso gratis · acceso libre</span>
-    <h1>Tu primer resultado <span class="hl">real</span> con IA</h1>
+    <h1>Tu primer paso <span class="hl">con IA</span></h1>
     <p class="sub">Una sesión. Una tarea de tu negocio resuelta con tus propios datos. Y sabés con qué herramienta seguir.</p>
     <div class="hero-cta">
       <a href="#mapa" class="btn btn-primary">Empezar la sesión →</a>
@@ -604,13 +617,14 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
   <div class="reveal">
     <span class="eyebrow"><span class="num">✦</span> Lo que conviene saber · para no trabarte</span>
     <h2 class="sec-title">Para que ninguna palabra te frene</h2>
-    <p class="sec-lead">Las palabras que más se repiten cuando se habla de IA, en criollo y con un ejemplo de negocio real. Buscá o tocá una para abrirla. Cada una la podés capturar o compartir sola.</p>
+    <p class="sec-lead">Las palabras que más se repiten cuando se habla de IA, en lenguaje simple y con un ejemplo de negocio real. Tocá una palabra subrayada en la guía o abrila acá — y usá <strong>Volver al lugar</strong> para regresar donde estabas.</p>
   </div>
   <div class="gloss-head reveal">
     <div class="gloss-search"><span aria-hidden="true">🔎</span><input id="gloss-q" placeholder="Buscar un término…" autocomplete="off" aria-label="Buscar un término del glosario"></div>
     <span class="gloss-count"><span id="gloss-shown">26</span> de 26 palabras</span>
   </div>
-  <div class="gloss-list reveal" id="gloss-list">
+<button type="button" class="gloss-back" id="gloss-back" hidden>← Volver al lugar donde estabas</button>
+    <div class="gloss-list reveal" id="gloss-list">
 
     <div class="gitem" id="g-ia"><button class="gterm">la IA<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
       <p>Programa que responde en lenguaje natural: le escribís y te contesta como en una charla. En esta sesión, “la IA” es el chat que ya usás o podés abrir con acceso gratis.</p>
@@ -1696,7 +1710,7 @@ datos reales: [pegá acá precios, políticas, tono, o lo que corresponda].</pre
     <a href="https://x.com/cocogo" target="_blank" rel="noopener" aria-label="X @cocogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.6h3.5l-7.6 8.7 9 11.9h-7l-5.5-7.2-6.3 7.2H1.5l8.1-9.3L1 1.6h7.2l5 6.6 5.7-6.6Zm-1.2 18.4h1.9L6.4 3.6H4.3l13.4 16.4Z"/></svg></a>
   </div>
   <p>Más cursos: <a href="../">Ver todos en la página de venta →</a> — mismo método COCO GO.</p>
-  <p class="small">Curso gratis de entrada · acceso libre, sin código · <a href="https://coco-go.lat/pre/">coco-go.lat/pre</a></p>
+  <p class="small">Curso gratis de entrada · acceso libre, sin código · <a href="https://coco-go.lat/primer-paso/">coco-go.lat/primer-paso</a></p>
   <p class="legal-links"><a href="../privacidad.html">Privacidad</a> · <a href="../terminos.html">Términos</a> · <a href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a></p>
   <p class="copyright">© COCO GO 2026. Todos los derechos reservados.</p>
 </footer>
@@ -1705,7 +1719,7 @@ datos reales: [pegá acá precios, políticas, tono, o lo que corresponda].</pre
 
 <script>
 /* ── red de partículas — mismo motor que la página de venta (puntos + LÍNEAS
-      que los conectan, movimiento perceptible), adaptado al mundo CLARO del PRE:
+      que los conectan, movimiento perceptible), adaptado al mundo CLARO de Primer paso:
       coral/ámbar pastel, puntos chicos, elegante. Corre en el hero y en el CTA
       final (pedido Pablo 2026-07-17). pointer-events:none, prefers-reduced-motion
       respetado. ── */
@@ -1752,15 +1766,47 @@ function particleNet(id){
 particleNet('hero-bg');
 particleNet('cta-bg');
 
-/* ── glosario: acordeón (una abierta a la vez) + búsqueda ── */
+/* ── glosario: acordeón + búsqueda + ancla + VOLVER al origen del salto ── */
 (function(){
   var terms=document.querySelectorAll('.gterm');
+  var backBtn=document.getElementById('gloss-back');
+  var returnY=null, returnEl=null;
   function closeAll(){terms.forEach(function(o){o.classList.remove('open');o.nextElementSibling.style.maxHeight=null;});}
+  function showBack(){
+    if(!backBtn)return;
+    if(returnY!=null||returnEl){backBtn.hidden=false;backBtn.classList.add('show');}
+  }
+  function hideBack(){
+    if(!backBtn)return;
+    backBtn.hidden=true;backBtn.classList.remove('show');returnY=null;returnEl=null;
+  }
+  function goBack(){
+    var y=returnY, el=returnEl; hideBack();
+    if(el&&document.contains(el)){
+      try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}
+      el.scrollIntoView({behavior:'smooth',block:'center'});
+      el.classList&&el.classList.add('g-focus');
+      setTimeout(function(){el.classList&&el.classList.remove('g-focus');},1600);
+      return;
+    }
+    if(y!=null){
+      try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}
+      window.scrollTo({top:y,behavior:'smooth'});
+    }
+  }
+  if(backBtn)backBtn.addEventListener('click',goBack);
+  function ensureInlineBack(def){
+    if(!def||def.querySelector('.g-back-inline'))return;
+    var b=document.createElement('button');
+    b.type='button';b.className='g-back-inline';b.textContent='← Volver al lugar';
+    b.addEventListener('click',function(e){e.preventDefault();goBack();});
+    def.querySelector('.gdef-in')?def.querySelector('.gdef-in').appendChild(b):def.appendChild(b);
+  }
   terms.forEach(function(b){
     b.addEventListener('click',function(){
       var open=b.classList.contains('open');
       closeAll();
-      if(!open){b.classList.add('open');var d=b.nextElementSibling;d.style.maxHeight=d.scrollHeight+'px';}
+      if(!open){b.classList.add('open');var d=b.nextElementSibling;d.style.maxHeight=d.scrollHeight+'px';ensureInlineBack(d);}
     });
   });
   var q=document.getElementById('gloss-q');
@@ -1773,16 +1819,32 @@ particleNet('cta-bg');
     });
     if(shown)shown.textContent=n;
   });
-  /* abrir card al llegar por ancla (#g-...) */
-  function openTarget(){
+  function openTarget(fromClick){
     var h=location.hash;if(!h||h.indexOf('#g-')!==0)return;
     var el=document.querySelector(h);if(!el)return;
-    var btn=el.querySelector('.gterm');if(btn&&!btn.classList.contains('open')){
+    if(fromClick){returnY=window.scrollY||window.pageYOffset;returnEl=fromClick;}
+    else if(returnY==null){returnY=window.scrollY||window.pageYOffset;}
+    showBack();
+    document.querySelectorAll('.gitem.g-focus').forEach(function(x){x.classList.remove('g-focus');});
+    el.classList.add('g-focus');
+    var btn=el.querySelector('.gterm');if(btn){
       closeAll();btn.classList.add('open');var d=btn.nextElementSibling;
-      setTimeout(function(){d.style.maxHeight=d.scrollHeight+'px';},60);
+      ensureInlineBack(d);
+      setTimeout(function(){d.style.maxHeight=d.scrollHeight+'px';el.scrollIntoView({behavior:'smooth',block:'start'});},60);
     }
   }
-  window.addEventListener('hashchange',openTarget);openTarget();
+  /* capturar clics en .term / chips ANTES del salto de ancla */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#g-"]');
+    if(!a)return;
+    var id=a.getAttribute('href');
+    if(!id||id.indexOf('#g-')!==0)return;
+    returnY=window.scrollY||window.pageYOffset;
+    returnEl=a;
+    setTimeout(function(){openTarget(a);},0);
+  },true);
+  window.addEventListener('hashchange',function(){openTarget(null);});
+  if(location.hash&&location.hash.indexOf('#g-')===0)openTarget(null);
 })();
 
 /* ── copiar prompts ── */

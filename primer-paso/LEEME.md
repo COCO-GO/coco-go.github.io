@@ -1,11 +1,12 @@
-# PRE — Tu primer resultado real con IA (curso FREE de entrada)
+# Primer paso con IA (curso FREE de entrada · ex-PRE)
 
 Producto gratis de entrada del catálogo COCO GO. Puerta del funnel: despierta + 1-2 victorias
 reales con el negocio del alumno, y lo rutea a **un** curso básico.
 
 ## Acceso
 
-- **URL viva:** https://coco-go.lat/pre/
+- **URL viva:** https://coco-go.lat/primer-paso/
+- **Nombre anterior:** PRE · `/pre/` (redirect activo)
 - **Acceso LIBRE, sin código** (`?k=`). Es el free: abierto a propósito, sin gate.
 - Se sirve tal cual desde GitHub Pages (HTML/JS vanilla, sin build).
 
@@ -36,7 +37,7 @@ reales con el negocio del alumno, y lo rutea a **un** curso básico.
 
 - `index.html` — producto (autocontenido, CSS/JS inline; usa logos SVG de `../assets/`).
 - `og.html` — plantilla OG 1200×630 (mundo claro). Falta renderizar `og.png` (lo hace el
-  orquestador). Meta `og:image`/`twitter:image` ya apuntan a `https://coco-go.lat/pre/og.png`.
+  orquestador). Meta `og:image`/`twitter:image` ya apuntan a `https://coco-go.lat/primer-paso/og.png`.
 - `LEEME.md` — este archivo.
 
 ## Pendiente antes de publicar

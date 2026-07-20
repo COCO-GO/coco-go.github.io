@@ -5,7 +5,7 @@
 - **H1:** ¿Qué es la IA?
 - **Sub:** La explicación que nadie te dio: qué es, cómo funciona y con cuál empezar.
 - **Estructura:** mapa + glosario (14 cards) + 4 secciones + verificación + CTA único al PRE.
-- **CTA único:** → `/pre/` («Tu primer resultado real con IA»).
+- **CTA único:** → `/primer-paso/` («Primer paso con IA»).
 - **Diseño:** golden del PRE (claro crema · mapa+anclas · partículas hero/CTA) + **14 piezas gráficas** nuevas (13 diagramas + 1 mock de chat).
 - **Fuente de contenido:** `02-proyectos/coco-go/src/productos/ia-intro/` (CONTENIDO 94/100 PASA).
 - **«Por dónde empezar»:** lista/prosa **estática** — sin decisor JS (exclusivo del PRE).

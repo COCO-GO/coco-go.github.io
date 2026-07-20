@@ -4,10 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>¿Qué es la IA? — Guía gratis COCO GO</title>
-<meta name="description" content="La explicación que nadie te dio: qué es la inteligencia artificial, cómo funciona sin una sola fórmula, hasta dónde confiarle una respuesta y con cuál de las cuatro herramientas empezar. Guía gratis y abierta, en criollo." />
+<meta name="description" content="La explicación que nadie te dio: qué es la inteligencia artificial, cómo funciona sin una sola fórmula, hasta dónde confiarle una respuesta y con cuál de las cuatro herramientas empezar. Guía gratis y abierta, en lenguaje simple." />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="¿Qué es la IA? — COCO GO" />
-<meta property="og:description" content="Qué es, cómo funciona, hasta dónde confiarle y con cuál empezar. La guía introductoria gratis de COCO GO, en criollo y sin una sola fórmula." />
+<meta property="og:description" content="Qué es, cómo funciona, hasta dónde confiarle y con cuál empezar. La guía introductoria gratis de COCO GO, en lenguaje simple y sin una sola fórmula." />
 <meta property="og:site_name" content="COCO GO" />
 <meta property="og:url" content="https://coco-go.lat/ia-intro/" />
 <meta property="og:image" content="https://coco-go.lat/ia-intro/og.png" />
@@ -26,7 +26,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════════════
-   COCO GO · MINI-GUÍA «¿Qué es la IA?» — hereda el golden del PRE
+   COCO GO · MINI-GUÍA «¿Qué es la IA?» — hereda el golden de Primer paso
    (mundo CLARO CREMA, gate visual Pablo 2026-07-16) + componentes
    GRÁFICOS nuevos que este contenido pide (directiva Pablo 2026-07-18:
    muy visual — esquemas y diagramas construidos a mano en HTML/CSS).
@@ -74,7 +74,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 #hero-bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 .hero .wrap{position:relative;z-index:1;padding-top:26px;padding-bottom:52px}
 .brandbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:52px}
-.brandbar img{height:44px;width:auto}
+.brandbar img{height:48px;width:auto;display:block}
 @media(max-width:520px){ .brandbar img{height:36px} .brandbar{margin-bottom:40px} }
 .brandbar .backlink{font-size:.86rem;color:var(--ink-2);font-weight:600;display:inline-flex;align-items:center;gap:5px}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:1px solid var(--line-2);
@@ -112,7 +112,9 @@ section.wrap{padding-top:var(--sp-6);padding-bottom:var(--sp-6)}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.76rem;font-weight:800;letter-spacing:.13em;
   text-transform:uppercase;color:var(--coral-deep);margin-bottom:var(--sp-3)}
 .eyebrow .num{font-family:"JetBrains Mono",monospace;background:var(--coral);color:#fff;width:26px;height:26px;
-  border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:.82rem;letter-spacing:0}
+  border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:.78rem;letter-spacing:0;
+  line-height:1;padding:0;flex-shrink:0;box-sizing:border-box}
+.sec-title .t-sub,.map-card h3 .t-sub{font-size:.62em;font-weight:600;color:var(--muted);letter-spacing:-.01em}
 .sec-title{font-size:clamp(1.7rem,4.4vw,2.5rem);font-weight:800;letter-spacing:-.02em;margin-bottom:var(--sp-2)}
 .sec-lead{font-size:1.08rem;color:var(--ink-2);max-width:62ch;margin-bottom:0}
 .reveal + .reveal{margin-top:var(--sp-4)}
@@ -158,10 +160,10 @@ section.has-sep{padding-top:var(--sp-5)}
 .ul-clean li{position:relative;padding-left:26px;margin-bottom:8px}
 .ul-clean li::before{content:"→";position:absolute;left:0;top:0;color:var(--coral-soft);font-weight:800}
 .checklist{list-style:none;margin:6px 0 0}
-.checklist li{position:relative;padding-left:32px;margin-bottom:10px;font-size:.98rem}
-.checklist li::before{content:"";position:absolute;left:0;top:2px;width:20px;height:20px;border:2px solid var(--sol-line);
-  border-radius:6px;background:var(--paper)}
-.checklist li::after{content:"✓";position:absolute;left:4px;top:0px;color:var(--sol-ink);font-weight:800;font-size:.9rem}
+.checklist li{position:relative;padding-left:34px;margin-bottom:10px;font-size:.98rem;line-height:1.45}
+.checklist li::before{content:"✓";position:absolute;left:0;top:0.12em;width:22px;height:22px;border:2px solid var(--sol-line);
+  border-radius:6px;background:var(--paper);color:var(--sol-ink);font-weight:800;font-size:.78rem;line-height:1;
+  display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box}
 
 /* tablas */
 .table-wrap{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
@@ -193,9 +195,9 @@ td strong{color:var(--ink)}
 .map-card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px;
   box-shadow:var(--shadow);text-decoration:none;color:var(--ink-2);transition:transform .18s ease,box-shadow .18s ease,border-color .18s}
 .map-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--coral)}
-.map-card .mnum{font-family:"JetBrains Mono",monospace;font-size:.8rem;font-weight:500;color:var(--coral-deep);
+.map-card .mnum{font-family:"JetBrains Mono",monospace;font-size:.8rem;font-weight:600;color:var(--coral-deep);
   background:var(--ex-bg);border:1px solid var(--ex-line);width:34px;height:34px;border-radius:10px;
-  display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px}
+  display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px;line-height:1;padding:0;box-sizing:border-box}
 .map-card h3{font-size:1.08rem;margin-bottom:6px}
 .map-card .desc{font-size:.9rem;color:var(--ink-2);margin-bottom:12px}
 .map-card .time{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:700;color:var(--muted);
@@ -257,14 +259,32 @@ td strong{color:var(--ink)}
 .icon-cell p b{display:block;margin-bottom:3px}
 
 /* valija de Minsky (S1) */
-.valija{display:flex;flex-direction:column;align-items:center;gap:16px;padding:6px 0}
-.valija .v-case{font-size:3.2rem;line-height:1}
-.valija .v-label{font-family:"JetBrains Mono",monospace;font-size:.8rem;background:var(--ink);color:#fff;
-  border-radius:8px;padding:4px 14px;margin-top:-8px}
-.valija .v-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding-top:12px}
-.valija .v-tag{background:var(--paper);border:1.5px dashed var(--line-2);border-radius:999px;padding:7px 16px;
-  font-size:.9rem;font-weight:600;color:var(--ink-2);position:relative}
-.valija .v-tag::before{content:"";position:absolute;top:-13px;left:50%;width:1.5px;height:12px;background:var(--line-2)}
+.valija{display:flex;flex-direction:column;align-items:center;gap:18px;padding:10px 0 4px}
+.valija .v-case{position:relative;width:118px;height:88px;margin:6px 0 2px}
+.valija .v-case .v-body{position:absolute;left:8px;right:8px;top:22px;bottom:0;background:linear-gradient(160deg,#FF8A6E,#E24B27);
+  border-radius:14px 14px 16px 16px;box-shadow:0 10px 24px rgba(226,75,39,.28),inset 0 1px 0 rgba(255,255,255,.28)}
+.valija .v-case .v-lid{position:absolute;left:0;right:0;top:6px;height:28px;background:linear-gradient(180deg,#FF9A82,#E24B27);
+  border-radius:16px 16px 8px 8px;box-shadow:0 2px 0 rgba(255,255,255,.2) inset}
+.valija .v-case .v-handle{position:absolute;left:50%;top:0;transform:translateX(-50%);width:36px;height:16px;
+  border:3px solid var(--ink);border-bottom:none;border-radius:10px 10px 0 0;background:transparent}
+.valija .v-case .v-lock{position:absolute;left:50%;top:46px;transform:translateX(-50%);width:14px;height:14px;
+  background:var(--ink);border-radius:4px;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
+.valija .v-label{font-family:"JetBrains Mono",monospace;font-size:.86rem;font-weight:700;background:var(--ink);color:#fff;
+  border-radius:999px;padding:6px 18px;letter-spacing:.06em}
+.valija .v-tags{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;padding-top:8px;max-width:420px}
+.valija .v-tag{background:var(--paper);border:1.5px dashed var(--line-2);border-radius:999px;padding:9px 18px;
+  font-size:.92rem;font-weight:600;color:var(--ink-2);position:relative;box-shadow:var(--shadow);
+  transition:transform .25s ease,border-color .2s,color .2s}
+.valija .v-tag::before{content:"";position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:1.5px;height:13px;background:var(--line-2)}
+@media(prefers-reduced-motion:no-preference){
+  .valija .v-case{animation:v-bob 3.6s ease-in-out infinite}
+  .valija .v-tag:nth-child(1){animation:v-float 4s ease-in-out infinite}
+  .valija .v-tag:nth-child(2){animation:v-float 4.4s ease-in-out .3s infinite}
+  .valija .v-tag:nth-child(3){animation:v-float 3.8s ease-in-out .55s infinite}
+  @keyframes v-bob{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-7px) rotate(1.5deg)}}
+  @keyframes v-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .valija .v-tag:hover{transform:translateY(-3px) scale(1.04);border-color:var(--coral);color:var(--coral-deep)}
+}
 
 /* flujo horizontal de pasos (spam 3 pasos) */
 .flow{display:grid;grid-template-columns:1fr;gap:12px;margin:6px 0 0}
@@ -357,14 +377,16 @@ td strong{color:var(--ink)}
 .myth-row{display:grid;gap:10px}
 @media(min-width:680px){.myth-row{grid-template-columns:2fr 3fr}}
 .myth-m{background:var(--cream-2);border:1px solid var(--line-2);border-radius:14px;padding:15px 17px}
-.myth-m .mk{display:inline-flex;align-items:center;gap:7px;font-size:.7rem;font-weight:800;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--muted);margin-bottom:7px}
-.myth-m .mk::before{content:"✗";color:var(--coral-deep);font-size:.9rem}
+.myth-m .mk{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.myth-m .mk::before{content:"✗";color:#fff;background:var(--coral-deep);font-size:.72rem;width:18px;height:18px;
+  border-radius:5px;display:inline-flex;align-items:center;justify-content:center;line-height:1;flex-shrink:0}
 .myth-m p{margin:0;font-weight:700;color:var(--ink);font-size:.98rem}
 .myth-r{background:var(--paper);border:1px solid var(--sol-line);border-radius:14px;padding:15px 17px}
-.myth-r .mk{display:inline-flex;align-items:center;gap:7px;font-size:.7rem;font-weight:800;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--sol-ink);margin-bottom:7px}
-.myth-r .mk::before{content:"✓";font-size:.9rem}
+.myth-r .mk{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--sol-ink);margin-bottom:8px}
+.myth-r .mk::before{content:"✓";color:#fff;background:var(--sol-ink);font-size:.72rem;width:18px;height:18px;
+  border-radius:5px;display:inline-flex;align-items:center;justify-content:center;line-height:1;flex-shrink:0}
 .myth-r p{margin:0;font-size:.92rem}
 
 /* cajita histórica (Turing / 1955) */
@@ -389,9 +411,9 @@ td strong{color:var(--ink)}
 .ex-item summary{cursor:pointer;padding:14px 16px;font-weight:600;color:var(--ink);display:flex;gap:11px;
   align-items:flex-start;list-style:none;font-size:.97rem}
 .ex-item summary::-webkit-details-marker{display:none}
-.ex-item summary .xq{flex-shrink:0;font-family:"JetBrains Mono",monospace;font-size:.76rem;color:var(--coral-deep);
+.ex-item summary .xq{flex-shrink:0;font-family:"JetBrains Mono",monospace;font-size:.76rem;font-weight:700;color:var(--coral-deep);
   background:var(--ex-bg);border:1px solid var(--ex-line);width:26px;height:26px;border-radius:8px;
-  display:inline-flex;align-items:center;justify-content:center;margin-top:1px}
+  display:inline-flex;align-items:center;justify-content:center;margin-top:1px;line-height:1;padding:0;box-sizing:border-box}
 .ex-item summary .xa{margin-left:auto;flex-shrink:0;font-size:.8rem;font-weight:700;color:var(--coral-deep);white-space:nowrap;padding-top:2px}
 .ex-item[open] summary .xa{display:none}
 .ex-item .ex-a{padding:2px 16px 15px 53px;font-size:.94rem}
@@ -446,9 +468,27 @@ td strong{color:var(--ink)}
 .spec-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--amber)}
 .spec-card .sc-hd{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
   margin-bottom:14px;padding-bottom:13px;border-bottom:1px solid var(--line)}
-.spec-card .sc-nm{font-family:"Bricolage Grotesque",serif;font-weight:800;font-size:1.3rem;color:var(--ink)}
+.spec-card .sc-left{display:inline-flex;align-items:center;gap:12px;min-width:0}
+.spec-card .sc-left img{width:40px;height:40px;object-fit:contain;flex-shrink:0;border-radius:10px;box-shadow:0 1px 3px rgba(24,35,56,.08)}
+.spec-card .sc-nm{font-family:"Bricolage Grotesque",serif;font-weight:800;font-size:1.3rem;color:var(--ink);line-height:1.15}
 .spec-card .sc-chip{font-size:.7rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--warn-ink);
-  background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:999px;padding:4px 12px}
+  background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:999px;padding:4px 12px;flex-shrink:0}
+/* autoevaluación interactiva */
+.check-live{list-style:none;margin:4px 0 0;padding:0}
+.check-live li{margin:0 0 10px}
+.check-live label{display:flex;align-items:flex-start;gap:12px;cursor:pointer;font-size:.98rem;line-height:1.45;color:var(--ink-2)}
+.check-live input[type="checkbox"]{appearance:none;-webkit-appearance:none;flex-shrink:0;width:22px;height:22px;margin-top:2px;
+  border:2px solid var(--sol-line);border-radius:6px;background:var(--paper);cursor:pointer;position:relative;
+  box-sizing:border-box;transition:background .15s,border-color .15s}
+.check-live input[type="checkbox"]:checked{background:var(--sol-ink);border-color:var(--sol-ink)}
+.check-live input[type="checkbox"]:checked::after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;color:#fff;font-size:.78rem;font-weight:800;line-height:1}
+.check-live input[type="checkbox"]:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.check-live label:has(input:checked){color:var(--ink);font-weight:600}
+.verif-status{margin-top:14px;padding:12px 14px;border-radius:12px;font-size:.92rem;font-weight:700;
+  background:var(--cream-2);border:1px solid var(--line-2);color:var(--ink-2)}
+.verif-status.ok{background:var(--sol-bg);border-color:var(--sol-line);color:var(--sol-ink)}
+.verif-status .n{font-family:"JetBrains Mono",monospace}
 .spec-card .tool-row{font-size:.93rem}
 .spec-card .tool-row.wow .lb{color:var(--coral-deep)}
 
@@ -462,7 +502,16 @@ td strong{color:var(--ink)}
 .gloss-list{margin-top:22px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
 .gitem{background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;
   align-self:start;scroll-margin-top:24px}
-.gitem:target{border-color:var(--coral);box-shadow:0 0 0 3px rgba(255,107,74,.22),var(--shadow)}
+.gitem:target,.gitem.g-focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(255,107,74,.22),var(--shadow)}
+.gloss-back{display:none;position:sticky;top:10px;z-index:40;margin:0 0 14px;align-items:center;gap:10px;
+  background:var(--ink);color:#fff;border:none;border-radius:999px;padding:11px 18px;font-family:inherit;
+  font-weight:700;font-size:.9rem;cursor:pointer;box-shadow:0 10px 24px rgba(24,35,56,.22)}
+.gloss-back.show{display:inline-flex}
+.gloss-back:hover{background:var(--coral-deep)}
+.gdef .g-back-inline{display:inline-flex;margin-top:10px;font-size:.86rem;font-weight:700;color:var(--coral-deep);
+  background:var(--ex-bg);border:1px solid var(--ex-line);border-radius:999px;padding:6px 12px;cursor:pointer;
+  font-family:inherit}
+.gdef .g-back-inline:hover{border-color:var(--coral);color:var(--coral)}
 .gterm{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;
   background:none;border:none;cursor:pointer;font-family:"Bricolage Grotesque",serif;font-weight:700;
   font-size:1rem;color:var(--ink);padding:15px 17px;line-height:1.25}
@@ -499,7 +548,7 @@ td strong{color:var(--ink)}
   color:var(--muted);display:flex;flex-direction:column;gap:6px}
 .feedbackbox .fb-paths a{color:var(--coral-deep);font-weight:600}
 
-/* CTA final al PRE — partículas como el hero */
+/* CTA final a Primer paso — partículas como el hero */
 .finalcta{position:relative;overflow:hidden;background:
    radial-gradient(700px 300px at 15% 0%, rgba(255,107,74,.14), transparent 65%),
    radial-gradient(600px 300px at 90% 100%, rgba(244,169,59,.13), transparent 60%),var(--band);
@@ -512,12 +561,27 @@ td strong{color:var(--ink)}
 .finalcta h2{font-size:clamp(1.7rem,4.4vw,2.5rem);margin-bottom:14px}
 .finalcta h2 .c{color:var(--coral)}
 .finalcta p{max-width:62ch;color:var(--ink-2)}
-.finalcta .cta-row{display:flex;justify-content:flex-end;margin-top:var(--sp-3)}
+.finalcta .cta-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-top:var(--sp-3)}
+.finalcta .free-pill{display:inline-flex;align-items:center;gap:8px;background:var(--sol-bg);border:1px solid var(--sol-line);
+  color:var(--sol-ink);font-weight:800;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:8px 14px;border-radius:999px}
+.next-logos{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin:16px 0 4px}
+.next-logos a,.next-logos span{display:inline-flex;align-items:center;gap:7px;font-size:.86rem;font-weight:700;color:var(--ink-2);
+  background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:7px 12px;text-decoration:none;
+  transition:border-color .15s,color .15s,transform .15s,box-shadow .15s}
+.next-logos a:hover{border-color:var(--coral);color:var(--coral-deep);transform:translateY(-2px);box-shadow:var(--shadow)}
+.next-logos img{height:22px;width:22px;object-fit:contain}
+.next-logos .mini-dark{background:#111;border-radius:7px;padding:3px;display:inline-flex;align-items:center;justify-content:center}
+.next-logos .mini-dark img{height:16px;width:16px}
+footer .next-logos{margin:4px auto 14px;justify-content:center}
+.finalcta .box{border-top:4px solid var(--coral)}
+.finalcta .cta-row .btn{font-size:1.05rem;padding:16px 28px}
 
 /* footer */
 footer{background:var(--cream);border-top:1px solid var(--line);padding:44px 0 40px;text-align:center}
-.foot-home{display:inline-flex;justify-content:center;align-items:center;margin-bottom:16px;line-height:0}
-.foot-logo{width:min(190px,60vw);height:auto;opacity:.96}
+.foot-home{display:inline-flex;justify-content:center;align-items:center;margin-bottom:18px;line-height:0;
+  padding:0;background:none;border:none;border-radius:0;box-shadow:none}
+.foot-logo{width:min(200px,58vw);height:auto;display:block;opacity:1}
 footer .socs{display:flex;justify-content:center;gap:16px;margin:6px 0 14px}
 footer .socs a{color:var(--ink-2)}
 footer .socs svg{width:22px;height:22px;fill:currentColor}
@@ -563,6 +627,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
       <a class="chip" href="#g-llm">LLM</a>
       <a class="chip" href="#g-alucinacion">alucinación</a>
       <a class="chip" href="#g-entrenar">entrenar</a>
+      <a class="chip" href="#g-prompt">prompt</a>
       <a class="qmark" href="#glosario">Ver glosario →</a>
     </div>
   </div>
@@ -572,42 +637,42 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
 <!-- ═══════════════ MAPA DE LA GUÍA ═══════════════ -->
 <section id="mapa" class="wrap">
   <div class="reveal">
-    <span class="eyebrow"><span class="num">◆</span> Qué vas a encontrar</span>
+    <span class="eyebrow"><span class="num" aria-hidden="true">◇</span> Qué vas a encontrar</span>
     <h2 class="sec-title">El mapa de la guía</h2>
     <p class="sec-lead"><strong>Cuatro paradas, en orden.</strong> Cada una construye sobre la anterior — te recomendamos leerlas en este orden la primera vez, aunque después puedas volver a cualquiera cuando la necesites.</p>
   </div>
   <div class="map-grid reveal">
     <a class="map-card" href="#s1">
       <span class="mnum">01</span>
-      <h3>Qué es la IA (y por qué no es la de las películas)</h3>
+      <h3>Qué es la IA <span class="t-sub">(y por qué no es la de las películas)</span></h3>
       <p class="desc">Qué es esto, en una frase que entiendas — y por qué ya la estás usando sin saberlo.</p>
       <span class="time">◷ ~10 min de lectura</span>
       <span class="go">Ir a la sección →</span>
     </a>
     <a class="map-card" href="#s2">
       <span class="mnum">02</span>
-      <h3>Cómo funciona, sin una sola fórmula (spoiler: no piensa)</h3>
+      <h3>Cómo funciona, sin una sola fórmula <span class="t-sub">(spoiler: no piensa)</span></h3>
       <p class="desc">Cómo "aprende" una IA, y qué diferencia hay entre IA, machine learning y el chat que ya probaste.</p>
       <span class="time">◷ ~10 min de lectura</span>
       <span class="go">Ir a la sección →</span>
     </a>
     <a class="map-card" href="#s3">
       <span class="mnum">03</span>
-      <h3>Hasta dónde le podés confiar (y qué chequear siempre)</h3>
+      <h3>Hasta dónde le podés confiar <span class="t-sub">(y qué chequear siempre)</span></h3>
       <p class="desc">Si le podés creer lo que te contesta — y qué mirar siempre antes de usar una respuesta.</p>
       <span class="time">◷ ~14 min de lectura</span>
       <span class="go">Ir a la sección →</span>
     </a>
     <a class="map-card" href="#s4">
       <span class="mnum">04</span>
-      <h3>Con cuál empezás (y qué herramienta te sirve para qué)</h3>
+      <h3>Con cuál empezás <span class="t-sub">(y qué herramienta te sirve para qué)</span></h3>
       <p class="desc">Cuál de las herramientas que existen hoy te conviene a vos, y por dónde arrancar esta semana.</p>
       <span class="time">◷ ~15 min de lectura</span>
       <span class="go">Ir a la sección →</span>
     </a>
   </div>
   <div class="map-extra reveal">
-    <p><strong>También:</strong> el glosario <em>de primera vez</em> — 14 palabras que vas a escuchar sobre IA, en criollo. Tocá las palabras <span class="term">subrayadas</span> cuando aparezcan, o abrí el botón <em>¿Qué significa esto?</em>.</p>
+    <p><strong>También:</strong> el glosario <em>de primera vez</em> — 15 palabras que vas a escuchar sobre IA, en lenguaje simple. Tocá las palabras <span class="term">subrayadas</span> cuando aparezcan, o abrí el botón <em>¿Qué significa esto?</em>.</p>
     <a href="#glosario" class="btn btn-ghost" style="padding:10px 18px;font-size:.9rem">Ver glosario →</a>
   </div>
 </section>
@@ -618,7 +683,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
   <div class="mod-sep" aria-hidden="true"><i></i></div>
   <div class="reveal">
     <span class="eyebrow"><span class="num">01</span> Entender antes de tocar nada</span>
-    <h2 class="sec-title">Qué es la IA (y por qué no es la de las películas)</h2>
+    <h2 class="sec-title">Qué es la IA <span class="t-sub">(y por qué no es la de las películas)</span></h2>
     <p class="sec-lead">Acá no vas a necesitar tener ningún chat abierto. Es la sección de "entender antes de tocar nada".</p>
   </div>
 
@@ -640,7 +705,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
   </div>
 
   <div class="reveal">
-    <div class="blockhead"><span class="bi">📖</span><h3>¿Qué es, en criollo?</h3></div>
+    <div class="blockhead"><span class="bi">📖</span><h3>¿Qué es, en lenguaje simple?</h3></div>
     <p>Existe una definición corta, de diccionario, que sirve como piso — del <strong>diccionario Oxford</strong>:</p>
     <div class="card card-quote">
       <p><strong>inteligencia artificial</strong> (sustantivo): la capacidad de las computadoras u otras máquinas de exhibir o simular un comportamiento inteligente; y también el campo de estudio que se ocupa de eso.</p>
@@ -675,7 +740,12 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
   <figure class="diagram amber reveal">
     <div class="dg-head"><span class="dg-ic">🧳</span><span class="dg-t">La "palabra valija" de Minsky</span></div>
     <div class="valija">
-      <span class="v-case dg-float" aria-hidden="true">🧳</span>
+      <div class="v-case" aria-hidden="true">
+        <span class="v-handle"></span>
+        <span class="v-lid"></span>
+        <span class="v-body"></span>
+        <span class="v-lock"></span>
+      </div>
       <span class="v-label">IA</span>
       <div class="v-tags">
         <span class="v-tag">versión técnica</span>
@@ -800,24 +870,24 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
 
   <div class="exercise reveal">
     <div class="ex-head"><span class="bi">🎯</span><h3>Ejercicio: ¿esto es IA o no?</h3></div>
-    <p>Ahora te toca aplicar el filtro (<strong>¿decide sola? ¿mejora con el uso?</strong>) a cosas que capaz cruzás en tu propio negocio o en tu barrio. Pensá tu respuesta antes de tocar cada tarjeta.</p>
+    <p>Ya viste la tabla. Ahora casos <strong>distintos</strong>, de la calle y del negocio. Aplicá el filtro sin mirar arriba: ¿decide sola en una situación que varía? ¿mejora si se usa más?</p>
     <details class="ex-item">
-      <summary><span class="xq">1</span>El cartel LED de la vidriera que muestra el precio parpadeando.<span class="xa">Ver respuesta →</span></summary>
-      <div class="ex-a"><span class="rlab">No es IA</span><p>Muestra el texto que alguien programó, siempre igual, no decide nada y no mejora con el uso — es electrónica fija, no un sistema que se adapta.</p></div>
+      <summary><span class="xq">1</span>La respuesta automática de WhatsApp del local: siempre el mismo texto a la misma hora.<span class="xa">Ver respuesta →</span></summary>
+      <div class="ex-a"><span class="rlab">No es IA</span><p>Es una regla fija que alguien configuró una vez. No decide según el mensaje del cliente y no mejora con el uso: repite el mismo texto.</p></div>
     </details>
     <details class="ex-item">
-      <summary><span class="xq">2</span>El corrector del teclado del celular que te sugiere la próxima palabra.<span class="xa">Ver respuesta →</span></summary>
-      <div class="ex-a"><span class="rlab">Sí, es IA</span><p>Chiquita, pero lo es. Decide sola qué palabra sugerirte según lo que escribiste antes, y mejora cuanto más lo usás — aprende tu forma de escribir.</p></div>
+      <summary><span class="xq">2</span>La cámara del local que avisa si hay fila larga en caja, mirando el video en vivo.<span class="xa">Ver respuesta →</span></summary>
+      <div class="ex-a"><span class="rlab">Sí, es IA</span><p>Tiene que "ver" escenas distintas (luz, gente, ángulo) y decidir sola cuándo hay cola. Ese reconocimiento se entrena con ejemplos y mejora con más uso.</p></div>
     </details>
     <details class="ex-item">
-      <summary><span class="xq">3</span>La app que te sugiere cuánto stock reponer según lo que se vendió esta semana.<span class="xa">Ver respuesta →</span></summary>
-      <div class="ex-a"><span class="rlab">Sí, es IA</span><p>Decide sola una cantidad (autonomía) mirando un patrón de ventas que cambia semana a semana, y ese cálculo mejora con más historial de ventas (adaptatividad).</p></div>
+      <summary><span class="xq">3</span>El termostato del taller con horario fijo: 8:00 prende, 18:00 apaga.<span class="xa">Ver respuesta →</span></summary>
+      <div class="ex-a"><span class="rlab">No es IA</span><p>Sigue un reloj y una regla escrita. No adapta el patrón a cómo se usa el espacio ni "aprende" de la semana: es automatización simple, no IA.</p></div>
     </details>
     <details class="ex-item">
-      <summary><span class="xq">4</span>El lector de patentes de la barrera del estacionamiento.<span class="xa">Ver respuesta →</span></summary>
-      <div class="ex-a"><span class="rlab">Sí, es IA</span><p>Tiene que "leer" una patente distinta cada vez, con distinta luz, ángulo y suciedad — no es un patrón fijo, decide sola qué caracteres está viendo.</p></div>
+      <summary><span class="xq">4</span>El banco que bloquea una compra rara en tu tarjeta antes de que vos digas nada.<span class="xa">Ver respuesta →</span></summary>
+      <div class="ex-a"><span class="rlab">Sí, es IA</span><p>Decide sola en un caso que nunca se repite igual (monto, lugar, horario) y se calibra con el historial de fraudes reales: autonomía + adaptatividad.</p></div>
     </details>
-    <p style="margin:12px 0 0">Si te salieron la mayoría bien, ya tenés el filtro instalado. Si dudaste en alguna, no importa — la línea a veces es fina, y hasta la gente que trabaja en esto discute casos límite. Lo que te llevás no es memorizar ejemplos: es saber preguntarte "¿decide sola? ¿mejora con el uso?" la próxima vez que alguien te diga "esto tiene IA".</p>
+    <p style="margin:12px 0 0">Si te salieron la mayoría bien, ya tenés el filtro instalado. Si dudaste en alguna, no importa — la línea a veces es fina. Lo que te llevás no es memorizar ejemplos: es saber preguntarte "¿decide sola? ¿mejora con el uso?" la próxima vez que alguien te diga "esto tiene IA".</p>
   </div>
 
   <div class="card card-sol reveal">
@@ -838,7 +908,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
   <div class="mod-sep" aria-hidden="true"><i></i></div>
   <div class="reveal">
     <span class="eyebrow"><span class="num">02</span> El mecanismo, por dentro</span>
-    <h2 class="sec-title">Cómo funciona, sin una sola fórmula (spoiler: no piensa)</h2>
+    <h2 class="sec-title">Cómo funciona, sin una sola fórmula <span class="t-sub">(spoiler: no piensa)</span></h2>
     <p class="sec-lead">No vas a necesitar matemática, ni código, ni saber programar. Esta sección te muestra qué pasa "adentro" cuando una IA te contesta algo — lo justo para que sepas, de acá en adelante, hasta dónde tomarle la palabra. Eso es tema de la próxima sección; acá entendés el mecanismo primero.</p>
   </div>
 
@@ -1004,7 +1074,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
 
   <div class="reveal">
     <div class="blockhead coral"><span class="bi">💬</span><h3>Por qué el chat que ya probaste es "IA generativa"</h3></div>
-    <p>Con el mapa completo, ya podés ubicar exactamente dónde está parado el chat que quizás ya abriste alguna vez, aunque sea para hacerle una pregunta suelta: es un LLM haciendo IA generativa. Cuando le escribís algo, el sistema no "busca" la respuesta en ningún lado ni la "piensa" como la pensarías vos. Calcula, palabra por palabra, cuál es la continuación más probable de esa conversación — apoyándose en los patrones que encontró en cantidades enormes de texto durante su entrenamiento — y va armando la respuesta así, una palabra detrás de la otra, tan rápido que parece una frase completa de una sola vez.</p>
+    <p>Con el mapa completo, ya podés ubicar exactamente dónde está parado el chat que quizás ya abriste alguna vez, aunque sea para hacerle una pregunta suelta: es un LLM haciendo IA generativa. Cuando le escribís un <a class="term" href="#g-prompt">prompt</a> (la instrucción), el sistema no "busca" la respuesta en ningún lado ni la "piensa" como la pensarías vos. Calcula, palabra por palabra, cuál es la continuación más probable de esa conversación — apoyándose en los patrones que encontró en cantidades enormes de texto durante su entrenamiento — y va armando la respuesta así, una palabra detrás de la otra, tan rápido que parece una frase completa de una sola vez.</p>
     <p style="margin-bottom:0">Es genuinamente útil, y por eso llegó tan rápido a tanta gente: escribe, resume, ordena ideas, arma borradores, contesta preguntas generales, y lo hace con un nivel de soltura que ninguna herramienta anterior tenía. Pero todo lo que hace sale del mismo mecanismo que viste en esta sección de punta a punta: <strong>predice patrones, no piensa.</strong> No es magia, no es una mente, y no siempre tiene el dato correcto guardado en alguna parte para "buscarlo" — solo calcula qué es lo más probable que siga. Esa diferencia, que hoy suena chica, es exactamente la que abre la próxima sección: qué pasa cuando lo más probable no es lo verdadero, y cómo darte cuenta.</p>
   </div>
 
@@ -1027,7 +1097,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
   <div class="mod-sep" aria-hidden="true"><i></i></div>
   <div class="reveal">
     <span class="eyebrow"><span class="num">03</span> El corazón de la guía</span>
-    <h2 class="sec-title">Hasta dónde le podés confiar (y qué chequear siempre)</h2>
+    <h2 class="sec-title">Hasta dónde le podés confiar <span class="t-sub">(y qué chequear siempre)</span></h2>
     <p class="sec-lead">Esta es la sección más importante de toda la guía. No porque las anteriores no importen — sin ellas, esta no se entiende — sino porque acá está el criterio que te va a evitar el peor error posible: usar algo que sonaba perfecto y estaba mal.</p>
   </div>
 
@@ -1226,7 +1296,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
     <div class="myth">
       <div class="myth-row">
         <div class="myth-m"><span class="mk">Mito 1</span><p>"Todo tiene IA ahora"</p></div>
-        <div class="myth-r"><span class="mk">Realidad</span><p>Mucho marketing le pega la etiqueta "con IA" a productos que en realidad tienen una regla fija programada hace años, porque la etiqueta vende. Se desarma con el mismo filtro de autonomía y adaptatividad que viste en <em>Qué es la IA (y por qué no es la de las películas)</em>: ¿decide solo? ¿mejora con el uso? Si la respuesta es no a las dos, no importa lo que diga la caja.</p></div>
+        <div class="myth-r"><span class="mk">Realidad</span><p>Mucho marketing le pega la etiqueta "con IA" a productos que en realidad tienen una regla fija programada hace años, porque la etiqueta vende. Se desarma con el mismo filtro de autonomía y adaptatividad que viste en <em>Qué es la IA <span class="t-sub">(y por qué no es la de las películas)</span></em>: ¿decide solo? ¿mejora con el uso? Si la respuesta es no a las dos, no importa lo que diga la caja.</p></div>
       </div>
       <div class="myth-row">
         <div class="myth-m"><span class="mk">Mito 2</span><p>"Con datos alcanza"</p></div>
@@ -1267,15 +1337,15 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
   <div class="mod-sep" aria-hidden="true"><i></i></div>
   <div class="reveal">
     <span class="eyebrow"><span class="num">04</span> La decisión</span>
-    <h2 class="sec-title">Con cuál empezás (y qué herramienta te sirve para qué)</h2>
+    <h2 class="sec-title">Con cuál empezás <span class="t-sub">(y qué herramienta te sirve para qué)</span></h2>
     <p class="sec-lead">Ya sabés qué es la IA, cómo funciona por dentro y hasta dónde confiarle una respuesta. Te falta una sola cosa: elegir con qué herramienta arrancás vos. Esta sección no te apura a bajar nada — te da el criterio para elegir bien.</p>
   </div>
 
   <div class="reveal">
     <div class="blockhead coral"><span class="bi">🤯</span><h3>Entendiste qué es la IA. Ahora la pregunta es otra: ¿cuál abrís?</h3></div>
     <p>Te pasó, seguro, alguna versión de esto: un conocido te dijo "usá tal cosa, es buenísima", otro te recomendó otra distinta, en algún grupo de WhatsApp de tu rubro alguien compartió una captura de una tercera, y en el medio viste un aviso de una cuarta. Todas prometen más o menos lo mismo — que te van a "ayudar con todo" — y ninguna te explica qué la hace distinta de las otras. El resultado más común no es elegir mal: es no elegir nada, o quedarte con la que bajaste primero sin saber si era la más indicada para lo que necesitás vos.</p>
-    <p>Esto tiene una explicación simple: la mayoría de lo que circula sobre estas herramientas está pensado para quien ya sabe de tecnología, o directamente para comparar características técnicas que a tu negocio no le importan. Nadie se sienta a explicarle a un dueño de un local, un taller o un estudio chico <strong>para qué sirve cada una en criollo</strong> — con qué tarea de un negocio real brilla cada una, y con cuál te conviene arrancar vos.</p>
-    <blockquote class="pull">Nadie se sienta a explicarle a un dueño de un local, un taller o un estudio chico <span class="c">para qué sirve cada una en criollo</span>.</blockquote>
+    <p>Esto tiene una explicación simple: la mayoría de lo que circula sobre estas herramientas está pensado para quien ya sabe de tecnología, o directamente para comparar características técnicas que a tu negocio no le importan. Nadie se sienta a explicarle a un dueño de un local, un taller o un estudio chico <strong>para qué sirve cada una en lenguaje simple</strong> — con qué tarea de un negocio real brilla cada una, y con cuál te conviene arrancar vos.</p>
+    <blockquote class="pull">Nadie se sienta a explicarle a un dueño de un local, un taller o un estudio chico <span class="c">para qué sirve cada una en lenguaje simple</span>.</blockquote>
     <p style="margin-bottom:0">Eso es lo que hace esta sección: un mapa honesto de las herramientas que existen hoy, ordenado no por lo técnico, sino por lo que necesitás resolver. Al final vas a saber con cuál de las cuatro empezar, y vas a tener un criterio propio para el resto de las decisiones que te vayan apareciendo — porque van a seguir apareciendo herramientas nuevas, y el criterio te sirve para todas, no solo para las cuatro de hoy.</p>
   </div>
 
@@ -1293,14 +1363,14 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
   </div>
 
   <div class="reveal">
-    <div class="blockhead sol"><span class="bi">🧭</span><h3>Los 4 asistentes generales, en criollo</h3></div>
+    <div class="blockhead sol"><span class="bi">🧭</span><h3>Los 4 asistentes generales, en lenguaje simple</h3></div>
     <div class="tools-grid">
       <div class="tool-card">
         <div class="hd">
           <img src="../assets/logo-openai.svg" alt="Logo de ChatGPT (OpenAI)">
           <div class="nm">ChatGPT<small>el todo-terreno</small></div>
         </div>
-        <div class="tool-row"><span class="lb">Qué hace</span><p>Es la opción más pensada para el uso general del día a día: le pedís de todo, desde redactar un texto hasta resolver una duda suelta, pasando por armar un borrador rápido o ayudarte a pensar en voz alta un problema. Tiene una app propia y un modo de conversación por voz, así que también le podés hablar en vez de escribirle.</p></div>
+        <div class="tool-row"><span class="lb">Qué hace</span><p>Es la opción más pensada para el uso general del día a día: le pedís de todo con un <a class="term" href="#g-prompt">prompt</a> claro, desde redactar un texto hasta resolver una duda suelta, pasando por armar un borrador rápido o ayudarte a pensar en voz alta un problema. Tiene una app propia y un modo de conversación por voz, así que también le podés hablar en vez de escribirle.</p></div>
         <div class="tool-row"><span class="lb">Te sirve especialmente si</span><p>Tu necesidad es variada y cambia de un día al otro — hoy un mail, mañana una idea para una promo, pasado una duda sobre cómo redactar un aviso — y si te gusta la idea de tener una tarea que se repite (por ejemplo, un resumen semanal de ventas) resuelta de forma automática sin tener que armarla a mano cada vez.</p></div>
         <div class="tool-row ojo"><span class="lb">En una frase</span><p>Si buscás un solo asistente para arrancar sin pensar demasiado en cuál te conviene según tu rubro, ChatGPT es, para la mayoría, el default más seguro: hace un poco de todo, y lo hace bien.</p></div>
       </div>
@@ -1402,37 +1472,37 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
     <p style="margin-bottom:0">Estas seis no son "asistentes generales": cada una está hecha para UNA cosa puntual, y por eso la hace mejor. No necesitás memorizarlas todas de entrada — alcanza con saber que existen y para qué caso de tu negocio serviría cada una, para acordarte el día que la necesites.</p>
     <div class="spec-grid" style="margin-top:var(--sp-3)">
       <div class="spec-card">
-        <div class="sc-hd"><span class="sc-nm">Canva IA</span><span class="sc-chip">Diseño</span></div>
+        <div class="sc-hd"><span class="sc-left"><img src="../assets/logo-canva.png" alt="Canva" width="40" height="40"><span class="sc-nm">Canva IA</span></span><span class="sc-chip">Diseño</span></div>
         <div class="tool-row"><span class="lb">Qué hace</span><p>Arma diseños, imágenes y textos a partir de una idea; tiene plan gratis para arrancar.</p></div>
         <div class="tool-row"><span class="lb">Brilla si</span><p>Tenés un local o un kiosco y necesitás el flyer de la promo, el post de Instagram y la historia de esta semana, ya.</p></div>
         <div class="tool-row wow"><span class="lb">Lo que no sabías</span><p>Un mismo diseño lo podés convertir a otro formato —de afiche a presentación, por ejemplo— en un solo paso.</p></div>
       </div>
       <div class="spec-card">
-        <div class="sc-hd"><span class="sc-nm">CapCut</span><span class="sc-chip">Video</span></div>
+        <div class="sc-hd"><span class="sc-left"><img src="../assets/logo-capcut.png" alt="CapCut" width="40" height="40"><span class="sc-nm">CapCut</span></span><span class="sc-chip">Video</span></div>
         <div class="tool-row"><span class="lb">Qué hace</span><p>Edita videos cortos para redes —cortes, música, recorte para cada formato—; lo básico es gratis y varias funciones con IA, como los subtítulos automáticos, van con el plan pago.</p></div>
         <div class="tool-row"><span class="lb">Brilla si</span><p>Tenés un local gastronómico: grabás el plato del día con el celular y lo dejás listo, con música y recorte vertical, para Reels o TikTok el mismo día.</p></div>
         <div class="tool-row wow"><span class="lb">Lo que no sabías</span><p>Podés generar una versión digital tuya a partir de un video corto, y usarla para hablar en videos nuevos sin grabarte de nuevo cada vez.</p></div>
       </div>
       <div class="spec-card">
-        <div class="sc-hd"><span class="sc-nm">NotebookLM <span style="font-size:.8em;font-weight:600;color:var(--muted)">(Google)</span></span><span class="sc-chip">Tus documentos</span></div>
+        <div class="sc-hd"><span class="sc-left"><img src="../assets/logo-notebooklm.png" alt="NotebookLM" width="40" height="40"><span class="sc-nm">NotebookLM <span style="font-size:.8em;font-weight:600;color:var(--muted)">(Google)</span></span></span><span class="sc-chip">Tus documentos</span></div>
         <div class="tool-row"><span class="lb">Qué hace</span><p>Lee los documentos que vos le subís y responde solo con esa información, citando de dónde sacó cada dato; tiene plan gratis para arrancar.</p></div>
         <div class="tool-row"><span class="lb">Brilla si</span><p>Sos un estudio contable o una consultora chica: cargás una normativa nueva y tus notas, y le pedís un resumen para que el equipo se ponga al día antes de ver al cliente.</p></div>
         <div class="tool-row wow"><span class="lb">Lo que no sabías</span><p>Puede convertir tus documentos en un audio tipo podcast, con dos voces de IA conversando sobre lo que subiste.</p></div>
       </div>
       <div class="spec-card">
-        <div class="sc-hd"><span class="sc-nm">Gamma</span><span class="sc-chip">Presentaciones</span></div>
+        <div class="sc-hd"><span class="sc-left"><img src="../assets/logo-gamma.png" alt="Gamma" width="40" height="40"><span class="sc-nm">Gamma</span></span><span class="sc-chip">Presentaciones</span></div>
         <div class="tool-row"><span class="lb">Qué hace</span><p>Arma presentaciones, documentos y páginas simples a partir de un texto, sin maquetar diapositiva por diapositiva; tiene plan gratis para arrancar.</p></div>
         <div class="tool-row"><span class="lb">Brilla si</span><p>Ofrecés un servicio: armás la propuesta comercial para un cliente —problema, solución, precio— en media hora, sin pelear con plantillas.</p></div>
         <div class="tool-row wow"><span class="lb">Lo que no sabías</span><p>Con el mismo texto podés generar, además de la presentación, una página web simple o una pieza para redes.</p></div>
       </div>
       <div class="spec-card">
-        <div class="sc-hd"><span class="sc-nm">HeyGen</span><span class="sc-chip">Video con avatar</span></div>
+        <div class="sc-hd"><span class="sc-left"><img src="../assets/logo-heygen.png" alt="HeyGen" width="40" height="40"><span class="sc-nm">HeyGen</span></span><span class="sc-chip">Video con avatar</span></div>
         <div class="tool-row"><span class="lb">Qué hace</span><p>Escribís un guion y un avatar —un presentador digital generado por IA— lo lee a cámara, sin que grabes vos; podés probarlo gratis, con un uso limitado.</p></div>
         <div class="tool-row"><span class="lb">Brilla si</span><p>Tenés una academia o un centro de estética con cursos: grabás una vez la capacitación y la doblás a otro idioma para tu equipo o tus clientes, sin filmar de nuevo.</p></div>
         <div class="tool-row wow"><span class="lb">Lo que no sabías</span><p>El doblaje no es solo audio nuevo: también mueve los labios del avatar para que coincidan con el idioma nuevo.</p></div>
       </div>
       <div class="spec-card">
-        <div class="sc-hd"><span class="sc-nm">ElevenLabs</span><span class="sc-chip">Voz</span></div>
+        <div class="sc-hd"><span class="sc-left"><img src="../assets/logo-elevenlabs.png" alt="ElevenLabs" width="40" height="40"><span class="sc-nm">ElevenLabs</span></span><span class="sc-chip">Voz</span></div>
         <div class="tool-row"><span class="lb">Qué hace</span><p>Convierte un texto escrito en una narración con voz humana, en varios idiomas; podés probarlo gratis para uso personal; para usar la voz en contenido de tu marca hace falta el plan pago, que incluye la licencia comercial.</p></div>
         <div class="tool-row"><span class="lb">Brilla si</span><p>Tenés una marca chica con reels: escribís el guion del producto de la semana y generás la voz en off para el video, sin locutor.</p></div>
         <div class="tool-row wow"><span class="lb">Lo que no sabías</span><p>Con el mismo servicio también podés generar efectos de sonido y música, no solo voz.</p></div>
@@ -1498,12 +1568,13 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
   <div class="reveal">
     <span class="eyebrow"><span class="num">✦</span> Para entender de qué te hablan</span>
     <h2 class="sec-title">El glosario de primera vez</h2>
-    <p class="sec-lead">Las 14 palabras que vas a cruzar cuando leas o escuches sobre IA, en criollo y con un ejemplo de negocio real. Buscá o tocá una para abrirla — y volvé cuando alguna te frene en el camino.</p>
+    <p class="sec-lead">Las 15 palabras que vas a cruzar cuando leas o escuches sobre IA, en lenguaje simple y con un ejemplo de negocio real. Tocá una palabra subrayada en la guía o abrila acá — y usá <strong>Volver al lugar</strong> para regresar donde estabas.</p>
   </div>
   <div class="gloss-head reveal">
     <div class="gloss-search"><span aria-hidden="true">🔎</span><input id="gloss-q" placeholder="Buscar un término…" autocomplete="off" aria-label="Buscar un término del glosario"></div>
-    <span class="gloss-count"><span id="gloss-shown">14</span> de 14 palabras</span>
+    <span class="gloss-count"><span id="gloss-shown">15</span> de 15 palabras</span>
   </div>
+  <button type="button" class="gloss-back" id="gloss-back" hidden>← Volver al lugar donde estabas</button>
   <div class="gloss-list reveal" id="gloss-list">
 
     <div class="gitem" id="g-ia"><button class="gterm">inteligencia artificial (IA)<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
@@ -1590,6 +1661,12 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
       <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "la IA alucinó ese dato", "eso te lo inventó" o cuando un número o una cita no aparezcan en ningún lado por más que los busques.</p>
     </div></div></div>
 
+    <div class="gitem" id="g-prompt"><button class="gterm">prompt (instrucción)<span class="chev">+</span></button><div class="gdef"><div class="gdef-in">
+      <p>El texto que le escribís a un chat o a una herramienta de IA para pedirle que haga algo: la instrucción, el pedido, el "qué quiero". Cuanto más claro y concreto sea el prompt, más útil suele ser la respuesta.</p>
+      <p class="egline"><b>Ejemplo de negocio:</b> En vez de "escribime un mail", un buen prompt es: "Redactá un mail corto de cobro a un cliente que debe la factura de marzo, tono amable, 5 líneas, sin amenazar".</p>
+      <p class="hear"><b>Lo vas a escuchar cuando…</b> Digan "el prompt", "hay que mejorar el prompt" o "prompt engineering" (la práctica de escribir mejores instrucciones).</p>
+    </div></div></div>
+
   </div>
   </div>
 </section>
@@ -1603,12 +1680,14 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
     <p class="sec-lead">No se envía a ningún lado — es para vos. Si podés marcar los cuatro, la guía cumplió.</p>
   </div>
   <div class="card card-sol reveal">
-    <ul class="checklist">
-      <li>Puedo mirar algo de mi negocio o mi día y decir si tiene IA o no, con el filtro de autonomía y adaptatividad — no "porque sí".</li>
-      <li>Puedo explicar, con mis propias palabras, que una IA predice patrones y no piensa.</li>
-      <li>Sé qué es una alucinación, por qué pasa, y qué tipo de dato chequeo siempre antes de usarlo.</li>
-      <li>Sé con cuál de las cuatro herramientas — ChatGPT, Claude, Gemini o Grok — voy a empezar yo, y por qué esa y no otra.</li>
+    <p style="margin:0 0 10px;font-size:.9rem;color:var(--ink-2)"><strong>Tocá cada casilla</strong> cuando lo sientas listo. No se envía a nadie: queda solo en este dispositivo.</p>
+    <ul class="check-live" id="verif-list">
+      <li><label><input type="checkbox" class="verif-cb"> Puedo mirar algo de mi negocio o mi día y decir si tiene IA o no, con el filtro de autonomía y adaptatividad — no "porque sí".</label></li>
+      <li><label><input type="checkbox" class="verif-cb"> Puedo explicar, con mis propias palabras, que una IA predice patrones y no piensa.</label></li>
+      <li><label><input type="checkbox" class="verif-cb"> Sé qué es una alucinación, por qué pasa, y qué tipo de dato chequeo siempre antes de usarlo.</label></li>
+      <li><label><input type="checkbox" class="verif-cb"> Sé con cuál de las cuatro herramientas — ChatGPT, Claude, Gemini o Grok — voy a empezar yo, y por qué esa y no otra.</label></li>
     </ul>
+    <div class="verif-status" id="verif-status" aria-live="polite">Marcados: <span class="n" id="verif-n">0</span> de 4 — tocá los que ya dominás.</div>
     <p style="margin:14px 0 0">Si te faltó alguno, no hace falta que releas toda la guía: volvé a la sección puntual (<a href="#mapa">el mapa de arriba</a> te lleva directo) y repasá solo esa parte.</p>
   </div>
 
@@ -1631,18 +1710,26 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
 </section>
 <!-- ::CIERRE-END:: -->
 
-<!-- ═══════════════ CTA ÚNICO → PRE ═══════════════ -->
+<!-- ═══════════════ CTA ÚNICO → Primer paso ═══════════════ -->
 <section class="finalcta">
   <canvas id="cta-bg" aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="box reveal">
-      <span class="kicker">Tu próximo paso</span>
+      <span class="kicker">Tu próximo paso · gratis</span>
       <h2>Tu primer resultado <span class="c">real</span> con IA</h2>
-      <p>Ya sabés qué es la IA, cómo funciona por dentro, hasta dónde confiarle una respuesta, y con cuál de las cuatro herramientas empezar. Lo que sigue es la parte que ninguna guía puede hacer por vos: usarla, una vez, con un problema real de tu negocio — no con una pregunta de prueba.</p>
-      <p style="margin-bottom:0">Eso es exactamente lo que te espera en <em>Tu primer resultado real con IA</em>: una sesión guiada donde resolvés UNA tarea concreta de tu negocio, con tus propios datos, y salís sabiendo con qué herramienta de COCO GO seguir.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="../pre/">Ir a Tu primer resultado real con IA →</a>
+      <p><strong>Es gratis</strong> — y es el paso natural después de esta guía: una sesión guiada donde resolvés <strong>UNA tarea concreta de tu negocio</strong>, con tus datos, no con una pregunta de prueba. Salís con un resultado usable y sabiendo con cuál de las cuatro herramientas seguir.</p>
+      <p style="margin-bottom:0">Después, si querés ir más a fondo, están las guías-curso de cada asistente:</p>
+      <div class="next-logos" aria-label="Cursos básicos COCO GO por herramienta">
+        <a href="../chatgpt/"><img src="../assets/logo-openai.svg" alt="">ChatGPT</a>
+        <a href="../claude/"><img src="../assets/logo-claude.svg" alt="">Claude</a>
+        <a href="../gemini/"><img src="../assets/logo-gemini.svg" alt="">Gemini</a>
+        <a href="../grok/"><span class="mini-dark"><img src="../assets/logo-grok.svg" alt=""></span>Grok</a>
       </div>
+      <div class="cta-row">
+        <span class="free-pill">✦ 100% gratis · sin tarjeta</span>
+        <a class="btn btn-primary" href="../">Ver todos los cursos COCO GO →</a>
+      </div>
+      <p class="small" style="margin-top:14px;margin-bottom:0">Si querés el primer paso guiado primero: <a href="../primer-paso/" style="font-weight:700;color:var(--coral-deep)">Primer paso con IA (gratis) →</a></p>
     </div>
   </div>
 </section>
@@ -1655,7 +1742,13 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
     <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener" aria-label="Instagram @coco_go.lat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg></a>
     <a href="https://x.com/cocogo" target="_blank" rel="noopener" aria-label="X @cocogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.6h3.5l-7.6 8.7 9 11.9h-7l-5.5-7.2-6.3 7.2H1.5l8.1-9.3L1 1.6h7.2l5 6.6 5.7-6.6Zm-1.2 18.4h1.9L6.4 3.6H4.3l13.4 16.4Z"/></svg></a>
   </div>
-  <p class="cat-line">En COCO GO también hay guías-curso completas por herramienta — ChatGPT, Claude, Gemini y Grok — para cuando quieras ir más allá de un primer resultado y armar un sistema real en tu negocio.</p>
+  <div class="next-logos" style="max-width:520px" aria-label="Cursos básicos por herramienta">
+    <a href="../chatgpt/"><img src="../assets/logo-openai.svg" alt="">ChatGPT</a>
+    <a href="../claude/"><img src="../assets/logo-claude.svg" alt="">Claude</a>
+    <a href="../gemini/"><img src="../assets/logo-gemini.svg" alt="">Gemini</a>
+    <a href="../grok/"><span class="mini-dark"><img src="../assets/logo-grok.svg" alt=""></span>Grok</a>
+  </div>
+  <p class="cat-line">En COCO GO también hay guías-curso completas por herramienta — para cuando quieras ir más allá de un primer resultado y armar un sistema real en tu negocio.</p>
   <p>Más cursos: <a href="../">Ver todos en la página de venta →</a> — mismo método COCO GO.</p>
   <p class="small">Guía gratis de entrada · acceso libre, sin código · <a href="https://coco-go.lat/ia-intro/">coco-go.lat/ia-intro</a></p>
   <p class="legal-links"><a href="../privacidad.html">Privacidad</a> · <a href="../terminos.html">Términos</a> · <a href="mailto:cocogo.hola@gmail.com">cocogo.hola@gmail.com</a></p>
@@ -1665,7 +1758,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
 <a href="#glosario" class="floater" aria-label="Abrir el glosario"><span class="ic">💬</span> ¿Qué significa esto?</a>
 
 <script>
-/* red de partículas (motor del golden PRE): hero + CTA final, mundo claro */
+/* red de partículas (motor del golden Primer paso): hero + CTA final, mundo claro */
 function particleNet(id){
   var c=document.getElementById(id); if(!c) return;
   var ctx=c.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2);
@@ -1709,15 +1802,47 @@ function particleNet(id){
 particleNet('hero-bg');
 particleNet('cta-bg');
 
-/* glosario: acordeón (una abierta a la vez) + búsqueda + apertura por ancla */
+/* glosario: acordeón + búsqueda + ancla + VOLVER al origen del salto */
 (function(){
   var terms=document.querySelectorAll('.gterm');
+  var backBtn=document.getElementById('gloss-back');
+  var returnY=null, returnEl=null;
   function closeAll(){terms.forEach(function(o){o.classList.remove('open');o.nextElementSibling.style.maxHeight=null;});}
+  function showBack(){
+    if(!backBtn)return;
+    if(returnY!=null||returnEl){backBtn.hidden=false;backBtn.classList.add('show');}
+  }
+  function hideBack(){
+    if(!backBtn)return;
+    backBtn.hidden=true;backBtn.classList.remove('show');returnY=null;returnEl=null;
+  }
+  function goBack(){
+    var y=returnY, el=returnEl; hideBack();
+    if(el&&document.contains(el)){
+      try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}
+      el.scrollIntoView({behavior:'smooth',block:'center'});
+      el.classList&&el.classList.add('g-focus');
+      setTimeout(function(){el.classList&&el.classList.remove('g-focus');},1600);
+      return;
+    }
+    if(y!=null){
+      try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}
+      window.scrollTo({top:y,behavior:'smooth'});
+    }
+  }
+  if(backBtn)backBtn.addEventListener('click',goBack);
+  function ensureInlineBack(def){
+    if(!def||def.querySelector('.g-back-inline'))return;
+    var b=document.createElement('button');
+    b.type='button';b.className='g-back-inline';b.textContent='← Volver al lugar';
+    b.addEventListener('click',function(e){e.preventDefault();goBack();});
+    def.querySelector('.gdef-in')?def.querySelector('.gdef-in').appendChild(b):def.appendChild(b);
+  }
   terms.forEach(function(b){
     b.addEventListener('click',function(){
       var open=b.classList.contains('open');
       closeAll();
-      if(!open){b.classList.add('open');var d=b.nextElementSibling;d.style.maxHeight=d.scrollHeight+'px';}
+      if(!open){b.classList.add('open');var d=b.nextElementSibling;d.style.maxHeight=d.scrollHeight+'px';ensureInlineBack(d);}
     });
   });
   var q=document.getElementById('gloss-q');
@@ -1730,15 +1855,33 @@ particleNet('cta-bg');
     });
     if(shown)shown.textContent=n;
   });
-  function openTarget(){
+  function openTarget(fromClick){
     var h=location.hash;if(!h||h.indexOf('#g-')!==0)return;
     var el=document.querySelector(h);if(!el)return;
-    var btn=el.querySelector('.gterm');if(btn&&!btn.classList.contains('open')){
+    if(fromClick){returnY=window.scrollY||window.pageYOffset;returnEl=fromClick;}
+    else if(returnY==null){returnY=window.scrollY||window.pageYOffset;}
+    showBack();
+    document.querySelectorAll('.gitem.g-focus').forEach(function(x){x.classList.remove('g-focus');});
+    el.classList.add('g-focus');
+    var btn=el.querySelector('.gterm');if(btn){
       closeAll();btn.classList.add('open');var d=btn.nextElementSibling;
-      setTimeout(function(){d.style.maxHeight=d.scrollHeight+'px';},60);
+      ensureInlineBack(d);
+      setTimeout(function(){d.style.maxHeight=d.scrollHeight+'px';el.scrollIntoView({behavior:'smooth',block:'start'});},60);
     }
   }
-  window.addEventListener('hashchange',openTarget);openTarget();
+  /* capturar clics en .term / chips ANTES del salto de ancla */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#g-"]');
+    if(!a)return;
+    var id=a.getAttribute('href');
+    if(!id||id.indexOf('#g-')!==0)return;
+    returnY=window.scrollY||window.pageYOffset;
+    returnEl=a;
+    /* dejar que el hash cambie; openTarget en hashchange */
+    setTimeout(function(){openTarget(a);},0);
+  },true);
+  window.addEventListener('hashchange',function(){openTarget(null);});
+  if(location.hash&&location.hash.indexOf('#g-')===0)openTarget(null);
 })();
 
 /* micro-entrada de cards al entrar al viewport */
@@ -1750,6 +1893,29 @@ particleNet('cta-bg');
     ents.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
   },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   els.forEach(function(e){io.observe(e);});
+})();
+
+/* autoevaluación: checkboxes reales + contador (solo local) */
+(function(){
+  var boxes=document.querySelectorAll('.verif-cb');
+  var nEl=document.getElementById('verif-n');
+  var st=document.getElementById('verif-status');
+  if(!boxes.length)return;
+  function paint(){
+    var n=0;boxes.forEach(function(b){if(b.checked)n++;});
+    if(nEl)nEl.textContent=n;
+    if(st){
+      if(n>=4){st.classList.add('ok');st.innerHTML='✓ Los cuatro: la guía cumplió. Seguís al <a href="../primer-paso/" style="color:inherit;text-decoration:underline">siguiente paso gratis</a> cuando quieras.';}
+      else{st.classList.remove('ok');st.innerHTML='Marcados: <span class="n">'+n+'</span> de 4 — tocá los que ya dominás.';}
+    }
+    try{var bits=[];boxes.forEach(function(b){bits.push(b.checked?'1':'0');});localStorage.setItem('coco-ia-intro-verif',bits.join(''));}catch(e){}
+  }
+  try{
+    var saved=localStorage.getItem('coco-ia-intro-verif');
+    if(saved&&saved.length===boxes.length){boxes.forEach(function(b,i){b.checked=saved.charAt(i)==='1';});}
+  }catch(e){}
+  boxes.forEach(function(b){b.addEventListener('change',paint);});
+  paint();
 })();
 
 /* feedback: voto 👍/👎 + copiar comentario (patrón fábrica) */
