@@ -139,6 +139,24 @@ h2.sec{
 }
 .note-box strong{color:var(--navy)}
 
+/* —— Free / tope de embudo —— */
+.card.free{border-left-color:var(--coral)}
+.card .lvl.free-lvl{color:var(--coral)}
+.badge-free{
+ display:inline-flex;align-items:center;gap:.35rem;
+ font-family:var(--display);font-weight:800;font-size:1.15rem;color:var(--coral);
+}
+.badge-free span{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+ color:var(--coral);background:rgba(var(--coral-rgb),.1);border:1px solid rgba(var(--coral-rgb),.28);
+ padding:.28rem .65rem;border-radius:999px}
+.funnel-hint{
+ font-size:.9rem;color:var(--muted);margin:-.35rem 0 1.15rem;line-height:1.45;
+ padding:.75rem .95rem;border-radius:12px;border:1px dashed var(--border-strong);
+ background:rgba(255,255,255,.55);
+}
+.funnel-hint strong{color:var(--navy)}
+
+
 /* —— Quiénes somos / propuesta de valor —— */
 .about{
  max-width:var(--maxw);margin:0 auto;padding:0 1.35rem 1.75rem;
@@ -221,9 +239,9 @@ footer.site p a{color:var(--coral);font-weight:600;text-decoration:none}
 </header>
 
 <section class="hero">
- <span class="badge">Cursos prácticos · calidad · acceso web</span>
+ <span class="badge">Gratis + cursos · calidad · acceso web</span>
  <h1>Cursos prácticos de <span class="go">IA</span> para tu negocio</h1>
- <p class="lead">Guías paso a paso para emprendedores y PyMEs. Elegís el modelo, pagás, y el código de acceso te llega en minutos por email.</p>
+ <p class="lead">Guías paso a paso para emprendedores y PyMEs. Empezá gratis si es tu primera vez con IA; cuando quieras profundizar, elegís el modelo, pagás, y el código te llega en minutos por email.</p>
 </section>
 
 <section class="about" id="nosotros" aria-labelledby="about-title">
@@ -238,11 +256,46 @@ footer.site p a{color:var(--coral);font-weight:600;text-decoration:none}
  <li><strong>Utilidad</strong><span>Cada módulo deja algo que podés usar: un texto, una rutina, un sistema, un entregable.</span></li>
  <li><strong>Bajo costo</strong><span>Precios low-ticket en USD. Aprendés sin gastar lo que cuesta una consultoría.</span></li>
  </ul>
- <p class="about-road"><strong>A dónde vamos:</strong> IA → oficios y oficios digitales → cursos especializados → ebooks y guías cortas. Misma marca, mismo método, más temas.</p>
+ <p class="about-road"><strong>Cómo empezar hoy:</strong> guías <a href="#gratis">gratis</a> (qué es la IA + primer paso) → <a href="#basicos">básicos</a> por herramienta → intermedios. <strong>A dónde vamos:</strong> IA → oficios y oficios digitales → cursos especializados → ebooks. Misma marca, mismo método, más temas.</p>
  </div>
 </section>
 
 <main class="wrap">
+
+ <h2 class="sec" id="gratis">Gratis — empezá acá</h2>
+ <p class="sec-sub">Sin pago ni código de acceso. Tope de embudo: entendés la IA, dás el primer paso, y después elegís un básico si querés profundizar.</p>
+ <p class="funnel-hint"><strong>Camino sugerido:</strong> ¿Qué es la IA? → Primer paso con IA → un básico (ChatGPT, Claude, Gemini o Grok).</p>
+ <div class="grid">
+ <article class="card free" style="--accent:var(--coral)">
+ <div class="card-head">
+ <div class="card-logo"><img src="assets/logo-coco-go.svg?v=162" alt="COCO GO"></div>
+ <div>
+ <p class="lvl free-lvl">Gratis · Guía abierta</p>
+ <h3>¿Qué es la IA?</h3>
+ </div>
+ </div>
+ <p class="desc">Qué es, cómo funciona sin fórmulas, hasta dónde confiarle y con cuál de las cuatro herramientas empezar. En lenguaje simple.</p>
+ <div class="price-row"><span class="badge-free">Gratis <span>sin email</span></span></div>
+ <div class="actions">
+ <a class="btn-buy" href="ia-intro/">Abrir guía →</a>
+ </div>
+ </article>
+ <article class="card free" style="--accent:var(--coral)">
+ <div class="card-head">
+ <div class="card-logo"><img src="assets/logo-coco-go.svg?v=162" alt="COCO GO"></div>
+ <div>
+ <p class="lvl free-lvl">Gratis · Mini-curso</p>
+ <h3>Primer paso con IA</h3>
+ </div>
+ </div>
+ <p class="desc">En una sesión resolvés una tarea real de tu negocio con IA y tus datos. El patrón contexto + tarea + formato, y con qué herramienta seguir.</p>
+ <div class="price-row"><span class="badge-free">Gratis <span>sin código</span></span></div>
+ <div class="actions">
+ <a class="btn-buy" href="primer-paso/">Empezar gratis →</a>
+ </div>
+ </article>
+ </div>
+
  <h2 class="sec" id="basicos">Básicos — US$ 11,99</h2>
  <p class="sec-sub">Cupón <strong style="color:var(--navy)">SOY100</strong> → <strong style="color:var(--navy)">US$ 2,99</strong> (cupo 100 en los 4 básicos). Ingresá el cupón en el checkout de Creem.</p>
  <div class="grid">
