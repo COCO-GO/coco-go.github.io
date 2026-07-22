@@ -1711,13 +1711,19 @@ Español latinoamericano.</pre>
 
   function tryCode(raw){
     var code=(raw||'').trim();
+    if(!code){
+      if(error) error.textContent='Ingresá tu código de acceso.';
+      return false;
+    }
+    /* compradores VIEJOS: código compartido ?k= en esta página (GitHub Pages) */
     if(code.toUpperCase()===ACCESS_TOKEN.toUpperCase()){
       if(error) error.textContent='';
       unlock();
       return true;
     }
-    if(error) error.textContent='Código incorrecto. Revisá el email de compra.';
-    return false;
+    /* compradores NUEVOS / master: license Creem o clave maestra → portero */
+    location.href='https://cursos.coco-go.lat/?next=/chatgpt/&k='+encodeURIComponent(code);
+    return true;
   }
 
   if(stored||(fromUrl&&tryCode(fromUrl))) return;
