@@ -3,1823 +3,715 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Gemini para tu negocio · Intermedio — COCO GO</title>
-<meta name="description" content="Curso intermedio de Gemini para emprendedores y PyMEs: Gems con Knowledge, acciones programadas, notebooks, panel en Workspace y Google Business Profile. 7 módulos, en español." />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Gemini para tu negocio · Intermedio — COCO GO" />
-<meta property="og:description" content="El sistema Google que se repite solo: Gem con Knowledge, piloto automático, notebooks y panel donde ya trabajás. 7 módulos con entregables reales." />
-<meta property="og:site_name" content="COCO GO" />
-<meta property="og:url" content="https://coco-go.github.io/gemini-intermedio/" />
-<meta property="og:image" content="https://coco-go.github.io/gemini-intermedio/og.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:locale" content="es_AR" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Gemini para tu negocio · Intermedio — COCO GO" />
-<meta name="twitter:description" content="Sistema que se repite: Knowledge, scheduled, notebooks, side panel y GBP. 7 módulos." />
-<meta name="twitter:image" content="https://coco-go.github.io/gemini-intermedio/og.png" />
-<meta name="theme-color" content="#4285F4" />
-<link rel="canonical" href="https://coco-go.github.io/gemini-intermedio/" />
-<link rel="icon" type="image/svg+xml" href="../assets/logo-coco-go.svg" />
+<title>Gemini Intermedio — COCO GO</title>
+<meta name="description" content="Nivel intermedio de Gemini para negocios: Gem con knowledge, acciones programadas, Notebooks de proyecto, panel lateral en Gmail y Drive, y Business Profile. 7 módulos en español." />
+<link rel="canonical" href="https://coco-go.lat/gemini-intermedio/">
+<meta name="theme-color" content="#F7F4EF">
+<link rel="icon" type="image/svg+xml" href="../assets/logo-coco-go.svg?v=162">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://coco-go.lat/gemini-intermedio/">
+<meta property="og:title" content="Gemini Intermedio — COCO GO">
+<meta property="og:description" content="Nivel intermedio de Gemini para negocios: Gem con knowledge, acciones programadas, Notebooks de proyecto, panel lateral en Gmail y Drive, y Business Profile. 7 módulos en español.">
+<meta property="og:image" content="https://coco-go.lat/gemini-intermedio/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://coco-go.lat/gemini-intermedio/assets/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--theme:#4285F4; --theme-light:#8AB4F8; --theme-rgb:66,133,244; --theme-dark:#1967D2;}
-.lvl-chip{display:inline-block;margin:0 0 12px;background:rgba(var(--theme-rgb),.14);color:var(--theme-light);border:1px solid rgba(var(--theme-rgb),.38);border-radius:999px;padding:3px 13px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-label.go{cursor:pointer}
+:root{
+ --bg:#F3EFE8;
+ --surface:#FFFFFF;
+ --text:#141820;
+ --muted:#5B6475;
+ --faint:#8A93A3;
+ --coral:#FF6B4A;
+ --coral-rgb:255,107,74;
+ --theme-rgb:255,107,74;
+ --navy:#1B2A4A;
+ --accent:#4285F4;
+ --accent-rgb:66,133,244;
+ --accent-dark:#4285F4;        /* acento legible sobre el navy del mock */
+ --accent-dark-rgb:66,133,244;
+ --border:rgba(20,25,40,.10);
+ --border-strong:rgba(20,25,40,.18);
+ --display:'Bricolage Grotesque',serif;
+ --body:'Hanken Grotesk',system-ui,sans-serif;
+ --r:18px;
+ --maxw:1080px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+ font-family:var(--body);background:var(--bg);color:var(--text);
+ line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;
+ min-height:100vh;position:relative;overflow-x:hidden;
+}
+#bg{position:fixed;inset:0;z-index:-2;width:100%;height:100%;display:block}
+body::before{
+ content:"";position:fixed;inset:0;z-index:-3;pointer-events:none;
+ background:
+ radial-gradient(60% 50% at 15% 4%, rgba(var(--coral-rgb),.14), transparent 60%),
+ radial-gradient(45% 40% at 90% 96%, rgba(var(--accent-rgb),.08), transparent 60%),
+ linear-gradient(180deg, #FBF9F6, var(--bg) 45%, #EFEAE2);
+}
+body::after{
+ content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.04;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a{color:var(--coral)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.35rem}
+
+/* ---------- header ---------- */
+.top{
+ position:sticky;top:0;z-index:50;
+ background:rgba(247,244,239,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+ border-bottom:1px solid transparent;transition:border-color .25s, box-shadow .25s;
+}
+.top.stuck{border-bottom-color:var(--border);box-shadow:0 6px 24px rgba(20,25,40,.06)}
+.top-in{
+ max-width:var(--maxw);margin:0 auto;padding:.85rem 1.35rem;
+ display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.top .logo{height:44px;width:auto;display:block}
+.top-left{display:flex;align-items:center;gap:1rem;min-width:0}
+.top-sep{width:1px;height:30px;background:var(--border-strong);flex-shrink:0}
+.prod-id{display:flex;align-items:center;gap:.6rem;min-width:0}
+.prod-id .pico{
+ width:34px;height:34px;border-radius:10px;flex-shrink:0;display:grid;place-items:center;
+ background:rgba(var(--accent-rgb),.1);border:1px solid rgba(var(--accent-rgb),.26);padding:6px;
+}
+.prod-id .pico img{width:100%;height:100%;object-fit:contain;display:block}
+.prod-id .ptxt{min-width:0}
+.prod-id .pname{
+ display:block;font-family:var(--display);font-weight:800;font-size:1rem;color:var(--navy);
+ line-height:1.15;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.prod-id .plvl{
+ display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+ color:var(--accent);margin-top:.1rem;
+}
+.top-right{display:flex;align-items:center;gap:1rem}
+.top-mail{font-size:.9rem;font-weight:600;color:var(--muted);text-decoration:none}
+.top-mail:hover{color:var(--coral)}
+.top-cta{
+ display:none;align-items:center;padding:.6rem 1.15rem;border-radius:999px;
+ background:var(--coral);border:1px solid var(--coral);color:#fff!important;
+ font-weight:700;font-size:.92rem;text-decoration:none;white-space:nowrap;
+ transition:filter .2s,transform .2s;
+}
+.top-cta:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.top.stuck .top-cta{display:inline-flex}
+@media(max-width:860px){.top-mail{display:none}}
+@media(max-width:560px){
+ .top .logo{height:32px}
+ .top-in{padding:.7rem 1rem}
+ .top-left{gap:.6rem}
+ .prod-id .pname{font-size:.88rem;max-width:40vw}
+ .prod-id .pico{width:30px;height:30px}
+}
+
+/* ---------- hero ---------- */
+.hero{padding:2.4rem 0 1rem}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:2.6rem}}
+.badge{
+ display:inline-flex;align-items:center;gap:.5rem;
+ font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+ color:var(--accent);background:rgba(var(--accent-rgb),.09);
+ border:1px solid rgba(var(--accent-rgb),.28);padding:.4rem .9rem;border-radius:999px;margin-bottom:1.15rem;
+}
+.badge img{width:16px;height:16px;display:block}
+.prod-hero{display:flex;align-items:center;gap:1rem;margin-bottom:1.1rem}
+.prod-hero .hico{
+ width:66px;height:66px;border-radius:18px;flex-shrink:0;display:grid;place-items:center;
+ background:rgba(var(--accent-rgb),.1);border:1px solid rgba(var(--accent-rgb),.28);padding:13px;
+ box-shadow:0 8px 22px rgba(var(--accent-rgb),.16);
+}
+.prod-hero .hico img{width:100%;height:100%;object-fit:contain;display:block}
+.prod-hero .hname{
+ font-family:var(--display);font-weight:800;font-size:clamp(1.3rem,3vw,1.75rem);
+ color:var(--navy);line-height:1.1;letter-spacing:-.025em;display:block;
+}
+.prod-hero .hlvl{
+ display:inline-block;margin-top:.35rem;font-size:.7rem;font-weight:700;letter-spacing:.08em;
+ text-transform:uppercase;color:var(--accent);background:rgba(var(--accent-rgb),.1);
+ border:1px solid rgba(var(--accent-rgb),.28);padding:.24rem .7rem;border-radius:999px;
+}
+@media(max-width:560px){.prod-hero .hico{width:54px;height:54px;border-radius:15px;padding:10px}}
+h1{
+ font-family:var(--display);font-weight:800;font-size:clamp(2.1rem,5.4vw,3.35rem);
+ line-height:1.08;color:var(--navy);letter-spacing:-.035em;margin-bottom:1rem;max-width:16ch;
+}
+h1 em{font-style:normal;color:var(--coral)}
+.lead{color:var(--muted);font-size:1.12rem;line-height:1.6;max-width:46ch;margin-bottom:1.5rem}
+.lead strong{color:var(--navy);font-weight:700}
+.buybox{
+ background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+ border:1px solid var(--border);border-radius:var(--r);
+ padding:1.3rem 1.35rem 1.15rem;box-shadow:0 14px 40px rgba(20,25,40,.08);
+ max-width:30rem;
+}
+.price-row{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;margin-bottom:.15rem}
+.price{font-family:var(--display);font-weight:800;font-size:2.5rem;color:var(--navy);letter-spacing:-.03em;line-height:1}
+.price-note{font-size:.92rem;color:var(--muted);font-weight:600}
+.price-sub{font-size:.9rem;color:var(--muted);margin-bottom:1rem}
+.btn-buy{
+ display:flex;align-items:center;justify-content:center;gap:.55rem;width:100%;
+ padding:1.05rem 1.4rem;border-radius:14px;
+ background:var(--coral);border:1px solid var(--coral);color:#fff!important;
+ font-family:var(--display);font-weight:800;font-size:1.16rem;letter-spacing:-.01em;
+ text-decoration:none;box-shadow:0 10px 26px rgba(var(--coral-rgb),.32);
+ transition:filter .2s,transform .2s,box-shadow .2s;
+}
+.btn-buy:hover{filter:brightness(1.06);transform:translateY(-2px);box-shadow:0 14px 32px rgba(var(--coral-rgb),.4)}
+.btn-buy .arw{transition:transform .2s}
+.btn-buy:hover .arw{transform:translateX(4px)}
+.after-buy{font-size:.88rem;color:var(--muted);line-height:1.5;margin-top:.85rem;text-align:center}
+.after-buy strong{color:var(--navy)}
+.have-code{
+ margin-top:.9rem;padding-top:.85rem;border-top:1px solid var(--border);
+ font-size:.88rem;color:var(--muted);text-align:center;
+}
+.have-code a{font-weight:700;text-decoration:none}
+.have-code a:hover{text-decoration:underline}
+
+/* ---------- mock guía ---------- */
+.mock{
+ background:var(--navy);border-radius:20px;padding:.7rem;
+ box-shadow:0 26px 60px rgba(20,25,40,.24);transform:rotate(-1.1deg);
+ border:1px solid rgba(255,255,255,.08);
+}
+.mock-bar{display:flex;align-items:center;gap:.4rem;padding:.35rem .5rem .6rem}
+.mock-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.24)}
+.mock-url{
+ margin-left:.5rem;font-size:.7rem;color:rgba(255,255,255,.5);font-weight:600;
+ background:rgba(255,255,255,.07);border-radius:6px;padding:.2rem .6rem;
+}
+.mock-body{background:#0F1626;border-radius:14px;padding:1.1rem 1.15rem 1.25rem;color:#E8EBF2}
+.mock-kicker{font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:.45rem}
+.mock-h{font-family:var(--display);font-weight:800;font-size:1.22rem;line-height:1.22;margin-bottom:.7rem;color:#fff;letter-spacing:-.02em}
+.mock-p{font-size:.86rem;color:rgba(232,235,242,.72);line-height:1.55;margin-bottom:.85rem}
+.mock-prompt{
+ background:rgba(var(--accent-dark-rgb),.12);border:1px solid rgba(var(--accent-dark-rgb),.35);
+ border-radius:10px;padding:.7rem .8rem;font-size:.78rem;line-height:1.5;
+ color:#D9E4E0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin-bottom:.8rem;
+}
+.mock-steps{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.mock-steps li{display:flex;align-items:flex-start;gap:.5rem;font-size:.82rem;color:rgba(232,235,242,.78);line-height:1.45}
+.mock-steps .ck{color:var(--accent-dark);font-weight:800;flex-shrink:0}
+.mock-cap{
+ text-align:center;font-size:.82rem;color:var(--faint);margin-top:1rem;font-weight:600;
+}
+
+/* ---------- chips de confianza ---------- */
+.trust{
+ display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin:2.6rem 0 .5rem;
+}
+@media(min-width:760px){.trust{grid-template-columns:repeat(4,1fr)}}
+.trust div{
+ background:rgba(255,255,255,.72);border:1px solid var(--border);border-radius:14px;
+ padding:.85rem .9rem;text-align:center;
+}
+.trust b{display:block;font-family:var(--display);font-weight:800;font-size:1.05rem;color:var(--navy);letter-spacing:-.01em}
+.trust span{display:block;font-size:.82rem;color:var(--muted);line-height:1.35;margin-top:.15rem}
+
+/* ---------- secciones ---------- */
+section.blk{padding:3.2rem 0 0}
+.eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--coral);margin-bottom:.5rem}
+h2{
+ font-family:var(--display);font-weight:800;font-size:clamp(1.55rem,3.6vw,2.15rem);
+ line-height:1.16;color:var(--navy);letter-spacing:-.03em;margin-bottom:.6rem;max-width:22ch;
+}
+.sec-sub{color:var(--muted);font-size:1.04rem;line-height:1.6;max-width:56ch;margin-bottom:1.6rem}
+
+/* problema */
+.pains{display:grid;grid-template-columns:1fr;gap:1rem}
+@media(min-width:760px){.pains{grid-template-columns:repeat(3,1fr)}}
+.pain{
+ background:rgba(255,255,255,.8);border:1px solid var(--border);border-radius:16px;
+ padding:1.25rem 1.2rem;box-shadow:0 8px 24px rgba(20,25,40,.05);
+}
+.pain .q{font-family:var(--display);font-weight:800;font-size:1.05rem;color:var(--navy);margin-bottom:.4rem;line-height:1.25}
+.pain p{font-size:.95rem;color:var(--muted);line-height:1.55}
+
+/* entregables */
+.deliver{display:grid;grid-template-columns:1fr;gap:.9rem}
+@media(min-width:700px){.deliver{grid-template-columns:1fr 1fr}}
+.dv{
+ display:flex;gap:.85rem;align-items:flex-start;
+ background:rgba(255,255,255,.78);border:1px solid var(--border);
+ border-left:3px solid var(--accent);border-radius:14px;padding:1rem 1.1rem;
+}
+.dv .ic{
+ width:34px;height:34px;flex-shrink:0;border-radius:10px;display:grid;place-items:center;
+ background:rgba(var(--accent-rgb),.1);color:var(--accent);font-weight:800;font-size:1rem;
+}
+.dv b{display:block;font-size:1rem;color:var(--navy);font-weight:700;margin-bottom:.15rem}
+.dv span{font-size:.93rem;color:var(--muted);line-height:1.5}
+
+/* temario */
+.mods{display:grid;grid-template-columns:1fr;gap:.85rem}
+@media(min-width:700px){.mods{grid-template-columns:1fr 1fr}}
+.mod{
+ background:rgba(255,255,255,.82);border:1px solid var(--border);border-radius:16px;
+ padding:1.1rem 1.2rem;display:flex;gap:.95rem;align-items:flex-start;
+ box-shadow:0 8px 22px rgba(20,25,40,.05);transition:transform .2s,border-color .2s;
+}
+.mod:hover{transform:translateY(-2px);border-color:rgba(var(--accent-rgb),.4)}
+.mod .n{
+ font-family:var(--display);font-weight:800;font-size:1.15rem;color:var(--accent);
+ background:rgba(var(--accent-rgb),.1);border-radius:11px;
+ width:40px;height:40px;display:grid;place-items:center;flex-shrink:0;
+}
+.mod h3{font-family:var(--display);font-weight:800;font-size:1.06rem;color:var(--navy);line-height:1.25;margin-bottom:.2rem;letter-spacing:-.01em}
+.mod p{font-size:.92rem;color:var(--muted);line-height:1.5}
+.mod .out{display:block;font-size:.84rem;color:var(--accent);font-weight:700;margin-top:.4rem}
+.extras{
+ margin-top:1rem;padding:1.15rem 1.25rem;border-radius:16px;
+ border:1px dashed var(--border-strong);background:rgba(255,255,255,.55);
+ font-size:.96rem;color:var(--muted);line-height:1.6;
+}
+.extras strong{color:var(--navy)}
+
+/* muestra */
+.sample{
+ background:var(--navy);border-radius:20px;padding:1.6rem 1.5rem;color:#E8EBF2;
+ box-shadow:0 20px 50px rgba(20,25,40,.2);
+}
+.sample .lbl{font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:.7rem}
+.sample pre{
+ background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;
+ padding:1.1rem 1.15rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+ font-size:.86rem;line-height:1.65;color:#D6E4DE;white-space:pre-wrap;overflow-x:auto;
+}
+.sample .cap{font-size:.9rem;color:rgba(232,235,242,.65);margin-top:.9rem;line-height:1.55}
+.sample .cap strong{color:#fff}
+
+/* pasos */
+.steps{display:grid;grid-template-columns:1fr;gap:1rem}
+@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{
+ background:rgba(255,255,255,.8);border:1px solid var(--border);border-radius:16px;
+ padding:1.3rem 1.25rem;position:relative;box-shadow:0 8px 24px rgba(20,25,40,.05);
+}
+.step .num{
+ font-family:var(--display);font-weight:800;font-size:2.2rem;color:rgba(var(--coral-rgb),.28);
+ line-height:1;margin-bottom:.35rem;letter-spacing:-.04em;
+}
+.step b{display:block;font-family:var(--display);font-size:1.08rem;color:var(--navy);margin-bottom:.3rem}
+.step p{font-size:.94rem;color:var(--muted);line-height:1.55}
+
+/* para quién */
+.fit{display:grid;grid-template-columns:1fr;gap:1rem}
+@media(min-width:760px){.fit{grid-template-columns:1fr 1fr}}
+.fit-col{
+ background:rgba(255,255,255,.82);border:1px solid var(--border);border-radius:16px;padding:1.35rem 1.35rem 1.25rem;
+}
+.fit-col.no{background:rgba(20,25,40,.03)}
+.fit-col h3{font-family:var(--display);font-weight:800;font-size:1.12rem;color:var(--navy);margin-bottom:.85rem}
+.fit-col ul{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.fit-col li{display:flex;gap:.65rem;align-items:flex-start;font-size:.96rem;color:var(--muted);line-height:1.5}
+.fit-col .mk{flex-shrink:0;font-weight:800;color:var(--accent)}
+.fit-col.no .mk{color:var(--faint)}
+
+/* faq */
+.faq{display:flex;flex-direction:column;gap:.7rem}
+details{
+ background:rgba(255,255,255,.8);border:1px solid var(--border);border-radius:14px;
+ padding:1rem 1.15rem;transition:border-color .2s;
+}
+details[open]{border-color:rgba(var(--coral-rgb),.35);background:rgba(255,255,255,.92)}
+summary{
+ cursor:pointer;list-style:none;font-weight:700;color:var(--navy);font-size:1rem;
+ display:flex;justify-content:space-between;align-items:center;gap:1rem;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--display);font-weight:800;color:var(--coral);font-size:1.4rem;line-height:1;flex-shrink:0}
+details[open] summary::after{content:"–"}
+details p{margin-top:.7rem;font-size:.96rem;color:var(--muted);line-height:1.6}
+details p a{font-weight:600}
+
+/* cierre */
+.final{
+ margin:3.4rem 0 0;padding:2.4rem 1.6rem;border-radius:22px;text-align:center;
+ background:linear-gradient(160deg,#FFFFFF,#FBF7F2);
+ border:1px solid var(--border);box-shadow:0 18px 46px rgba(20,25,40,.08);
+}
+.final h2{margin:0 auto .6rem;max-width:20ch}
+.final p{color:var(--muted);font-size:1.05rem;line-height:1.6;max-width:48ch;margin:0 auto 1.5rem}
+.final .btn-buy{max-width:26rem;margin:0 auto}
+.final .price-row{justify-content:center}
+.guarantee{font-size:.9rem;color:var(--muted);margin-top:1rem;line-height:1.55;max-width:44ch;margin-left:auto;margin-right:auto}
+.guarantee strong{color:var(--navy)}
+.guarantee a{white-space:nowrap;text-decoration:none;font-weight:700}
+.guarantee a:hover{text-decoration:underline}
+
+footer.site{
+ max-width:var(--maxw);margin:3rem auto 0;padding:2rem 1.35rem 3rem;
+ border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:.9rem;
+ display:flex;flex-direction:column;align-items:center;
+}
+footer.site .foot-home{display:inline-flex;justify-content:center;align-items:center;margin:0 0 14px;text-decoration:none;line-height:0}
+footer.site .foot-logo{display:block;width:min(200px,62vw);height:auto;margin:0 auto;opacity:.96}
+footer.site .socials{display:flex;justify-content:center;gap:.7rem;margin:.6rem 0 1.1rem}
+footer.site .soc{
+ width:46px;height:46px;border-radius:13px;border:1px solid var(--border-strong);
+ display:grid;place-items:center;color:var(--navy);background:rgba(255,255,255,.85);
+ transition:border-color .2s,color .2s,background .2s;
+}
+footer.site .soc:hover{border-color:var(--coral);color:var(--coral);background:rgba(var(--coral-rgb),.08)}
+footer.site .soc svg{width:19px;height:19px;fill:currentColor}
+footer.site .links{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.25rem;margin:.7rem 0}
+footer.site .links a{color:var(--navy);text-decoration:none;font-weight:600}
+footer.site .links a:hover{color:var(--coral)}
+footer.site p{margin:.4rem 0;line-height:1.5}
+footer.site p a{color:var(--coral);font-weight:600;text-decoration:none}
+
+/* ---------- movimiento ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+.mods .mod,.deliver .dv,.pains .pain,.steps .step,.trust div{transition:transform .28s cubic-bezier(.2,.7,.3,1),box-shadow .28s,border-color .28s}
+.mods .mod:hover{transform:translateY(-4px) scale(1.012);box-shadow:0 18px 38px rgba(20,25,40,.11)}
+.deliver .dv:hover{transform:translateX(4px);border-left-width:5px}
+.pains .pain:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(20,25,40,.09)}
+.steps .step:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(20,25,40,.09)}
+.trust div:hover{transform:translateY(-3px);border-color:rgba(var(--accent-rgb),.4)}
+.steps .step:hover .num{color:rgba(var(--coral-rgb),.55);transition:color .28s}
+@keyframes float{0%,100%{transform:rotate(-1.1deg) translateY(0)}50%{transform:rotate(-1.1deg) translateY(-9px)}}
+@media(min-width:900px){.mock{animation:float 6.5s ease-in-out infinite}}
+@media(prefers-reduced-motion:reduce){
+ .rv{opacity:1;transform:none;transition:none}
+ .mock{animation:none}
+ .mods .mod:hover,.pains .pain:hover,.steps .step:hover,.trust div:hover{transform:none}
+}
+
+/* barra fija móvil */
+.mobile-buy{
+ position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;
+ padding:.7rem .9rem calc(.7rem + env(safe-area-inset-bottom));
+ background:rgba(247,244,239,.94);backdrop-filter:blur(14px);
+ border-top:1px solid var(--border);box-shadow:0 -6px 24px rgba(20,25,40,.08);
+ align-items:center;gap:.85rem;
+}
+.mobile-buy .mb-price{font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--navy);line-height:1;flex-shrink:0}
+.mobile-buy .mb-price small{display:block;font-family:var(--body);font-size:.72rem;color:var(--muted);font-weight:600;margin-top:.15rem}
+.mobile-buy .btn-buy{flex:1;padding:.85rem 1rem;font-size:1rem;box-shadow:none}
+@media(max-width:720px){
+ .mobile-buy.on{display:flex}
+ body{padding-bottom:5.2rem}
+ .mock{transform:none}
+ h1{max-width:none}
+}
 </style>
 </head>
 <body>
+<canvas id="bg" aria-hidden="true"></canvas>
 
-<div class="access-gate" id="access-gate" hidden>
-  <div class="access-gate-card access-gate-sale">
-    <div class="ag-top">
-      <a class="ag-home" href="../">← Todos los cursos</a>
-      <div class="ag-badge">Intermedio · Acceso web</div>
-    </div>
-    <div class="ag-coco-brand"><img src="../assets/logo-coco-go.svg" alt="COCO GO"></div>
-<div class="ag-title">
-      <h2><img class="ag-brand-ico" src="../assets/logo-gemini.svg" alt="" aria-hidden="true"><span>Gemini · Intermedio,<br><span class="grad">paso a paso.</span></span></h2>
-    </div>
-<p class="ag-lead">Sistema operativo con Gemini: Gems con Knowledge, paneles, NotebookLM y Google Business Profile. Nivel intermedio para operar el negocio con método.</p>
-    <ul class="ag-bullets">
-      <li>Módulos de sistema (no solo features sueltas)</li>
-      <li>Knowledge, paneles y presencia local (GBP)</li>
-      <li>Precio lista del nivel intermedio</li>
-    </ul>
-    <div class="ag-price">
-      <div class="ag-price-row">
-        <span class="ag-list ag-solo">US$ 17,99</span>
-      </div>
-      <span class="ag-note">Precio regular del nivel intermedio. Pago único · acceso con código por email.</span>
-    </div>
-    <a class="ag-buy" href="https://www.creem.io/payment/prod_i6H6lKNpXTCKYBJOFmRQI" target="_blank" rel="noopener">Comprar ahora →</a>
-    <p class="ag-after">El pago se procesa en Creem. El código de acceso te llega por email <strong>en minutos</strong>. Si ya lo tenés, ingresalo acá:</p>
-    <hr class="ag-divider" />
-    <label class="access-gate-field" for="access-code-input">
-      <span class="access-gate-label">Código de acceso (si ya compraste)</span>
-      <input type="text" id="access-code-input" name="access-code" placeholder="Código de acceso…" autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text" />
-    </label>
-    <button type="button" id="access-code-submit">Entrar al curso →</button>
-    <p class="access-gate-error" id="access-gate-error" aria-live="polite"></p>
-    <p class="ag-legal">
-      Soporte: <a href="mailto:hola@coco-go.lat">hola@coco-go.lat</a>
-      · <a href="../privacidad.html">Privacidad</a>
-      · <a href="../terminos.html">Términos</a>
-      · <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat</a>
-    </p>
+<header class="top" id="top">
+ <div class="top-in">
+  <div class="top-left">
+   <a href="../" aria-label="COCO GO — inicio"><img src="../assets/logo-coco-go.svg?v=162" class="logo" alt="COCO GO"></a>
+   <span class="top-sep" aria-hidden="true"></span>
+   <div class="prod-id">
+    <span class="pico"><img src="../assets/logo-gemini.svg" alt="Gemini"></span>
+    <span class="ptxt">
+     <span class="pname">Gemini Intermedio</span>
+     <span class="plvl">Intermedio</span>
+    </span>
+   </div>
   </div>
-</div>
-
-<canvas id="bg"></canvas>
-
-<input class="tab" type="radio" name="coco-tab" id="t-inicio" checked>
-<input class="tab" type="radio" name="coco-tab" id="t-gloss">
-<input class="tab" type="radio" name="coco-tab" id="t-m1">
-<input class="tab" type="radio" name="coco-tab" id="t-m2">
-<input class="tab" type="radio" name="coco-tab" id="t-m3">
-<input class="tab" type="radio" name="coco-tab" id="t-m4">
-<input class="tab" type="radio" name="coco-tab" id="t-m5">
-<input class="tab" type="radio" name="coco-tab" id="t-m6">
-<input class="tab" type="radio" name="coco-tab" id="t-m7">
-<input class="tab" type="radio" name="coco-tab" id="t-apps">
-<input class="tab" type="radio" name="coco-tab" id="t-bonus">
-<input class="tab" type="radio" name="coco-tab" id="t-verif">
-
-<a class="skip-link" href="#contenido">Saltar al contenido</a>
-<header class="brandbar">
-  <div class="wrap">
-    <div class="brand">
-      <img src="../assets/logo-coco-go.svg" class="brand-logo" alt="COCO GO">
-    </div>
-    <span class="theme-chip"><span class="dot"></span>Curso · Gemini Intermedio</span>
+  <div class="top-right">
+   <a class="top-mail" href="mailto:hola@coco-go.lat">hola@coco-go.lat</a>
+   <a class="top-cta" href="https://www.creem.io/payment/prod_i6H6lKNpXTCKYBJOFmRQI" target="_blank" rel="noopener">Comprar · US$ 17,99</a>
   </div>
+ </div>
 </header>
 
-<nav class="modnav">
-  <div class="wrap">
-    <div class="progwrap" role="progressbar" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" aria-label="Progreso del curso">
-      <div class="progtrack"><div class="progfill"></div></div>
-      <span class="proglabel">0/7</span>
-    </div>
-    <div class="scroll">
-    <label class="pill p-inicio" for="t-inicio">Inicio</label>
-    <label class="pill p-apps" for="t-apps">Aplicaciones</label>
-    <label class="pill p-gloss" for="t-gloss">Glosario</label>
-    <label class="pill p-m1" for="t-m1">1 · El salto</label>
-    <label class="pill p-m2" for="t-m2">2 · Gem Knowledge</label>
-    <label class="pill p-m3" for="t-m3">3 · Piloto automático</label>
-    <label class="pill p-m4" for="t-m4">4 · Notebooks</label>
-    <label class="pill p-m5" for="t-m5">5 · Panel lateral</label>
-    <label class="pill p-m6" for="t-m6">6 · Sistema</label>
-    <label class="pill p-m7" for="t-m7">7 · Ficha Google</label>
-    <label class="pill p-verif" for="t-verif">Verificación</label>
-    <label class="pill p-bonus" for="t-bonus">Bonus</label>
-  </div></div>
-</nav>
+<main class="wrap">
 
-<main class="wrap" id="contenido" tabindex="-1">
-  <section class="panel" id="p-inicio">
-    <span class="eyebrow"><span class="pulse"></span>· Intermedio · el sistema Google que se repite solo</span>
-    <span class="lvl-chip">Nivel Intermedio</span>
-    <h1><img src="../assets/logo-gemini.svg" alt="" style="width:.85em;height:.85em;vertical-align:-.08em;margin-right:.15em" aria-hidden="true">Gemini para tu negocio,<br><span class="grad">el sistema que se repite solo.</span></h1>
-    <p class="lead">En el básico, Gemini <strong>vive donde vive tu negocio</strong> y lo usás a mano. Acá armás un <strong>sistema</strong>: Gem con la cabeza del negocio, acciones en horario, notebooks, panel en Gmail/Docs/Sheets, y —si aplica— tu ficha de Google.</p>
-    <div class="cta-row">
-      <label class="btn btn-primary" for="t-m1">Empezar el módulo 1 →</label>
-      <label class="btn btn-ghost" for="t-gloss">Ver el glosario</label>
+ <!-- ══════ HERO ══════ -->
+ <section class="hero">
+  <div class="hero-grid">
+   <div>
+    <div class="prod-hero">
+     <span class="hico"><img src="../assets/logo-gemini.svg" alt="Gemini"></span>
+     <span>
+      <span class="hname">Gemini Intermedio</span>
+      <span class="hlvl">Intermedio · Guía web COCO GO</span>
+     </span>
     </div>
-    <div class="trust">
-      <div class="t"><b>7</b><span>módulos concatenados</span></div>
-      <div class="t"><b>US$4,99</b><span>Plus — escalón natural</span></div>
-      <div class="t"><b>7</b><span>entregables reales</span></div>
-      <div class="t"><b>100%</b><span>web + app (con barandas)</span></div>
-    </div>
-    <div class="card card-step" style="margin-top:26px">
-      <h3>🔗 ¿Venís del básico?</h3>
-      <p>Asumimos chat, Gem simple, Canvas, Deep Research, Live… Si no: <a href="../gemini/">Gemini · básico →</a>. El kit de archivos y la carta al alumno están en el <label for="t-gloss" style="cursor:pointer;color:var(--theme-light);text-decoration:underline">Glosario</label>.</p>
-    </div>
-    <div class="card card-map">
-      <h3>🗺️ El mapa de este curso</h3>
-      <p><strong>Cimiento (1):</strong> plan + Keep Activity + micro-win.<br>
-      <strong>Piezas (2–5):</strong> Knowledge → scheduled → notebooks → panel.<br>
-      <strong>Sistema (6):</strong> 3 rutinas + límites + asomate equipo.<br>
-      <strong>Vidriera (7):</strong> GBP + business notebook (rollout).</p>
-      <p style="margin-top:8px;font-size:.9rem;color:var(--faint)">Referencias: «módulo 2, <em>Tu Gem con la cabeza del negocio</em>», nunca «M2» pelado.</p>
-    </div>
-  </section>
-  <section class="panel" id="p-gloss">
-    <div class="sec-head"><span class="numchip" style="font-size:1.25rem">Aa</span><h2>Glosario · conceptos del intermedio</h2></div>
-    <p class="sec-sub">Asume el básico (chat, prompt, Gem simple, Canvas, Deep Research, Live…). Acá entra lo nuevo: Knowledge, scheduled, notebooks, panel y GBP.</p>
-    <p style="font-weight:700;color:var(--theme-light);font-size:1.02rem;margin:4px 0 10px">👉 ¿Una palabra te traba? Buscala acá.</p>
-    <div class="gloss-search"><span>🔎</span><input id="gloss-q" placeholder="Buscar un término…" autocomplete="off"></div>
+    <h1>De hacerlo a mano a un sistema que <em>se repite</em>.</h1>
+    <p class="lead">Guía web de <strong>7 módulos</strong> para que Gemini deje de ser una consulta suelta: knowledge cargado, acciones programadas y trabajo adentro de las apps donde ya estás. <strong>Con tu cuenta real.</strong></p>
 
-    <div class="card card-kit">
-      <h3>📦 Tu kit al terminar — soluciones en archivos</h3>
-      <p>No es material de estudio. Es lo que abrís cuando tenés que tocar tu sistema:</p>
-      <div class="foldertree">
-        <div class="root"><span>📁</span> Sistema IA/Gemini-Intermedio/</div>
-        <div class="kids">
-          <div class="ft-row"><span class="ft-file"><span>📄</span>01-salto-sistema</span><span class="ft-arrow">→</span><span class="ft-desc">plan + Keep Activity + micro-win</span></div>
-          <div class="ft-row"><span class="ft-file"><span>📄</span>02-gem-knowledge</span><span class="ft-arrow">→</span><span class="ft-desc">Gem con ≥1 fuente real</span></div>
-          <div class="ft-row"><span class="ft-file"><span>📄</span>03-accion-programada</span><span class="ft-arrow">→</span><span class="ft-desc">scheduled o prompt listo (Plus)</span></div>
-          <div class="ft-row"><span class="ft-file"><span>📄</span>04-notebook-proyecto</span><span class="ft-arrow">→</span><span class="ft-desc">notebook o puente NotebookLM</span></div>
-          <div class="ft-row"><span class="ft-file"><span>📄</span>05-entregable-en-app</span><span class="ft-arrow">→</span><span class="ft-desc">mail o doc desde el panel</span></div>
-          <div class="ft-row"><span class="ft-file"><span>📄</span>06-mapa-sistema</span><span class="ft-arrow">→</span><span class="ft-desc">3 rutinas + límites</span></div>
-          <div class="ft-row"><span class="ft-file"><span>📄</span>07-gbp-negocio</span><span class="ft-arrow">→</span><span class="ft-desc">ficha / plan B reviews</span></div>
-        </div>
-      </div>
+    <div class="buybox">
+     <div class="price-row">
+      <span class="price">US$ 17,99</span>
+      <span class="price-note">pago único</span>
+     </div>
+     <p class="price-sub">Acceso de por vida. Sin suscripción, sin renovación.</p>
+     <a class="btn-buy" href="https://www.creem.io/payment/prod_i6H6lKNpXTCKYBJOFmRQI" target="_blank" rel="noopener">Empezar ahora <span class="arw">→</span></a>
+     <p class="after-buy">Pagás en Creem. Tu <strong>código personal</strong> te llega por email en minutos y sirve en <strong>hasta 4 dispositivos</strong>.</p>
+     <p class="have-code">¿Ya lo compraste? <a href="https://cursos.coco-go.lat/?next=/gemini-intermedio/">Entrá con tu código →</a></p>
     </div>
+   </div>
 
-    <div class="card card-map" style="margin-bottom:14px">
-      <h3>📩 Carta al alumno</h3>
-      <p>El básico te enseñó a pedirle bien las cosas a Gemini. Acá el salto no es “pedir mejor” — es <strong>dejar de ser vos el que se acuerda de pedirlo cada vez</strong>. Eso rinde con Plus (US$4,99) si de verdad cargás Knowledge, programás y usás el panel — no si activás el plan y seguís copiando y pegando como en el básico.</p>
-      <p>Si terminás los 7 módulos con al menos una pieza de cada uno funcionando de verdad en tu negocio, vas a tener un sistema Google que se repite mientras vos atendés — no siete demos sueltas.</p>
-    </div>
-
-    <div class="card card-step" style="margin-bottom:14px">
-      <h3>⚙️ Antes de empezar</h3>
-      <ul>
-        <li>Haber hecho (o poder hacer) el <a href="../gemini/">básico de Gemini</a>.</li>
-        <li>Cuenta Google del negocio; para el módulo 3, <strong>Plus o superior</strong> (o el prompt listo sin activar).</li>
-        <li>Carpeta <code>Sistema IA/Gemini-Intermedio/</code> lista para los 7 entregables.</li>
-        <li>Datos reales: precios, horarios, tonos, qué se repite cada semana.</li>
+   <div>
+    <div class="mock" aria-hidden="true">
+     <div class="mock-bar">
+      <span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span>
+      <span class="mock-url">cursos.coco-go.lat/gemini-intermedio</span>
+     </div>
+     <div class="mock-body">
+      <p class="mock-kicker">Módulo 3 · Piloto automático</p>
+      <p class="mock-h">Tu resumen listo antes de arrancar</p>
+      <p class="mock-p">Se prepara solo en la hora previa. Cuando abrís el teléfono, ya está el día ordenado.</p>
+      <div class="mock-prompt">Cada día de semana a las 7:30, con mis apps conectadas,<br>resumí en 8 viñetas: eventos de hoy en Calendar y<br>5 hilos de Gmail urgentes. Si no hay, decilo.</div>
+      <ul class="mock-steps">
+       <li><span class="ck">✓</span> Una acción real en piloto</li>
+       <li><span class="ck">✓</span> Usa tus apps conectadas</li>
+       <li><span class="ck">✓</span> Formato corto para el celular</li>
       </ul>
-    </div>
-
-    <div id="gloss-list">
-      <p class="gloss-group">Planes y límites</p>
-      <div class="gitem"><button class="gterm" type="button">Google AI Plus (US$4,99/mes)<span class="chev">+</span></button><div class="gdef"><p>Plan de entrada pago. En la práctica desbloquea acciones programadas y sube techos (2× límites, contexto 128K). Escalón natural del intermedio.</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">Google AI Pro (US$19,99/mes)<span class="chev">+</span></button><div class="gdef"><p>4× límites y contexto de 1 millón de tokens. Cuando vivís de docs largos o te quedás corto con Plus.</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">Google AI Ultra<span class="chev">+</span></button><div class="gdef"><p>Tope de uso y features de punta. No es el plan que este curso te empuja a comprar en LATAM.</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">Límites de uso<span class="chev">+</span></button><div class="gdef"><p>Presupuesto de cómputo: se renueva ~cada 5 horas hasta un tope semanal. No hay un “25 mensajes/día” oficial fijo.</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">Keep Activity<span class="chev">+</span></button><div class="gdef"><p>Actividad en las apps de Gemini. ON = historial y piezas del sistema. OFF rompe scheduled, Drive en Knowledge y GBP.</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">Connected Apps<span class="chev">+</span></button><div class="gdef"><p>Gmail, Calendar, Docs, Drive, Keep, Tasks (y las que el producto muestre). Sin conectar, no lee esa app.</p></div></div>
-      <p class="gloss-group">Gems y Knowledge</p>
-      <div class="gitem"><button class="gterm" type="button">Gem<span class="chev">+</span></button><div class="gdef"><p>Asistente guardado con nombre e instrucciones: el empleado configurado del básico.</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">Knowledge<span class="chev">+</span></button><div class="gdef"><p>Fuentes del Gem (archivo, Drive vivo, notebook) para responder con datos del negocio, no genéricos.</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">Versión viva (Drive)<span class="chev">+</span></button><div class="gdef"><p>Al editar el archivo en Drive, el Gem usa la versión reciente — no una copia congelada del día que lo subiste.</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">Gems y Live<span class="chev">+</span></button><div class="gdef"><p>No se usan juntos. Live = voz; Gem = texto con instrucciones/Knowledge.</p></div></div>
-      <p class="gloss-group">Piloto y notebooks</p>
-      <div class="gitem"><button class="gterm" type="button">Scheduled action<span class="chev">+</span></button><div class="gdef"><p>Prompt que Gemini ejecuta solo en un horario. Máx 10 activas. Plus+ y Keep Activity ON.</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">Preparación ~1 h<span class="chev">+</span></button><div class="gdef"><p>Arma la respuesta en la hora previa al delivery: no es cotización al segundo.</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">Integración por texto<span class="chev">+</span></button><div class="gdef"><p>La acción no “abre tu Gem” sola: copiás tono y reglas al prompt.</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">Notebook en Gemini<span class="chev">+</span></button><div class="gdef"><p>Espacio de proyecto (chats + archivos + instrucciones), sync con NotebookLM.</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">Business notebook<span class="chev">+</span></button><div class="gdef"><p>Notebook ligado a tu Google Business Profile (insights de ficha), no un proyecto de campaña cualquiera.</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">Rollout<span class="chev">+</span></button><div class="gdef"><p>Feature que llega de a poco: puede verse en una cuenta y no en otra.</p></div></div>
-      <p class="gloss-group">Panel y ficha</p>
-      <div class="gitem"><button class="gterm" type="button">Side panel<span class="chev">+</span></button><div class="gdef"><p>Columna de Gemini dentro de Gmail, Docs, Sheets, etc. Trabajás sin salir de la app.</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">Google Business Profile<span class="chev">+</span></button><div class="gdef"><p>Ficha del negocio en Maps/Search. Con Gemini en web (barandas de requisitos).</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">Reply a reseña<span class="chev">+</span></button><div class="gdef"><p>Gemini redacta borradores; vos publicás con criterio.</p></div></div>
-      <p class="gloss-group">Método del curso</p>
-      <div class="gitem"><button class="gterm" type="button">Sistema que se repite<span class="chev">+</span></button><div class="gdef"><p>Gem + Knowledge + scheduled + notebooks + panel (+ GBP) con ritual, no tips sueltos.</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">Listo cuando…<span class="chev">+</span></button><div class="gdef"><p>Checklist de acción real: datos propios, iterar, probar, guardar, poder repetir.</p></div></div>
-      <div class="gitem"><button class="gterm" type="button">⚠️FALTA<span class="chev">+</span></button><div class="gdef"><p>Dato no confirmado en master: no lo completes con inventos.</p></div></div>
-    </div>
-
-    <div class="card card-plantilla" style="margin-top:22px">
-      <h3>Prompt universal de refinamiento</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt · refinamiento</span><button class="copy" type="button">Copiar</button></div>
-<pre>Esto me quedó genérico o flojo. Mejorá usando SOLO estos datos reales de mi negocio:
-<strong class="field">[pegá 3–8 datos: precios, zona, horarios, tono, restricciones]</strong>.
-Mantené la estructura. Marcá con ⚠️ lo que siga sin dato en vez de inventar.</pre>
-      </div>
-    </div>
-    <div class="card card-plantilla">
-      <h3>Prompt · tono de marca (extra)</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt · tono</span><button class="copy" type="button">Copiar</button></div>
-<pre>Reescribí esto con el tono de mi negocio: <strong class="field">[cercano / formal / directo]</strong>.
-Público: <strong class="field">[quién lee]</strong>. Sin jerga de marketing vacía. Texto listo para copiar.</pre>
-      </div>
-    </div>
-    <div class="card card-plantilla">
-      <h3>Prompt · checklist de la semana (extra)</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt · semana</span><button class="copy" type="button">Copiar</button></div>
-<pre>Con lo que sabés de mi rubro <strong class="field">[ ]</strong> y estos datos <strong class="field">[pegá 3 hechos]</strong>,
-armame 5 prioridades de la semana en viñetas. Máx 1 línea cada una.</pre>
-      </div>
-    </div>
-  </section>
-  <section class="panel" id="p-m1">
-    <div class="sec-head"><span class="numchip">01</span><h2>El salto: de usar a mano a sistema que se repite</h2></div>
-    <p class="sec-sub">En el básico usabas Gemini <strong>tarea por tarea</strong>. Acá cerrás el chip del salto: cuándo pagar, qué dejar prendido, y una primera pieza del sistema andando.</p>
-
-    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Abrí <a href="https://gemini.google.com" target="_blank" rel="noopener">gemini.google.com</a>. Dejá <strong>Keep Activity ON</strong> si vas a automatizar. Escribí un pedido que se <strong>repita</strong> y guardalo en <code>Sistema IA/Gemini-Intermedio/01-salto-sistema.md</code>.</p></div></div>
-
-    <div class="card card-sol">
-      <h3>✅ Tu solución al terminar</h3>
-      <p><strong>Problema:</strong> Sabés usar Gemini, pero todo depende de que vos estés en el chat.</p>
-      <p><strong>Te llevás:</strong> Criterio de plan (Gratis / Plus / Pro), Keep Activity decidido, y un micro-win listo para el módulo 3, <em>Piloto automático</em>.</p>
-      <p><strong>Lo usás cuando:</strong> Antes de armar Gems con archivos, acciones en horario o la ficha de Google.</p>
-    </div>
-
-    <div class="modintro">
-      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Decisión de plan escrita, Keep Activity sí/no consciente, y un prompt de negocio <strong>repetible</strong> guardado.</p></div></div>
-      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>El intermedio no es “más trucos”: es <strong>dejar de rehacer el contexto</strong>. Si Activity está off, se caen piezas. Si elegís plan al tuntún, te frenás en scheduled o pagás Ultra de más.</p></div></div>
-    </div>
-
-    <div class="tool-intro">
-      <h3>🧱 Qué cambia respecto del básico</h3>
-      <p>En el básico vos pedís y Gemini responde. En el intermedio <strong>configurás una vez</strong> (conocimiento, horario, lugar de trabajo) para que vuelva a servir sin reescribir el manual del negocio cada lunes.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 1 — Piso del básico</h3>
-      <p>Asumimos que ya entrás, hablás en criollo y usaste Gem simple / Canvas / Deep Research / Live. Si no: <a href="../gemini/">hacé el básico primero</a>. Acá no re-enseñamos eso.</p>
-    </div>
-
-    <div class="mock-block">
-    <span class="gptmock-tag">🧭 Home de Gemini web</span>
-    <div class="uimock" role="img" aria-label="gemini.google.com">
-      <div class="bar">gemini.google.com</div>
-      <div class="ubody"><div class="sidebaritem on">Asistencia general / Flash — modelo por defecto (nombre puede variar)</div><div class="fld" style="margin-top:10px"><span class="box">Escribí un mensaje…</span></div><p style="font-size:.78rem;color:#7A8194;margin:6px 0 0">Mock orientativo — sin inventar íconos exactos.</p></div>
-    </div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 2 — El salto en una frase</h3>
-      <p><strong>Básico:</strong> yo pido → Gemini responde → yo uso.<br><strong>Intermedio:</strong> yo configuro una vez → el sistema vuelve a servir.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 3 — Planes: cuándo pagar (USD)</h3>
-      <p>Datos del master (volátiles; re-verificar en suscripciones oficiales si hace falta):</p>    <div class="mock-block">
-    <div class="modelmock">
-      <div class="modelmock-bar">Planes Google AI — criterio intermedio</div>
-      <div class="modelmock-body">
-          <div class="mm-opt"><b>Gratis</b><small>$0 — a mano; sin scheduled</small></div>
-          <div class="mm-opt sel"><b>Google AI Plus <span class="check">✓</span></b><small>US$4,99 — scheduled, 2× límites, 128K</small></div>
-          <div class="mm-opt"><b>Google AI Pro</b><small>US$19,99 — 4× límites, contexto 1M</small></div>
-          <div class="mm-opt"><b>Ultra</b><small>desde US$99,99 — no es el eje LATAM de este curso</small></div>
-</div>
-    </div>
-    </div>
-<p><strong>Consejo de dueño:</strong> si vas a hacer el módulo 3 de verdad, necesitás <strong>al menos Plus</strong>. Sin plata hoy, igual armás el prompt y lo activás después — el curso no te miente.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 4 — Keep Activity</h3>
-      <ul>
-        <li><strong>ON:</strong> historial + scheduled + Drive en Knowledge + GBP.</li>
-        <li><strong>OFF:</strong> gran parte del “se repite solo” no funciona.</li>
-      </ul>
-      <p>Datos sensibles → revisá privacidad del básico. Sistema que se repite → casi siempre <strong>ON</strong> con criterio. Ruta de menú puede variar.</p>
-    </div>
-
-    <div class="mock-block">
-    <span class="gptmock-tag">🔒 Actividad (orientativo)</span>
-    <div class="uimock" role="img" aria-label="Actividad en las apps de Gemini">
-      <div class="bar">Actividad en las apps de Gemini</div>
-      <div class="ubody"><div class="toggle-row"><span>Actividad en las apps de Gemini</span><span class="toggle on" aria-hidden="true"></span></div>
-        <div class="fld" style="margin-top:10px"><span class="box">ON = sistema. OFF = se caen scheduled / Drive / GBP.</span></div></div>
-    </div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 5 — Micro-win</h3>
-      <p>Un pedido que rehacés a mano cada semana. Probalo una vez; si sale genérico, iterá con barrio, precio u horario real.</p>
-    </div>
-
-    <div class="mock-block">
-    <span class="gptmock-tag">📱 Así se ve en Gemini</span>
-    <div class="geminimock">
-      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
-      <div class="geminimock-body">
-        <div class="geminimock-user"><p>Cada lunes necesito 5 ideas de post para mi [rubro] en [ciudad], tono cercano. Esta semana el foco es [promo real].</p></div>
-        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
-          <div class="aicol"><span class="chip">general</span>
-          <p>5 ideas con gancho + CTA; una menciona la promo. ¿Versión corta para stories?</p></div>
-        </div>
-      </div>
-    </div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 6 — Guardá el cimiento</h3>
-      <p>En <code>01-salto-sistema</code>: plan elegido y por qué · Keep Activity ON/OFF y por qué · prompt que te sirvió · qué vas a automatizar primero en el módulo 3, <em>Piloto automático</em>.</p>
-    </div>
-
-    <div class="devsplit">
-      <div class="devsplit-card">
-        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil — cuándo sí</b></div>
-        <p>Ideal para el micro-win de chat y para mirar notificaciones cuando ya haya scheduled. Si estás entre clientes, dictá el pedido y guardalo después en la carpeta del sistema desde la compu.</p>
-      </div>
-      <div class="devsplit-card">
-        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop — cuándo conviene</b></div>
-        <p>Mejor para decidir plan, revisar Activity con calma y armar <code>Sistema IA/Gemini-Intermedio/</code> en Finder/Explorador. Support detalla web para varias piezas del sistema (scheduled, GBP). Regla práctica: <strong>configurar = desktop</strong>; <strong>usar el día a día = también móvil</strong>.</p>
-      </div>
-    </div>
-
-    <div class="card card-warn">
-      <h3>⚠️ Error común</h3>
-      <p>Pagar Ultra “por las dudas” o dejar Activity off y enojarte cuando no conecta Drive. Otro: querer armar el sistema entero en el módulo 1 — acá solo el cimiento.</p>
-    </div>
-
-    <div class="card card-example">
-      <h3>💡 Ejemplo</h3>
-      <p><strong>Antes:</strong> María reexplica promos cada lunes. <strong>Después:</strong> prompt afinado, Plus decidido, Activity ON; en el módulo 3 lo pasa a scheduled los lunes 8:30.</p>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla A — Decisión de plan</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Hoy uso Gemini sobre todo para: <strong class="field">[ ]</strong>.
-Me frena: <strong class="field">[límites / docs largos / nada]</strong>.
-Elijo: Gratis / Plus 4,99 / Pro 19,99 porque: <strong class="field">[ ]</strong>.</pre>
-      </div>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla B — Micro-win de contenido</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Soy <strong class="field">[negocio]</strong> en <strong class="field">[ciudad]</strong>. Cliente típico: <strong class="field">[ ]</strong>. Tono: <strong class="field">[ ]</strong>.
-Dame 5 ideas de <strong class="field">[post/stories/whatsapp]</strong> para esta semana.
-Dato real: <strong class="field">[promo / horario / barrio]</strong>.
-Formato: título + 2 líneas + CTA.</pre>
-      </div>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla C — Micro-win de operación</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Armame un checklist de 8 ítems para <strong class="field">[apertura / cierre / proveedores]</strong>
-de mi <strong class="field">[rubro]</strong>. Debe caber en el celular.
-Incluí <strong class="field">[horario / zona real]</strong>.</pre>
-      </div>
-    </div>
-
-    <div class="card card-sol">
-      <h3>✓ Listo cuando…</h3>
-      <ul>
-        <li>Datos <strong>reales</strong> en el micro-win.</li>
-        <li>Si salió genérico, <strong>iteraste</strong>.</li>
-        <li>Probaste el resultado como lo usarías la semana que viene.</li>
-        <li>Guardaste <code>01-salto-sistema</code>.</li>
-        <li>Sabés que scheduled pide <strong>Plus+</strong>.</li>
-      </ul>
-    </div>
-
-    <span class="entregable">📦 Entregable · 01-salto-sistema</span>
-
-    <label class="modcheck" data-mod="1">
-      <input type="checkbox" data-mod="1" aria-label="Completé el módulo 1">
-      <span>Completé el módulo 1 · El salto</span>
-    </label>
-
-    <div class="card card-map" style="margin-top:20px;text-align:center;border-style:dashed">
-      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
-      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat →</a></p>
-    </div>
-
-    <div class="next">
-      <div class="kicker">Siguiente módulo</div>
-      <h3>Módulo 2 · <span class="c">Tu Gem con la cabeza del negocio</span></h3>
-      <p>Knowledge: archivos y Drive vivo para que responda con tus datos, no genéricos.</p>
-      <label class="go" for="t-m2">Ir al módulo 2 →</label>
-    </div>
-
-  </section>
-  <section class="panel" id="p-m2">
-    <div class="sec-head"><span class="numchip">02</span><h2>Tu Gem con la cabeza del negocio</h2></div>
-    <p class="sec-sub">El Gem del básico tenía instrucciones. Acá ese empleado <strong>lee los papeles del negocio</strong>.</p>
-
-    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Gems → abrí o creá uno → en <strong>Knowledge</strong> agregá <strong>un archivo real</strong> → una pregunta que solo se contesta con ese archivo.</p></div></div>
-
-    <div class="card card-sol">
-      <h3>✅ Tu solución al terminar</h3>
-      <p><strong>Problema:</strong> El Gem improvisa si no le pegás el contexto cada vez.</p>
-      <p><strong>Te llevás:</strong> Un Gem con ≥1 fuente en Knowledge y una prueba con dato real.</p>
-      <p><strong>Lo usás cuando:</strong> Atención, cotizaciones, “¿cuánto sale X?”.</p>
-    </div>
-
-    <div class="modintro">
-      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Knowledge configurado (device y/o Drive y/o notebook), prueba dura, entregable <code>02-gem-knowledge</code>.</p></div></div>
-      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Sin Knowledge cada chat arranca en cero. Y ojo: las acciones del módulo 3 <strong>no corren encima del Gem en vivo</strong> — el rol va como texto en el prompt de la acción.</p></div></div>
-    </div>
-
-    <div class="tool-intro">
-      <h3>📚 ¿Qué es Knowledge, en criollo?</h3>
-      <p><strong>Knowledge</strong> es la carpeta de “papeles del empleado”: PDFs, docs de Drive o un notebook que el Gem puede consultar. No es magia: si el precio no está en la fuente, no debería inventarlo (y vos se lo enseñás en las instrucciones).</p>
-      <p><strong>Para qué sirve en un negocio:</strong> que “¿cuánto sale el combo?” salga con <em>tu</em> lista, no con un promedio de internet. Drive “vivo” = actualizás el archivo y el Gem mira la versión nueva.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 1 — Gem del negocio</h3>
-      <p>Desktop: Gems (ruta puede variar). Nombre claro. Instrucciones: rol + tono + qué nunca inventar (precios fuera de lista, stock inventado).</p>
-    </div>
-
-    <div class="mock-block">
-    <span class="gptmock-tag">📚 MOCK-KNOWLEDGE</span>
-    <div class="uimock" role="img" aria-label="Gem · creador">
-      <div class="bar">Gem · creador</div>
-      <div class="ubody"><div class="fld"><label>Nombre</label><span class="box">Atención [Tu negocio]</span></div>
-        <div class="fld"><label>Instrucciones</label><span class="box">Rol, tono, no inventar precios…</span></div>
-        <div class="fld"><label>Knowledge</label><span class="box">Vacío — acá van las fuentes</span></div></div>
-    </div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 2 — Archivo desde el dispositivo</h3>
-      <p>Un archivo maestro (lista de precios) > diez capturas viejas. Label del botón puede variar.</p>
-    </div>
-
-    <div class="mock-block">
-    <span class="gptmock-tag">📄 Fuente cargada</span>
-    <div class="uimock" role="img" aria-label="Knowledge">
-      <div class="bar">Knowledge</div>
-      <div class="ubody"><div class="sidebaritem on">📄 lista-precios-2026.pdf</div>
-        <div class="fld" style="margin-top:8px"><span class="box">Citas de conocimiento: on/off si aparece</span></div></div>
-    </div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 3 — Drive (versión viva)</h3>
-      <p>Agregar desde Drive. Requisitos: <strong>Keep Activity ON</strong> + Workspace conectado. Ventaja: editás en Drive y el Gem no se queda con la copia vieja.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 4 — Notebook como fuente (opcional)</h3>
-      <p>Si en el básico ya tenés NotebookLM, podés enganchar ese cuaderno al Knowledge (menú puede variar / rollout).</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 5 — Citas</h3>
-      <p>Si el texto va a un cliente y no querés citas a archivos: desactivar citas de conocimiento (a veces en inglés <em>Disable knowledge citations</em>).</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 6 — Prueba dura</h3>
-      <p>Preguntá algo que solo el archivo responde. Si alucina: “si no está en Knowledge, decí que no está”.</p>
-    </div>
-
-    <div class="mock-block">
-    <span class="gptmock-tag">📱 Así se ve en Gemini</span>
-    <div class="geminimock">
-      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
-      <div class="geminimock-body">
-        <div class="geminimock-user"><p>Según mis archivos, ¿cuánto sale el plan mensual de [servicio] y qué incluye el cambio?</p></div>
-        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
-          <div class="aicol"><span class="chip">general</span>
-          <p>Precio y regla del archivo; si falta dato, lo marca en vez de inventar.</p></div>
-        </div>
-      </div>
-    </div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 7 — Dónde vive</h3>
-      <p>Web → app móvil y side panel (módulo 5). <strong>No</strong> uses este Gem con <strong>Live</strong>.</p>
-    </div>
-
-    <div class="devsplit">
-      <div class="devsplit-card">
-        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil — cuándo sí</b></div>
-        <p>Chatear con el Gem ya armado, entre clientes. No es el mejor lugar para subir PDFs pesados ni enganchar Drive con calma.</p>
-      </div>
-      <div class="devsplit-card">
-        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop — cuándo conviene</b></div>
-        <p>Crear Gem, cargar Knowledge, conectar Drive y probar preguntas difíciles. Acá se ve la sección Knowledge completa. Hacelo una vez bien en desktop y después usalo del celular.</p>
-      </div>
-    </div>
-
-    <div class="card card-warn">
-      <h3>⚠️ Error común</h3>
-      <p>Subir 40 PDFs “por las dudas”. Knowledge es el manual del empleado, no basurero. Otro: creer que scheduled “usa el Gem” en vivo.</p>
-    </div>
-
-    <div class="card card-example">
-      <h3>💡 Ejemplo</h3>
-      <p><strong>Antes:</strong> cada vendedor reescribe precios. <strong>Después:</strong> Gem con lista en Drive y respuestas alineadas.</p>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla A — Instrucciones del Gem</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Sos el asistente de <strong class="field">[negocio]</strong>. Tono: <strong class="field">[ ]</strong>.
-Solo usás precios y políticas de Knowledge. Si no está en los archivos, decís que no lo sabés.
-Nunca inventás descuentos.</pre>
-      </div>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla B — Prueba de Knowledge</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Según mis archivos, ¿cuál es el precio de <strong class="field">[ítem]</strong> y la política de <strong class="field">[cambio]</strong>?
-Respondé en 5 líneas para WhatsApp.</pre>
-      </div>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla C — Tras actualizar Drive</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Actualicé la lista en Drive. Confirmame el nuevo precio de <strong class="field">[ítem]</strong> leyendo Knowledge (versión actual).</pre>
-      </div>
-    </div>
-
-    <div class="card card-sol">
-      <h3>✓ Listo cuando…</h3>
-      <ul>
-        <li>Fuente con datos reales.</li>
-        <li>Pregunta que falla sin el archivo, probada.</li>
-        <li>Iteraste si inventó.</li>
-        <li>Guardaste <code>02-gem-knowledge</code>.</li>
-      </ul>
-    </div>
-
-    <span class="entregable">📦 Entregable · 02-gem-knowledge</span>
-
-    <label class="modcheck" data-mod="2">
-      <input type="checkbox" data-mod="2" aria-label="Completé el módulo 2">
-      <span>Completé el módulo 2 · Gem Knowledge</span>
-    </label>
-
-    <div class="card card-map" style="margin-top:20px;text-align:center;border-style:dashed">
-      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
-      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat →</a></p>
-    </div>
-
-    <div class="next">
-      <div class="kicker">Siguiente módulo</div>
-      <h3>Módulo 3 · <span class="c">Piloto automático</span></h3>
-      <p>Programá una acción en horario: el corazón del “se repite solo”.</p>
-      <label class="go" for="t-m3">Ir al módulo 3 →</label>
-    </div>
-
-  </section>
-  <section class="panel" id="p-m3">
-    <div class="sec-head"><span class="numchip">03</span><h2>Piloto automático (acciones programadas)</h2></div>
-    <p class="sec-sub">Gemini <strong>corre un pedido en horario</strong>. Plus o superior, Keep Activity ON, máx 10 acciones.</p>
-
-    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Prompt con <strong>qué + cada cuándo</strong> → enviá → confirmá en <strong>Settings → Scheduled actions</strong>.</p></div></div>
-
-    <div class="card card-sol">
-      <h3>✅ Tu solución al terminar</h3>
-      <p><strong>Problema:</strong> Las rutinas dependen de tu memoria.</p>
-      <p><strong>Te llevás:</strong> 1 acción de negocio o el texto listo si aún no tenés Plus.</p>
-      <p><strong>Lo usás cuando:</strong> Digests, ideas de contenido, prep del día.</p>
-    </div>
-
-    <div class="modintro">
-      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Acción real en piloto (o documentada). Expectativa: se prepara en la <strong>hora previa</strong>.</p></div></div>
-      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Es el “automatizar” del mercado <strong>sin n8n</strong>. El rol del Gem va como <strong>texto</strong> en el prompt, no magia en vivo.</p></div></div>
-    </div>
-
-    <div class="tool-intro">
-      <h3>⏱️ ¿Qué es una acción programada, en criollo?</h3>
-      <p>Es un pedido que dejás escrito con día y hora: Gemini lo prepara <strong>sin que vos estés en el chat</strong>. No publica solo en Instagram ni manda WhatsApp por vos: <strong>prepara</strong> el paquete; vos cerrás el negocio.</p>
-      <p><strong>Para qué sirve:</strong> que el lunes a las 9 ya tengas 5 ideas, o un digest de mails, sin acordarte el domingo a la noche. <strong>No sirve</strong> para precios de bolsa al segundo (se prepara en la hora previa).</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 1 — Requisitos</h3>
-      <ul><li>Plus US$4,99 / Pro / Ultra</li><li>Keep Activity ON</li><li>Máx 10 acciones activas</li></ul>
-    </div>
-
-    <div class="mock-block">
-    <span class="gptmock-tag">⏱️ Acciones programadas</span>
-    <div class="schedulemock">
-      <div class="schedulemock-bar"><span>Scheduled actions</span></div>
-      <div class="schedulemock-list"><div class="sm-row"><span class="sm-status"></span><div class="sm-info"><span class="sm-name">— tu primera acción irá acá —</span><span class="sm-freq">Settings → Scheduled actions</span></div></div></div>
-    </div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 2 — Crear desde el chat</h3>
-      <p>Prompt con qué + cuándo + cada cuánto. Revisá el resumen antes de confirmar.</p>
-    </div>
-
-    <div class="mock-block">
-    <span class="gptmock-tag">📱 Así se ve en Gemini</span>
-    <div class="geminimock">
-      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
-      <div class="geminimock-body">
-        <div class="geminimock-user"><p>Todos los lunes a las 9:00, armá 5 ideas de post para mi [negocio] en [ciudad], tono cercano.</p></div>
-        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
-          <div class="aicol"><span class="chip">general</span>
-          <p>Resumen de acción: lunes 9:00, semanal… [Editar / Confirmar]</p></div>
-        </div>
-      </div>
-    </div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 3 — Settings</h3>
-      <p>Listá, pausá, editá o borrá. Ruta exacta del menú puede variar.</p>
-    </div>
-
-    <div class="mock-block">
-    <span class="gptmock-tag">⏱️ Acciones programadas</span>
-    <div class="schedulemock">
-      <div class="schedulemock-bar"><span>Scheduled actions</span></div>
-      <div class="schedulemock-list"><div class="sm-row"><span class="sm-status"></span><div class="sm-info"><span class="sm-name">Ideas post lunes</span><span class="sm-freq">semanal · 9:00</span></div><span class="sm-badge">Activa</span></div></div>
-    </div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 4 — Apps conectadas</h3>
-      <p>Si pedís Gmail/Calendar, tienen que estar en Connected Apps.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 5 — Expectativa honesta</h3>
-      <ul><li>Prepara en la hora previa</li><li>Puede apagarse por inactividad → reactivar</li><li>Notificación web o push móvil</li></ul>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 6 — Gem = texto, no magia</h3>
-      <p><strong>No</strong> escribas “usá mi Gem Ventas”. <strong>Sí</strong> pegá tono, reglas y 3–5 datos fijos en el prompt de la acción.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 7 — Sin Plus</h3>
-      <p>Dejá prompt + frecuencia en el entregable. Activás cuando pagues.</p>
-    </div>
-
-    <div class="devsplit">
-      <div class="devsplit-card">
-        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil — cuándo sí</b></div>
-        <p>Recibir el resultado y mirarlo en el colectivo. No es la mejor pantalla para crear/editar 10 acciones con calma.</p>
-      </div>
-      <div class="devsplit-card">
-        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop — cuándo conviene</b></div>
-        <p>Crear y editar acciones en web (pasos de support). Revisá Settings → Scheduled actions de una sentada: pausá basura, dejá solo lo que mirás cada semana.</p>
-      </div>
-    </div>
-
-    <div class="card card-warn">
-      <h3>⚠️ Error común</h3>
-      <p>10 acciones de curiosidad que no mirás (te comen el cupo). O asumir que lee el Gem sin copiar contexto.</p>
-    </div>
-
-    <div class="card card-example">
-      <h3>💡 Ejemplo</h3>
-      <p><strong>Antes:</strong> se acuerda el domingo a la noche. <strong>Después:</strong> lunes 8:30 llegan 5 ideas; elige 2 y publica.</p>
-    </div>
+     </div>
+    </div>
+    <p class="mock-cap">Así se ve por dentro: pasos, prompts y un resultado por módulo.</p>
+   </div>
+  </div>
+
+  <div class="trust">
+   <div><b>7</b><span>módulos en español</span></div>
+   <div><b>De por vida</b><span>pago único, sin suscripción</span></div>
+   <div><b>4</b><span>dispositivos por código</span></div>
+   <div><b>Nivel 2</b><span>después del básico</span></div>
+  </div>
+ </section>
+
+ <!-- ══════ PROBLEMA ══════ -->
+ <section class="blk">
+  <p class="eyebrow">Por qué no te funciona</p>
+  <h2>Cada consulta arranca de cero. Así no se hace sistema.</h2>
+  <p class="sec-sub">Ya sabés pedirle bien y te responde bien. Pero mañana volvés a explicar lo mismo, y lo que armaste esta semana no se repite solo. Ese es el salto que falta.</p>
+  <div class="pains">
+   <div class="pain">
+    <p class="q">"Le vuelvo a explicar todo"</p>
+    <p>El contexto del negocio se pierde entre consulta y consulta.</p>
+   </div>
+   <div class="pain">
+    <p class="q">"Lo bueno no queda"</p>
+    <p>Encontraste el pedido perfecto y a los tres días no sabés dónde quedó.</p>
+   </div>
+   <div class="pain">
+    <p class="q">"Salgo de la app para preguntar"</p>
+    <p>Estás en el mail o en el documento y tenés que ir a otra pantalla para usar la IA.</p>
+   </div>
+  </div>
+ </section>
+
+ <!-- ══════ QUÉ TE LLEVÁS ══════ -->
+ <section class="blk">
+  <p class="eyebrow">Qué te llevás</p>
+  <h2>Siete piezas que se repiten solas.</h2>
+  <p class="sec-sub">Cada módulo deja un entregable numerado y guardado en tu Drive. Nada queda en el aire.</p>
+  <div class="deliver">
+   <div class="dv"><span class="ic">1</span><div><b>Decisión de plan escrita</b><span>Y la actividad de Google decidida a conciencia, no como venía por default.</span></div></div>
+   <div class="dv"><span class="ic">2</span><div><b>Un Gem con knowledge</b><span>Cargado desde tu equipo, tu Drive o un notebook, y probado con una consulta dura.</span></div></div>
+   <div class="dv"><span class="ic">3</span><div><b>Una acción en piloto</b><span>Corriendo de verdad, preparada en la hora previa a que la necesites.</span></div></div>
+   <div class="dv"><span class="ic">4</span><div><b>Un Notebook de proyecto</b><span>Con nombre, fuentes, instrucciones y un ejemplo adentro.</span></div></div>
+   <div class="dv"><span class="ic">5</span><div><b>Trabajo dentro de tus apps</b><span>Un mail o archivo real mejorado desde el panel lateral, sin cambiar de pantalla.</span></div></div>
+   <div class="dv"><span class="ic">6</span><div><b>Tu ficha de Google al día</b><span>Business Profile conectado, con una acción hecha y claridad de qué no prometer.</span></div></div>
+  </div>
+ </section>
+
+ <!-- ══════ TEMARIO ══════ -->
+ <section class="blk">
+  <p class="eyebrow">El temario completo</p>
+  <h2>7 módulos que se hacen, en orden.</h2>
+  <p class="sec-sub">Cada uno arranca con el objetivo, sigue con los pasos y termina con un entregable. Podés hacer uno por día o todo un fin de semana.</p>
+  <div class="mods">
+   <article class="mod"><span class="n">1</span><div><h3>El salto</h3><p>Decisión de plan escrita, actividad de Google decidida a conciencia y un prompt repetible guardado.</p><span class="out">→ Prompt repetible</span></div></article>
+   <article class="mod"><span class="n">2</span><div><h3>Tu Gem con la cabeza del negocio</h3><p>Knowledge configurado desde equipo, Drive o notebook. Probado con una consulta exigente.</p><span class="out">→ Gem con knowledge</span></div></article>
+   <article class="mod"><span class="n">3</span><div><h3>Piloto automático</h3><p>Una acción programada real, corriendo. Se prepara en la hora previa a que la uses.</p><span class="out">→ Acción en piloto</span></div></article>
+   <article class="mod"><span class="n">4</span><div><h3>Notebooks de proyecto</h3><p>Un notebook con nombre, fuentes, instrucciones y ejemplo — listo para consultar.</p><span class="out">→ Notebook de proyecto</span></div></article>
+   <article class="mod"><span class="n">5</span><div><h3>Gemini donde ya trabajás</h3><p>Un mail o archivo real mejorado desde el panel lateral, sin salir de la app.</p><span class="out">→ Entregable en tu app</span></div></article>
+   <article class="mod"><span class="n">6</span><div><h3>Tu sistema Google que se repite</h3><p>El mapa de tu sistema, listo para fijar en Drive y seguir todas las semanas.</p><span class="out">→ Mapa del sistema</span></div></article>
+   <article class="mod"><span class="n">7</span><div><h3>Tu ficha y tus clientes en Google</h3><p>Business Profile: estado de conexión, una acción concreta y qué no conviene prometer.</p><span class="out">→ Ficha al día</span></div></article>
+  </div>
+  <p class="extras"><strong>Además, incluido:</strong> glosario de conceptos del intermedio · aplicaciones por tipo de negocio · bonus con extras de alto valor · verificación final para saber si quedó bien hecho.</p>
+ </section>
+
+ <!-- ══════ MUESTRA ══════ -->
+ <section class="blk">
+  <p class="eyebrow">Una muestra de adentro</p>
+  <h2>Prompts que se pegan y funcionan.</h2>
+  <p class="sec-sub">No hay listas de 500 prompts sueltos. Hay pocos, explicados, con los campos que tenés que completar con tus datos.</p>
+  <div class="sample">
+   <p class="lbl">Módulo 3 · Acciones programadas</p>
+   <pre>Cada día de semana a las 7:30, con mis apps conectadas,
+resumí en 8 viñetas: eventos de hoy en Calendar y 5 hilos
+de Gmail urgentes por asunto.
 
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla A — Digest operativo</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Cada día de semana a las 7:30, con mis apps conectadas, resumí en 8 viñetas:
-eventos de hoy en Calendar y 5 hilos de Gmail urgentes por asunto.
 Si no hay, decilo. Tono: lista corta para celular.</pre>
-      </div>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla B — Contenido semanal</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Todos los lunes a las 9:00, 5 ideas de <strong class="field">[post/stories]</strong> para <strong class="field">[negocio]</strong>,
-audiencia <strong class="field">[ ]</strong>, tono <strong class="field">[ ]</strong>.
-Formato: gancho + 2 líneas + CTA. Sin hashtags de relleno.</pre>
-      </div>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla C — Panorama del rubro</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Cada viernes a las 17:00, novedades públicas de la última semana sobre <strong class="field">[rubro]</strong>,
-6 bullets + 1 idea de acción para mi PyME. Es panorama, no asesoramiento legal.</pre>
-      </div>
-    </div>
-
-    <div class="card card-sol">
-      <h3>✓ Listo cuando…</h3>
-      <ul>
-        <li>Requisitos OK o bloqueo Plus documentado.</li>
-        <li>1 acción o prompt listo de tu negocio.</li>
-        <li>Iteraste el texto si salió flojo.</li>
-        <li>Guardaste <code>03-accion-programada</code>.</li>
-        <li>Sabés: máx 10, prep ~1 h, rol en texto.</li>
-      </ul>
-    </div>
-
-    <span class="entregable">📦 Entregable · 03-accion-programada</span>
-
-    <label class="modcheck" data-mod="3">
-      <input type="checkbox" data-mod="3" aria-label="Completé el módulo 3">
-      <span>Completé el módulo 3 · Piloto automático</span>
-    </label>
-
-    <div class="card card-map" style="margin-top:20px;text-align:center;border-style:dashed">
-      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
-      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat →</a></p>
-    </div>
-
-    <div class="next">
-      <div class="kicker">Siguiente módulo</div>
-      <h3>Módulo 4 · <span class="c">Notebooks de proyecto</span></h3>
-      <p>Un espacio de proyecto con fuentes y chats del tema, sync con NotebookLM.</p>
-      <label class="go" for="t-m4">Ir al módulo 4 →</label>
-    </div>
-
-  </section>
-  <section class="panel" id="p-m4">
-    <div class="sec-head"><span class="numchip">04</span><h2>Notebooks de proyecto</h2></div>
-    <p class="sec-sub">Espacio de <strong>proyecto</strong> (chats + archivos + instrucciones), sincronizado con NotebookLM.</p>
-
-    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Sidebar → Notebooks → crear con nombre de proyecto real → 1–3 archivos → pregunta de cruce. Si no ves la UI: puente NotebookLM.</p></div></div>
-
-    <div class="card card-sol">
-      <h3>✅ Tu solución al terminar</h3>
-      <p><strong>Problema:</strong> Chats mezclados; el archivero no organiza “el proyecto de esta semana”.</p>
-      <p><strong>Te llevás:</strong> 1 notebook con fuentes + una respuesta útil (o puente documentado).</p>
-      <p><strong>Lo usás cuando:</strong> Campañas, temporada, carpeta de un cliente grande.</p>
-    </div>
-
-    <div class="modintro">
-      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p><code>04-notebook-proyecto</code> con nombre, fuentes, instrucciones y ejemplo.</p></div></div>
-      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>El módulo 2 da memoria de <strong>rol</strong>; este da memoria de <strong>proyecto</strong>. Rollout: web/planes primero; no menores de 18 ni ciertos Workspace/Education.</p></div></div>
-    </div>
-
-    <div class="tool-intro">
-      <h3>📓 ¿Qué es un notebook en Gemini, en criollo?</h3>
-      <p>Pensalo como la <strong>carpeta del trabajo en curso</strong>: no un chat suelto que se pierde en el historial. Adentro: archivos del proyecto, instrucciones fijas y conversaciones del tema.</p>
-      <p><strong>Para qué sirve:</strong> “campaña invierno” o “cliente X” en un solo lugar. <strong>NotebookLM</strong> sigue siendo el archivero profundo; acá el salto es el proyecto vivo dentro de Gemini, con sync entre ambos (según anuncio oficial / rollout).</p>
-      <p><strong>No confundir</strong> con el <em>business notebook</em> de la ficha de Google (eso es el módulo 7).</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 1 — ¿Lo ves?</h3>
-      <p>Si no está: plan, país, edad o rollout. Alternativa: notebooklm.google.com con el mismo proyecto. No inventes botones.</p>
-    </div>
-
-    <div class="mock-block">
-    <span class="gptmock-tag">📓 MOCK-NOTEBOOK</span>
-    <div class="uimock" role="img" aria-label="Gemini · Notebooks">
-      <div class="bar">Gemini · Notebooks</div>
-      <div class="ubody"><div class="sidebaritem on">📁 Notebooks</div>
-        <div class="sidebaritem">＋ Nuevo notebook (label puede variar)</div>
-        <div class="sidebaritem">Campaña invierno</div></div>
-    </div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 2 — Crear</h3>
-      <p>Nombre = proyecto de negocio. Instrucciones: priorizar, tono, qué no inventar.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 3 — Fuentes</h3>
-      <p>PDFs del proyecto. Sync: lo de Gemini puede aparecer en NotebookLM y al revés (blog).</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 4 — Chats del tema</h3>
-      <p>Conversaciones <strong>dentro</strong> del notebook. Preguntas de cruce entre archivos.</p>
-    </div>
-
-    <div class="mock-block">
-    <span class="gptmock-tag">📱 Así se ve en Gemini</span>
-    <div class="geminimock">
-      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
-      <div class="geminimock-body">
-        <div class="geminimock-user"><p>Con estas fuentes, listá 8 pendientes y marcá cuáles ya están en los docs.</p></div>
-        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
-          <div class="aicol"><span class="chip">general</span>
-          <p>Lista con checks y ⚠️ donde el doc no dice nada.</p></div>
-        </div>
-      </div>
-    </div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 5 — Ida y vuelta NotebookLM</h3>
-      <p>Una fuente, varios usos — no triplicar PDFs sin criterio.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 6 — Puente al Gem</h3>
-      <p>Si el proyecto maduró, en Knowledge del Gem agregá ese notebook (ruta puede variar).</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 7 — Aviso módulo 7</h3>
-      <p>Business notebook de la ficha ≠ notebook de campaña.</p>
-    </div>
-
-    <div class="devsplit">
-      <div class="devsplit-card">
-        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil — cuándo sí</b></div>
-        <p>Consultar cuando la app lo tenga. Crear y organizar con muchos PDFs en pantalla chica es lento y frustrante.</p>
-      </div>
-      <div class="devsplit-card">
-        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop — cuándo conviene</b></div>
-        <p>Prioritario: rollout web primero. Creá el notebook, subí fuentes y dejá las instrucciones bien escritas acá. Después solo consultás.</p>
-      </div>
-    </div>
-
-    <div class="card card-warn">
-      <h3>⚠️ Error común</h3>
-      <p>Un notebook basurero con toda la vida del negocio. Mejor: un notebook = un proyecto.</p>
-    </div>
-
-    <div class="card card-example">
-      <h3>💡 Ejemplo</h3>
-      <p><strong>Antes:</strong> 15 chats “v3 final”. <strong>Después:</strong> un notebook con brief y decisiones.</p>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla A — Instrucciones del notebook</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Proyecto: <strong class="field">[ ]</strong>. Objetivo: <strong class="field">[ ]</strong>.
-Priorizá hechos de las fuentes. Si falta dato, listalo como pendiente. Tono: <strong class="field">[ ]</strong>.</pre>
-      </div>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla B — Cruce</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Compará <strong class="field">[fuente A]</strong> y <strong class="field">[fuente B]</strong> sobre <strong class="field">[tema]</strong>.
-Tabla: coincide / difiere / no dice.</pre>
-      </div>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla C — Plan de 7 días</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Con este notebook, plan de 7 días para <strong class="field">[lanzamiento]</strong>.
-Dueño de cada tarea: yo. Sin relleno.</pre>
-      </div>
-    </div>
-
-    <div class="card card-sol">
-      <h3>✓ Listo cuando…</h3>
-      <ul>
-        <li>Notebook o puente con proyecto real.</li>
-        <li>Pregunta de cruce hecha.</li>
-        <li>Guardaste <code>04-notebook-proyecto</code>.</li>
-        <li>Sabés si tu cuenta tiene notebooks en Gemini o solo NotebookLM.</li>
-      </ul>
-    </div>
-
-    <span class="entregable">📦 Entregable · 04-notebook-proyecto</span>
-
-    <label class="modcheck" data-mod="4">
-      <input type="checkbox" data-mod="4" aria-label="Completé el módulo 4">
-      <span>Completé el módulo 4 · Notebooks</span>
-    </label>
-
-    <div class="card card-map" style="margin-top:20px;text-align:center;border-style:dashed">
-      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
-      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat →</a></p>
-    </div>
-
-    <div class="next">
-      <div class="kicker">Siguiente módulo</div>
-      <h3>Módulo 5 · <span class="c">Gemini donde ya trabajás</span></h3>
-      <p>Panel lateral en Gmail/Docs/Sheets — sin copiar y pegar al chat.</p>
-      <label class="go" for="t-m5">Ir al módulo 5 →</label>
-    </div>
-
-  </section>
-  <section class="panel" id="p-m5">
-    <div class="sec-head"><span class="numchip">05</span><h2>Gemini donde ya trabajás (panel lateral)</h2></div>
-    <p class="sec-sub">Gemini <strong>adentro</strong> de Gmail, Docs, Sheets… sin salir de la herramienta.</p>
-
-    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>Abrí un mail o Doc real → <strong>Ask Gemini</strong> / panel → borrador del contenido abierto → insertá y editá un dato a mano.</p></div></div>
-
-    <div class="card card-sol">
-      <h3>✅ Tu solución al terminar</h3>
-      <p><strong>Problema:</strong> Todo se hace en el chat y se pega a mano.</p>
-      <p><strong>Te llevás:</strong> 1 entregable hecho desde Gmail o Docs/Sheets con el panel.</p>
-      <p><strong>Lo usás cuando:</strong> Contestar mails, propuestas, planillas.</p>
-    </div>
-
-    <div class="modintro">
-      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Archivo o mail real mejorado + <code>05-entregable-en-app</code>.</p></div></div>
-      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Trabajás en el flujo. Si no ves el panel: plan, admin o rollout. El Gem del módulo 2 puede aparecer en el selector del panel.</p></div></div>
-    </div>
-
-    <div class="tool-intro">
-      <h3>📎 ¿Qué es el side panel, en criollo?</h3>
-      <p>Es la columna de Gemini <strong>dentro</strong> de Gmail o Docs: no copiás el hilo al chat de gemini.google.com. Pedís, te da borrador, insertás, revisás y enviás.</p>
-      <p><strong>Para qué sirve:</strong> menos fricción. <strong>No sirve</strong> si publicás sin leer: el panel acelera; la firma del negocio es tuya.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 1 — Elegí la app del dolor</h3>
-      <ul>
-        <li><strong>Gmail</strong> — responder, reescribir, resumir</li>
-        <li><strong>Docs</strong> — propuesta, política</li>
-        <li><strong>Sheets</strong> — explicar tabla, proponer columnas</li>
-        <li><strong>Slides / Drive / Chat</strong> — según el caso</li>
-      </ul>
-      <p>Empezá por <strong>una</strong>.</p>
-    </div>
-
-    <div class="mock-block">
-    <span class="gptmock-tag">📎 MOCK-SIDEPANEL</span>
-    <div class="uimock" role="img" aria-label="Gmail / Docs + panel">
-      <div class="bar">Gmail / Docs + panel</div>
-      <div class="ubody"><div style="display:flex;gap:12px;min-height:100px">
-          <div style="flex:1"><div class="fld"><span class="box">Mail o doc abierto…</span></div></div>
-          <div style="flex:1;border-left:1px solid #eee;padding-left:12px"><div class="fld"><label>Gemini</label><span class="box">Pedí un borrador…</span></div></div>
-        </div></div>
-    </div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 2 — Abrí el panel</h3>
-      <p>Control de Gemini en la app (posición puede variar).</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 3 — Pedido anclado</h3>
-      <p><strong>Mal:</strong> “propuesta genérica”. <strong>Bien:</strong> “con este hilo, ofreciendo [opción real]”.</p>
-    </div>
-
-    <div class="mock-block">
-    <span class="gptmock-tag">📱 Así se ve en Gemini</span>
-    <div class="geminimock">
-      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
-      <div class="geminimock-body">
-        <div class="geminimock-user"><p>Resumí este hilo en 5 bullets y redactá respuesta en tono [ ], ofreciendo turno el [día real].</p></div>
-        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
-          <div class="aicol"><span class="chip">general</span>
-          <p>Resumen + borrador listo para editar e insertar.</p></div>
-        </div>
-      </div>
-    </div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 4 — Insertar con cabeza</h3>
-      <p>Leé. Cambiá precios y fechas. Vos firmás.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 5 — Sheets</h3>
-      <p>Ordenar, explicar, proponer columnas.</p>
-      <div class="faltanote"><span>⚠️</span><p><strong>FALTA en master</strong> el detalle exacto de idiomas/ediciones de Sheets con Gemini: si no ves el panel o no entiende tu idioma, usá Docs/Gmail o el chat — no fuerces.</p></div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 6 — Gem en el panel</h3>
-      <p>Si lista Gems, elegí el del módulo 2, <em>Tu Gem con la cabeza del negocio</em>.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 7 — Qué no es</h3>
-      <p>No es Workspace Studio (asomate en módulo 6). No reemplaza Deep Research largo en gemini.google.com.</p>
-    </div>
-
-    <div class="devsplit">
-      <div class="devsplit-card">
-        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil — cuándo sí</b></div>
-        <p>Revisar un borrador de mail en el colectivo y mandarlo. El panel completo a veces es más limitado en app móvil: si no ves la opción, no es que “fallaste”; es la superficie.</p>
-      </div>
-      <div class="devsplit-card">
-        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop — cuándo conviene</b></div>
-        <p>Mejor para el panel completo, Gems en el selector y trabajar un Doc largo. Ahí se nota el ahorro de no copiar/pegar al chat suelto.</p>
-      </div>
-    </div>
-
-    <div class="card card-warn">
-      <h3>⚠️ Error común</h3>
-      <p>Publicar sin leer. O enojarte porque free personal ≠ tutorial Enterprise.</p>
-    </div>
-
-    <div class="card card-example">
-      <h3>💡 Ejemplo</h3>
-      <p><strong>Antes:</strong> copiar mail a Gemini app. <strong>Después:</strong> panel en Gmail, 3 minutos.</p>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla A — Gmail</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Con este hilo: (1) reconozco el problema, (2) ofrezco <strong class="field">[solución real]</strong>,
-(3) pido <strong class="field">[dato]</strong>. Tono <strong class="field">[ ]</strong>. Máx 120 palabras.</pre>
-      </div>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla B — Docs</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Reescribí esta sección para un cliente no técnico. Mantener: <strong class="field">[datos fijos]</strong>. Acortar 20%.</pre>
-      </div>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla C — Sheets</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Explicame en criollo qué muestra esta tabla y 3 alertas de negocio. No borres datos.</pre>
-      </div>
-    </div>
-
-    <div class="card card-sol">
-      <h3>✓ Listo cuando…</h3>
-      <ul>
-        <li>Panel sobre mail/doc/sheet real.</li>
-        <li>Iteraste si salió genérico.</li>
-        <li>Dejaste el texto en la app.</li>
-        <li>Guardaste <code>05-entregable-en-app</code>.</li>
-      </ul>
-    </div>
-
-    <span class="entregable">📦 Entregable · 05-entregable-en-app</span>
-
-    <label class="modcheck" data-mod="5">
-      <input type="checkbox" data-mod="5" aria-label="Completé el módulo 5">
-      <span>Completé el módulo 5 · Panel lateral</span>
-    </label>
-
-    <div class="card card-map" style="margin-top:20px;text-align:center;border-style:dashed">
-      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
-      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat →</a></p>
-    </div>
-
-    <div class="next">
-      <div class="kicker">Siguiente módulo</div>
-      <h3>Módulo 6 · <span class="c">Tu sistema Google que se repite</span></h3>
-      <p>Unís las piezas en un mapa de 3 rutinas operables.</p>
-      <label class="go" for="t-m6">Ir al módulo 6 →</label>
-    </div>
-
-  </section>
-  <section class="panel" id="p-m6">
-    <div class="sec-head"><span class="numchip">06</span><h2>Tu sistema Google que se repite</h2></div>
-    <p class="sec-sub">Unís las piezas + límites honestos + asomate a equipo/Studio.</p>
-
-    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>En la carpeta del sistema dibujá <strong>tres rutinas</strong> con pieza Gemini (Gem / scheduled / notebook / panel).</p></div></div>
-
-    <div class="card card-sol">
-      <h3>✅ Tu solución al terminar</h3>
-      <p><strong>Problema:</strong> Features sueltas no son sistema.</p>
-      <p><strong>Te llevás:</strong> Mapa de 3 rutinas + reglas de límites + decisión equipo.</p>
-      <p><strong>Lo usás cuando:</strong> Cada lunes, para no reinventar el stack.</p>
-    </div>
-
-    <div class="modintro">
-      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p>Entregable <code>06-mapa-sistema</code> listo para fijar en Drive.</p></div></div>
-      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Si no unís, en dos semanas volvés al chat suelto. Límites: cómputo, ~5 h, tope semanal — sin “mensajes/día” inventados.</p></div></div>
-    </div>
-
-    <div class="tool-intro">
-      <h3>🗺️ Qué es un “sistema”, no un tour de features</h3>
-      <p>Sistema = <strong>pocas piezas que usás de verdad</strong>, con dueño y frecuencia. No diez Gems de adorno. Cada rutina tiene disparador, pieza Gemini, input, output y quién cierra a mano (casi siempre vos).</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 1 — Inventario</h3>
-      <ul><li>01 Keep Activity + plan</li><li>02 Gem Knowledge</li><li>03 Scheduled</li><li>04 Notebook</li><li>05 Panel</li></ul>
-    </div>
-
-    <div class="card card-example">
-      <h3>Paso 2 — Tres rutinas (ejemplos)</h3>
-      <ol>
-        <li><strong>Lunes contenido</strong> → scheduled (rol en texto) · Gem aparte al publicar</li>
-        <li><strong>Diario mails</strong> → panel Gmail o digest scheduled</li>
-        <li><strong>Proyecto en curso</strong> → notebook + Docs con panel</li>
-      </ol>
-    </div>
-
-    <div class="mock-block">
-    <span class="gptmock-tag">🗺️ MOCK-SISTEMA</span>
-    <div class="uimock" role="img" aria-label="Mapa de sistema">
-      <div class="bar">Mapa de sistema</div>
-      <div class="ubody"><div class="fld"><span class="box">Rutina 1 → Scheduled</span></div>
-        <div class="fld"><span class="box">Rutina 2 → Panel Gmail + Gem</span></div>
-        <div class="fld"><span class="box">Rutina 3 → Notebook + Docs</span></div></div>
-    </div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 3 — Integraciones (no magia)</h3>
-      <ul>
-        <li>Gem ← Drive / notebook: <strong>en vivo</strong></li>
-        <li>Scheduled ← Gem: <strong>no en vivo</strong> — texto</li>
-        <li>Scheduled ← Gmail/Calendar: sí si Connected Apps</li>
-        <li>Live ← Gem: <strong>no</strong></li>
-      </ul>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 4 — Límites</h3>
-      <p>Al tope: esperá ~5 h, modelo liviano, o Plus→Pro. Free 32K · Plus 128K · Pro/Ultra 1M. Ultra/Spark/Deep Think no son el plan de este curso en LATAM.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 5 — Ritual 20 min</h3>
-      <ol>
-        <li>¿Scheduled (máx 10) siguen útiles?</li>
-        <li>¿Knowledge con precios de esta semana?</li>
-        <li>¿Notebook del proyecto al día?</li>
-        <li>¿Algo salió del panel o volviste al copiar/pegar?</li>
-      </ol>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 6 — Asomate Studio / equipo</h3>
-      <p><strong>Workspace Studio</strong> = flujos sin código entre apps (Business/Enterprise). No es Google Flow ni AI Studio. <strong>No lo armamos acá.</strong> Anotá: ahora no / en 90 días / ya tengo Workspace.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 7 — Puente módulo 7</h3>
-      <p>Si tenés ficha en Maps, el cierre es reviews y perfil.</p>
-    </div>
-
-    <div class="devsplit">
-      <div class="devsplit-card">
-        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil — cuándo sí</b></div>
-        <p>Consumir scheduled y mirar mails del digest. El mapa en sí no lo armes en el bondi: es una decisión de sistema.</p>
-      </div>
-      <div class="devsplit-card">
-        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop — cuándo conviene</b></div>
-        <p>Armá el mapa y el ritual semanal en web. Agendá 20 min fijos (domingo o lunes temprano) con el documento del sistema abierto.</p>
-      </div>
-    </div>
-
-    <div class="card card-warn">
-      <h3>⚠️ Error común</h3>
-      <p>Diez Gems y cero rutina. Sistema = pocas piezas que se usan.</p>
-    </div>
-
-    <div class="card card-example">
-      <h3>💡 Ejemplo</h3>
-      <p>Panadería: scheduled ideas · Gem precios · panel Gmail catering · notebook eventos. Ritual domingo 20 min.</p>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla A — Mapa de una rutina</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Rutina: <strong class="field">[ ]</strong>. Frecuencia: <strong class="field">[ ]</strong>.
-Disparador: <strong class="field">[hora]</strong>. Pieza Gemini: <strong class="field">[ ]</strong>.
-Input / output: <strong class="field">[ ]</strong>. Quién cierra: yo.</pre>
-      </div>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla B — Chequeo de límites</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Esta semana me frenó: <strong class="field">[ ]</strong>. Cerca de las 5 h: sí/no.
-Acción: <strong class="field">[esperar / Plus / Pro / modelo liviano]</strong>.</pre>
-      </div>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla C — Decisión equipo</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>¿Mails @midominio y equipo? sí/no.
-Studio/Workspace: no aplica / investigar en <strong class="field">[fecha]</strong>.</pre>
-      </div>
-    </div>
-
-    <div class="card card-sol">
-      <h3>✓ Listo cuando…</h3>
-      <ul>
-        <li>3 rutinas con datos reales.</li>
-        <li>Integraciones entendidas (scheduled ≠ Gem en vivo).</li>
-        <li>Ritual en calendar o corrido una vez.</li>
-        <li>Guardaste <code>06-mapa-sistema</code>.</li>
-        <li>Decisión Studio/equipo anotada.</li>
-      </ul>
-    </div>
-
-    <span class="entregable">📦 Entregable · 06-mapa-sistema</span>
-
-    <label class="modcheck" data-mod="6">
-      <input type="checkbox" data-mod="6" aria-label="Completé el módulo 6">
-      <span>Completé el módulo 6 · Sistema</span>
-    </label>
-
-    <div class="card card-map" style="margin-top:20px;text-align:center;border-style:dashed">
-      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
-      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat →</a></p>
-    </div>
-
-    <div class="next">
-      <div class="kicker">Siguiente módulo</div>
-      <h3>Módulo 7 · <span class="c">Tu ficha y tus clientes en Google</span></h3>
-      <p>GBP + reviews + business notebook — cierre PyME (con barandas).</p>
-      <label class="go" for="t-m7">Ir al módulo 7 →</label>
-    </div>
-
-  </section>
-  <section class="panel" id="p-m7">
-    <div class="sec-head"><span class="numchip">07</span><h2>Tu ficha y tus clientes en Google (Business Profile)</h2></div>
-    <p class="sec-sub">Vidriera en Maps/Search + Gemini en la <strong>web</strong>. Rollout gradual: puede no estar en tu cuenta.</p>
-
-    <div class="fastlane"><span class="bolt">⚡</span><div><span class="label">Carril rápido</span><p>gemini.google.com · cuenta personal dueña/manager de <strong>una</strong> ficha verificada · Keep Activity ON · pedí algo de la ficha o <code>@Google Business Profile</code>. Si no: plan B business.google.com.</p></div></div>
-
-    <div class="card card-sol">
-      <h3>✅ Tu solución al terminar</h3>
-      <p><strong>Problema:</strong> Reviews y ficha se atienden tarde o con copy genérico.</p>
-      <p><strong>Te llevás:</strong> Perfil conectado + 1 acción real o checklist + 1 reply lista.</p>
-      <p><strong>Lo usás cuando:</strong> Local físico / servicio con ficha en Google.</p>
-    </div>
-
-    <div class="modintro">
-      <div class="mi-row"><span class="mi-ic">🎯</span><div><span class="mi-label">Objetivo</span><p><code>07-gbp-negocio</code>: estado de conexión, 1 acción, qué no prometer.</p></div></div>
-      <div class="mi-row"><span class="mi-ic">💡</span><div><span class="mi-label">Por qué importa</span><p>Cierra el círculo: el sistema habla de <strong>tu</strong> rendimiento y <strong>tus</strong> clientes en Google.</p></div></div>
-    </div>
-
-    <div class="tool-intro">
-      <h3>🏪 ¿Qué es Google Business Profile + Gemini, en criollo?</h3>
-      <p><strong>GBP</strong> es tu ficha en Maps/Search: horarios, fotos, reviews, posts. Google la conectó con Gemini en la <strong>web</strong> para pedir insights, borradores de reply, posts y un <strong>business notebook</strong> con alertas.</p>
-      <p><strong>Para qué sirve:</strong> no dejar reviews 3 semanas sin respuesta; mirar métricas sin abrir 5 pantallas. <strong>Barandas reales:</strong> una ficha verificada, cuenta personal, 18+, Keep Activity, solo web, español OK, no EEA/UK, rollout. Si no te llegó: plan B honesto (ficha clásica + Gemini chat).</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 1 — Requisitos (support 17142585)</h3>
-      <ul>
-        <li>Owner/manager de <strong>solo una</strong> ficha <strong>verificada</strong></li>
-        <li>18+ · cuenta <strong>personal</strong></li>
-        <li>Misma cuenta · Keep Activity ON · <strong>solo web</strong></li>
-        <li>No EEA/UK · rollout gradual</li>
-        <li>Más de un perfil verificado → no aplica (por ahora)</li>
-      </ul>
-    </div>
-
-    <div class="mock-block">
-    <span class="gptmock-tag">🏪 MOCK-GBP</span>
-    <div class="uimock" role="img" aria-label="Conectar Google Business Profile">
-      <div class="bar">Conectar Google Business Profile</div>
-      <div class="ubody"><div class="fld"><span class="box">@Google Business Profile · Connect (copy variable)</span></div>
-        <p style="font-size:.78rem;color:#7A8194;margin:0">MOCK-GBP — puede no verse (rollout)</p></div>
-    </div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 2 — Conectar</h3>
-      <p>Preguntá por tu ficha o @Google Business Profile. Desconectar en Connected Apps.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 3 — Business notebook</h3>
-      <p>Si sos eligible: crear business notebook + URL del sitio. Si no: prompt con @Google Business Profile.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 4 — Qué podés pedir</h3>
-      <p><strong>Perfil:</strong> horarios, atributos, posts (Update/Offer/Event documentados crear/programar/publicar/borrar).</p>
-      <p><strong>Clientes:</strong> ver reviews y <strong>redactar</strong> replies (vos publicás). No asumas borrar reply = borrar post.</p>
-      <p><strong>Insights:</strong> impresiones, clics, direcciones, keywords.</p>
-    </div>
-
-    <div class="mock-block">
-    <span class="gptmock-tag">📱 Así se ve en Gemini</span>
-    <div class="geminimock">
-      <div class="geminimock-bar"><div class="dot"></div><span>Gemini</span></div>
-      <div class="geminimock-body">
-        <div class="geminimock-user"><p>Resumí mis reviews de las últimas 2 semanas y redactá respuesta a la última negativa, tono profesional y humano, sin pelear.</p></div>
-        <div class="geminimock-ai"><div class="ava"><img src="../assets/logo-gemini.svg" alt=""></div>
-          <div class="aicol"><span class="chip">general</span>
-          <p>Temas + borrador de reply listo para revisar antes de publicar.</p></div>
-        </div>
-      </div>
-    </div>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 5 — Publicar con cabeza</h3>
-      <p>El borrador no se envía solo. Error en horario de ficha = cliente a deshora.</p>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 6 — Plan B</h3>
-      <ol>
-        <li>business.google.com</li>
-        <li>Copiá review a Gemini (o Gem del módulo 2)</li>
-        <li>Borrador → publicá a mano</li>
-        <li>Entregable: “GBP en Gemini: no disponible el [fecha] · plan B hecho”</li>
-      </ol>
-    </div>
-
-    <div class="card card-step">
-      <h3>Paso 7 — Encaje con el sistema</h3>
-      <p>Scheduled puede recordarte “revisar reviews” (texto), no afirmar que publica solo. Notebook de proyecto ≠ business notebook.</p>
-    </div>
-
-    <div class="devsplit">
-      <div class="devsplit-card">
-        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v13h10V5H7Zm5 14.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></span><b>📱 Móvil — cuándo sí</b></div>
-        <p>Leer notificación de review y decidir si respondés hoy. La conexión GBP + business notebook no la asumas en app: support dice web.</p>
-      </div>
-      <div class="devsplit-card">
-        <div class="dh"><span class="di" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg></span><b>💻 Desktop — cuándo conviene</b></div>
-        <p>Obligatorio para conectar y crear business notebook. Hacé el plan B o la conexión acá, con la ficha real abierta en otra pestaña.</p>
-      </div>
-    </div>
-
-    <div class="card card-warn">
-      <h3>⚠️ Error común</h3>
-      <p>Prometer en un post un descuento que el local no puede cumplir. O pelear con un review desde el borrador de la IA.</p>
-    </div>
-
-    <div class="card card-example">
-      <h3>💡 Ejemplo</h3>
-      <p><strong>Antes:</strong> reviews 3 semanas sin respuesta. <strong>Después:</strong> viernes 15 min: resumen + 3 replies + post de feriado.</p>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla A — Reply positiva</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Respuesta corta a review positiva. Agradecer, mencionar <strong class="field">[detalle real]</strong>, invitar a volver.
-Sin emojis de más. [pegar review]</pre>
-      </div>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla B — Reply negativa</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>(1) disculpa humana, (2) no discutir en público, (3) canal privado <strong class="field">[whatsapp/mail]</strong>,
-(4) sin admitir culpa legal. [pegar review]</pre>
-      </div>
-    </div>
-
-    <div class="card card-plantilla">
-      <h3>📎 Plantilla C — Insight mensual</h3>
-      <div class="prompt">
-        <div class="top"><span>prompt</span><button class="copy" type="button">Copiar</button></div>
-<pre>Métricas del último mes de mi ficha: qué mejoró, qué empeoró,
-3 acciones para mi <strong class="field">[rubro]</strong> en <strong class="field">[barrio]</strong>.</pre>
-      </div>
-    </div>
-
-    <div class="card card-sol">
-      <h3>✓ Listo cuando…</h3>
-      <ul>
-        <li>Requisitos con tu ficha (o no aplica documentado).</li>
-        <li>Conexión o plan B con fecha.</li>
-        <li>1 acción real; iteraste si el borrador salió agresivo.</li>
-        <li>Guardaste <code>07-gbp-negocio</code>.</li>
-      </ul>
-    </div>
-
-    <span class="entregable">📦 Entregable · 07-gbp-negocio</span>
-
-    <label class="modcheck" data-mod="7">
-      <input type="checkbox" data-mod="7" aria-label="Completé el módulo 7">
-      <span>Completé el módulo 7 · Ficha Google</span>
-    </label>
-
-    <div class="card card-map" style="margin-top:20px;text-align:center;border-style:dashed">
-      <p style="color:var(--faint);font-size:.9rem">¿Te sirvió este módulo o viste algo para mejorar? Contanos por Instagram —<br>
-      <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat →</a></p>
-    </div>
-
-    <div class="next">
-      <div class="kicker">Cuando termines esto…</div>
-      <h3>Seguí explorando <span class="c">otros cursos COCO GO</span></h3>
-      <p>Pack ruta básico + intermedio: precio a definir al publicar. Lista de este nivel: <strong>US$17,99</strong>. Sumá el método a otras herramientas.</p>
-      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
-    </div>
-
-  </section>
-  <section class="panel" id="p-apps">
-    <div class="sec-head"><span class="numchip" style="font-size:1.1rem">↗</span><h2>Aplicaciones por tipo de negocio</h2></div>
-
-    <div class="card card-map">
-      <h3>🧠 ¿Qué es Gemini y para qué se usa? (nivel intermedio)</h3>
-      <p>Gemini es el asistente de Google: lo usás en gemini.google.com o la app, con la misma cuenta del negocio. En el <strong>intermedio</strong> no alcanza con “chatear bien”: el valor está en <strong>Gems con Knowledge</strong>, <strong>acciones programadas</strong>, <strong>notebooks de proyecto</strong>, el <strong>panel</strong> dentro de Gmail/Docs/Sheets y —si aplica— la <strong>ficha de Google</strong>.</p>
-      <p><strong>Dónde rinde más:</strong> si ya vivís en Gmail, Drive, Docs o Maps. <strong>Dónde no es el rey:</strong> prosa ultra larga estilo Claude, o tendencia en vivo en X (Grok). Usalo cuando <strong>tus datos y tu operación ya están en Google</strong>.</p>
-    </div>
-
-    <p class="sec-sub">En los casos de abajo la mecánica es la misma que armaste módulo a módulo: Knowledge (módulo 2), scheduled (3), notebook (4), panel (5), mapa (6), ficha (7). Cambia el QUÉ, no el método.</p>
-
-    <div class="card card-kit">
-      <p style="margin:0">Ejemplos <strong>ORIENTATIVOS</strong>, no lista cerrada. Si tu rubro no aparece, agarrá el caso más parecido.</p>
-    </div>
-
-    <div class="app-grid">
-      <div class="app">
-        <div class="ic">🏪</div>
-        <h4>Local (gastro, belleza, oficio)</h4>
-        <p>Vidriera + precios + mensajes del día.</p>
-        <ul>
-          <li>Gem con lista de precios/alérgenos en Knowledge (Drive vivo).</li>
-          <li>Scheduled lunes: ideas de stories; panel Gmail para presupuestos; GBP para reviews (módulo 7).</li>
-        </ul>
-      </div>
-      <div class="app">
-        <div class="ic">💼</div>
-        <h4>Servicios profesionales</h4>
-        <p>Propuestas y clientes sin reescribir el tono cada vez.</p>
-        <ul>
-          <li>Notebook por cliente o por caso + panel Docs para la propuesta.</li>
-          <li>Scheduled prep semanal (agenda + pendientes) con apps conectadas.</li>
-        </ul>
-      </div>
-      <div class="app">
-        <div class="ic">🛒</div>
-        <h4>Tienda / ecom chico</h4>
-        <p>Catálogo y stock con menos copiar/pegar.</p>
-        <ul>
-          <li>Knowledge con catálogo; panel Sheets para alertas de stock (si el panel está).</li>
-          <li>Scheduled “temas de la semana” + Gem de tono de marca al publicar.</li>
-        </ul>
-      </div>
-      <div class="app">
-        <div class="ic">📣</div>
-        <h4>Contenido / creador</h4>
-        <p>Ritmo semanal sin depender de la inspiración del domingo.</p>
-        <ul>
-          <li>Scheduled de ideas; notebook por campaña; Gem con tono fijo.</li>
-          <li>Panel Docs para el guion largo; ritual 20 min del módulo 6.</li>
-        </ul>
-      </div>
-      <div class="app">
-        <div class="ic">🧾</div>
-        <h4>Administración</h4>
-        <p>Cierres y digests sin olvidar el viernes.</p>
-        <ul>
-          <li>Digest scheduled de Calendar/Gmail (si conectados).</li>
-          <li>Notebook “cierre de mes” + mapa de 3 rutinas en 06-mapa-sistema.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <section class="panel" id="p-bonus">
-    <div class="sec-head"><span class="numchip" style="font-size:1.15rem">★</span><h2>Bonus · extras de alto valor</h2></div>
-    <p class="sec-sub">Usalos <strong>después</strong> de armar el sistema real — no como atajo para saltear módulos.</p>
-
-    <p class="bonus-cat">Mantenimiento del sistema</p>
-    <div class="card bonus-card bc-theme card-sol">
-      <h3>✅ Checklist mensual de tu sistema Gemini</h3>
-      <p>Una vez al mes, con el sistema delante (podés agendar un recordatorio o una acción “manual” en Scheduled):</p>
-      <div class="prompt">
-        <div class="top"><span>checklist · mantenimiento mensual</span><button class="copy" type="button">Copiar</button></div>
-<pre>1. Scheduled (máx 10): ¿alguna no corre, o ya no sirve? Pausá/borrá (módulo 3).
-2. Knowledge del Gem: ¿precios/políticas de esta semana? Actualizá Drive (módulo 2).
-3. Notebook del proyecto activo: ¿fuentes al día? (módulo 4).
-4. Panel: ¿seguís resolviendo mails/docs ahí o volviste al copiar/pegar? (módulo 5).
-5. Mapa 06: ¿las 3 rutinas siguen siendo las que operás de verdad? (módulo 6).
-6. Si tenés GBP: ¿reviews de la última semana con reply o plan B? (módulo 7).
-7. Límites: ¿te frenó el techo semanal? ¿Plus alcanza o mirás Pro?</pre>
-      </div>
-    </div>
-
-    <p class="bonus-cat">Rutina semanal</p>
-    <div class="card bonus-card bc-coral card-step">
-      <h3>🗓️ Ritual de 20 minutos (domingo o lunes)</h3>
-      <p>No es otro curso: es el hábito que hace que el sistema no se oxide. Abrí <code>06-mapa-sistema</code> y corré solo esto:</p>
-      <ol>
-        <li>Mirar la próxima acción scheduled (¿sigue teniendo sentido?).</li>
-        <li>Un archivo de Knowledge: ¿sigue siendo la lista buena?</li>
-        <li>Un notebook de proyecto activo: una pregunta de “¿qué me falta?”.</li>
-        <li>Un mail o doc resuelto en el panel (aunque sea chico).</li>
-      </ol>
-    </div>
-
-    <p class="bonus-cat">Cuando sale genérico</p>
-    <div class="card bonus-card bc-gold card-warn">
-      <h3>🧭 Mini-guía “Gemini me respondió cualquier cosa”</h3>
-      <ol>
-        <li>¿Le diste datos reales (no ejemplo inventado)?</li>
-        <li>¿Iteraste con el prompt de refinamiento del Glosario?</li>
-        <li>¿Estaba el Gem correcto / Knowledge / app conectada / notebook del proyecto?</li>
-      </ol>
-      <p>Si contestaste que no a alguna, el problema no es “la IA”: es el contexto.</p>
-    </div>
-
-    <p class="bonus-cat">Plantillas listas</p>
-    <div class="card bonus-card bc-mint card-plantilla">
-      <h3>📎 Instrucciones base del Gem (repaso)</h3>
-      <div class="prompt">
-        <div class="top"><span>plantilla · Gem</span><button class="copy" type="button">Copiar</button></div>
-<pre>Sos el asistente de <strong class="field">[negocio]</strong>, <strong class="field">[rubro]</strong> en <strong class="field">[ciudad]</strong>.
-Tono: <strong class="field">[ ]</strong>. Solo precios/políticas de Knowledge.
-Si no está en los archivos: decís que no lo sabés. Nunca inventás descuentos ni stock.</pre>
-      </div>
-    </div>
-
-    <div class="card bonus-card bc-theme card-plantilla">
-      <h3>📎 Reply a review (plan B o con GBP)</h3>
-      <div class="prompt">
-        <div class="top"><span>plantilla · review</span><button class="copy" type="button">Copiar</button></div>
-<pre>Redactá respuesta a esta review. Tono humano, sin pelear.
-Positiva: agradecer + detalle real + invitar a volver.
-Negativa: disculpa + no discutir en público + canal privado <strong class="field">[ ]</strong> + sin culpa legal.
-[pegar review]</pre>
-      </div>
-    </div>
-
-    <div class="card bonus-card bc-coral card-example">
-      <h3>📡 Radar de datos que cambian</h3>
-      <p>Cosas que se vencen y te rompen el sistema si no las tocás:</p>
-      <ul>
-        <li>Listas de precios y promos (Knowledge / Drive).</li>
-        <li>Horarios de la ficha (GBP) en feriados.</li>
-        <li>Acciones scheduled que ya no mirás (cupo de 10).</li>
-        <li>Plan Plus/Pro si te quedás sin cupo en la ventana de ~5 h.</li>
-      </ul>
-    </div>
-
-    <div class="next" style="margin-top:20px">
-      <div class="kicker">Explorá otros cursos</div>
-      <h3>ChatGPT · <span class="c">Claude · Grok</span></h3>
-      <p>Mismo método COCO GO. El básico de Gemini es el piso natural de este intermedio.</p>
-      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
-    </div>
-  </section>
-  <section class="panel" id="p-verif">
-    <div class="sec-head"><span class="numchip" style="font-size:1.1rem">✓</span><h2>Verificación final</h2></div>
-    <p class="sec-sub">Un check por entregable. Solo si es real.</p>
-    <div class="check-list">
-      <div class="check"><span class="box">✓</span><p>01 · Salto sistema<small>Plan + Keep Activity + micro-win</small></p></div>
-      <div class="check"><span class="box">✓</span><p>02 · Gem Knowledge<small>≥1 fuente real</small></p></div>
-      <div class="check"><span class="box">✓</span><p>03 · Acción programada<small>Scheduled o prompt listo (Plus)</small></p></div>
-      <div class="check"><span class="box">✓</span><p>04 · Notebook proyecto<small>Notebook o puente NotebookLM</small></p></div>
-      <div class="check"><span class="box">✓</span><p>05 · Entregable en app<small>Mail o doc/sheet desde el panel</small></p></div>
-      <div class="check"><span class="box">✓</span><p>06 · Mapa sistema<small>3 rutinas + límites + decisión equipo</small></p></div>
-      <div class="check"><span class="box">✓</span><p>07 · GBP negocio<small>Conexión o plan B + 1 acción</small></p></div>
-    </div>
-    <div class="next">
-      <div class="kicker">Cuando termines esto…</div>
-      <h3>Seguí explorando <span class="c">otros cursos COCO GO</span></h3>
-      <p>Lista de este nivel: <strong>US$17,99</strong>. Pack ruta: a definir al publicar.</p>
-      <a class="go" href="#catalogo">Ver catálogo de cursos →</a>
-    </div>
-    <div class="card feedbackbox card-map" style="margin-top:20px">
-      <h3>💬 Tu feedback real</h3>
-      <p style="margin-bottom:10px">¿Qué módulo te trabó? ¿Qué feature no te apareció en tu país?</p>
-      <textarea id="feedback-text" placeholder="Ej: el módulo 3 me costó por el plan Plus…"></textarea>
-      <div class="fb-actions">
-        <button type="button" class="copy" id="feedback-copy">Copiar mi comentario</button>
-        <span style="font-size:.85rem;color:var(--muted)">Instagram — <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener">@coco_go.lat</a></span>
-      </div>
-    </div>
-  </section>
+   <p class="cap"><strong>Por qué funciona:</strong> horario, fuentes concretas, cantidad exacta, qué hacer si no hay nada y formato de lectura. Una automatización sin eso termina apagada a la semana.</p>
+  </div>
+ </section>
+
+ <!-- ══════ CÓMO FUNCIONA ══════ -->
+ <section class="blk">
+  <p class="eyebrow">Cómo lo recibís</p>
+  <h2>Tan simple como 1, 2, 3.</h2>
+  <p class="sec-sub">Nada para instalar ni descargar. Es una guía web: entrás con tu código y queda tuya.</p>
+  <div class="steps">
+   <div class="step"><p class="num">01</p><b>Comprás</b><p>Pago seguro en Creem con tarjeta. Recibís la confirmación al instante.</p></div>
+   <div class="step"><p class="num">02</p><b>Te llega tu código</b><p>Un código personal por email, en minutos. Es tuyo y funciona en hasta 4 dispositivos.</p></div>
+   <div class="step"><p class="num">03</p><b>Entrás y empezás</b><p>Lo pegás en el acceso de COCO GO y arrancás por el módulo 1. Para siempre, desde donde quieras.</p></div>
+  </div>
+ </section>
+
+ <!-- ══════ PARA QUIÉN ══════ -->
+ <section class="blk">
+  <p class="eyebrow">Antes de comprar</p>
+  <h2>Que quede claro si es para vos.</h2>
+  <div class="fit">
+   <div class="fit-col">
+    <h3>Es para vos si…</h3>
+    <ul>
+     <li><span class="mk">✓</span> <span>Ya usás Gemini con tus apps de Google conectadas.</span></li>
+     <li><span class="mk">✓</span> <span>Querés que lo que armaste se repita solo cada semana.</span></li>
+     <li><span class="mk">✓</span> <span>Trabajás dentro de Gmail, Drive o Docs todo el día.</span></li>
+     <li><span class="mk">✓</span> <span>Tenés ficha en Google Business y no la estás aprovechando.</span></li>
+    </ul>
+   </div>
+   <div class="fit-col no">
+    <h3>No es para vos si…</h3>
+    <ul>
+     <li><span class="mk">✕</span> <span>Recién arrancás con Gemini — hacé el <a href="../gemini/">básico</a> primero.</span></li>
+     <li><span class="mk">✕</span> <span>No usás el ecosistema Google.</span></li>
+     <li><span class="mk">✕</span> <span>No querés conectar cuentas reales ni cargar documentos propios.</span></li>
+     <li><span class="mk">✕</span> <span>Buscás desarrollo técnico o API.</span></li>
+    </ul>
+   </div>
+  </div>
+ </section>
+
+ <!-- ══════ FAQ ══════ -->
+ <section class="blk">
+  <p class="eyebrow">Dudas frecuentes</p>
+  <h2>Lo que se pregunta antes de comprar.</h2>
+  <div class="faq">
+   <details><summary>¿Necesito el plan pago de Google?</summary><p>Para varias piezas de este nivel conviene, y el módulo 1 es justamente decidirlo por escrito: qué te da cada plan en la práctica y qué se puede hacer igual sin pagar.</p></details>
+   <details><summary>¿Tengo que hacer el básico antes?</summary><p>Conviene. Este nivel arranca dando por hecho que ya tenés cuenta, privacidad decidida y un Gem funcionando. Si no, empezá por el <a href="../gemini/">básico</a>.</p></details>
+   <details><summary>¿Cuánto tiempo me lleva?</summary><p>Cada módulo se hace de una sentada. Podés hacer uno por día o sentarte un fin de semana y terminarla. No hay clases en vivo ni horarios.</p></details>
+   <details><summary>¿Es un PDF o un video?</summary><p>Ninguno de los dos. Es una guía web interactiva: leés, copiás el prompt, lo pegás y seguís. Los prompts se copian con un click.</p></details>
+   <details><summary>¿Cómo entro después de comprar?</summary><p>Te llega un código personal por email en minutos. Lo pegás en el acceso de COCO GO y el contenido se desbloquea. El mismo código sirve en hasta 4 dispositivos — computadora, teléfono y tablet.</p></details>
+   <details><summary>¿El acceso vence?</summary><p>No. Es un pago único y el acceso es de por vida, sin suscripción ni renovación. Las actualizaciones de la guía las ves con el mismo código.</p></details>
+   <details><summary>¿Y si tengo un problema?</summary><p>Escribinos a <a href="mailto:hola@coco-go.lat">hola@coco-go.lat</a> y lo resolvemos. Contestamos nosotros, no un bot.</p></details>
+  </div>
+ </section>
+
+ <!-- ══════ CIERRE ══════ -->
+ <section class="final">
+  <h2>Que se repita sin que lo pidas.</h2>
+  <p>Al terminar tenés una acción corriendo sola, un Gem con memoria y el mapa de tu sistema fijado en Drive.</p>
+  <div class="price-row">
+   <span class="price">US$ 17,99</span>
+   <span class="price-note">pago único · acceso de por vida</span>
+  </div>
+  <div style="height:1rem"></div>
+  <a class="btn-buy" href="https://www.creem.io/payment/prod_i6H6lKNpXTCKYBJOFmRQI" target="_blank" rel="noopener">Comprar la guía <span class="arw">→</span></a>
+  <p class="guarantee">Pago procesado por <strong>Creem</strong>. Código personal por email en minutos · hasta 4 dispositivos · soporte real en <a href="mailto:hola@coco-go.lat">hola@coco-go.lat</a>.</p>
+ </section>
 
 </main>
 
-<section class="wrap" id="catalogo" style="padding:10px 20px 40px">
-  <div class="sec-head"><span class="numchip" style="font-size:1.05rem">＋</span><h2 style="font-size:clamp(1.3rem,3vw,1.7rem)">Otros cursos <img src="../assets/logo-coco-go.svg" alt="COCO GO" style="height:1.1em;vertical-align:-0.15em"></h2></div>
-  <p class="sec-sub">Mismo método COCO GO. Primero los intermedios; después tres básicos (sin el de esta herramienta).</p>
-  <div class="app-grid">
-    <div class="app curso-cta">
-      <div class="ic"><img src="../assets/logo-openai.svg" alt="" width="22" height="22"></div>
-      <h4>ChatGPT · intermedio</h4>
-      <p>GPTs, memoria, conectores y tareas que se repiten en el día a día.</p>
-      <a class="cta-curso" href="../chatgpt-intermedio/">Ver curso →</a>
-    </div>
-    <div class="app curso-cta">
-      <div class="ic"><img src="../assets/logo-claude.svg" alt="" width="22" height="22"></div>
-      <h4>Claude · intermedio</h4>
-      <p>Proyectos, skills y un sistema Anthropic que labura con vos.</p>
-      <a class="cta-curso" href="../claude-intermedio/">Ver curso →</a>
-    </div>
-    <div class="app curso-cta">
-      <div class="ic"><img src="../assets/logo-grok.svg" alt="" width="22" height="22"></div>
-      <h4>Grok · intermedio</h4>
-      <p>SuperGrok: radar Expert, papeles, piloto, imagen y video que se corrigen.</p>
-      <a class="cta-curso" href="../grok-intermedio/">Ver curso →</a>
-    </div>
-    <div class="app curso-cta">
-      <div class="ic"><img src="../assets/logo-openai.svg" alt="" width="22" height="22"></div>
-      <h4>ChatGPT · básico</h4>
-      <p>El mismo método aplicado a la herramienta de OpenAI, desde cero.</p>
-      <a class="cta-curso" href="../chatgpt/">Ver curso →</a>
-    </div>
-    <div class="app curso-cta">
-      <div class="ic"><img src="../assets/logo-claude.svg" alt="" width="22" height="22"></div>
-      <h4>Claude · básico</h4>
-      <p>Estilo Anthropic desde cero para el negocio.</p>
-      <a class="cta-curso" href="../claude/">Ver curso →</a>
-    </div>
-    <div class="app curso-cta">
-      <div class="ic"><img src="../assets/logo-grok.svg" alt="" width="22" height="22"></div>
-      <h4>Grok · básico</h4>
-      <p>Chat, X en vivo e Imagine de entrada con el método COCO GO.</p>
-      <a class="cta-curso" href="../grok/">Ver curso →</a>
-    </div>
-  </div>
-  <p style="margin-top:14px;font-size:.9rem;color:var(--muted)">Seguinos en <a href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener" style="color:var(--theme-light)">@coco_go.lat</a> · <a href="https://x.com/cocogo" target="_blank" rel="noopener" style="color:var(--theme-light)">@cocogo</a>.</p>
-</section>
-<footer>
-  <a class="foot-home" href="../" aria-label="COCO GO — todos los cursos"><img src="../assets/logo-coco-go.svg" class="foot-logo" alt="COCO GO"></a>
-  <div class="socials">
-    <a class="soc" href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener" aria-label="Instagram @coco_go.lat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42.42.82-.68 1.38-.9.43-.16 1.06.36 2.23.41C8.42 2.17 8.8 2.16 12 2.16Zm0-2.16C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.94 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg></a>
-    <a class="soc" href="https://x.com/cocogo" target="_blank" rel="noopener" aria-label="X @cocogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93ZM17.61 20.64h2.04L6.49 3.24H4.3Z"/></svg></a>
-  </div>
-  <p>Soporte: <a href="mailto:hola@coco-go.lat">hola@coco-go.lat</a> (respondemos en 48 h hábiles)</p>
-  <p>Más cursos: <a href="../">Ver todos en la página de venta →</a> — mismo método COCO GO.</p>
-  <p class="legal-links"><a href="../privacidad.html">Privacidad</a> · <a href="../terminos.html">Términos</a> · <a href="mailto:hola@coco-go.lat">hola@coco-go.lat</a></p>
-  <p>© COCO GO 2026. Todos los derechos reservados.</p>
+<footer class="site">
+ <a class="foot-home" href="../" aria-label="COCO GO — inicio"><img src="../assets/logo-coco-go.svg?v=162" class="foot-logo" alt="COCO GO"></a>
+ <div class="socials">
+  <a class="soc" href="https://instagram.com/coco_go.lat" target="_blank" rel="noopener" aria-label="Instagram @coco_go.lat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0-2.16C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.94 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg></a>
+  <a class="soc" href="https://x.com/cocogo" target="_blank" rel="noopener" aria-label="X @cocogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93ZM17.61 20.64h2.04L6.49 3.24H4.3Z"/></svg></a>
+ </div>
+ <div class="links">
+  <a href="../">Todos los cursos</a>
+  <a href="../privacidad.html">Política de privacidad</a>
+  <a href="../terminos.html">Términos de servicio</a>
+ </div>
+ <p>Soporte: <a href="mailto:hola@coco-go.lat">hola@coco-go.lat</a></p>
+ <p>© COCO GO 2026. Todos los derechos reservados.</p>
 </footer>
 
+<div class="mobile-buy" id="mbuy">
+ <div class="mb-price">US$ 17,99<small>pago único</small></div>
+ <a class="btn-buy" href="https://www.creem.io/payment/prod_i6H6lKNpXTCKYBJOFmRQI" target="_blank" rel="noopener">Empezar ahora →</a>
+</div>
+
 <script>
+/* red animada — mismo motor que la home */
 (function(){
-  var ACCESS_TOKEN='COCO-GEMINT-2026';
-  var ACCESS_STORAGE_KEY='coco-go-gemini-intermedio-access-ok';
-  var gate=document.getElementById('access-gate');
-  var input=document.getElementById('access-code-input');
-  var submit=document.getElementById('access-code-submit');
-  var error=document.getElementById('access-gate-error');
-  if(!gate||!input||!submit) return;
-  var params=new URLSearchParams(location.search);
-  var fromUrl=(params.get('k')||'').trim();
-  var stored=localStorage.getItem(ACCESS_STORAGE_KEY)==='1';
-  function unlock(){
-    try{localStorage.setItem(ACCESS_STORAGE_KEY,'1');}catch(e){}
-    document.body.classList.remove('access-locked');
-    gate.hidden=true;
-    if(fromUrl){
-      params.delete('k');
-      var qs=params.toString();
-      history.replaceState(null,'',location.pathname+(qs?'?'+qs:'')+location.hash);
-    }
+ var c=document.getElementById('bg'); if(!c) return;
+ var ctx=c.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2);
+ var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var RGB=(getComputedStyle(document.documentElement).getPropertyValue('--theme-rgb').trim())||'255,107,74';
+ var W,H,pts,raf;
+ function resize(){
+  W=c.clientWidth;H=c.clientHeight;
+  if(W<2||H<2){W=window.innerWidth;H=window.innerHeight;}
+  c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+  var n=Math.min(100,Math.max(40,Math.floor(W*H/14000)));
+  pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2});
+ }
+ function frame(move){
+  ctx.clearRect(0,0,W,H);
+  var i,j,a,b,dx,dy,d,o;
+  if(move)for(i=0;i<pts.length;i++){a=pts[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;}
+  for(i=0;i<pts.length;i++)for(j=i+1;j<pts.length;j++){
+   a=pts[i];b=pts[j];dx=a.x-b.x;dy=a.y-b.y;d=dx*dx+dy*dy;
+   if(d<22000){
+    o=(1-d/22000)*.42;
+    ctx.strokeStyle='rgba('+RGB+','+o.toFixed(3)+')';
+    ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+   }
   }
-  function tryCode(raw){
-    var code=(raw||'').trim();
-    if(!code){
-      if(error) error.textContent='Ingresá tu código de acceso.';
-      return false;
-    }
-    /* compradores VIEJOS: código compartido ?k= en esta página (GitHub Pages) */
-    if(code.toUpperCase()===ACCESS_TOKEN.toUpperCase()){
-      if(error) error.textContent='';
-      unlock();
-      return true;
-    }
-    /* compradores NUEVOS / master: license Creem o clave maestra → portero */
-    location.href='https://cursos.coco-go.lat/?next=/gemini-intermedio/&k='+encodeURIComponent(code);
-    return true;
+  for(i=0;i<pts.length;i++){
+   a=pts[i];
+   ctx.fillStyle='rgba('+RGB+',.62)';
+   ctx.beginPath();ctx.arc(a.x,a.y,1.7,0,6.283);ctx.fill();
   }
-  if(stored||(fromUrl&&tryCode(fromUrl))) return;
-  document.body.classList.add('access-locked');
-  gate.hidden=false;
-  submit.addEventListener('click',function(){tryCode(input.value);});
-  input.addEventListener('keydown',function(e){if(e.key==='Enter')tryCode(input.value);});
+ }
+ function loop(){frame(true);raf=requestAnimationFrame(loop);}
+ function start(){cancelAnimationFrame(raf);resize();reduce?frame(false):loop();}
+ start();
+ window.addEventListener('resize',start);
+ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){start();});
 })();
 
+/* aparición de las cajas al entrar en pantalla */
 (function(){
-  var c=document.getElementById('bg'); if(!c) return;
-  var ctx=c.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2);
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var RGB=(getComputedStyle(document.documentElement).getPropertyValue('--theme-rgb').trim())||'66,133,244';
-  var W,H,pts,raf;
-  function resize(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
-    var n=Math.min(90,Math.max(30,Math.floor(W*H/16000)));pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18});}
-  function frame(move){ctx.clearRect(0,0,W,H);var i,j,a,b,dx,dy,d,o;
-    if(move)for(i=0;i<pts.length;i++){a=pts[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;}
-    for(i=0;i<pts.length;i++)for(j=i+1;j<pts.length;j++){a=pts[i];b=pts[j];dx=a.x-b.x;dy=a.y-b.y;d=dx*dx+dy*dy;
-      if(d<19000){var boost=document.body.classList.contains('access-locked')?1.65:1;o=(1-d/19000)*.22*boost;ctx.strokeStyle='rgba('+RGB+','+Math.min(o,.55).toFixed(3)+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
-    for(i=0;i<pts.length;i++){a=pts[i];var boost2=document.body.classList.contains('access-locked')?1.4:1;ctx.fillStyle='rgba('+RGB+','+(0.55*boost2).toFixed(3)+')';ctx.beginPath();ctx.arc(a.x,a.y,1.5,0,6.283);ctx.fill();}/*access-locked-boost*/}
-  function loop(){frame(true);raf=requestAnimationFrame(loop);}
-  resize();window.addEventListener('resize',function(){cancelAnimationFrame(raf);resize();reduce?frame(false):loop();});
-  reduce?frame(false):loop();
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+ var sel='.trust div,.pain,.dv,.mod,.step,.fit-col,.sample,.extras,details,.final';
+ var els=[].slice.call(document.querySelectorAll(sel));
+ els.forEach(function(e){e.classList.add('rv')});
+ if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+ var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+   if(!en.isIntersecting) return;
+   var el=en.target, sibs=[].slice.call(el.parentNode.children).indexOf(el);
+   el.style.transitionDelay=(Math.min(sibs,5)*70)+'ms';
+   el.classList.add('in'); io.unobserve(el);
+  });
+ },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+ els.forEach(function(e){io.observe(e)});
 })();
 
+/* header sticky + barra de compra móvil */
 (function(){
-  var terms=document.querySelectorAll('.gterm');
-  terms.forEach(function(b){
-    b.addEventListener('click',function(){
-      var open=b.classList.contains('open');
-      terms.forEach(function(o){o.classList.remove('open');o.nextElementSibling.style.maxHeight=null;});
-      if(!open){b.classList.add('open');var d=b.nextElementSibling;d.style.maxHeight=d.scrollHeight+'px';}
-    });
-  });
-  var q=document.getElementById('gloss-q');
-  if(q)q.addEventListener('input',function(){
-    var v=q.value.toLowerCase();
-    document.querySelectorAll('#gloss-list .gitem').forEach(function(it){
-      it.style.display=it.querySelector('.gterm').textContent.toLowerCase().indexOf(v)>-1?'':'none';
-    });
-  });
+ var top=document.getElementById('top'), mb=document.getElementById('mbuy');
+ function onScroll(){
+  var y=window.scrollY||0;
+  top.classList.toggle('stuck', y>420);
+  mb.classList.toggle('on', y>560);
+ }
+ window.addEventListener('scroll',onScroll,{passive:true});
+ onScroll();
 })();
-
-document.querySelectorAll('input[name="coco-tab"]').forEach(function(r){
-  r.addEventListener('change',function(){window.scrollTo({top:0,behavior:'instant'});});
-});
-
-document.querySelectorAll('.copy:not(#feedback-copy)').forEach(function(btn){
-  btn.addEventListener('click',function(){
-    var pre=btn.closest('.prompt').querySelector('pre');
-    if(!pre) return;
-    var text=pre.textContent.trim();
-    function done(){btn.textContent='✓ Copiado';setTimeout(function(){btn.textContent='Copiar';},1500);}
-    if(navigator.clipboard&&navigator.clipboard.writeText){
-      navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text,done);});
-    } else { fallback(text,done); }
-  });
-});
-function fallback(text,cb){
-  var ta=document.createElement('textarea');
-  ta.value=text;ta.style.cssText='position:fixed;left:-9999px;top:0;opacity:0';
-  document.body.appendChild(ta);ta.select();
-  try{document.execCommand('copy');cb();}catch(e){}
-  document.body.removeChild(ta);
-}
-
-(function(){
-  var btn=document.getElementById('feedback-copy');
-  var ta=document.getElementById('feedback-text');
-  if(!btn||!ta) return;
-  btn.addEventListener('click',function(){
-    var text=ta.value.trim();
-    if(!text) return;
-    function done(){btn.textContent='✓ Copiado';setTimeout(function(){btn.textContent='Copiar mi comentario';},1500);}
-    if(navigator.clipboard&&navigator.clipboard.writeText){
-      navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text,done);});
-    } else { fallback(text,done); }
-  });
-})();
-
-(function(){
-  var KEY='cocogo_progreso_gemini_intermedio', TOTAL=7;
-  function load(){try{var v=JSON.parse(localStorage.getItem(KEY));return Array.isArray(v)?v.filter(function(n){return n>=1&&n<=TOTAL;}):[];}catch(e){return [];}}
-  function save(a){try{localStorage.setItem(KEY,JSON.stringify(a));}catch(e){}}
-  var done=load();
-  var inputs=document.querySelectorAll('.modcheck input[data-mod]');
-  if(!inputs.length) return;
-  var checks=document.querySelectorAll('#p-verif .check-list .check');
-  var fill=document.querySelector('.progfill');
-  var label=document.querySelector('.proglabel');
-  var pwrap=document.querySelector('.progwrap');
-  function render(){
-    inputs.forEach(function(inp){
-      var n=+inp.getAttribute('data-mod'), on=done.indexOf(n)>-1;
-      inp.checked=on;
-      inp.closest('.modcheck').classList.toggle('done',on);
-    });
-    checks.forEach(function(c,i){c.classList.toggle('done',done.indexOf(i+1)>-1);});
-    var pct=Math.round(done.length/TOTAL*100);
-    if(fill)fill.style.width=pct+'%';
-    if(label)label.textContent=done.length+'/'+TOTAL;
-    if(pwrap){pwrap.classList.toggle('complete',done.length>=TOTAL);pwrap.setAttribute('aria-valuenow',done.length);}
-  }
-  inputs.forEach(function(inp){
-    inp.addEventListener('change',function(){
-      var n=+inp.getAttribute('data-mod'), i=done.indexOf(n);
-      if(inp.checked&&i<0)done.push(n);
-      else if(!inp.checked&&i>-1)done.splice(i,1);
-      save(done);render();
-    });
-  });
-  render();
-})();
-
-document.querySelectorAll('input.tab').forEach(function(t){
-  var lbl=document.querySelector('.modnav label[for="'+t.id+'"]');
-  if(!lbl) return;
-  t.addEventListener('focus',function(){lbl.classList.add('kbfocus');});
-  t.addEventListener('blur',function(){lbl.classList.remove('kbfocus');});
-});
 </script>
 </body>
 </html>
