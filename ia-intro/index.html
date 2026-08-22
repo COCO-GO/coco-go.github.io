@@ -23,7 +23,7 @@
 <link rel="icon" type="image/svg+xml" href="../assets/logo-coco-go.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════════════
    COCO GO · MINI-GUÍA «¿Qué es la IA?» — hereda el golden de Primer paso
@@ -36,6 +36,7 @@
   --cream:#FBF6EE; --cream-2:#F5ECDE; --paper:#FFFFFF;
   --ink:#182338; --ink-2:#3B4761; --muted:#6E7488;
   --coral:#E24B27; --coral-soft:#FF6B4A; --coral-deep:#B8371A;
+  --marca:#FFC7B4;   /* marcador de la línea 2026-08: coral claro, texto navy encima */
   --amber:#D98A1F; --amber-soft:#F4A93B;
   --line:#EADFCD; --line-2:#E2D5BF;
   --band:#F9EADF; --band-line:#F0D8C6;
@@ -51,7 +52,9 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:48px}
-body{font-family:"Hanken Grotesk",-apple-system,system-ui,sans-serif;background:var(--cream);color:var(--ink-2);
+body{font-family:"Hanken Grotesk",-apple-system,system-ui,sans-serif;background-color:var(--cream);
+  background-image:radial-gradient(rgba(24,35,56,.10) 1.4px,transparent 1.4px);
+  background-size:26px 26px;background-position:13px 13px;color:var(--ink-2);
   font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 @media(max-width:520px){ body{font-size:15px} }
 img{max-width:100%;display:block}
@@ -164,6 +167,21 @@ section.has-sep{padding-top:var(--sp-5)}
 .checklist li::before{content:"✓";position:absolute;left:0;top:0.12em;width:22px;height:22px;border:2px solid var(--sol-line);
   border-radius:6px;background:var(--paper);color:var(--sol-ink);font-weight:800;font-size:.78rem;line-height:1;
   display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box}
+
+/* ═══ LÍNEA "desestructurada" 2026-08 — REGLAS-DISENO §1bis ═══
+   Se SUMA a la estética existente del curso, no la reemplaza (decisión Pablo
+   2026-08-02: el rediseño viaja pegado a la pasada de revisión, sin rehacer todo).
+   Tres piezas, las que hacen reconocible la línea:
+     · grilla de puntos de fondo
+     · marcador coral claro detrás del texto clave (el texto sigue navy)
+     · nota manuscrita como ACENTO — una o dos frases fuera del texto principal,
+       en 25–30% de las secciones, nunca en todas. */
+.marca{background:var(--marca);border-radius:5px;padding:.02em .16em;color:var(--ink);font-weight:600;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.nota{display:block;font-family:"Caveat",cursive;font-weight:700;color:var(--coral);
+  font-size:clamp(1.3rem,3.3vw,1.7rem);line-height:1.18;margin:12px 0 0;
+  transform:rotate(-1.5deg);transform-origin:left center}
+@media(prefers-reduced-motion:reduce){.nota{transform:none}}
 
 /* tablas */
 .table-wrap{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
@@ -685,6 +703,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
     <span class="eyebrow"><span class="num">01</span> Entender antes de tocar nada</span>
     <h2 class="sec-title">Qué es la IA <span class="t-sub">(y por qué no es la de las películas)</span></h2>
     <p class="sec-lead">Acá no vas a necesitar tener ningún chat abierto. Es la sección de "entender antes de tocar nada".</p>
+    <span class="nota">Leelo tranquilo. Todavía no hay nada que hacer.</span>
   </div>
 
   <div class="reveal">
@@ -1098,7 +1117,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
   <div class="reveal">
     <span class="eyebrow"><span class="num">03</span> El corazón de la guía</span>
     <h2 class="sec-title">Hasta dónde le podés confiar <span class="t-sub">(y qué chequear siempre)</span></h2>
-    <p class="sec-lead">Esta es la sección más importante de toda la guía. No porque las anteriores no importen — sin ellas, esta no se entiende — sino porque acá está el criterio que te va a evitar el peor error posible: usar algo que sonaba perfecto y estaba mal.</p>
+    <p class="sec-lead"><span class="marca">Esta es la sección más importante de toda la guía.</span> No porque las anteriores no importen — sin ellas, esta no se entiende — sino porque acá está el criterio que te va a evitar el peor error posible: usar algo que sonaba perfecto y estaba mal.</p>
   </div>
 
   <div class="reveal">
@@ -1359,7 +1378,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
       <span><img src="../assets/logo-gemini.svg" alt="">Gemini</span>
       <span><span class="mini-dark"><img src="../assets/logo-grok.svg" alt=""></span>Grok</span>
     </div>
-    <p style="margin-bottom:0">Los cuatro asistentes generales que existen hoy, y que probablemente ya escuchaste nombrar en algún lado, son <strong>ChatGPT</strong>, <strong>Claude</strong>, <strong>Gemini</strong> y <strong>Grok</strong>. Los cuatro hacen, en mayor o menor medida, cosas parecidas: conversan con vos, escriben, resumen, responden preguntas. La diferencia entre ellos no es que uno sea "más inteligente" que otro — ya viste en la sección anterior que medir la inteligencia de una herramienta con una sola regla no tiene mucho sentido. La diferencia real es <strong>en qué brilla cada uno</strong> y <strong>dónde encaja mejor con la forma en que ya trabajás</strong>. Eso es lo que viene ahora.</p>
+    <p style="margin-bottom:0">Los cuatro asistentes generales con los que laburamos en COCO GO, y que probablemente ya escuchaste nombrar, son <strong>ChatGPT</strong>, <strong>Claude</strong>, <strong>Gemini</strong> y <strong>Grok</strong>. Los cuatro hacen, en mayor o menor medida, cosas parecidas: conversan con vos, escriben, resumen, responden preguntas. La diferencia entre ellos no es que uno sea "más inteligente" que otro — ya viste en la sección anterior que medir la inteligencia de una herramienta con una sola regla no tiene mucho sentido. La diferencia real es <strong>en qué brilla cada uno</strong> y <strong>dónde encaja mejor con la forma en que ya trabajás</strong>. Eso es lo que viene ahora.</p>
   </div>
 
   <div class="reveal">
@@ -1371,7 +1390,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
           <div class="nm">ChatGPT<small>el todo-terreno</small></div>
         </div>
         <div class="tool-row"><span class="lb">Qué hace</span><p>Es la opción más pensada para el uso general del día a día: le pedís de todo con un <a class="term" href="#g-prompt">prompt</a> claro, desde redactar un texto hasta resolver una duda suelta, pasando por armar un borrador rápido o ayudarte a pensar en voz alta un problema. Tiene una app propia y un modo de conversación por voz, así que también le podés hablar en vez de escribirle.</p></div>
-        <div class="tool-row"><span class="lb">Te sirve especialmente si</span><p>Tu necesidad es variada y cambia de un día al otro — hoy un mail, mañana una idea para una promo, pasado una duda sobre cómo redactar un aviso — y si te gusta la idea de tener una tarea que se repite (por ejemplo, un resumen semanal de ventas) resuelta de forma automática sin tener que armarla a mano cada vez.</p></div>
+        <div class="tool-row"><span class="lb">Te sirve especialmente si</span><p>Tu necesidad es variada y cambia de un día al otro — hoy un mail, mañana una idea para una promo, pasado una duda sobre cómo redactar un aviso. Las tareas que se repitan solas (resumen semanal, etc.) piden plan pago de ChatGPT: el Free no las agenda.</p></div>
         <div class="tool-row ojo"><span class="lb">En una frase</span><p>Si buscás un solo asistente para arrancar sin pensar demasiado en cuál te conviene según tu rubro, ChatGPT es, para la mayoría, el default más seguro: hace un poco de todo, y lo hace bien.</p></div>
       </div>
       <div class="tool-card">
@@ -1381,7 +1400,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
         </div>
         <div class="tool-row"><span class="lb">Qué hace</span><p>Se destaca en dos cosas puntuales: escritura larga y cuidada, y trabajo con documentos densos. Si tu negocio necesita redactar textos comerciales extensos y prolijos — una propuesta para un cliente grande, mails que tienen que sonar profesionales, contenido más elaborado para tus redes — Claude tiende a producir algo más pulido de entrada, con menos vueltas de edición. Es también, de los cuatro, el que mejor acompaña si en algún momento tu negocio necesita ayuda con código: páginas, planillas automatizadas, ese tipo de tarea técnica.</p></div>
         <div class="tool-row"><span class="lb">Te sirve especialmente si</span><p>Tu cuello de botella es la escritura: si te cuesta redactar bien, si tenés contratos o informes largos que necesitás entender rápido, o si estás armando algo (una web, una planilla) que tiene una parte de código de por medio.</p></div>
-        <div class="tool-row ojo"><span class="lb">Ojo</span><p>Lo que Claude no hace es generar imágenes — es el único de los cuatro sin esa función dentro del chat, algo para tener en cuenta si buscás una sola herramienta que te resuelva texto e imagen a la vez.</p></div>
+        <div class="tool-row ojo"><span class="lb">Ojo</span><p>Generar fotos no es su fuerte: en el chat arma piezas (Artifacts, diagramas), no un generador de imágenes tipo el de ChatGPT o Gemini. Si querés texto e imagen en la misma herramienta, arrancá por otra.</p></div>
       </div>
       <div class="tool-card">
         <div class="hd">
@@ -1396,7 +1415,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
           <span class="logo-chip dark"><img src="../assets/logo-grok.svg" alt="Logo de Grok (xAI)" style="height:32px;width:32px"></span>
           <div class="nm">Grok<small>el más suelto, el que sigue la actualidad</small></div>
         </div>
-        <div class="tool-row"><span class="lb">Qué hace</span><p>Su rasgo distintivo es la conexión con lo que está pasando ahora mismo: de los cuatro, es el que mejor sigue noticias, tendencias y conversación en tiempo real, con acceso directo a lo que se está diciendo en la red social X. El tono, además, es más informal y menos corporativo que el de los otros tres — algo que a algunos usuarios les resulta más cómodo, según cómo les guste que les hablen. También genera imágenes y video corto en la misma conversación.</p></div>
+        <div class="tool-row"><span class="lb">Qué hace</span><p>Brilla en lo que se mueve en <strong>X</strong> y en un tono más suelto. Los cuatro pueden buscar en la web; Grok es el que más natural se siente para “qué se dice ahora de mi rubro”. También genera imágenes y video corto en la misma conversación.</p></div>
         <div class="tool-row"><span class="lb">Te sirve especialmente si</span><p>Tu negocio necesita estar atento a la actualidad — precios que cambian rápido, una novedad de un proveedor, qué se está comentando de tu rubro hoy — o si preferís una herramienta con un tono más relajado que el de un asistente de oficina.</p></div>
       </div>
     </div>
@@ -1429,7 +1448,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
         <span class="ologos">
           <img src="../assets/logo-openai.svg" alt="ChatGPT"><img src="../assets/logo-gemini.svg" alt="Gemini"><span class="mini-dark"><img src="../assets/logo-grok.svg" alt="Grok"></span>
         </span>
-        <p class="ded">Claude no genera imágenes. + dedicadas como Canva IA, con más control sobre el resultado.</p>
+        <p class="ded">Claude no es un generador de fotos. + dedicadas como Canva IA, con más control.</p>
       </div>
       <div class="out-cell">
         <span class="oe" aria-hidden="true">🎬</span>
@@ -1445,7 +1464,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
         <span class="ologos">
           <img src="../assets/logo-openai.svg" alt="ChatGPT"><img src="../assets/logo-gemini.svg" alt="Gemini"><span class="mini-dark"><img src="../assets/logo-grok.svg" alt="Grok"></span>
         </span>
-        <p class="ded">Claude no tiene modo de voz. + dedicadas como ElevenLabs, para doblar video o sintetizar una voz específica.</p>
+        <p class="ded">Al 21 ago 2026 Claude no lista modo de voz de consumidor. + dedicadas como ElevenLabs.</p>
       </div>
       <div class="out-cell">
         <span class="oe" aria-hidden="true">💻</span>
@@ -1453,7 +1472,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
         <span class="ologos">
           <img src="../assets/logo-claude.svg" alt="Claude"><img src="../assets/logo-openai.svg" alt="ChatGPT">
         </span>
-        <p class="ded">Con modo dedicado en su ecosistema. + herramientas para quien programa todo el día.</p>
+        <p class="ded">Claude y ChatGPT tienen el modo más marcado para código. Gemini y Grok también codean; no es exclusivo.</p>
       </div>
       <div class="out-cell">
         <span class="oe" aria-hidden="true">🔎</span>
@@ -1536,7 +1555,7 @@ footer .copyright{font-size:.84rem;color:var(--muted);margin-top:10px}
     </details>
     <details class="ex-item">
       <summary><span class="xq">4</span>Querés saber qué se está comentando HOY en redes sobre un problema que tuvo un proveedor grande de tu rubro.<span class="xa">Ver respuesta →</span></summary>
-      <div class="ex-a"><span class="rlab">Respuesta razonable</span><p>Grok. Es el más fuerte de los cuatro siguiendo lo que pasa en tiempo real.</p></div>
+      <div class="ex-a"><span class="rlab">Respuesta razonable</span><p>Grok, si te importa X y el rumor del rubro. Los otros tres también buscan en la web.</p></div>
     </details>
     <p style="margin:12px 0 0">Si dudaste en alguno, no pasa nada — varias situaciones las resuelve más de uno de los cuatro razonablemente bien. Lo que te llevás no es la respuesta exacta: es la pregunta de acá en más frente a cualquier tarea nueva — "¿esto es texto general, o hay uno de los cuatro que brilla en particular?".</p>
   </div>
