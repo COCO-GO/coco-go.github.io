@@ -1,0 +1,81 @@
+<!doctype html>
+<!-- OG home COCO GO 1200×630 · diseño 2026-09-16 (Grok 4.6) · Pablo OK
+     Medido: canvas 1200×630, overflow no, márgenes 68 / 52 / 44.
+     Chip derecha (sin cantidad de cursos). Twitter 2:1 (recorte 15 px) OK.
+     Golden PNG: og-image.png en esta carpeta.
+     Composer: copiar HTML+PNG. No rediseñar. -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>OG home · coco-go.lat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Hanken+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{
+    background:
+      radial-gradient(780px 520px at -8% -30%, rgba(255,107,74,.55), transparent 58%),
+      radial-gradient(640px 460px at 112% 122%, rgba(27,42,74,.22), transparent 56%),
+      radial-gradient(480px 340px at 92% 6%, rgba(255,107,74,.22), transparent 62%),
+      linear-gradient(128deg, #F8E4D8 0%, #F3E7E0 38%, #E8E4EE 100%);
+    color:#1D1D1F;
+    font-family:"Hanken Grotesk",system-ui,sans-serif;
+    padding:52px 68px 44px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    position:relative;
+  }
+  body::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;
+    background-image:
+      linear-gradient(rgba(255,107,74,.35) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,107,74,.35) 1px, transparent 1px);
+    background-size:56px 36px;
+    mask-image:radial-gradient(80% 90% at 88% 18%, #000 12%, transparent 70%);
+  }
+  .top,.mid,.foot{position:relative}
+  .top{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .top img{height:56px;width:auto;display:block;flex-shrink:0}
+  .chip{
+    display:inline-block;
+    font-size:22px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color:#FF6B4A;background:rgba(255,255,255,.72);
+    border:1.5px solid rgba(255,107,74,.38);
+    padding:10px 20px;border-radius:999px;white-space:nowrap;
+    box-shadow:0 8px 24px rgba(27,42,74,.06);
+  }
+  .mid{padding:8px 0 12px}
+  h1{
+    font-family:"Bricolage Grotesque",system-ui,sans-serif;
+    font-weight:800;font-size:78px;line-height:1.02;letter-spacing:-.035em;
+    color:#1B2A4A;
+  }
+  h1 .go{color:#FF6B4A}
+  .sub{
+    margin-top:22px;font-size:32px;line-height:1.28;font-weight:500;
+    color:#6E6E73;
+  }
+  .foot{
+    font-size:32px;font-weight:800;color:#1B2A4A;
+    font-family:"Bricolage Grotesque",system-ui,sans-serif;
+    padding-top:18px;border-top:1.5px solid rgba(255,107,74,.22);
+  }
+</style>
+</head>
+<body>
+  <div class="top">
+    <img src="logo-coco-go.svg" alt="COCO GO">
+    <span class="chip">Cursos y guías prácticas</span>
+  </div>
+  <div class="mid">
+    <h1>Cursos que se hacen<br>mientras los <span class="go">leés</span></h1>
+    <p class="sub">Guías cortas en español. IA, planillas y más.<br>Pagás poco, avanzás de verdad.</p>
+  </div>
+  <div class="foot">
+    coco-go.lat
+  </div>
+</body>
+</html>
